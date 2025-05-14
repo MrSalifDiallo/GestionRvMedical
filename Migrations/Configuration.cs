@@ -9,8 +9,7 @@
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = false;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(WindowsFormsApp1.Model.BdRvMedicalContext context)

@@ -7,11 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using WindowsFormsApp1.Model;
 namespace WindowsFormsApp1
 {
     public partial class frmConexion : Form
     {
+        BdRvMedicalContext bd=new BdRvMedicalContext();
         public frmConexion()
         {
             InitializeComponent();
@@ -50,6 +51,16 @@ namespace WindowsFormsApp1
 
         private void btnConnexion_Click(object sender, EventArgs e)
         {
+            var leUser=bd.Utilisateurs.Where(a=>a.identifiant.ToLower()==txtIdentifiant.Text.ToLower()).FirstOrDefault();
+            if (leUser != null)
+            {
+                
+            }
+            else
+            {
+                lblMessage.Text = "Identifiant ou Mot de Passe incorrect";
+            }
+                Utilisateur ut = new Utilisateur();
 
             frmMDI f = new frmMDI();
             f.Show();

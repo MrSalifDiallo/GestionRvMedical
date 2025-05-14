@@ -359,7 +359,6 @@ namespace WindowsFormsApp1.View
                 a.HeureFin,
                 a.DatePlanifie
             }).Where(a => a.DatePlanifie==datetoday).ToList();
-            dgEssai.DataSource = agenda;
         }
         private List<SelectListView> LoadCbbTimeCreneaux(DateTime date)
         {
