@@ -145,6 +145,7 @@
       <DependentUpon>frmMDI.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper\GMailer.cs" />
+    <Compile Include="Helper\Utils.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Agenda.cs" />
     <Compile Include="Model\BdRvMedicalContext.cs" />
@@ -161,6 +162,7 @@
     <Compile Include="Model\SelectListView.cs" />
     <Compile Include="Model\Soin.cs" />
     <Compile Include="Model\Specialite.cs" />
+    <Compile Include="Model\Td_Erreur.cs" />
     <Compile Include="Model\Utilisateur.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -193,6 +195,12 @@
     </Compile>
     <Compile Include="View\frmPrintTicket.Designer.cs">
       <DependentUpon>frmPrintTicket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmRendezVous2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmRendezVous2.Designer.cs">
+      <DependentUpon>frmRendezVous2.cs</DependentUpon>
     </Compile>
     <Compile Include="View\frmRendezVous.cs">
       <SubType>Form</SubType>
@@ -234,6 +242,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmPrintTicket.resx">
       <DependentUpon>frmPrintTicket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmRendezVous2.resx">
+      <DependentUpon>frmRendezVous2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmRendezVous.resx">
       <DependentUpon>frmRendezVous.cs</DependentUpon>

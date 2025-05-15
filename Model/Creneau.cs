@@ -18,8 +18,10 @@ namespace WindowsFormsApp1.Model
         public virtual Agenda Agenda { get; set; }
 
         [Column(TypeName = "Date")]  // Cela vous permet de spécifier que seul la date est stockée.
-        public DateTime Date { get; set; } 
-        public string HeureDebut { get; set; } 
+        public DateTime Date { get; set; }
+        [MaxLength(25)]
+        public string HeureDebut { get; set; }
+        [MaxLength(25)]
         public string HeureFin { get; set; }   
 
         public bool Disponible { get; set; } 

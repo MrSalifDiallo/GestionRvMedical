@@ -11,10 +11,10 @@ namespace WindowsFormsApp1.Model
     public class Utilisateur:Personne
     {
 
-        [MaxLength(20)]
+        [MaxLength(50)]
         public string identifiant { get; set; }
 
-        [MaxLength(250)]
+        [MaxLength(50)]
         public string MotDePasse { get; set; }
         public bool? statut { get; set; }
 

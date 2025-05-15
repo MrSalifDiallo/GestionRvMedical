@@ -1,4 +1,5 @@
 ﻿using Google.Protobuf.WellKnownTypes;
+using MySqlX.XDevAPI.Common;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,10 +39,10 @@ namespace WindowsFormsApp1.View
 
         private void frmPatients_Load(object sender, EventArgs e)
         {
-            ResetForm();
             cbbGroupeSanguin.DataSource = LoadCbbGroupeSanguins(); // 🔄 CHANGÉ – utilise le service
             cbbGroupeSanguin.DisplayMember = "Text";  // Afficher le texte du groupe sanguin
             cbbGroupeSanguin.ValueMember = "Value";   // La valeur utilisée lors de la sélection
+            ResetForm();
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -67,7 +68,7 @@ namespace WindowsFormsApp1.View
             {
                 ListeGS.Add(new SelectListView
                 {
-                    Text = onegrp.CodeGroupeSanguin,
+                    Text = onegrp.NomGroupeSanguin + "(" + onegrp.CodeGroupeSanguin + ")",
                     Value = onegrp.CodeGroupeSanguin
                 });
             }
@@ -141,9 +142,18 @@ namespace WindowsFormsApp1.View
                 return;
             }
 
-            service.AddPatient(p); // 🔄 CHANGÉ – appel du service uniquement
+            //service.AddPatient(p); // 🔄 CHANGÉ – appel du service uniquement
+            bool resultat = service.AddPatient(p);
 
-            //Capter les erreurs
+            if (resultat)
+            {
+                MessageBox.Show("Patient ajouté avec succès !");
+                ResetForm();
+            }
+            else
+            {
+                MessageBox.Show("Erreur lors de l'ajout du patient.");
+            }            //Capter les erreurs
             //try
             //{
             //    bd.SaveChanges();
@@ -163,7 +173,6 @@ namespace WindowsFormsApp1.View
             //{
             //    MessageBox.Show($"Erreur : {ex.Message}");
             //}
-            ResetForm();
         }
 
         private void txtPoids_TextChanged(object sender, EventArgs e)

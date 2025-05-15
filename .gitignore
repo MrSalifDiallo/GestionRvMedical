@@ -1,0 +1,27 @@
+# Fichiers Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Dossiers de compilation
+bin/
+obj/
+
+# Fichiers temporaires
+*.log
+*.tmp
+*.vsidx
+
+# Fichiers de build
+*.exe
+*.dll
+*.pdb
+
+# Résultats de build
+*.cache
+*.dbmdl
+*.bak
+*.backup
+*.FileListAbsolute.txt

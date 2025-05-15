@@ -12,7 +12,7 @@ namespace WindowsFormsApp1.Model
         [Key]
         public int IdModePayment { get; set; }
 
-        [Required,MaxLength(10)]
+        [Required,MaxLength(50)]
         public string CodePayment { get; set; }
 
         [Required, MaxLength(100)]

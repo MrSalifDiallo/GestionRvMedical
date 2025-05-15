@@ -13,7 +13,7 @@ namespace WindowsFormsApp1.Model
         public int IdGroupeSanguin { get; set; } // Id unique
         [Required,MaxLength(3)]
         public string CodeGroupeSanguin { get; set; } // Ex : "O+", "A-", etc.
-        [Required,MaxLength(20)]
+        [Required,MaxLength(25)]
         public string NomGroupeSanguin { get; set; } 
     }
 }

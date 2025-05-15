@@ -35,6 +35,8 @@ namespace WindowsFormsApp1.Model
         public DbSet<Paiement> Paiements { get; set; }
         public DbSet<Creneau> Creneaux { get; set; }
 
+        public DbSet<Td_Erreur> td_Erreurs { get; set; }
+
 
     }
 }
