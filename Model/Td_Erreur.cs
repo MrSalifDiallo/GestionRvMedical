@@ -9,6 +9,7 @@ namespace WindowsFormsApp1.Model
 {
     public class Td_Erreur
     {
+        [Key]
         public int Id_Erreur { get; set; }
 
         public DateTime DateErreur { get; set; } = DateTime.Now;

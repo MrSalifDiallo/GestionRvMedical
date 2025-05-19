@@ -46,13 +46,15 @@
             this.txtTelephone = new System.Windows.Forms.TextBox();
             this.btnRenitialiser = new System.Windows.Forms.Button();
             this.btnValider = new System.Windows.Forms.Button();
+            this.lblDateNaissance = new System.Windows.Forms.Label();
+            this.dtDateNaissance = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // cbbGroupeSanguin
             // 
             this.cbbGroupeSanguin.FormattingEnabled = true;
-            this.cbbGroupeSanguin.Location = new System.Drawing.Point(13, 248);
+            this.cbbGroupeSanguin.Location = new System.Drawing.Point(13, 242);
             this.cbbGroupeSanguin.Margin = new System.Windows.Forms.Padding(4);
             this.cbbGroupeSanguin.Name = "cbbGroupeSanguin";
             this.cbbGroupeSanguin.Size = new System.Drawing.Size(309, 24);
@@ -62,7 +64,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(13, 344);
+            this.label8.Location = new System.Drawing.Point(13, 334);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(42, 16);
@@ -71,7 +73,7 @@
             // 
             // txtPoids
             // 
-            this.txtPoids.Location = new System.Drawing.Point(13, 370);
+            this.txtPoids.Location = new System.Drawing.Point(13, 360);
             this.txtPoids.Margin = new System.Windows.Forms.Padding(4);
             this.txtPoids.Name = "txtPoids";
             this.txtPoids.Size = new System.Drawing.Size(309, 22);
@@ -81,7 +83,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(13, 284);
+            this.label7.Location = new System.Drawing.Point(13, 276);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(41, 16);
@@ -90,7 +92,7 @@
             // 
             // txtTaille
             // 
-            this.txtTaille.Location = new System.Drawing.Point(13, 310);
+            this.txtTaille.Location = new System.Drawing.Point(13, 302);
             this.txtTaille.Margin = new System.Windows.Forms.Padding(4);
             this.txtTaille.Name = "txtTaille";
             this.txtTaille.Size = new System.Drawing.Size(309, 22);
@@ -99,7 +101,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 223);
+            this.label6.Location = new System.Drawing.Point(13, 216);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(104, 16);
@@ -109,7 +111,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 102);
+            this.label5.Location = new System.Drawing.Point(13, 100);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 16);
@@ -118,7 +120,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(13, 128);
+            this.txtEmail.Location = new System.Drawing.Point(13, 126);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(309, 22);
@@ -127,7 +129,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 162);
+            this.label4.Location = new System.Drawing.Point(13, 158);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 16);
@@ -136,7 +138,7 @@
             // 
             // txtAdresse
             // 
-            this.txtAdresse.Location = new System.Drawing.Point(13, 188);
+            this.txtAdresse.Location = new System.Drawing.Point(13, 184);
             this.txtAdresse.Margin = new System.Windows.Forms.Padding(4);
             this.txtAdresse.Name = "txtAdresse";
             this.txtAdresse.Size = new System.Drawing.Size(309, 22);
@@ -174,6 +176,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.dtDateNaissance);
+            this.panel1.Controls.Add(this.lblDateNaissance);
             this.panel1.Controls.Add(this.lblTelephone);
             this.panel1.Controls.Add(this.txtTelephone);
             this.panel1.Controls.Add(this.btnRenitialiser);
@@ -200,7 +204,7 @@
             // lblTelephone
             // 
             this.lblTelephone.AutoSize = true;
-            this.lblTelephone.Location = new System.Drawing.Point(16, 407);
+            this.lblTelephone.Location = new System.Drawing.Point(13, 450);
             this.lblTelephone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTelephone.Name = "lblTelephone";
             this.lblTelephone.Size = new System.Drawing.Size(73, 16);
@@ -210,7 +214,7 @@
             // 
             // txtTelephone
             // 
-            this.txtTelephone.Location = new System.Drawing.Point(16, 433);
+            this.txtTelephone.Location = new System.Drawing.Point(13, 476);
             this.txtTelephone.Margin = new System.Windows.Forms.Padding(4);
             this.txtTelephone.Name = "txtTelephone";
             this.txtTelephone.Size = new System.Drawing.Size(309, 22);
@@ -219,7 +223,7 @@
             // btnRenitialiser
             // 
             this.btnRenitialiser.BackColor = System.Drawing.Color.Red;
-            this.btnRenitialiser.Location = new System.Drawing.Point(183, 490);
+            this.btnRenitialiser.Location = new System.Drawing.Point(183, 518);
             this.btnRenitialiser.Name = "btnRenitialiser";
             this.btnRenitialiser.Size = new System.Drawing.Size(112, 32);
             this.btnRenitialiser.TabIndex = 9;
@@ -231,13 +235,30 @@
             // 
             this.btnValider.BackColor = System.Drawing.Color.Lime;
             this.btnValider.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnValider.Location = new System.Drawing.Point(38, 490);
+            this.btnValider.Location = new System.Drawing.Point(26, 518);
             this.btnValider.Name = "btnValider";
             this.btnValider.Size = new System.Drawing.Size(112, 32);
             this.btnValider.TabIndex = 8;
             this.btnValider.Text = "&Valider";
             this.btnValider.UseVisualStyleBackColor = false;
             this.btnValider.Click += new System.EventHandler(this.btnValider_Click);
+            // 
+            // lblDateNaissance
+            // 
+            this.lblDateNaissance.AutoSize = true;
+            this.lblDateNaissance.Location = new System.Drawing.Point(13, 392);
+            this.lblDateNaissance.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDateNaissance.Name = "lblDateNaissance";
+            this.lblDateNaissance.Size = new System.Drawing.Size(104, 16);
+            this.lblDateNaissance.TabIndex = 76;
+            this.lblDateNaissance.Text = "Date Naissance";
+            // 
+            // dtDateNaissance
+            // 
+            this.dtDateNaissance.Location = new System.Drawing.Point(13, 418);
+            this.dtDateNaissance.Name = "dtDateNaissance";
+            this.dtDateNaissance.Size = new System.Drawing.Size(309, 22);
+            this.dtDateNaissance.TabIndex = 77;
             // 
             // frmPatients
             // 
@@ -278,5 +299,7 @@
         private System.Windows.Forms.Button btnRenitialiser;
         private System.Windows.Forms.Label lblTelephone;
         private System.Windows.Forms.TextBox txtTelephone;
+        private System.Windows.Forms.Label lblDateNaissance;
+        private System.Windows.Forms.DateTimePicker dtDateNaissance;
     }
 }
