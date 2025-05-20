@@ -4,6 +4,7 @@
 *.user
 *.userosscache
 *.sln.docstates
+*.vscode
 
 # Dossiers de compilation
 bin/
@@ -19,7 +20,7 @@ obj/
 *.dll
 *.pdb
 
-# Résultats de build
+# RÃ©sultats de build
 *.cache
 *.dbmdl
 *.bak
