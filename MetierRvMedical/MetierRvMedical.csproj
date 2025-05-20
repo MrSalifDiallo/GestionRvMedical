@@ -155,6 +155,7 @@
     <Compile Include="Helper\GMailer.cs" />
     <Compile Include="Helper\Utils.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Model\Admin.cs" />
     <Compile Include="Model\Agenda.cs" />
     <Compile Include="Model\BdRvMedicalContext.cs" />
     <Compile Include="Model\Creneau.cs" />
@@ -165,6 +166,7 @@
     <Compile Include="Model\Patient.cs" />
     <Compile Include="Model\Personne.cs" />
     <Compile Include="Model\RendezVous.cs" />
+    <Compile Include="Model\Role.cs" />
     <Compile Include="Model\Secretaire.cs" />
     <Compile Include="Model\Soin.cs" />
     <Compile Include="Model\Specialite.cs" />
