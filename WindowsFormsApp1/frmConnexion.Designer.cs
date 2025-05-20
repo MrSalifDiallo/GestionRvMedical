@@ -30,6 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblMessage = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbl = new System.Windows.Forms.Label();
             this.txtIdentifiant = new System.Windows.Forms.TextBox();
@@ -40,7 +41,6 @@
             this.btnQuitter = new System.Windows.Forms.Button();
             this.splitter2 = new System.Windows.Forms.Splitter();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            this.lblMessage = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -76,6 +76,17 @@
             this.panel2.Size = new System.Drawing.Size(894, 409);
             this.panel2.TabIndex = 10;
             // 
+            // lblMessage
+            // 
+            this.lblMessage.AutoSize = true;
+            this.lblMessage.BackColor = System.Drawing.Color.Black;
+            this.lblMessage.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMessage.ForeColor = System.Drawing.Color.Red;
+            this.lblMessage.Location = new System.Drawing.Point(106, 347);
+            this.lblMessage.Name = "lblMessage";
+            this.lblMessage.Size = new System.Drawing.Size(0, 30);
+            this.lblMessage.TabIndex = 9;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -101,6 +112,7 @@
             // 
             // txtIdentifiant
             // 
+            this.txtIdentifiant.BackColor = System.Drawing.Color.LavenderBlush;
             this.txtIdentifiant.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdentifiant.Location = new System.Drawing.Point(68, 164);
             this.txtIdentifiant.Name = "txtIdentifiant";
@@ -145,6 +157,7 @@
             // 
             // txtMotDePasse
             // 
+            this.txtMotDePasse.BackColor = System.Drawing.Color.LavenderBlush;
             this.txtMotDePasse.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMotDePasse.Location = new System.Drawing.Point(68, 241);
             this.txtMotDePasse.Name = "txtMotDePasse";
@@ -186,17 +199,6 @@
             this.splitter1.Size = new System.Drawing.Size(482, 541);
             this.splitter1.TabIndex = 0;
             this.splitter1.TabStop = false;
-            // 
-            // lblMessage
-            // 
-            this.lblMessage.AutoSize = true;
-            this.lblMessage.BackColor = System.Drawing.Color.Black;
-            this.lblMessage.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMessage.ForeColor = System.Drawing.Color.Red;
-            this.lblMessage.Location = new System.Drawing.Point(106, 347);
-            this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(0, 30);
-            this.lblMessage.TabIndex = 9;
             // 
             // frmConexion
             // 

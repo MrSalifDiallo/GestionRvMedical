@@ -15,12 +15,12 @@ namespace MetierRvMedical.Model
         [MaxLength(50)]
         public string identifiant { get; set; }
 
-        [MaxLength(50)]
+        [MaxLength(100)]
         public string MotDePasse { get; set; }
         public bool? statut { get; set; }
         public int? IdRole { get; set; }
         [ForeignKey("IdRole")]
-        public Role Role { get; set; } // Navigation property
+        public virtual Role Role { get; set; } // Navigation property
     }
 
 }

@@ -52,20 +52,27 @@ namespace WindowsFormsApp1
 
         private void btnConnexion_Click(object sender, EventArgs e)
         {
-            var leUser=bd.Utilisateurs.Where(a=>a.identifiant.ToLower()==txtIdentifiant.Text.ToLower() && a.MotDePasse==txtMotDePasse.Text).FirstOrDefault();
+            string id = txtIdentifiant.Text.ToLower();
+            string mdp = CryptString.GetMd5Hash(txtMotDePasse.Text);
+
+            var leUser = bd.Utilisateurs
+                .Where(a => a.identifiant.ToLower() == id)
+                .AsEnumerable() // passe en LINQ to Objects après le filtre SQL
+                .FirstOrDefault(a => a.MotDePasse == mdp);
+
+            //var leUser=bd.Utilisateurs.Where(a=>a.identifiant.ToLower()==txtIdentifiant.Text.ToLower() && a.MotDePasse==CryptString.GetMd5Hash(txtMotDePasse.Text) ).FirstOrDefault();
             if (leUser != null)
             {
-                
+                frmMDI f = new frmMDI();
+                f.role = leUser.Role.Code;
+                f.Show();
+                this.Hide();
             }
             else
             {
                 lblMessage.Text = "Identifiant ou Mot de Passe incorrect";
             }
                 Utilisateur ut = new Utilisateur();
-
-            frmMDI f = new frmMDI();
-            f.Show();
-            this.Hide();
         }
 
         private void btnQuitter_Click(object sender, EventArgs e)

@@ -16,6 +16,7 @@ namespace WindowsFormsApp1
 {
     public partial class frmMDI : Form
     {
+        public string role;
         public frmMDI()
         {
             InitializeComponent();
@@ -28,6 +29,10 @@ namespace WindowsFormsApp1
             this.Width = myComputer.Screen.Bounds.Width;
             this.Height = myComputer.Screen.Bounds.Height;
             this.Location = new Point(0, 0);
+            if (role.ToLower()=="Admin".ToLower())
+            {
+                
+            }
         }
 
         // Fonction générique pour ouvrir un formulaire MDI

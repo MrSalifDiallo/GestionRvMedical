@@ -90,7 +90,9 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:Personne">
         <xs:sequence>
+          <xs:element minOccurs="0" name="IdRole" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="MotDePasse" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Role" nillable="true" type="tns:Role" />
           <xs:element minOccurs="0" name="identifiant" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="statut" nillable="true" type="xs:boolean" />
         </xs:sequence>
@@ -98,6 +100,14 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="Utilisateur" nillable="true" type="tns:Utilisateur" />
+  <xs:complexType name="Role">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Role" nillable="true" type="tns:Role" />
   <xs:complexType name="Specialite">
     <xs:sequence>
       <xs:element minOccurs="0" name="CodeSpecialite" nillable="true" type="xs:string" />
