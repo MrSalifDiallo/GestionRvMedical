@@ -37,6 +37,11 @@ namespace WindowsFormsApp1.Model
 
         public DbSet<Td_Erreur> td_Erreurs { get; set; }
 
+        public DbSet<Admin> Admins { get; set; }
+
+        public DbSet<Role> Roles { get; set; }
+
+
 
     }
 }

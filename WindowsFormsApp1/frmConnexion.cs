@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.Model;
+using WindowsFormsApp1.Helper;
 namespace WindowsFormsApp1
 {
     public partial class frmConexion : Form
@@ -51,7 +52,7 @@ namespace WindowsFormsApp1
 
         private void btnConnexion_Click(object sender, EventArgs e)
         {
-            var leUser=bd.Utilisateurs.Where(a=>a.identifiant.ToLower()==txtIdentifiant.Text.ToLower()).FirstOrDefault();
+            var leUser=bd.Utilisateurs.Where(a=>a.identifiant.ToLower()==txtIdentifiant.Text.ToLower() && a.MotDePasse==txtMotDePasse.Text).FirstOrDefault();
             if (leUser != null)
             {
                 
