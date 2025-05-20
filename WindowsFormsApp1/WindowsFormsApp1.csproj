@@ -149,6 +149,7 @@
     <Compile Include="frmMDI.Designer.cs">
       <DependentUpon>frmMDI.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helper\CryptString.cs" />
     <Compile Include="Helper\GMailer.cs" />
     <Compile Include="Helper\Utils.cs" />
     <Compile Include="Migrations\Configuration.cs" />

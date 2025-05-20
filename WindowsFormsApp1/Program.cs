@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.Model;
 using WindowsFormsApp1.Report;
 using WindowsFormsApp1.View;
-
+using WindowsFormsApp1.Helper;
 namespace WindowsFormsApp1
 {
     internal static class Program

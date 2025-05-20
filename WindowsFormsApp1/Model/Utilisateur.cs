@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,9 @@ namespace WindowsFormsApp1.Model
         public string MotDePasse { get; set; }
         public bool? statut { get; set; }
 
+        public int? IdRole { get; set; }
+        [ForeignKey("IdRole")]
+        public Role Role { get; set; } // Navigation property
     }
 
 }
