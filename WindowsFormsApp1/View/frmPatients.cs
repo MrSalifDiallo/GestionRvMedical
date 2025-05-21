@@ -28,7 +28,7 @@ namespace WindowsFormsApp1.View
 
         //BdRvMedicalContext bd = new BdRvMedicalContext(); // ❌ Supprimé – plus utilisé
         ServiceMetier.Service1Client service = new ServiceMetier.Service1Client(); // ✅ Service WCF
-
+        ServiceMetierPatient.PatientServiceClient servicePatient = new ServiceMetierPatient.PatientServiceClient(); // ✅ Service WCF
         private void ResetForm()
         {
             txtAdresse.Text = string.Empty;
@@ -63,7 +63,7 @@ namespace WindowsFormsApp1.View
 
         private List<SelectListView> LoadCbbGroupeSanguins()
         {
-            var grpsang = service.GetListeGroupesSanguins(); // 🔄 CHANGÉ – appel service WCF
+            var grpsang = servicePatient.GetListeGroupesSanguins(); // 🔄 CHANGÉ – appel service WCF
             List<SelectListView> ListeGS = new List<SelectListView>();
 
             ListeGS.Add(new SelectListView { Text = "Sélectionnez le groupe sanguin", Value = "" });
@@ -100,7 +100,8 @@ namespace WindowsFormsApp1.View
         {
             try
             {
-                ServiceMetier.Patient p = new ServiceMetier.Patient();
+                ServiceMetierPatient.Patient p = new ServiceMetierPatient.Patient();
+                //ServiceMetier.Patient p = new ServiceMetier.Patient();
                 p.Adresse = txtAdresse.Text;
                 p.TEL = txtTelephone.Text;
 
@@ -128,7 +129,7 @@ namespace WindowsFormsApp1.View
                 if (cbbGroupeSanguin.SelectedItem != null)
                 {
                     SelectListView selectedItem = (SelectListView)cbbGroupeSanguin.SelectedItem;
-                    var listeGroupes = service.GetListeGroupesSanguins();
+                    var listeGroupes = servicePatient.GetListeGroupesSanguins();
                     var selectedGroup = listeGroupes.FirstOrDefault(gs => gs.CodeGroupeSanguin == selectedItem.Value);
 
                     if (selectedGroup != null)
@@ -159,7 +160,7 @@ namespace WindowsFormsApp1.View
                 p.NomPrenom = txtNomPrenom.Text;
                 p.Email = txtEmail.Text;
                 p.DateNaissance=dtDateNaissance.Value.Date;
-                bool resultat = service.AddPatient(p);
+                bool resultat = servicePatient.AddPatient(p);
 
                 if (resultat)
                 {

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MetierRvMedical.Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MetierRvMedical.Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfPatient">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Patient" nillable="true" type="tns:Patient" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPatient" nillable="true" type="tns:ArrayOfPatient" />
+  <xs:complexType name="Patient">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Personne">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DateNaissance" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="GroupeSanguin" nillable="true" type="tns:GroupeSanguin" />
+          <xs:element minOccurs="0" name="IdGroupeSanguin" type="xs:int" />
+          <xs:element minOccurs="0" name="Poids" nillable="true" type="xs:float" />
+          <xs:element minOccurs="0" name="Taille" nillable="true" type="xs:float" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Patient" nillable="true" type="tns:Patient" />
+  <xs:complexType name="Personne">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Adresse" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdU" type="xs:int" />
+      <xs:element minOccurs="0" name="NomPrenom" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TEL" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Personne" nillable="true" type="tns:Personne" />
+  <xs:complexType name="GroupeSanguin">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodeGroupeSanguin" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdGroupeSanguin" type="xs:int" />
+      <xs:element minOccurs="0" name="NomGroupeSanguin" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GroupeSanguin" nillable="true" type="tns:GroupeSanguin" />
+  <xs:complexType name="ArrayOfGroupeSanguin">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GroupeSanguin" nillable="true" type="tns:GroupeSanguin" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGroupeSanguin" nillable="true" type="tns:ArrayOfGroupeSanguin" />
+</xs:schema>

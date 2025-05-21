@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MetierRvMedical.Model;
 
-namespace WindowsFormsApp1.Helper
+namespace MetierRvMedical.Helper
 {
     public class Utils
     {

@@ -121,6 +121,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connected Services\ServiceMetierPatient\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\ServiceMetier\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -257,6 +262,22 @@
     <EmbeddedResource Include="View\frmRendezVous.resx">
       <DependentUpon>frmRendezVous.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Connected Services\ServiceMetierPatient\PatientService.wsdl" />
+    <None Include="Connected Services\ServiceMetierPatient\PatientService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceMetierPatient\PatientService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceMetierPatient\PatientService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceMetierPatient\WindowsFormsApp1.ServiceMetierPatient.GroupeSanguin.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceMetierPatient\WindowsFormsApp1.ServiceMetierPatient.Patient.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ServiceMetier\Service1.wsdl" />
     <None Include="Connected Services\ServiceMetier\Service1.xsd">
       <SubType>Designer</SubType>
@@ -310,6 +331,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ServiceMetierPatient\" />
     <WCFMetadataStorage Include="Connected Services\ServiceMetier\" />
   </ItemGroup>
   <ItemGroup>
@@ -328,6 +350,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\ServiceMetierPatient\PatientService.disco" />
+    <None Include="Connected Services\ServiceMetierPatient\configuration91.svcinfo" />
+    <None Include="Connected Services\ServiceMetierPatient\configuration.svcinfo" />
+    <None Include="Connected Services\ServiceMetierPatient\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Error\erreur.txt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>erreur1.cs</LastGenOutput>

@@ -52,11 +52,11 @@ namespace WindowsFormsApp1
 
         private void btnConnexion_Click(object sender, EventArgs e)
         {
-            string id = txtIdentifiant.Text.ToLower();
+            string identifiantinbd = txtIdentifiant.Text.ToLower();
             string mdp = CryptString.GetMd5Hash(txtMotDePasse.Text);
 
             var leUser = bd.Utilisateurs
-                .Where(a => a.identifiant.ToLower() == id)
+                .Where(a => a.identifiant.ToLower() == identifiantinbd)
                 .AsEnumerable() // passe en LINQ to Objects après le filtre SQL
                 .FirstOrDefault(a => a.MotDePasse == mdp);
 
@@ -72,7 +72,7 @@ namespace WindowsFormsApp1
             {
                 lblMessage.Text = "Identifiant ou Mot de Passe incorrect";
             }
-                Utilisateur ut = new Utilisateur();
+                //Utilisateur ut = new Utilisateur();
         }
 
         private void btnQuitter_Click(object sender, EventArgs e)

@@ -2,70 +2,20 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq;
+using MetierRvMedical.Helper;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
-using MetierRvMedical.Helper;
 
-
-namespace MetierRvMedical
+namespace MetierRvMedical.Services
 {
-    // REMARQUE : vous pouvez utiliser la commande Renommer du menu Refactoriser pour changer le nom de classe "Service1" dans le code, le fichier svc et le fichier de configuration.
-    // REMARQUE : pour lancer le client test WCF afin de tester ce service, sélectionnez Service1.svc ou Service1.svc.cs dans l'Explorateur de solutions et démarrez le débogage.
-    public class Service1 : IService1
+    public class PatientMetier
     {
-        public string GetData(int value)
-        {
-            return string.Format("You entered: {0}", value);
-        }
+        BdRvMedicalContext bd = new BdRvMedicalContext();
         Utils utils = new Utils();
-        BdRvMedicalContext bd =new BdRvMedicalContext();
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
-        {
-            if (composite == null)
-            {
-                throw new ArgumentNullException("composite");
-            }
-            if (composite.BoolValue)
-            {
-                composite.StringValue += "Suffix";
-            }
-            return composite;
-        }
-        /// <summary>
-        /// Retourne la liste des Patients
-        /// </summary>
-        /// <returns></returns>
-        public List<Patient> GetListePatients()
-        {
-            return bd.Patients.ToList();
-        }
-        /// <summary>
-        /// Retourne la liste des medecins
-        /// </summary>
-        /// <returns></returns>
-        public List<Medecin> GetListeMedecins()
-        {
-            return bd.Medecins.ToList();
-        }
-        /// <summary>
-        /// Retourne la liste des agendas
-        /// </summary>
-        /// <returns></returns>
-        public List<Agenda> GetListeAgendas()
-        {
-            return bd.Agendas.ToList();
-        }
-
-
-
 
         /// <summary>
-        /// Ajout Patients dans la base
+        /// Ajout Patients dans la base de donnée
         /// </summary>
         /// <returns></returns>
         public bool AddPatient(Patient patient)
@@ -76,17 +26,25 @@ namespace MetierRvMedical
                 bd.SaveChanges();
                 return true;
             }
-            catch(Exception ex){
+            catch (Exception ex)
+            {
                 Utils.WriteLogSystem(ex.ToString(), "frmPatients-btnValider_Click - Erreur");
                 utils.WriteDataError("frmPatients-btnValider_Click - Erreur", ex.ToString());
                 return false;
             }
         }
 
-        public bool RemovePatient(Patient patient) {
+
+        /// <summary>
+        /// Supprime un patient de la base de données
+        /// </summary>
+        /// <param name="patient"></param>
+        /// <returns></returns>
+        public bool RemovePatient(Patient patient)
+        {
             try
             {
-                bd.Entry(patient).State=EntityState.Deleted;
+                bd.Entry(patient).State = EntityState.Deleted;
                 bd.Patients.Remove(patient);
                 return true;
             }
@@ -127,17 +85,29 @@ namespace MetierRvMedical
             }
         }
 
+        /// <summary>
+        /// Set up Patient dans la base de donnée
+        /// </summary>
+        /// <param name="patient"></param>
+        /// <returns></returns>
+
         public bool UpdatePatient(Patient patient)
         {
             try
             {
-                bd.Entry(patient).State=EntityState.Modified;
+                bd.Entry(patient).State = EntityState.Modified;
                 return true;
             }
             catch (Exception ex)
             {
+                Utils.WriteLogSystem(ex.ToString(), "UpdatePatient");
                 return false;
             }
+        }
+
+        public List<Patient> GetListePatients()
+        {
+            return bd.Patients.ToList();
         }
 
         public List<GroupeSanguin> GetListeGroupesSanguins()
