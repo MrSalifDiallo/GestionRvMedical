@@ -37,6 +37,12 @@
   <wsdl:message name="IPatientService_GetListeGroupesSanguins_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetListeGroupesSanguinsResponse" />
   </wsdl:message>
+  <wsdl:message name="IPatientService_ResearchPatient_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResearchPatient" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_ResearchPatient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResearchPatientResponse" />
+  </wsdl:message>
   <wsdl:portType name="IPatientService">
     <wsdl:operation name="GetListePatients">
       <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/GetListePatients" message="tns:IPatientService_GetListePatients_InputMessage" />
@@ -57,6 +63,10 @@
     <wsdl:operation name="GetListeGroupesSanguins">
       <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/GetListeGroupesSanguins" message="tns:IPatientService_GetListeGroupesSanguins_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/GetListeGroupesSanguinsResponse" message="tns:IPatientService_GetListeGroupesSanguins_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResearchPatient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/ResearchPatient" message="tns:IPatientService_ResearchPatient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/ResearchPatientResponse" message="tns:IPatientService_ResearchPatient_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IPatientService" type="tns:IPatientService">
@@ -99,6 +109,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetListeGroupesSanguins">
       <soap:operation soapAction="http://tempuri.org/IPatientService/GetListeGroupesSanguins" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResearchPatient">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/ResearchPatient" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

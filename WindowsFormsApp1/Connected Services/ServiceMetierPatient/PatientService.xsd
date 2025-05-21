@@ -67,4 +67,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ResearchPatient">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="phoneNumberInput" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResearchPatientResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/MetierRvMedical.Model" minOccurs="0" name="ResearchPatientResult" nillable="true" type="q6:Patient" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

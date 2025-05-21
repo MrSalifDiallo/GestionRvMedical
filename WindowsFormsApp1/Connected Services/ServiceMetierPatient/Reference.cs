@@ -320,6 +320,12 @@ namespace WindowsFormsApp1.ServiceMetierPatient {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPatientService/GetListeGroupesSanguins", ReplyAction="http://tempuri.org/IPatientService/GetListeGroupesSanguinsResponse")]
         System.Threading.Tasks.Task<WindowsFormsApp1.ServiceMetierPatient.GroupeSanguin[]> GetListeGroupesSanguinsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPatientService/ResearchPatient", ReplyAction="http://tempuri.org/IPatientService/ResearchPatientResponse")]
+        WindowsFormsApp1.ServiceMetierPatient.Patient ResearchPatient(string phoneNumberInput);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPatientService/ResearchPatient", ReplyAction="http://tempuri.org/IPatientService/ResearchPatientResponse")]
+        System.Threading.Tasks.Task<WindowsFormsApp1.ServiceMetierPatient.Patient> ResearchPatientAsync(string phoneNumberInput);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -387,6 +393,14 @@ namespace WindowsFormsApp1.ServiceMetierPatient {
         
         public System.Threading.Tasks.Task<WindowsFormsApp1.ServiceMetierPatient.GroupeSanguin[]> GetListeGroupesSanguinsAsync() {
             return base.Channel.GetListeGroupesSanguinsAsync();
+        }
+        
+        public WindowsFormsApp1.ServiceMetierPatient.Patient ResearchPatient(string phoneNumberInput) {
+            return base.Channel.ResearchPatient(phoneNumberInput);
+        }
+        
+        public System.Threading.Tasks.Task<WindowsFormsApp1.ServiceMetierPatient.Patient> ResearchPatientAsync(string phoneNumberInput) {
+            return base.Channel.ResearchPatientAsync(phoneNumberInput);
         }
     }
 }

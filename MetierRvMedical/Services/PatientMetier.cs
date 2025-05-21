@@ -110,9 +110,39 @@ namespace MetierRvMedical.Services
             return bd.Patients.ToList();
         }
 
+        /// <summary>
+        /// Génération de la liste des Groupes Sanguins
+        /// </summary>
+        /// <returns></returns>
         public List<GroupeSanguin> GetListeGroupesSanguins()
         {
             return bd.GroupeSanguins.ToList();
         }
+
+        /// <summary>
+        /// Trouve les infos du patient a travers son numéro de téléphone
+        /// </summary>
+        /// <param name="phoneNumberInput"></param>
+        /// <returns></returns>
+        public Patient ResearchPatient(string phoneNumberInput)
+        {
+            if (string.IsNullOrWhiteSpace(phoneNumberInput))
+                return null;
+
+            // Extraire le numéro avant le " - "
+            var phoneParts = phoneNumberInput.Split(new[] { " - " }, StringSplitOptions.None);
+            if (phoneParts.Length == 0)
+                return null;
+
+            string phoneNumber = phoneParts[0].Trim();
+
+            // Recherche du patient
+            var patient = bd.Patients
+                                    .Include(p => p.GroupeSanguin) //Permet de charger le groupe sanguin avec la clé etrangere IdGroupeSanguin
+                                    .FirstOrDefault(p => p.TEL == phoneNumber);
+            return patient; // Retourne le patient ou null s'il n'existe pas
+        }
+
+
     }
 }

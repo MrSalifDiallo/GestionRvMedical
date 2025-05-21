@@ -12,7 +12,8 @@ namespace WindowsFormsApp1.View
     {
         BdRvMedicalContext bd = new BdRvMedicalContext();
         bool patientTrouve = false;
-
+        ServiceMetierGeneral.GeneralServiceClient serviceGeneral = new ServiceMetierGeneral.GeneralServiceClient(); // ✅ Service WCF
+        ServiceMetierPatient.PatientServiceClient servicePatient = new ServiceMetierPatient.PatientServiceClient(); // ✅ Service WCF
         public frmRendezVous()
         {
             InitializeComponent();
@@ -61,27 +62,19 @@ namespace WindowsFormsApp1.View
             }
         }
 
-        private void LoadPhoneNumbers()
+        private void LoadPhoneNumbers(int limit = 5)
         {
-            var phoneDetails = bd.Patients.Take(5).OrderBy(p=>p.TEL)
-                .Select(p => new
-            {
-                p.TEL,
-                p.NomPrenom,
-            }).ToList();
+            var phoneList = serviceGeneral.GetPhoneNumbersForAutoComplete(limit);
 
             AutoCompleteStringCollection phoneCollection = new AutoCompleteStringCollection();
-
-            foreach (var detail in phoneDetails)
-            {
-                string formattedEntry = $"{detail.TEL} - {detail.NomPrenom}";
-                phoneCollection.Add(formattedEntry);
-            }
+            phoneCollection.AddRange((string[])phoneList.ToArray());
 
             cbbTelephone.AutoCompleteCustomSource = phoneCollection;
             cbbTelephone.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cbbTelephone.AutoCompleteSource = AutoCompleteSource.CustomSource;
         }
+
+
 
         private void LoadBloodGroups()
         {
@@ -261,53 +254,51 @@ namespace WindowsFormsApp1.View
 
         private void UpdatePatientDetails(string phoneNumberInput)
         {
-            // Vérifie si le texte dans le champ cbbTelephone est valide
-            if (!string.IsNullOrEmpty(phoneNumberInput))
-            {
-                // Recherche du patient en utilisant seulement le numéro de téléphone (avant le premier " - ")
-                var phoneParts = phoneNumberInput.Split(new string[] { " - " }, StringSplitOptions.None);
-                if (phoneParts.Length > 0)
+            var patient=servicePatient.ResearchPatient(phoneNumberInput);
+            if (patient != null) {
+                // Si un patient est trouvé, on remplit les champs du formulaire avec les données du patient
+                patientTrouve = true;
+                txtNomPrenom.Text = patient.NomPrenom ?? string.Empty;
+                txtAdresse.Text = patient.Adresse ?? string.Empty;
+                txtEmail.Text = patient.Email ?? string.Empty;
+                txtPoids.Text = patient.Poids?.ToString() ?? string.Empty;
+                txtTaille.Text = patient.Taille?.ToString() ?? string.Empty;
+                //cbbGroupeSanguin.SelectedItem = patient.GroupeSanguin.CodeGroupeSanguin;
+                // Remplir le groupe sanguin dans le combo box
+                if (patient.GroupeSanguin != null)
                 {
-                    string phoneNumber = phoneParts[0].Trim(); // On prend uniquement le numéro
-
-                    var patient = bd.Patients.Include(p => p.GroupeSanguin).FirstOrDefault(p => p.TEL == phoneNumber);
-
-                    if (patient != null)
-                    {
-                        // Si un patient est trouvé, on remplit les champs du formulaire avec les données du patient
-                        patientTrouve = true;
-                        txtNomPrenom.Text = patient.NomPrenom ?? string.Empty;
-                        txtAdresse.Text = patient.Adresse ?? string.Empty;
-                        txtEmail.Text = patient.Email ?? string.Empty;
-                        txtPoids.Text = patient.Poids?.ToString() ?? string.Empty;
-                        txtTaille.Text = patient.Taille?.ToString() ?? string.Empty;
-
-                        // Remplir le groupe sanguin dans le combo box
-                        if (patient.GroupeSanguin != null)
-                        {
-                            cbbGroupeSanguin.SelectedItem = patient.GroupeSanguin.CodeGroupeSanguin ?? string.Empty;
-                        }
-                        DisableFields(patient);
-                    }
-                    else
-                    {
-                        // Si aucun patient n'est trouvé, on vide les champs
-                        patientTrouve = false;
-                        ResetForm();
-                        EnableAllFields();
-                    }
+                    cbbGroupeSanguin.SelectedItem = patient.GroupeSanguin.CodeGroupeSanguin ?? string.Empty;
                 }
+                DisableFields(patient);
             }
             else
             {
-                // Si le champ est vide, on vide également les champs
+                // Si aucun patient n'est trouvé, on vide les champs
                 patientTrouve = false;
+                ResetForm();
                 EnableAllFields();
             }
         }
 
-        private void DisableFields(Patient patient)
+        private void DisableFields(ServiceMetierPatient.Patient servicePatient)
         {
+            // Convert the ServiceMetierPatient.Patient to WindowsFormsApp1.Model.Patient
+            var patient = new Patient
+            {
+                NomPrenom = servicePatient.NomPrenom,
+                Adresse = servicePatient.Adresse,
+                Email = servicePatient.Email,
+                TEL = servicePatient.TEL,
+                Poids = servicePatient.Poids,
+                Taille = servicePatient.Taille,
+                GroupeSanguin = servicePatient.GroupeSanguin != null
+                    ? new GroupeSanguin
+                    {
+                        CodeGroupeSanguin = servicePatient.GroupeSanguin.CodeGroupeSanguin
+                    }
+                    : null
+            };
+
             // Activer les champs si la valeur est null ou vide, sinon désactiver les champs
             txtNomPrenom.Enabled = string.IsNullOrEmpty(patient.NomPrenom);
             txtAdresse.Enabled = string.IsNullOrEmpty(patient.Adresse);
@@ -360,6 +351,8 @@ namespace WindowsFormsApp1.View
                 a.DatePlanifie
             }).Where(a => a.DatePlanifie==datetoday).ToList();
         }
+
+
         private List<SelectListView> LoadCbbTimeCreneaux(DateTime date)
         {
             List<SelectListView> Listetime = new List<SelectListView>();
@@ -459,6 +452,11 @@ namespace WindowsFormsApp1.View
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }

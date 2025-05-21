@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="bcb089bb-8406-43e2-a0a3-93cfb4d79f4d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:60827/Wcf/AgendaService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="AgendaService.disco" MetadataType="Disco" ID="c70cb312-0803-4fc5-9dfc-83a4581a4275" SourceId="1" SourceUrl="http://localhost:60827/Wcf/AgendaService.svc?disco" />
+    <MetadataFile FileName="AgendaService.xsd" MetadataType="Schema" ID="31a7e30f-4d04-4e67-92bf-9c62a972d502" SourceId="1" SourceUrl="http://localhost:60827/Wcf/AgendaService.svc?xsd=xsd3" />
+    <MetadataFile FileName="AgendaService1.xsd" MetadataType="Schema" ID="5fc0d2c6-6cb6-4075-b1d8-092cdce22888" SourceId="1" SourceUrl="http://localhost:60827/Wcf/AgendaService.svc?xsd=xsd2" />
+    <MetadataFile FileName="AgendaService2.xsd" MetadataType="Schema" ID="07aa714d-4b47-4087-8b35-3edabb884ffd" SourceId="1" SourceUrl="http://localhost:60827/Wcf/AgendaService.svc?xsd=xsd1" />
+    <MetadataFile FileName="AgendaService.wsdl" MetadataType="Wsdl" ID="884d03b5-8a55-464a-af78-1b556c7f1918" SourceId="1" SourceUrl="http://localhost:60827/Wcf/AgendaService.svc?wsdl" />
+    <MetadataFile FileName="AgendaService3.xsd" MetadataType="Schema" ID="8336dd09-23e1-488a-9031-d3edaa910887" SourceId="1" SourceUrl="http://localhost:60827/Wcf/AgendaService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

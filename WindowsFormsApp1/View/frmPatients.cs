@@ -27,7 +27,7 @@ namespace WindowsFormsApp1.View
         }
 
         //BdRvMedicalContext bd = new BdRvMedicalContext(); // ❌ Supprimé – plus utilisé
-        ServiceMetier.Service1Client service = new ServiceMetier.Service1Client(); // ✅ Service WCF
+        //ServiceMetier.Service1Client service = new ServiceMetier.Service1Client(); // ✅ Service WCF
         ServiceMetierPatient.PatientServiceClient servicePatient = new ServiceMetierPatient.PatientServiceClient(); // ✅ Service WCF
         private void ResetForm()
         {

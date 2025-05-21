@@ -147,7 +147,7 @@ namespace WindowsFormsApp1
 
         private void rendezVousToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-           // OpenMdiChildForm(new AgendaForm()); 
+            OpenMdiChildForm(new frmTest()); 
 
         }
     }

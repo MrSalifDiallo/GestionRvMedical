@@ -121,6 +121,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connected Services\ServiceMetierAgenda\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ServiceMetierGeneral\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\ServiceMetierPatient\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -221,6 +231,12 @@
     <Compile Include="View\frmRendezVous.Designer.cs">
       <DependentUpon>frmRendezVous.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\frmTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmTest.Designer.cs">
+      <DependentUpon>frmTest.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -262,6 +278,35 @@
     <EmbeddedResource Include="View\frmRendezVous.resx">
       <DependentUpon>frmRendezVous.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\frmTest.resx">
+      <DependentUpon>frmTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Connected Services\ServiceMetierAgenda\AgendaService.wsdl" />
+    <None Include="Connected Services\ServiceMetierAgenda\AgendaService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceMetierAgenda\AgendaService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceMetierAgenda\AgendaService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceMetierAgenda\AgendaService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceMetierAgenda\WindowsFormsApp1.ServiceMetierAgenda.Agenda.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceMetierGeneral\GeneralService.wsdl" />
+    <None Include="Connected Services\ServiceMetierGeneral\GeneralService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceMetierGeneral\GeneralService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceMetierGeneral\GeneralService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ServiceMetierPatient\PatientService.wsdl" />
     <None Include="Connected Services\ServiceMetierPatient\PatientService.xsd">
       <SubType>Designer</SubType>
@@ -331,6 +376,8 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ServiceMetierAgenda\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceMetierGeneral\" />
     <WCFMetadataStorage Include="Connected Services\ServiceMetierPatient\" />
     <WCFMetadataStorage Include="Connected Services\ServiceMetier\" />
   </ItemGroup>
@@ -354,6 +401,20 @@
     <None Include="Connected Services\ServiceMetierPatient\configuration91.svcinfo" />
     <None Include="Connected Services\ServiceMetierPatient\configuration.svcinfo" />
     <None Include="Connected Services\ServiceMetierPatient\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\ServiceMetierGeneral\GeneralService.disco" />
+    <None Include="Connected Services\ServiceMetierGeneral\configuration91.svcinfo" />
+    <None Include="Connected Services\ServiceMetierGeneral\configuration.svcinfo" />
+    <None Include="Connected Services\ServiceMetierGeneral\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\ServiceMetierAgenda\AgendaService.disco" />
+    <None Include="Connected Services\ServiceMetierAgenda\configuration91.svcinfo" />
+    <None Include="Connected Services\ServiceMetierAgenda\configuration.svcinfo" />
+    <None Include="Connected Services\ServiceMetierAgenda\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
