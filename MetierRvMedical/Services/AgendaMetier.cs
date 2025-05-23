@@ -103,26 +103,21 @@ namespace MetierRvMedical.Services
                         .Any(c => TimeSpan.ParseExact(c.HeureDebut, "hh\\:mm", CultureInfo.InvariantCulture) == heureDebutFormatted &&
                         TimeSpan.ParseExact(c.HeureFin, "hh\\:mm", CultureInfo.InvariantCulture) == heureFinFormatted);
 
-                    /*if (!isSlotOccupied)
+                    if (!isSlotOccupied)
                     {
-                        // Ajouter le créneau si disponible
-                        Listetime.Add(new SelectListView
+                        tableau.Add(new Dictionary<string, object>
                         {
-                            Text = $"{heureDebut.ToShortTimeString()} - {nextTime.ToShortTimeString()}",
-                            Value = $"{heureDebut.ToShortTimeString()} - {nextTime.ToShortTimeString()}"
+                            ["IdAgenda"] = a.IdAgenda,
+                            ["idMedecin"] = a.IdMedecin,
+                            ["medecin"] = a.Medecin.NomPrenom,
+                            ["creneau"] = a.Creneau,
+                            ["date"] = dateRecherche.ToString("yyyy-MM-dd"),
+                            ["heureDebut"] = heureDebut.ToString("HH:mm"),
+                            ["heureFin"] = nextTime.ToString("HH:mm"),
+                            ["estOccupe"] = isSlotOccupied
                         });
-                    }*/
-                    tableau.Add(new Dictionary<string, object>
-                    {
-                        ["IdAgenda"] = a.IdAgenda,
-                        ["idMedecin"] = a.IdMedecin,
-                        ["medecin"] = a.Medecin.NomPrenom,
-                        ["creneau"] = a.Creneau,
-                        ["date"] = dateRecherche.ToString("yyyy-MM-dd"),
-                        ["heureDebut"] = heureDebut.ToString("HH:mm"),
-                        ["heureFin"] = nextTime.ToString("HH:mm"),
-                        ["estOccupe"] = isSlotOccupied
-                    });
+                    }
+                    
 
                     heureDebut = nextTime;
 
