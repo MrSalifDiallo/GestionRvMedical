@@ -122,9 +122,10 @@ namespace WindowsFormsApp1.View
             // Colonnes
             listView1.Columns.Clear();
             listView1.Columns.Add("Creneau", 100);
-            listView1.Columns.Add("Horaire", 150);
-            listView1.Columns.Add("Nombre", 60);
+            listView1.Columns.Add("Horaire", 75);
+            listView1.Columns.Add("Nombre", 49);
             listView1.Columns.Add("Disponible", 100);
+            listView1.Columns.Add("Occupé", 100);
 
             DateTime date = new DateTime(2025, 5, 21);
 
@@ -146,13 +147,22 @@ namespace WindowsFormsApp1.View
                     var creneau = tousCreneaux[i];
 
                     var texteCreneau = (i == indexTitre) ? $"{typeCreneau} min" : "";
+                    //string dispoTexte = Convert.ToBoolean(creneau["estOccupe"]) ? "Occupé(" + creneau["libre"]+")" : "Libre";
+                    //string occupeTexte = Convert.ToBoolean(creneau["estOccupe"]) ? "Libre" : "Occupé"; 
+
+                    int libre = Convert.ToInt32(creneau["libre"]);
+                    int occupe = Convert.ToInt32(creneau["occupe"]);
+
+                    string dispoTexte = $"{libre} libre(s)";
+                    string occupeTexte = $"{occupe} occupé(s)";
 
                     var item = new ListViewItem(new[]
                     {
                         texteCreneau,
                         creneau["horaire"].ToString(),
                         creneau["nombre"].ToString(),
-                        "" // Colonne "Disponible" vide ici, à adapter si nécessaire
+                        dispoTexte,
+                        occupeTexte,// Colonne "Disponible" vide ici, à adapter si nécessaire
                     });
 
                     item.UseItemStyleForSubItems = false;
@@ -165,10 +175,10 @@ namespace WindowsFormsApp1.View
                     }
 
                     // Appliquer une couleur en fonction du "nombre" (optionnel)
-                    int nombre = Convert.ToInt32(creneau["nombre"]);
-                    Color dispoColor = nombre > 2 ? Color.Green : Color.Red;
+                    bool estOccupe = Convert.ToBoolean(creneau["estOccupe"]);
+                    Color dispoColor = libre<1 ? Color.Red : Color.Green;
 
-                    for (int col = 1; col <= 3; col++)
+                    for (int col = 1; col <= item.SubItems.Count-1; col++)
                     {
                         item.SubItems[col].ForeColor = dispoColor;
                     }
@@ -274,5 +284,6 @@ namespace WindowsFormsApp1.View
     //        }
 
     //    }
+
     }
 }

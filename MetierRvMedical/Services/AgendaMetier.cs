@@ -103,7 +103,7 @@ namespace MetierRvMedical.Services
                         .Any(c => TimeSpan.ParseExact(c.HeureDebut, "hh\\:mm", CultureInfo.InvariantCulture) == heureDebutFormatted &&
                         TimeSpan.ParseExact(c.HeureFin, "hh\\:mm", CultureInfo.InvariantCulture) == heureFinFormatted);
 
-                    if (!isSlotOccupied)
+                    /*if (!isSlotOccupied)
                     {
                         tableau.Add(new Dictionary<string, object>
                         {
@@ -116,11 +116,18 @@ namespace MetierRvMedical.Services
                             ["heureFin"] = nextTime.ToString("HH:mm"),
                             ["estOccupe"] = isSlotOccupied
                         });
-                    }
-                    
-
-                    heureDebut = nextTime;
-
+                    }*/
+                    tableau.Add(new Dictionary<string, object>
+                    {
+                        ["IdAgenda"] = a.IdAgenda,
+                        ["idMedecin"] = a.IdMedecin,
+                        ["medecin"] = a.Medecin.NomPrenom,
+                        ["creneau"] = a.Creneau,
+                        ["date"] = dateRecherche.ToString("yyyy-MM-dd"),
+                        ["heureDebut"] = heureDebut.ToString("HH:mm"),
+                        ["heureFin"] = nextTime.ToString("HH:mm"),
+                        ["estOccupe"] = isSlotOccupied
+                    });
                     // Passer au créneau suivant
                     heureDebut = nextTime;
                 }
@@ -144,12 +151,21 @@ namespace MetierRvMedical.Services
                     HeureFin = c["heureFin"].ToString(),
                     TimeCreneau = c["creneau"].ToString(),
                 })
-                .OrderBy(g => Convert.ToInt32(g.Key.TimeCreneau)) // ✅ Tri par durée de créneau
-                .Select(g => new Dictionary<string, object>
+                .Select(g =>
                 {
-                    ["horaire"] = $"{g.Key.HeureDebut} - {g.Key.HeureFin}",
-                    ["nombre"] = g.Count(),
-                    ["TimeCreneau"] = g.Key.TimeCreneau
+                    int total = g.Count();
+                    int occupe = g.Count(x => Convert.ToBoolean(x["estOccupe"]));
+                    int libre = total - occupe;
+
+                    return new Dictionary<string, object>
+                    {
+                        ["horaire"] = $"{g.Key.HeureDebut} - {g.Key.HeureFin}",
+                        ["nombre"] = total,
+                        ["occupe"] = occupe,
+                        ["libre"] = libre,
+                        ["TimeCreneau"] = g.Key.TimeCreneau,
+                        ["estOccupe"] = occupe > 0 // true si au moins un est occupé
+                    };
                 })
                 .ToList();
 
