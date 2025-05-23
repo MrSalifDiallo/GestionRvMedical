@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MetierRvMedical.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -14,5 +15,7 @@ namespace MetierRvMedical.Wcf
     {
         [OperationContract]
         List<string> GetPhoneNumbersForAutoComplete(int limit);
+        [OperationContract]
+        List<Soin> GetListSoins();
     }
 }

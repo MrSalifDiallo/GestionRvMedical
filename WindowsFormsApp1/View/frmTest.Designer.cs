@@ -28,159 +28,76 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.dgAgenda = new System.Windows.Forms.DataGridView();
-            this.agendaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.creneauDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datePlanifieDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.heureDebutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.heureFinDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idAgendaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idMedecinDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lieuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.medecinDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.titreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dgAgenda)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.agendaBindingSource)).BeginInit();
+            this.dtGridView1 = new System.Windows.Forms.DataGridView();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.treeView1 = new System.Windows.Forms.TreeView();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgAgenda
+            // dtGridView1
             // 
-            this.dgAgenda.AutoGenerateColumns = false;
-            this.dgAgenda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgAgenda.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.creneauDataGridViewTextBoxColumn,
-            this.datePlanifieDataGridViewTextBoxColumn,
-            this.heureDebutDataGridViewTextBoxColumn,
-            this.heureFinDataGridViewTextBoxColumn,
-            this.idAgendaDataGridViewTextBoxColumn,
-            this.idMedecinDataGridViewTextBoxColumn,
-            this.lieuDataGridViewTextBoxColumn,
-            this.medecinDataGridViewTextBoxColumn,
-            this.titreDataGridViewTextBoxColumn,
-            this.statutDataGridViewTextBoxColumn});
-            this.dgAgenda.DataSource = this.agendaBindingSource;
-            this.dgAgenda.Location = new System.Drawing.Point(28, 68);
-            this.dgAgenda.Name = "dgAgenda";
-            this.dgAgenda.RowHeadersWidth = 51;
-            this.dgAgenda.RowTemplate.Height = 24;
-            this.dgAgenda.Size = new System.Drawing.Size(743, 321);
-            this.dgAgenda.TabIndex = 0;
-            this.dgAgenda.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgAgenda_CellContentClick);
+            this.dtGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtGridView1.Location = new System.Drawing.Point(33, 12);
+            this.dtGridView1.Name = "dtGridView1";
+            this.dtGridView1.RowHeadersWidth = 51;
+            this.dtGridView1.RowTemplate.Height = 24;
+            this.dtGridView1.Size = new System.Drawing.Size(619, 490);
+            this.dtGridView1.TabIndex = 0;
             // 
-            // agendaBindingSource
+            // listView1
             // 
-            this.agendaBindingSource.DataSource = typeof(WindowsFormsApp1.ServiceMetierAgenda.Agenda);
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(718, 12);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(562, 490);
+            this.listView1.TabIndex = 1;
+            this.listView1.UseCompatibleStateImageBehavior = false;
             // 
-            // creneauDataGridViewTextBoxColumn
+            // tableLayoutPanel1
             // 
-            this.creneauDataGridViewTextBoxColumn.DataPropertyName = "Creneau";
-            this.creneauDataGridViewTextBoxColumn.HeaderText = "Creneau";
-            this.creneauDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.creneauDataGridViewTextBoxColumn.Name = "creneauDataGridViewTextBoxColumn";
-            this.creneauDataGridViewTextBoxColumn.Width = 125;
+            this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(1311, 12);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(573, 490);
+            this.tableLayoutPanel1.TabIndex = 2;
+            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
-            // datePlanifieDataGridViewTextBoxColumn
+            // treeView1
             // 
-            this.datePlanifieDataGridViewTextBoxColumn.DataPropertyName = "DatePlanifie";
-            this.datePlanifieDataGridViewTextBoxColumn.HeaderText = "DatePlanifie";
-            this.datePlanifieDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.datePlanifieDataGridViewTextBoxColumn.Name = "datePlanifieDataGridViewTextBoxColumn";
-            this.datePlanifieDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // heureDebutDataGridViewTextBoxColumn
-            // 
-            this.heureDebutDataGridViewTextBoxColumn.DataPropertyName = "HeureDebut";
-            this.heureDebutDataGridViewTextBoxColumn.HeaderText = "HeureDebut";
-            this.heureDebutDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.heureDebutDataGridViewTextBoxColumn.Name = "heureDebutDataGridViewTextBoxColumn";
-            this.heureDebutDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // heureFinDataGridViewTextBoxColumn
-            // 
-            this.heureFinDataGridViewTextBoxColumn.DataPropertyName = "HeureFin";
-            this.heureFinDataGridViewTextBoxColumn.HeaderText = "HeureFin";
-            this.heureFinDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.heureFinDataGridViewTextBoxColumn.Name = "heureFinDataGridViewTextBoxColumn";
-            this.heureFinDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // idAgendaDataGridViewTextBoxColumn
-            // 
-            this.idAgendaDataGridViewTextBoxColumn.DataPropertyName = "IdAgenda";
-            this.idAgendaDataGridViewTextBoxColumn.HeaderText = "IdAgenda";
-            this.idAgendaDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.idAgendaDataGridViewTextBoxColumn.Name = "idAgendaDataGridViewTextBoxColumn";
-            this.idAgendaDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // idMedecinDataGridViewTextBoxColumn
-            // 
-            this.idMedecinDataGridViewTextBoxColumn.DataPropertyName = "IdMedecin";
-            this.idMedecinDataGridViewTextBoxColumn.HeaderText = "IdMedecin";
-            this.idMedecinDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.idMedecinDataGridViewTextBoxColumn.Name = "idMedecinDataGridViewTextBoxColumn";
-            this.idMedecinDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // lieuDataGridViewTextBoxColumn
-            // 
-            this.lieuDataGridViewTextBoxColumn.DataPropertyName = "Lieu";
-            this.lieuDataGridViewTextBoxColumn.HeaderText = "Lieu";
-            this.lieuDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.lieuDataGridViewTextBoxColumn.Name = "lieuDataGridViewTextBoxColumn";
-            this.lieuDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // medecinDataGridViewTextBoxColumn
-            // 
-            this.medecinDataGridViewTextBoxColumn.DataPropertyName = "Medecin";
-            this.medecinDataGridViewTextBoxColumn.HeaderText = "Medecin";
-            this.medecinDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.medecinDataGridViewTextBoxColumn.Name = "medecinDataGridViewTextBoxColumn";
-            this.medecinDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // titreDataGridViewTextBoxColumn
-            // 
-            this.titreDataGridViewTextBoxColumn.DataPropertyName = "Titre";
-            this.titreDataGridViewTextBoxColumn.HeaderText = "Titre";
-            this.titreDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.titreDataGridViewTextBoxColumn.Name = "titreDataGridViewTextBoxColumn";
-            this.titreDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // statutDataGridViewTextBoxColumn
-            // 
-            this.statutDataGridViewTextBoxColumn.DataPropertyName = "statut";
-            this.statutDataGridViewTextBoxColumn.HeaderText = "statut";
-            this.statutDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.statutDataGridViewTextBoxColumn.Name = "statutDataGridViewTextBoxColumn";
-            this.statutDataGridViewTextBoxColumn.Width = 125;
+            this.treeView1.Location = new System.Drawing.Point(33, 508);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(619, 432);
+            this.treeView1.TabIndex = 3;
             // 
             // frmTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1924, 952);
             this.ControlBox = false;
-            this.Controls.Add(this.dgAgenda);
+            this.Controls.Add(this.treeView1);
+            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.dtGridView1);
             this.Name = "frmTest";
             this.Text = "frmTest";
-            ((System.ComponentModel.ISupportInitialize)(this.dgAgenda)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.agendaBindingSource)).EndInit();
+            this.Load += new System.EventHandler(this.frmTest_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgAgenda;
-        private System.Windows.Forms.DataGridViewTextBoxColumn creneauDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn datePlanifieDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn heureDebutDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn heureFinDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idAgendaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idMedecinDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lieuDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn medecinDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn titreDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn statutDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource agendaBindingSource;
+        private System.Windows.Forms.DataGridView dtGridView1;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TreeView treeView1;
     }
 }

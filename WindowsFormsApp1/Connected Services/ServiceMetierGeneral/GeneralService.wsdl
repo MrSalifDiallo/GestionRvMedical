@@ -5,6 +5,7 @@
       <xsd:import schemaLocation="http://localhost:60827/Wcf/GeneralService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:60827/Wcf/GeneralService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:60827/Wcf/GeneralService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:60827/Wcf/GeneralService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MetierRvMedical.Model" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IGeneralService_GetPhoneNumbersForAutoComplete_InputMessage">
@@ -13,16 +14,35 @@
   <wsdl:message name="IGeneralService_GetPhoneNumbersForAutoComplete_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetPhoneNumbersForAutoCompleteResponse" />
   </wsdl:message>
+  <wsdl:message name="IGeneralService_GetListSoins_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListSoins" />
+  </wsdl:message>
+  <wsdl:message name="IGeneralService_GetListSoins_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListSoinsResponse" />
+  </wsdl:message>
   <wsdl:portType name="IGeneralService">
     <wsdl:operation name="GetPhoneNumbersForAutoComplete">
       <wsdl:input wsaw:Action="http://tempuri.org/IGeneralService/GetPhoneNumbersForAutoComplete" message="tns:IGeneralService_GetPhoneNumbersForAutoComplete_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGeneralService/GetPhoneNumbersForAutoCompleteResponse" message="tns:IGeneralService_GetPhoneNumbersForAutoComplete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListSoins">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeneralService/GetListSoins" message="tns:IGeneralService_GetListSoins_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeneralService/GetListSoinsResponse" message="tns:IGeneralService_GetListSoins_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IGeneralService" type="tns:IGeneralService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetPhoneNumbersForAutoComplete">
       <soap:operation soapAction="http://tempuri.org/IGeneralService/GetPhoneNumbersForAutoComplete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListSoins">
+      <soap:operation soapAction="http://tempuri.org/IGeneralService/GetListSoins" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

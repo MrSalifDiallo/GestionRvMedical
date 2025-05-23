@@ -18,5 +18,9 @@ namespace MetierRvMedical.Wcf
         List<Agenda> LoadAgenda(DateTime datetoday);
         [OperationContract]
         List<int> ListeTimeCreneau(DateTime dateRecherche);
+        [OperationContract]
+        List<Dictionary<string, object>> LoadCreneauxByDate(DateTime dateRecherche);
+        [OperationContract]
+        List<Dictionary<string, object>> CreneauxByHoraire(DateTime dateRecherche);
     }
 }

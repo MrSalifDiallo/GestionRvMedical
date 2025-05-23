@@ -28,8 +28,14 @@ namespace MetierRvMedical.Services
             return phoneDetails;
         }
 
+        public List<Soin> GetListSoins()
+        {
+            return bd.Soins.ToList();
 
-       
+        }
+
+
+
 
 
 

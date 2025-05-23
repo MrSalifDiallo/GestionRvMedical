@@ -12,8 +12,8 @@ namespace WindowsFormsApp1.View
     {
         BdRvMedicalContext bd = new BdRvMedicalContext();
         bool patientTrouve = false;
-        ServiceMetierGeneral.GeneralServiceClient serviceGeneral = new ServiceMetierGeneral.GeneralServiceClient(); // ✅ Service WCF
-        ServiceMetierPatient.PatientServiceClient servicePatient = new ServiceMetierPatient.PatientServiceClient(); // ✅ Service WCF
+        ServiceMetierGeneral.GeneralServiceClient serviceGeneral = new ServiceMetierGeneral.GeneralServiceClient(); // ✅ Service WCF for General Method
+        ServiceMetierPatient.PatientServiceClient servicePatient = new ServiceMetierPatient.PatientServiceClient(); // ✅ Service WCF for All Model Patient Method
         public frmRendezVous()
         {
             InitializeComponent();
@@ -91,7 +91,7 @@ namespace WindowsFormsApp1.View
 
         private List<SelectListView> LoadCbbSoins()
         {
-            var allSoins = bd.Soins.ToList();
+            var allSoins = serviceGeneral.GetListSoins();
             List<SelectListView> ListeSoins = new List<SelectListView>();
             SelectListView def = new SelectListView();
             def.Text = "Selectionnez un soin...";
@@ -223,32 +223,8 @@ namespace WindowsFormsApp1.View
             {
                 string phoneNumber = phoneParts[0].Trim(); // Garder uniquement le numéro de téléphone
                 cbbTelephone.Text = phoneNumber; // Mettre à jour le champ avec le numéro
-
+                UpdatePatientDetails(phoneNumber); // Mettre à jour les détails du patient
                 // Recherche du patient correspondant au numéro de téléphone
-                var patient = bd.Patients.Include(p => p.GroupeSanguin).FirstOrDefault(p => p.TEL == phoneNumber);
-
-                if (patient != null)
-                {
-                    // Si un patient est trouvé, remplir les champs
-                    patientTrouve = true;
-                    txtNomPrenom.Text = patient.NomPrenom ?? string.Empty;
-                    txtAdresse.Text = patient.Adresse ?? string.Empty;
-                    txtEmail.Text = patient.Email ?? string.Empty;
-                    txtPoids.Text = patient.Poids?.ToString() ?? string.Empty;
-                    txtTaille.Text = patient.Taille?.ToString() ?? string.Empty;
-                    // Remplir le groupe sanguin
-                    if (patient.GroupeSanguin != null)
-                    {
-                        // Sélectionner le groupe sanguin dans le ComboBox
-                        cbbGroupeSanguin.SelectedItem = patient.GroupeSanguin.CodeGroupeSanguin ?? string.Empty;
-                    }
-                }
-                else
-                {
-                    // Si aucun patient trouvé, réinitialiser les champs
-                    patientTrouve = false;
-                    ResetForm();
-                }
             }
         }
 
@@ -409,23 +385,25 @@ namespace WindowsFormsApp1.View
             if (cbbSoins.SelectedItem != null)
             {
                 SelectListView selectedItem = (SelectListView)cbbSoins.SelectedItem;
-
-                Soin selectedSoin = bd.Soins
-                    .FirstOrDefault(gs => gs.NameSoin == selectedItem.Value);
+                // Rechercher le soin correspondant dans la base de données
+                var allSoins = serviceGeneral.GetListSoins();
+                var selectedSoin = allSoins
+                                           .FirstOrDefault(gs => gs.NameSoin == selectedItem.Value);
 
                 if (selectedSoin != null)
                 {
                     txtSoin.Text = selectedSoin.Price.ToString();
                 }
-                //else
-                //{
-                //    MessageBox.Show($"1. Le soin sélectionné '{selectedSoin}' est invalide.");
-                //    return;
-                //}
+                else
+                {
+                    txtSoin.Text = string.Empty; // Réinitialiser le champ de prix
+                    return;
+                }
             }
             else
             {
                 MessageBox.Show("Veuillez sélectionner un soin.");
+                txtSoin.Text = string.Empty; // Réinitialiser le champ de prix
                 return;
             }
         }
@@ -460,5 +438,7 @@ namespace WindowsFormsApp1.View
         {
 
         }
+
+   
     }
 }

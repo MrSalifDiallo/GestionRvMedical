@@ -22,11 +22,12 @@
     <MetadataSource Address="http://localhost:60827/Wcf/GeneralService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="GeneralService.xsd" MetadataType="Schema" ID="2efbeabf-52ce-495f-8c55-4b0368d2a282" SourceId="1" SourceUrl="http://localhost:60827/Wcf/GeneralService.svc?xsd=xsd0" />
-    <MetadataFile FileName="GeneralService.wsdl" MetadataType="Wsdl" ID="0f64660b-b643-43ee-8587-029fd09014ab" SourceId="1" SourceUrl="http://localhost:60827/Wcf/GeneralService.svc?wsdl" />
-    <MetadataFile FileName="GeneralService1.xsd" MetadataType="Schema" ID="929c46a5-a02a-489e-951c-a249abb648c9" SourceId="1" SourceUrl="http://localhost:60827/Wcf/GeneralService.svc?xsd=xsd2" />
     <MetadataFile FileName="GeneralService2.xsd" MetadataType="Schema" ID="7c4d46d3-df17-4592-9ef4-d71de5e4c05a" SourceId="1" SourceUrl="http://localhost:60827/Wcf/GeneralService.svc?xsd=xsd1" />
     <MetadataFile FileName="GeneralService.disco" MetadataType="Disco" ID="59fb89c7-599b-40e7-8288-4aaaf679bf97" SourceId="1" SourceUrl="http://localhost:60827/Wcf/GeneralService.svc?disco" />
+    <MetadataFile FileName="GeneralService.xsd" MetadataType="Schema" ID="2efbeabf-52ce-495f-8c55-4b0368d2a282" SourceId="1" SourceUrl="http://localhost:60827/Wcf/GeneralService.svc?xsd=xsd0" />
+    <MetadataFile FileName="GeneralService.wsdl" MetadataType="Wsdl" ID="0f64660b-b643-43ee-8587-029fd09014ab" SourceId="1" SourceUrl="http://localhost:60827/Wcf/GeneralService.svc?wsdl" />
+    <MetadataFile FileName="GeneralService3.xsd" MetadataType="Schema" ID="d2dc7018-9cb0-42cd-86aa-8db613d592ad" SourceId="1" SourceUrl="http://localhost:60827/Wcf/GeneralService.svc?xsd=xsd3" />
+    <MetadataFile FileName="GeneralService1.xsd" MetadataType="Schema" ID="929c46a5-a02a-489e-951c-a249abb648c9" SourceId="1" SourceUrl="http://localhost:60827/Wcf/GeneralService.svc?xsd=xsd2" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

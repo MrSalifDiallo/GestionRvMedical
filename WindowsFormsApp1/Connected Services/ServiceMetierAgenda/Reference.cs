@@ -1299,6 +1299,18 @@ namespace WindowsFormsApp1.ServiceMetierAgenda {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAgendaService/ListeTimeCreneau", ReplyAction="http://tempuri.org/IAgendaService/ListeTimeCreneauResponse")]
         System.Threading.Tasks.Task<int[]> ListeTimeCreneauAsync(System.DateTime dateRecherche);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAgendaService/LoadCreneauxByDate", ReplyAction="http://tempuri.org/IAgendaService/LoadCreneauxByDateResponse")]
+        System.Collections.Generic.Dictionary<string, object>[] LoadCreneauxByDate(System.DateTime dateRecherche);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAgendaService/LoadCreneauxByDate", ReplyAction="http://tempuri.org/IAgendaService/LoadCreneauxByDateResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, object>[]> LoadCreneauxByDateAsync(System.DateTime dateRecherche);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAgendaService/CreneauxByHoraire", ReplyAction="http://tempuri.org/IAgendaService/CreneauxByHoraireResponse")]
+        System.Collections.Generic.Dictionary<string, object>[] CreneauxByHoraire(System.DateTime dateRecherche);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAgendaService/CreneauxByHoraire", ReplyAction="http://tempuri.org/IAgendaService/CreneauxByHoraireResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, object>[]> CreneauxByHoraireAsync(System.DateTime dateRecherche);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1350,6 +1362,22 @@ namespace WindowsFormsApp1.ServiceMetierAgenda {
         
         public System.Threading.Tasks.Task<int[]> ListeTimeCreneauAsync(System.DateTime dateRecherche) {
             return base.Channel.ListeTimeCreneauAsync(dateRecherche);
+        }
+        
+        public System.Collections.Generic.Dictionary<string, object>[] LoadCreneauxByDate(System.DateTime dateRecherche) {
+            return base.Channel.LoadCreneauxByDate(dateRecherche);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, object>[]> LoadCreneauxByDateAsync(System.DateTime dateRecherche) {
+            return base.Channel.LoadCreneauxByDateAsync(dateRecherche);
+        }
+        
+        public System.Collections.Generic.Dictionary<string, object>[] CreneauxByHoraire(System.DateTime dateRecherche) {
+            return base.Channel.CreneauxByHoraire(dateRecherche);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, object>[]> CreneauxByHoraireAsync(System.DateTime dateRecherche) {
+            return base.Channel.CreneauxByHoraireAsync(dateRecherche);
         }
     }
 }

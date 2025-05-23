@@ -6,6 +6,7 @@ using System.Linq;
 using MetierRvMedical.Helper;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
+using System.Data.SqlClient;
 
 namespace MetierRvMedical.Services
 {
@@ -22,6 +23,7 @@ namespace MetierRvMedical.Services
         {
             try
             {
+         
                 bd.Patients.Add(patient);
                 bd.SaveChanges();
                 return true;
@@ -74,6 +76,12 @@ namespace MetierRvMedical.Services
                 {
                     utils.WriteDataError("Invalid Operation", invalidOp.Message);
                     Utils.WriteLogSystem(invalidOp.ToString(), "InvalidOperationException");
+                }
+                /// <summary> Erreur Sql
+                else if (ex is SqlException sqlEx)
+                {
+                    utils.WriteDataError("SQL Error", sqlEx.Message);
+                    Utils.WriteLogSystem(sqlEx.ToString(), "SQL Exception");
                 }
                 else
                 {

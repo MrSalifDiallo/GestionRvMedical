@@ -1,4 +1,5 @@
-﻿using MetierRvMedical.Services;
+﻿using MetierRvMedical.Model;
+using MetierRvMedical.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,7 @@ namespace MetierRvMedical.Wcf
                 limit = 5; // Application valeur par défaut
             return metier.GetPhoneNumbersForAutoComplete(limit);
         }
-
+        public List<Soin> GetListSoins()=> metier.GetListSoins();
 
     }
 }

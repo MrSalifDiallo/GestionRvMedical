@@ -20,5 +20,11 @@ namespace MetierRvMedical.Wcf
         public void DoWork()
         {
         }
+
+        public List<Dictionary<string, object>> LoadCreneauxByDate(
+            DateTime dateRecherche) => metier.LoadCreneauxByDate(dateRecherche);
+
+        public List<Dictionary<string, object>> CreneauxByHoraire(DateTime dateRecherche)
+            => metier.CreneauxByHoraire(dateRecherche);
     }
 }

@@ -9,7 +9,118 @@
 //------------------------------------------------------------------------------
 
 namespace WindowsFormsApp1.ServiceMetierGeneral {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Soin", Namespace="http://schemas.datacontract.org/2004/07/MetierRvMedical.Model")]
+    [System.SerializableAttribute()]
+    public partial class Soin : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CategoryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DurationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdSoinField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameSoinField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int PriceField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Category {
+            get {
+                return this.CategoryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CategoryField, value) != true)) {
+                    this.CategoryField = value;
+                    this.RaisePropertyChanged("Category");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Duration {
+            get {
+                return this.DurationField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DurationField, value) != true)) {
+                    this.DurationField = value;
+                    this.RaisePropertyChanged("Duration");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IdSoin {
+            get {
+                return this.IdSoinField;
+            }
+            set {
+                if ((this.IdSoinField.Equals(value) != true)) {
+                    this.IdSoinField = value;
+                    this.RaisePropertyChanged("IdSoin");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NameSoin {
+            get {
+                return this.NameSoinField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameSoinField, value) != true)) {
+                    this.NameSoinField = value;
+                    this.RaisePropertyChanged("NameSoin");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Price {
+            get {
+                return this.PriceField;
+            }
+            set {
+                if ((this.PriceField.Equals(value) != true)) {
+                    this.PriceField = value;
+                    this.RaisePropertyChanged("Price");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceMetierGeneral.IGeneralService")]
@@ -20,6 +131,12 @@ namespace WindowsFormsApp1.ServiceMetierGeneral {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneralService/GetPhoneNumbersForAutoComplete", ReplyAction="http://tempuri.org/IGeneralService/GetPhoneNumbersForAutoCompleteResponse")]
         System.Threading.Tasks.Task<string[]> GetPhoneNumbersForAutoCompleteAsync(int limit);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneralService/GetListSoins", ReplyAction="http://tempuri.org/IGeneralService/GetListSoinsResponse")]
+        WindowsFormsApp1.ServiceMetierGeneral.Soin[] GetListSoins();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneralService/GetListSoins", ReplyAction="http://tempuri.org/IGeneralService/GetListSoinsResponse")]
+        System.Threading.Tasks.Task<WindowsFormsApp1.ServiceMetierGeneral.Soin[]> GetListSoinsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -55,6 +172,14 @@ namespace WindowsFormsApp1.ServiceMetierGeneral {
         
         public System.Threading.Tasks.Task<string[]> GetPhoneNumbersForAutoCompleteAsync(int limit) {
             return base.Channel.GetPhoneNumbersForAutoCompleteAsync(limit);
+        }
+        
+        public WindowsFormsApp1.ServiceMetierGeneral.Soin[] GetListSoins() {
+            return base.Channel.GetListSoins();
+        }
+        
+        public System.Threading.Tasks.Task<WindowsFormsApp1.ServiceMetierGeneral.Soin[]> GetListSoinsAsync() {
+            return base.Channel.GetListSoinsAsync();
         }
     }
 }

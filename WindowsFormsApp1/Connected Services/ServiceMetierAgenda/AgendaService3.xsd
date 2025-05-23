@@ -40,4 +40,32 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="LoadCreneauxByDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dateRecherche" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadCreneauxByDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="LoadCreneauxByDateResult" nillable="true" type="q3:ArrayOfArrayOfKeyValueOfstringanyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreneauxByHoraire">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dateRecherche" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreneauxByHoraireResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CreneauxByHoraireResult" nillable="true" type="q4:ArrayOfArrayOfKeyValueOfstringanyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
