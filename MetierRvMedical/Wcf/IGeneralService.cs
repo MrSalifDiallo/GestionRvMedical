@@ -17,5 +17,7 @@ namespace MetierRvMedical.Wcf
         List<string> GetPhoneNumbersForAutoComplete(int limit);
         [OperationContract]
         List<Soin> GetListSoins();
+        [OperationContract]
+        List<GroupeSanguin> GetListeGroupesSanguins();
     }
 }

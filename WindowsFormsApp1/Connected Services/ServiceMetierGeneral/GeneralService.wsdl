@@ -20,6 +20,12 @@
   <wsdl:message name="IGeneralService_GetListSoins_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetListSoinsResponse" />
   </wsdl:message>
+  <wsdl:message name="IGeneralService_GetListeGroupesSanguins_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListeGroupesSanguins" />
+  </wsdl:message>
+  <wsdl:message name="IGeneralService_GetListeGroupesSanguins_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListeGroupesSanguinsResponse" />
+  </wsdl:message>
   <wsdl:portType name="IGeneralService">
     <wsdl:operation name="GetPhoneNumbersForAutoComplete">
       <wsdl:input wsaw:Action="http://tempuri.org/IGeneralService/GetPhoneNumbersForAutoComplete" message="tns:IGeneralService_GetPhoneNumbersForAutoComplete_InputMessage" />
@@ -28,6 +34,10 @@
     <wsdl:operation name="GetListSoins">
       <wsdl:input wsaw:Action="http://tempuri.org/IGeneralService/GetListSoins" message="tns:IGeneralService_GetListSoins_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGeneralService/GetListSoinsResponse" message="tns:IGeneralService_GetListSoins_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListeGroupesSanguins">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeneralService/GetListeGroupesSanguins" message="tns:IGeneralService_GetListeGroupesSanguins_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeneralService/GetListeGroupesSanguinsResponse" message="tns:IGeneralService_GetListeGroupesSanguins_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IGeneralService" type="tns:IGeneralService">
@@ -43,6 +53,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetListSoins">
       <soap:operation soapAction="http://tempuri.org/IGeneralService/GetListSoins" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListeGroupesSanguins">
+      <soap:operation soapAction="http://tempuri.org/IGeneralService/GetListeGroupesSanguins" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

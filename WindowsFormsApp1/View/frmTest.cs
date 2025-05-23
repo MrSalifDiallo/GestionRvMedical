@@ -37,7 +37,7 @@ namespace WindowsFormsApp1.View
             dtGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 
             //For ListView
-            ChargerDonneesBrutes();
+            ChargerDonneesBrutes(listView1);
             //listView1.View = System.Windows.Forms.View.Details;
             //listView1.Columns.Add("Creneau", 70);
             //listView1.Columns.Add("Horaire", 120);
@@ -114,18 +114,19 @@ namespace WindowsFormsApp1.View
 
         }
 
-        private void ChargerDonneesBrutes()
+        private void ChargerDonneesBrutes(ListView listView)
         {
-            listView1.Items.Clear();
-            listView1.View = System.Windows.Forms.View.Details;
-            listView1.FullRowSelect = true;
+            listView.Items.Clear();
+            listView.View = System.Windows.Forms.View.Details;
+            listView.FullRowSelect = true;
+
             // Colonnes
-            listView1.Columns.Clear();
-            listView1.Columns.Add("Creneau", 100);
-            listView1.Columns.Add("Horaire", 75);
-            listView1.Columns.Add("Nombre", 49);
-            listView1.Columns.Add("Disponible", 100);
-            listView1.Columns.Add("Occupé", 100);
+            listView.Columns.Clear();
+            listView.Columns.Add("Creneau", 100);
+            listView.Columns.Add("Horaire", 75);
+            listView.Columns.Add("Nombre", 49);
+            listView.Columns.Add("Disponible", 100);
+            listView.Columns.Add("Occupé", 100);
 
             DateTime date = new DateTime(2025, 5, 21);
 
@@ -133,22 +134,19 @@ namespace WindowsFormsApp1.View
 
             foreach (var typeCreneau in typesCreneaux)
             {
-                // Récupère uniquement les créneaux de ce type-là
                 var tousCreneaux = serviceAgenda.CreneauxByHoraire(date)
                                      .Where(c => c["TimeCreneau"].ToString() == typeCreneau.ToString())
                                      .ToList();
 
                 if (tousCreneaux.Count == 0)
                     continue;
+
                 int indexTitre = tousCreneaux.Count / 2;
 
                 for (int i = 0; i < tousCreneaux.Count; i++)
                 {
                     var creneau = tousCreneaux[i];
-
                     var texteCreneau = (i == indexTitre) ? $"{typeCreneau} min" : "";
-                    //string dispoTexte = Convert.ToBoolean(creneau["estOccupe"]) ? "Occupé(" + creneau["libre"]+")" : "Libre";
-                    //string occupeTexte = Convert.ToBoolean(creneau["estOccupe"]) ? "Libre" : "Occupé"; 
 
                     int libre = Convert.ToInt32(creneau["libre"]);
                     int occupe = Convert.ToInt32(creneau["occupe"]);
@@ -158,132 +156,134 @@ namespace WindowsFormsApp1.View
 
                     var item = new ListViewItem(new[]
                     {
-                        texteCreneau,
-                        creneau["horaire"].ToString(),
-                        creneau["nombre"].ToString(),
-                        dispoTexte,
-                        occupeTexte,// Colonne "Disponible" vide ici, à adapter si nécessaire
-                    });
+                texteCreneau,
+                creneau["horaire"].ToString(),
+                creneau["nombre"].ToString(),
+                dispoTexte,
+                occupeTexte,
+            });
 
                     item.UseItemStyleForSubItems = false;
 
-                    // Si c’est la ligne titre
                     if (i == indexTitre)
                     {
                         item.SubItems[0].ForeColor = Color.Black;
-                        item.SubItems[0].Font = new Font(listView1.Font, FontStyle.Bold);
+                        item.SubItems[0].Font = new Font(listView.Font, FontStyle.Bold);
                     }
 
-                    // Appliquer une couleur en fonction du "nombre" (optionnel)
-                    bool estOccupe = Convert.ToBoolean(creneau["estOccupe"]);
-                    Color dispoColor = libre<1 ? Color.Red : Color.Green;
+                    Color dispoColor = libre < 1 ? Color.Red : Color.Green;
 
-                    for (int col = 1; col <= item.SubItems.Count-1; col++)
+                    for (int col = 1; col <= item.SubItems.Count - 1; col++)
                     {
                         item.SubItems[col].ForeColor = dispoColor;
                     }
 
-                    listView1.Items.Add(item);
+                    listView.Items.Add(item);
                 }
 
                 // Ligne de séparation
                 var separator = new ListViewItem(new[]
                 {
-                    "────────────", "────────────────────────", "────────────", "────────────"
-                });
+            "────────────", "────────────────────────", "────────────", "────────────", "────────────"
+        });
                 separator.ForeColor = Color.Gray;
-                separator.Font = new Font(listView1.Font, FontStyle.Italic);
-                listView1.Items.Add(separator);
+                separator.Font = new Font(listView.Font, FontStyle.Italic);
+                listView.Items.Add(separator);
             }
+        }
+
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
 
 
 
-    //        // -------- Données 15 min --------
-    //        var items15 = new List<string[]>
-    //{
-    //    new[] { "", "08h00 - 08h15", "Dr. Kouadio", "Non" },
-    //    new[] { "", "08h15 - 08h30", "Dr. Kouadio", "Oui" },
-    //    new[] { "", "08h30 - 08h45", "Dr. Kouadio", "Non" },
-    //    new[] { "", "08h45 - 09h00", "Dr. Kouadio", "Oui" }
-    //};
-    //        //items15.Add(new[] { "", "09h00 - 09h15", "Dr. Kouadio", "Non" });
+        //        // -------- Données 15 min --------
+        //        var items15 = new List<string[]>
+        //{
+        //    new[] { "", "08h00 - 08h15", "Dr. Kouadio", "Non" },
+        //    new[] { "", "08h15 - 08h30", "Dr. Kouadio", "Oui" },
+        //    new[] { "", "08h30 - 08h45", "Dr. Kouadio", "Non" },
+        //    new[] { "", "08h45 - 09h00", "Dr. Kouadio", "Oui" }
+        //};
+        //        //items15.Add(new[] { "", "09h00 - 09h15", "Dr. Kouadio", "Non" });
 
 
-    //        int index15 = items15.Count / 2; // fonctionne bien pour impair et pair
-    //        items15[index15][0] = "15 min"; // Ajouter uniquement sur une ligne existante
+        //        int index15 = items15.Count / 2; // fonctionne bien pour impair et pair
+        //        items15[index15][0] = "15 min"; // Ajouter uniquement sur une ligne existante
 
-    //        for (int i = 0; i < items15.Count; i++)
-    //        {
-    //            var ligne = items15[i];
-    //            var item = new ListViewItem(ligne);
-    //            item.UseItemStyleForSubItems = false;
+        //        for (int i = 0; i < items15.Count; i++)
+        //        {
+        //            var ligne = items15[i];
+        //            var item = new ListViewItem(ligne);
+        //            item.UseItemStyleForSubItems = false;
 
-    //            // Ligne du titre du creneau
-    //            if (i == index15)
-    //            {
-    //                // Colonne 0 (Creneau) en noir gras
-    //                item.SubItems[0].ForeColor = Color.Black;
-    //                item.SubItems[0].Font = new Font(listView1.Font, FontStyle.Bold);
-    //            }
+        //            // Ligne du titre du creneau
+        //            if (i == index15)
+        //            {
+        //                // Colonne 0 (Creneau) en noir gras
+        //                item.SubItems[0].ForeColor = Color.Black;
+        //                item.SubItems[0].Font = new Font(listView1.Font, FontStyle.Bold);
+        //            }
 
-    //            // Appliquer la couleur rouge/verte sur colonnes 1 à 3
-    //            Color dispoColor = ligne[3] == "Non" ? Color.Red : Color.Green;
+        //            // Appliquer la couleur rouge/verte sur colonnes 1 à 3
+        //            Color dispoColor = ligne[3] == "Non" ? Color.Red : Color.Green;
 
-    //            for (int col = 1; col <= 3; col++)
-    //            {
-    //                item.SubItems[col].ForeColor = dispoColor;
-    //            }
+        //            for (int col = 1; col <= 3; col++)
+        //            {
+        //                item.SubItems[col].ForeColor = dispoColor;
+        //            }
 
-    //            listView1.Items.Add(item);
-    //        }
-
-
-
-    //        // Ligne de séparation (trait visuel)
-    //        var separator = new ListViewItem(new[] { "────────────", "────────────────────────", "────────────────────────", "────────────" });
-    //        separator.ForeColor = Color.Gray;
-    //        separator.Font = new Font(listView1.Font, FontStyle.Italic);
-    //        listView1.Items.Add(separator);
+        //            listView1.Items.Add(item);
+        //        }
 
 
-    //        // -------- Données 30 min --------
-    //        var items30 = new List<string[]>
-    //{
-    //    new[] { "", "09h00 - 09h30", "Dr. Konan", "Non" },
-    //    new[] { "", "09h30 - 10h00", "Dr. Konan", "Oui" }
-    //};
 
-    //        int index30 = items30.Count / 2;
-    //        items30[index30][0] = "30 min";
+        //        // Ligne de séparation (trait visuel)
+        //        var separator = new ListViewItem(new[] { "────────────", "────────────────────────", "────────────────────────", "────────────" });
+        //        separator.ForeColor = Color.Gray;
+        //        separator.Font = new Font(listView1.Font, FontStyle.Italic);
+        //        listView1.Items.Add(separator);
 
-    //        for (int i = 0; i < items30.Count; i++)
-    //        {
-    //            var ligne = items30[i];
-    //            var item = new ListViewItem(ligne);
-    //            item.UseItemStyleForSubItems = false;
 
-    //            // Ligne du titre du creneau
-    //            if (i == index30)
-    //            {
-    //                // Colonne 0 (Creneau) en noir gras
-    //                item.SubItems[0].ForeColor = Color.Black;
-    //                item.SubItems[0].Font = new Font(listView1.Font, FontStyle.Bold);
-    //            }
+        //        // -------- Données 30 min --------
+        //        var items30 = new List<string[]>
+        //{
+        //    new[] { "", "09h00 - 09h30", "Dr. Konan", "Non" },
+        //    new[] { "", "09h30 - 10h00", "Dr. Konan", "Oui" }
+        //};
 
-    //            // Appliquer la couleur rouge/verte sur colonnes 1 à 3
-    //            Color dispoColor = ligne[3] == "Non" ? Color.Red : Color.Green;
+        //        int index30 = items30.Count / 2;
+        //        items30[index30][0] = "30 min";
 
-    //            for (int col = 1; col <= 3; col++)
-    //            {
-    //                item.SubItems[col].ForeColor = dispoColor;
-    //            }
+        //        for (int i = 0; i < items30.Count; i++)
+        //        {
+        //            var ligne = items30[i];
+        //            var item = new ListViewItem(ligne);
+        //            item.UseItemStyleForSubItems = false;
 
-    //            listView1.Items.Add(item);
-    //        }
+        //            // Ligne du titre du creneau
+        //            if (i == index30)
+        //            {
+        //                // Colonne 0 (Creneau) en noir gras
+        //                item.SubItems[0].ForeColor = Color.Black;
+        //                item.SubItems[0].Font = new Font(listView1.Font, FontStyle.Bold);
+        //            }
 
-    //    }
+        //            // Appliquer la couleur rouge/verte sur colonnes 1 à 3
+        //            Color dispoColor = ligne[3] == "Non" ? Color.Red : Color.Green;
+
+        //            for (int col = 1; col <= 3; col++)
+        //            {
+        //                item.SubItems[col].ForeColor = dispoColor;
+        //            }
+
+        //            listView1.Items.Add(item);
+        //        }
+
+        //    }
 
     }
 }

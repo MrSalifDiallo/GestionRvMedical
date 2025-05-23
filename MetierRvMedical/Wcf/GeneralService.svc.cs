@@ -23,6 +23,7 @@ namespace MetierRvMedical.Wcf
             return metier.GetPhoneNumbersForAutoComplete(limit);
         }
         public List<Soin> GetListSoins()=> metier.GetListSoins();
+        public List<GroupeSanguin> GetListeGroupesSanguins() => metier.GetListeGroupesSanguins();
 
     }
 }

@@ -28,4 +28,16 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetListeGroupesSanguins">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListeGroupesSanguinsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/MetierRvMedical.Model" minOccurs="0" name="GetListeGroupesSanguinsResult" nillable="true" type="q3:ArrayOfGroupeSanguin" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

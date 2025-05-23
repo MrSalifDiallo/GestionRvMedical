@@ -5,6 +5,7 @@ using System.Data.Entity;
 using WindowsFormsApp1.Model;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Drawing;
 
 namespace WindowsFormsApp1.View
 {
@@ -14,6 +15,8 @@ namespace WindowsFormsApp1.View
         bool patientTrouve = false;
         ServiceMetierGeneral.GeneralServiceClient serviceGeneral = new ServiceMetierGeneral.GeneralServiceClient(); // ✅ Service WCF for General Method
         ServiceMetierPatient.PatientServiceClient servicePatient = new ServiceMetierPatient.PatientServiceClient(); // ✅ Service WCF for All Model Patient Method
+        ServiceMetierAgenda.AgendaServiceClient serviceAgenda = new ServiceMetierAgenda.AgendaServiceClient(); // ✅ Service WCF
+
         public frmRendezVous()
         {
             InitializeComponent();
@@ -27,7 +30,7 @@ namespace WindowsFormsApp1.View
             this.ShowIcon = false;    // Supprimer l'icône
             this.ShowInTaskbar = false; // Ne pas afficher dans la barre des tâches
             txtSoin.Enabled = false;  // Désactivation du champ de prix
-            panel2.Visible = false;
+            //panel2.Visible = false;
             pnlimpression.Visible = false;
         }
 
@@ -35,8 +38,11 @@ namespace WindowsFormsApp1.View
         {
             ResetForm();
             DateTime selectedDate = dtRendezVous.Value.Date;
+            GetTableCreneau(listView1, selectedDate);
+            lblMessageCreneaux.Text = $"Créneaux disponibles pour le {selectedDate.ToShortDateString()} :";
             LoadPhoneNumbers();
-            LoadAgenda(selectedDate);
+            serviceAgenda.LoadAgenda(selectedDate);
+            //LoadAgenda(selectedDate);
             LoadBloodGroups();  // Charger les groupes sanguins
             cbbSoins.DataSource = LoadCbbSoins();
             cbbSoins.DisplayMember = "Text";  // Ce que tu veux afficher dans le ComboBox
@@ -79,7 +85,8 @@ namespace WindowsFormsApp1.View
         private void LoadBloodGroups()
         {
             // Récupérer tous les groupes sanguins depuis la base de données
-            var bloodGroups = bd.GroupeSanguins.ToList();
+
+            var bloodGroups = serviceGeneral.GetListeGroupesSanguins();
 
             // Ajouter chaque groupe sanguin au ComboBox
             cbbGroupeSanguin.Items.Clear();  // Effacer les anciens items, si nécessaires
@@ -178,7 +185,7 @@ namespace WindowsFormsApp1.View
         {
             // Validation ou enregistrement des données si nécessaire
             MessageBox.Show("Données validées.");
-            panel2.Visible = true;
+            //panel2.Visible = true;
             pnlimpression.Visible = true;
         }
 
@@ -318,15 +325,15 @@ namespace WindowsFormsApp1.View
         }
 
 
-        private void LoadAgenda(DateTime datetoday)
-        {
-            var agenda = bd.Agendas.Select(a => new
-            {
-                a.HeureDebut,
-                a.HeureFin,
-                a.DatePlanifie
-            }).Where(a => a.DatePlanifie==datetoday).ToList();
-        }
+        //private void LoadAgenda(DateTime datetoday)
+        //{
+        //    var agenda = bd.Agendas.Select(a => new
+        //    {
+        //        a.HeureDebut,
+        //        a.HeureFin,
+        //        a.DatePlanifie
+        //    }).Where(a => a.DatePlanifie==datetoday).ToList();
+        //}
 
 
         private List<SelectListView> LoadCbbTimeCreneaux(DateTime date)
@@ -439,6 +446,104 @@ namespace WindowsFormsApp1.View
 
         }
 
-   
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+           
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void GetTableCreneau(ListView listView,DateTime date)
+        {
+            listView.Items.Clear();
+            listView.View = System.Windows.Forms.View.Details;
+            listView.FullRowSelect = true;
+
+            // Colonnes
+            listView.Columns.Clear();
+            listView.Columns.Add("Creneau", 100);
+            listView.Columns.Add("Horaire", 75);
+            listView.Columns.Add("Nombre", 49);
+            listView.Columns.Add("Disponible", 100);
+            listView.Columns.Add("Occupé", 100);
+
+
+            var typesCreneaux = serviceAgenda.ListeTimeCreneau(date);
+
+            foreach (var typeCreneau in typesCreneaux)
+            {
+                var tousCreneaux = serviceAgenda.CreneauxByHoraire(date)
+                                     .Where(c => c["TimeCreneau"].ToString() == typeCreneau.ToString())
+                                     .ToList();
+
+                if (tousCreneaux.Count == 0)
+                    continue;
+
+                int indexTitre = tousCreneaux.Count / 2;
+
+                for (int i = 0; i < tousCreneaux.Count; i++)
+                {
+                    var creneau = tousCreneaux[i];
+                    var texteCreneau = (i == indexTitre) ? $"{typeCreneau} min" : "";
+
+                    int libre = Convert.ToInt32(creneau["libre"]);
+                    int occupe = Convert.ToInt32(creneau["occupe"]);
+
+                    string dispoTexte = $"{libre} libre(s)";
+                    string occupeTexte = $"{occupe} occupé(s)";
+
+                    var item = new ListViewItem(new[]
+                    {
+                texteCreneau,
+                creneau["horaire"].ToString(),
+                creneau["nombre"].ToString(),
+                dispoTexte,
+                occupeTexte,
+            });
+
+                    item.UseItemStyleForSubItems = false;
+
+                    if (i == indexTitre)
+                    {
+                        item.SubItems[0].ForeColor = Color.Black;
+                        item.SubItems[0].Font = new Font(listView.Font, FontStyle.Bold);
+                    }
+
+                    Color dispoColor = libre < 1 ? Color.Red : Color.Green;
+
+                    for (int col = 1; col <= item.SubItems.Count - 1; col++)
+                    {
+                        item.SubItems[col].ForeColor = dispoColor;
+                    }
+
+                    listView.Items.Add(item);
+                }
+
+                // Ligne de séparation
+                var separator = new ListViewItem(new[]
+                {
+            "────────────", "────────────────────────", "────────────", "────────────", "────────────"
+        });
+                separator.ForeColor = Color.Gray;
+                separator.Font = new Font(listView.Font, FontStyle.Italic);
+                listView.Items.Add(separator);
+            }
+        }
+
+        private void dtRendezVous_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime selectedDate = dtRendezVous.Value.Date;
+            lblMessageCreneaux.Text = $"Créneaux disponibles pour le {selectedDate.ToShortDateString()} :";
+            GetTableCreneau(listView1, selectedDate);
+        }
     }
 }

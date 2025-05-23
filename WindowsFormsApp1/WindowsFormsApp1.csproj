@@ -310,6 +310,9 @@
     <None Include="Connected Services\ServiceMetierGeneral\GeneralService3.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\ServiceMetierGeneral\WindowsFormsApp1.ServiceMetierGeneral.GroupeSanguin.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ServiceMetierGeneral\WindowsFormsApp1.ServiceMetierGeneral.Soin.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

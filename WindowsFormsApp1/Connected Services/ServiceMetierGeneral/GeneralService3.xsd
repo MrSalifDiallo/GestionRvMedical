@@ -16,4 +16,18 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Soin" nillable="true" type="tns:Soin" />
+  <xs:complexType name="ArrayOfGroupeSanguin">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GroupeSanguin" nillable="true" type="tns:GroupeSanguin" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGroupeSanguin" nillable="true" type="tns:ArrayOfGroupeSanguin" />
+  <xs:complexType name="GroupeSanguin">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodeGroupeSanguin" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdGroupeSanguin" type="xs:int" />
+      <xs:element minOccurs="0" name="NomGroupeSanguin" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GroupeSanguin" nillable="true" type="tns:GroupeSanguin" />
 </xs:schema>

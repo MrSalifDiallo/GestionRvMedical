@@ -122,6 +122,83 @@ namespace WindowsFormsApp1.ServiceMetierGeneral {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GroupeSanguin", Namespace="http://schemas.datacontract.org/2004/07/MetierRvMedical.Model")]
+    [System.SerializableAttribute()]
+    public partial class GroupeSanguin : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CodeGroupeSanguinField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdGroupeSanguinField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NomGroupeSanguinField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CodeGroupeSanguin {
+            get {
+                return this.CodeGroupeSanguinField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodeGroupeSanguinField, value) != true)) {
+                    this.CodeGroupeSanguinField = value;
+                    this.RaisePropertyChanged("CodeGroupeSanguin");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IdGroupeSanguin {
+            get {
+                return this.IdGroupeSanguinField;
+            }
+            set {
+                if ((this.IdGroupeSanguinField.Equals(value) != true)) {
+                    this.IdGroupeSanguinField = value;
+                    this.RaisePropertyChanged("IdGroupeSanguin");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NomGroupeSanguin {
+            get {
+                return this.NomGroupeSanguinField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NomGroupeSanguinField, value) != true)) {
+                    this.NomGroupeSanguinField = value;
+                    this.RaisePropertyChanged("NomGroupeSanguin");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceMetierGeneral.IGeneralService")]
     public interface IGeneralService {
@@ -137,6 +214,12 @@ namespace WindowsFormsApp1.ServiceMetierGeneral {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneralService/GetListSoins", ReplyAction="http://tempuri.org/IGeneralService/GetListSoinsResponse")]
         System.Threading.Tasks.Task<WindowsFormsApp1.ServiceMetierGeneral.Soin[]> GetListSoinsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneralService/GetListeGroupesSanguins", ReplyAction="http://tempuri.org/IGeneralService/GetListeGroupesSanguinsResponse")]
+        WindowsFormsApp1.ServiceMetierGeneral.GroupeSanguin[] GetListeGroupesSanguins();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneralService/GetListeGroupesSanguins", ReplyAction="http://tempuri.org/IGeneralService/GetListeGroupesSanguinsResponse")]
+        System.Threading.Tasks.Task<WindowsFormsApp1.ServiceMetierGeneral.GroupeSanguin[]> GetListeGroupesSanguinsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -180,6 +263,14 @@ namespace WindowsFormsApp1.ServiceMetierGeneral {
         
         public System.Threading.Tasks.Task<WindowsFormsApp1.ServiceMetierGeneral.Soin[]> GetListSoinsAsync() {
             return base.Channel.GetListSoinsAsync();
+        }
+        
+        public WindowsFormsApp1.ServiceMetierGeneral.GroupeSanguin[] GetListeGroupesSanguins() {
+            return base.Channel.GetListeGroupesSanguins();
+        }
+        
+        public System.Threading.Tasks.Task<WindowsFormsApp1.ServiceMetierGeneral.GroupeSanguin[]> GetListeGroupesSanguinsAsync() {
+            return base.Channel.GetListeGroupesSanguinsAsync();
         }
     }
 }

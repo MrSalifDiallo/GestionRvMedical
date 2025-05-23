@@ -34,6 +34,11 @@ namespace MetierRvMedical.Services
 
         }
 
+        public List<GroupeSanguin> GetListeGroupesSanguins()
+        {
+            return bd.GroupeSanguins.ToList();
+        }
+
 
 
 

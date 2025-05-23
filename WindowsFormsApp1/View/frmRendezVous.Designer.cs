@@ -46,7 +46,6 @@
             this.cbbTelephone = new System.Windows.Forms.ComboBox();
             this.btnRenitialiser = new System.Windows.Forms.Button();
             this.btnValider = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.txtSoin = new System.Windows.Forms.TextBox();
             this.lblSoin = new System.Windows.Forms.Label();
@@ -58,20 +57,43 @@
             this.cbbDureeCreneaux = new System.Windows.Forms.ComboBox();
             this.dtRendezVous = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.btnImpression = new System.Windows.Forms.Button();
-            this.pnlimpression = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.lblMessageCreneaux = new System.Windows.Forms.Label();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnlimpression = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel10.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.panel2.SuspendLayout();
             this.pnlimpression.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.AutoSize = true;
+            this.panel1.BackColor = System.Drawing.Color.Gray;
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.lblNomPrenom);
@@ -89,9 +111,9 @@
             this.panel1.Controls.Add(this.cbbTelephone);
             this.panel1.Controls.Add(this.btnRenitialiser);
             this.panel1.Controls.Add(this.btnValider);
-            this.panel1.Location = new System.Drawing.Point(35, 22);
+            this.panel1.Location = new System.Drawing.Point(30, 30);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(352, 572);
+            this.panel1.Size = new System.Drawing.Size(333, 614);
             this.panel1.TabIndex = 72;
             // 
             // label3
@@ -107,13 +129,14 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(35, 17);
+            this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(11, 17);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(159, 18);
+            this.label2.Size = new System.Drawing.Size(236, 29);
             this.label2.TabIndex = 81;
             this.label2.Text = "Informations Patient";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // lblNomPrenom
             // 
@@ -171,7 +194,7 @@
             // lblPoids
             // 
             this.lblPoids.AutoSize = true;
-            this.lblPoids.Location = new System.Drawing.Point(13, 406);
+            this.lblPoids.Location = new System.Drawing.Point(188, 353);
             this.lblPoids.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPoids.Name = "lblPoids";
             this.lblPoids.Size = new System.Drawing.Size(42, 16);
@@ -190,10 +213,10 @@
             // 
             // txtPoids
             // 
-            this.txtPoids.Location = new System.Drawing.Point(13, 433);
+            this.txtPoids.Location = new System.Drawing.Point(191, 373);
             this.txtPoids.Margin = new System.Windows.Forms.Padding(4);
             this.txtPoids.Name = "txtPoids";
-            this.txtPoids.Size = new System.Drawing.Size(309, 22);
+            this.txtPoids.Size = new System.Drawing.Size(131, 22);
             this.txtPoids.TabIndex = 7;
             // 
             // lblGroupeeSanguin
@@ -209,7 +232,7 @@
             // lblTaille
             // 
             this.lblTaille.AutoSize = true;
-            this.lblTaille.Location = new System.Drawing.Point(13, 346);
+            this.lblTaille.Location = new System.Drawing.Point(13, 353);
             this.lblTaille.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTaille.Name = "lblTaille";
             this.lblTaille.Size = new System.Drawing.Size(41, 16);
@@ -221,7 +244,7 @@
             this.txtTaille.Location = new System.Drawing.Point(13, 373);
             this.txtTaille.Margin = new System.Windows.Forms.Padding(4);
             this.txtTaille.Name = "txtTaille";
-            this.txtTaille.Size = new System.Drawing.Size(309, 22);
+            this.txtTaille.Size = new System.Drawing.Size(131, 22);
             this.txtTaille.TabIndex = 6;
             // 
             // cbbTelephone
@@ -257,33 +280,10 @@
             this.btnValider.UseVisualStyleBackColor = false;
             this.btnValider.Click += new System.EventHandler(this.btnValider_Click);
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.txtSoin);
-            this.panel2.Controls.Add(this.lblSoin);
-            this.panel2.Controls.Add(this.cbbSoins);
-            this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.cbbMedecin);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.cbbCreneauHoraire);
-            this.panel2.Controls.Add(this.cbbDureeCreneaux);
-            this.panel2.Controls.Add(this.dtRendezVous);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Location = new System.Drawing.Point(478, 22);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(352, 572);
-            this.panel2.TabIndex = 83;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(13, 291);
+            this.label8.Location = new System.Drawing.Point(295, 166);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(29, 16);
@@ -292,17 +292,16 @@
             // 
             // txtSoin
             // 
-            this.txtSoin.Location = new System.Drawing.Point(16, 311);
+            this.txtSoin.Location = new System.Drawing.Point(298, 186);
             this.txtSoin.Margin = new System.Windows.Forms.Padding(4);
             this.txtSoin.Name = "txtSoin";
-            this.txtSoin.Size = new System.Drawing.Size(233, 22);
+            this.txtSoin.Size = new System.Drawing.Size(228, 22);
             this.txtSoin.TabIndex = 83;
-            this.txtSoin.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // lblSoin
             // 
             this.lblSoin.AutoSize = true;
-            this.lblSoin.Location = new System.Drawing.Point(13, 231);
+            this.lblSoin.Location = new System.Drawing.Point(5, 164);
             this.lblSoin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSoin.Name = "lblSoin";
             this.lblSoin.Size = new System.Drawing.Size(34, 16);
@@ -312,17 +311,16 @@
             // cbbSoins
             // 
             this.cbbSoins.FormattingEnabled = true;
-            this.cbbSoins.Location = new System.Drawing.Point(13, 251);
+            this.cbbSoins.Location = new System.Drawing.Point(8, 184);
             this.cbbSoins.Margin = new System.Windows.Forms.Padding(4);
             this.cbbSoins.Name = "cbbSoins";
-            this.cbbSoins.Size = new System.Drawing.Size(236, 24);
+            this.cbbSoins.Size = new System.Drawing.Size(228, 24);
             this.cbbSoins.TabIndex = 88;
-            this.cbbSoins.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(13, 351);
+            this.label7.Location = new System.Drawing.Point(5, 109);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(59, 16);
@@ -332,16 +330,16 @@
             // cbbMedecin
             // 
             this.cbbMedecin.FormattingEnabled = true;
-            this.cbbMedecin.Location = new System.Drawing.Point(13, 371);
+            this.cbbMedecin.Location = new System.Drawing.Point(8, 129);
             this.cbbMedecin.Margin = new System.Windows.Forms.Padding(4);
             this.cbbMedecin.Name = "cbbMedecin";
-            this.cbbMedecin.Size = new System.Drawing.Size(236, 24);
+            this.cbbMedecin.Size = new System.Drawing.Size(228, 24);
             this.cbbMedecin.TabIndex = 86;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 164);
+            this.label6.Location = new System.Drawing.Point(295, 111);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(106, 16);
@@ -351,126 +349,287 @@
             // cbbCreneauHoraire
             // 
             this.cbbCreneauHoraire.FormattingEnabled = true;
-            this.cbbCreneauHoraire.Location = new System.Drawing.Point(13, 184);
+            this.cbbCreneauHoraire.Location = new System.Drawing.Point(298, 129);
             this.cbbCreneauHoraire.Margin = new System.Windows.Forms.Padding(4);
             this.cbbCreneauHoraire.Name = "cbbCreneauHoraire";
-            this.cbbCreneauHoraire.Size = new System.Drawing.Size(236, 24);
+            this.cbbCreneauHoraire.Size = new System.Drawing.Size(228, 24);
             this.cbbCreneauHoraire.TabIndex = 84;
             // 
             // cbbDureeCreneaux
             // 
             this.cbbDureeCreneaux.FormattingEnabled = true;
-            this.cbbDureeCreneaux.Location = new System.Drawing.Point(13, 133);
+            this.cbbDureeCreneaux.Location = new System.Drawing.Point(298, 62);
             this.cbbDureeCreneaux.Margin = new System.Windows.Forms.Padding(4);
             this.cbbDureeCreneaux.Name = "cbbDureeCreneaux";
-            this.cbbDureeCreneaux.Size = new System.Drawing.Size(236, 24);
+            this.cbbDureeCreneaux.Size = new System.Drawing.Size(228, 24);
             this.cbbDureeCreneaux.TabIndex = 83;
             // 
             // dtRendezVous
             // 
-            this.dtRendezVous.Location = new System.Drawing.Point(13, 71);
+            this.dtRendezVous.Location = new System.Drawing.Point(8, 64);
             this.dtRendezVous.Name = "dtRendezVous";
-            this.dtRendezVous.Size = new System.Drawing.Size(236, 22);
+            this.dtRendezVous.Size = new System.Drawing.Size(228, 22);
             this.dtRendezVous.TabIndex = 83;
-            this.dtRendezVous.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.dtRendezVous.ValueChanged += new System.EventHandler(this.dtRendezVous_ValueChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 50);
+            this.label1.Location = new System.Drawing.Point(5, 43);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(121, 16);
             this.label1.TabIndex = 82;
             this.label1.Text = "Date Rendez-Vous";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(35, 17);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(207, 18);
-            this.label4.TabIndex = 81;
-            this.label4.Text = "Informations Rendez Vous";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 113);
+            this.label5.Location = new System.Drawing.Point(295, 43);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(98, 16);
             this.label5.TabIndex = 80;
             this.label5.Text = "Durée Créneau";
             // 
-            // button1
+            // panel3
             // 
-            this.button1.BackColor = System.Drawing.Color.Red;
-            this.button1.Location = new System.Drawing.Point(183, 519);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 32);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "&Renitialiser";
-            this.button1.UseVisualStyleBackColor = false;
+            this.panel3.AutoSize = true;
+            this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.Controls.Add(this.panel4);
+            this.panel3.Controls.Add(this.panel1);
+            this.panel3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.panel3.Location = new System.Drawing.Point(2, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1536, 659);
+            this.panel3.TabIndex = 94;
             // 
-            // button2
+            // panel4
             // 
-            this.button2.BackColor = System.Drawing.Color.Lime;
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button2.Location = new System.Drawing.Point(38, 519);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(112, 32);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "&Valider";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.panel4.AutoSize = true;
+            this.panel4.BackColor = System.Drawing.Color.Gray;
+            this.panel4.Controls.Add(this.panel7);
+            this.panel4.Controls.Add(this.panel10);
+            this.panel4.Controls.Add(this.panel2);
+            this.panel4.Controls.Add(this.panel5);
+            this.panel4.Location = new System.Drawing.Point(362, 30);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1171, 617);
+            this.panel4.TabIndex = 94;
             // 
-            // btnImpression
+            // panel7
             // 
-            this.btnImpression.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnImpression.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnImpression.Location = new System.Drawing.Point(25, 42);
-            this.btnImpression.Name = "btnImpression";
-            this.btnImpression.Size = new System.Drawing.Size(152, 32);
-            this.btnImpression.TabIndex = 91;
-            this.btnImpression.Text = "&Impression";
-            this.btnImpression.UseVisualStyleBackColor = false;
-            this.btnImpression.Click += new System.EventHandler(this.btnImpression_Click);
+            this.panel7.BackColor = System.Drawing.Color.Transparent;
+            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel7.CausesValidation = false;
+            this.panel7.Controls.Add(this.lblMessageCreneaux);
+            this.panel7.Controls.Add(this.listView1);
+            this.panel7.Location = new System.Drawing.Point(7, 266);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(562, 329);
+            this.panel7.TabIndex = 96;
             // 
-            // pnlimpression
+            // lblMessageCreneaux
             // 
-            this.pnlimpression.Controls.Add(this.label9);
-            this.pnlimpression.Controls.Add(this.btnImpression);
-            this.pnlimpression.Location = new System.Drawing.Point(904, 22);
-            this.pnlimpression.Name = "pnlimpression";
-            this.pnlimpression.Size = new System.Drawing.Size(200, 100);
-            this.pnlimpression.TabIndex = 92;
+            this.lblMessageCreneaux.AutoSize = true;
+            this.lblMessageCreneaux.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMessageCreneaux.Location = new System.Drawing.Point(3, 5);
+            this.lblMessageCreneaux.Name = "lblMessageCreneaux";
+            this.lblMessageCreneaux.Size = new System.Drawing.Size(0, 26);
+            this.lblMessageCreneaux.TabIndex = 91;
+            // 
+            // listView1
+            // 
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(-2, 37);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(562, 290);
+            this.listView1.TabIndex = 96;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // panel10
+            // 
+            this.panel10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel10.Controls.Add(this.panel6);
+            this.panel10.Controls.Add(this.panel8);
+            this.panel10.Location = new System.Drawing.Point(641, 266);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(430, 329);
+            this.panel10.TabIndex = 99;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel6.Controls.Add(this.comboBox1);
+            this.panel6.Controls.Add(this.label9);
+            this.panel6.Controls.Add(this.label11);
+            this.panel6.Location = new System.Drawing.Point(4, 4);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(335, 120);
+            this.panel6.TabIndex = 98;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(13, 69);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(256, 24);
+            this.comboBox1.TabIndex = 31;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(4, 0);
+            this.label9.Location = new System.Drawing.Point(17, 43);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(91, 18);
-            this.label9.TabIndex = 91;
-            this.label9.Text = "Impression";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label9.Size = new System.Drawing.Size(198, 16);
+            this.label9.TabIndex = 32;
+            this.label9.Text = "Selectionnez un mode paiement";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(15, 15);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(146, 18);
+            this.label11.TabIndex = 30;
+            this.label11.Text = "Mode de paiement";
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel8.Controls.Add(this.button2);
+            this.panel8.Controls.Add(this.button1);
+            this.panel8.Controls.Add(this.label17);
+            this.panel8.Location = new System.Drawing.Point(4, 182);
+            this.panel8.Margin = new System.Windows.Forms.Padding(4);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(418, 111);
+            this.panel8.TabIndex = 99;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.button2.Location = new System.Drawing.Point(207, 54);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(177, 28);
+            this.button2.TabIndex = 28;
+            this.button2.Text = "Previsualisez ";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Lime;
+            this.button1.Location = new System.Drawing.Point(21, 54);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(177, 28);
+            this.button1.TabIndex = 27;
+            this.button1.Text = "Valider le rendez-vous";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(17, 22);
+            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(122, 18);
+            this.label17.TabIndex = 26;
+            this.label17.Text = "Centre d\'action";
+            // 
+            // panel2
+            // 
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.pnlimpression);
+            this.panel2.Location = new System.Drawing.Point(641, 10);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(430, 242);
+            this.panel2.TabIndex = 97;
+            // 
+            // pnlimpression
+            // 
+            this.pnlimpression.Controls.Add(this.label4);
+            this.pnlimpression.Controls.Add(this.button3);
+            this.pnlimpression.Location = new System.Drawing.Point(123, 73);
+            this.pnlimpression.Name = "pnlimpression";
+            this.pnlimpression.Size = new System.Drawing.Size(200, 100);
+            this.pnlimpression.TabIndex = 92;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(4, 0);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(91, 18);
+            this.label4.TabIndex = 91;
+            this.label4.Text = "Impression";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button3.Location = new System.Drawing.Point(25, 42);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(152, 32);
+            this.button3.TabIndex = 91;
+            this.button3.Text = "&Impression";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.btnImpression_Click);
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.Transparent;
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel5.CausesValidation = false;
+            this.panel5.Controls.Add(this.label8);
+            this.panel5.Controls.Add(this.label10);
+            this.panel5.Controls.Add(this.dtRendezVous);
+            this.panel5.Controls.Add(this.txtSoin);
+            this.panel5.Controls.Add(this.label1);
+            this.panel5.Controls.Add(this.label6);
+            this.panel5.Controls.Add(this.lblSoin);
+            this.panel5.Controls.Add(this.label5);
+            this.panel5.Controls.Add(this.cbbSoins);
+            this.panel5.Controls.Add(this.cbbDureeCreneaux);
+            this.panel5.Controls.Add(this.label7);
+            this.panel5.Controls.Add(this.cbbCreneauHoraire);
+            this.panel5.Controls.Add(this.cbbMedecin);
+            this.panel5.Location = new System.Drawing.Point(7, 5);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(562, 242);
+            this.panel5.TabIndex = 95;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Tai Le", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(3, 3);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(233, 29);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Détails Rendez-Vous";
             // 
             // frmRendezVous
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.abstract_health_medical_science_healthcare_icon_digital_technology_science_concept_modern_innovation_treatment_medicine_on_hi_tech_future_blue_background_for_wallpaper_template_web_design_vec;
-            this.ClientSize = new System.Drawing.Size(1278, 671);
+            this.ClientSize = new System.Drawing.Size(1547, 671);
             this.ControlBox = false;
-            this.Controls.Add(this.pnlimpression);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmRendezVous";
             this.ShowIcon = false;
@@ -479,11 +638,23 @@
             this.Load += new System.EventHandler(this.frmRendezVous_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.pnlimpression.ResumeLayout(false);
             this.pnlimpression.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -506,24 +677,37 @@
         private System.Windows.Forms.TextBox txtNomPrenom;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DateTimePicker dtRendezVous;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbbDureeCreneaux;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cbbCreneauHoraire;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtSoin;
         private System.Windows.Forms.Label lblSoin;
         private System.Windows.Forms.ComboBox cbbSoins;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cbbMedecin;
-        private System.Windows.Forms.TextBox txtSoin;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btnImpression;
-        private System.Windows.Forms.Panel pnlimpression;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cbbCreneauHoraire;
+        private System.Windows.Forms.ComboBox cbbDureeCreneaux;
+        private System.Windows.Forms.DateTimePicker dtRendezVous;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label lblMessageCreneaux;
+        private System.Windows.Forms.Panel pnlimpression;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button3;
     }
 }
