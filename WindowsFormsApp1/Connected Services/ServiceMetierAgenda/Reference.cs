@@ -1294,12 +1294,6 @@ namespace WindowsFormsApp1.ServiceMetierAgenda {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAgendaService/LoadAgenda", ReplyAction="http://tempuri.org/IAgendaService/LoadAgendaResponse")]
         System.Threading.Tasks.Task<WindowsFormsApp1.ServiceMetierAgenda.Agenda[]> LoadAgendaAsync(System.DateTime datetoday);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAgendaService/ListeTimeCreneau", ReplyAction="http://tempuri.org/IAgendaService/ListeTimeCreneauResponse")]
-        int[] ListeTimeCreneau(System.DateTime dateRecherche);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAgendaService/ListeTimeCreneau", ReplyAction="http://tempuri.org/IAgendaService/ListeTimeCreneauResponse")]
-        System.Threading.Tasks.Task<int[]> ListeTimeCreneauAsync(System.DateTime dateRecherche);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAgendaService/LoadCreneauxByDate", ReplyAction="http://tempuri.org/IAgendaService/LoadCreneauxByDateResponse")]
         System.Collections.Generic.Dictionary<string, object>[] LoadCreneauxByDate(System.DateTime dateRecherche);
         
@@ -1311,6 +1305,12 @@ namespace WindowsFormsApp1.ServiceMetierAgenda {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAgendaService/CreneauxByHoraire", ReplyAction="http://tempuri.org/IAgendaService/CreneauxByHoraireResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, object>[]> CreneauxByHoraireAsync(System.DateTime dateRecherche);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAgendaService/ListeTimeCreneau", ReplyAction="http://tempuri.org/IAgendaService/ListeTimeCreneauResponse")]
+        int[] ListeTimeCreneau(System.DateTime dateRecherche, System.Nullable<int> idMedecin);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAgendaService/ListeTimeCreneau", ReplyAction="http://tempuri.org/IAgendaService/ListeTimeCreneauResponse")]
+        System.Threading.Tasks.Task<int[]> ListeTimeCreneauAsync(System.DateTime dateRecherche, System.Nullable<int> idMedecin);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1356,14 +1356,6 @@ namespace WindowsFormsApp1.ServiceMetierAgenda {
             return base.Channel.LoadAgendaAsync(datetoday);
         }
         
-        public int[] ListeTimeCreneau(System.DateTime dateRecherche) {
-            return base.Channel.ListeTimeCreneau(dateRecherche);
-        }
-        
-        public System.Threading.Tasks.Task<int[]> ListeTimeCreneauAsync(System.DateTime dateRecherche) {
-            return base.Channel.ListeTimeCreneauAsync(dateRecherche);
-        }
-        
         public System.Collections.Generic.Dictionary<string, object>[] LoadCreneauxByDate(System.DateTime dateRecherche) {
             return base.Channel.LoadCreneauxByDate(dateRecherche);
         }
@@ -1378,6 +1370,14 @@ namespace WindowsFormsApp1.ServiceMetierAgenda {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, object>[]> CreneauxByHoraireAsync(System.DateTime dateRecherche) {
             return base.Channel.CreneauxByHoraireAsync(dateRecherche);
+        }
+        
+        public int[] ListeTimeCreneau(System.DateTime dateRecherche, System.Nullable<int> idMedecin) {
+            return base.Channel.ListeTimeCreneau(dateRecherche, idMedecin);
+        }
+        
+        public System.Threading.Tasks.Task<int[]> ListeTimeCreneauAsync(System.DateTime dateRecherche, System.Nullable<int> idMedecin) {
+            return base.Channel.ListeTimeCreneauAsync(dateRecherche, idMedecin);
         }
     }
 }

@@ -25,5 +25,6 @@ namespace MetierRvMedical.Wcf
         public List<Soin> GetListSoins()=> metier.GetListSoins();
         public List<GroupeSanguin> GetListeGroupesSanguins() => metier.GetListeGroupesSanguins();
 
+
     }
 }

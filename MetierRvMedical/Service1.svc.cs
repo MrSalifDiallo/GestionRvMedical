@@ -136,6 +136,8 @@ namespace MetierRvMedical
             }
             catch (Exception ex)
             {
+                Utils.WriteLogSystem(ex.ToString(), "-Erreur");
+                utils.WriteDataError("Erreur-", ex.ToString());
                 return false;
             }
         }

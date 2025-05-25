@@ -136,7 +136,6 @@
             this.label2.Size = new System.Drawing.Size(236, 29);
             this.label2.TabIndex = 81;
             this.label2.Text = "Informations Patient";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // lblNomPrenom
             // 
@@ -316,6 +315,7 @@
             this.cbbSoins.Name = "cbbSoins";
             this.cbbSoins.Size = new System.Drawing.Size(228, 24);
             this.cbbSoins.TabIndex = 88;
+            this.cbbSoins.SelectedIndexChanged += new System.EventHandler(this.cbbSoins_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -335,6 +335,8 @@
             this.cbbMedecin.Name = "cbbMedecin";
             this.cbbMedecin.Size = new System.Drawing.Size(228, 24);
             this.cbbMedecin.TabIndex = 86;
+            this.cbbMedecin.SelectedIndexChanged += new System.EventHandler(this.cbbMedecin_SelectedIndexChanged);
+            this.cbbMedecin.TextChanged += new System.EventHandler(this.cbbMedecin_TextChanged);
             // 
             // label6
             // 
@@ -446,7 +448,6 @@
             this.listView1.Size = new System.Drawing.Size(562, 290);
             this.listView1.TabIndex = 96;
             this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // panel10
             // 

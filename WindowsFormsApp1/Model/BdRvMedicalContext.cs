@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using  System.Data.Entity;
-using MySql.Data.EntityFramework;
+using System.Data.Entity;
 using System.ComponentModel.DataAnnotations;
 using WindowsFormsApp1.Model;
+using MySql.Data.MySqlClient;
+using MySql.Data.EntityFramework; // Nécessaire pour MySqlEFConfiguration
 namespace WindowsFormsApp1.Model
 {
-    [DbConfigurationType(typeof(MySqlEFConfiguration))]
+    [DbConfigurationType(typeof(MySql.Data.EntityFramework.MySqlEFConfiguration))]
     public class BdRvMedicalContext : DbContext
     {
         public BdRvMedicalContext() : base("bdRvMedicalContext") { }

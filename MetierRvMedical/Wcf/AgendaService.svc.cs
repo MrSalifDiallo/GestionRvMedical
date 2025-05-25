@@ -16,7 +16,6 @@ namespace MetierRvMedical.Wcf
         private AgendaMetier metier = new AgendaMetier();
         public List<Agenda> LoadAgenda(DateTime datetoday) => metier.LoadAgenda(datetoday);
 
-        public List<int> ListeTimeCreneau(DateTime dateRecherche) =>metier.ListeTimeCreneau(dateRecherche);
         public void DoWork()
         {
         }
@@ -26,5 +25,7 @@ namespace MetierRvMedical.Wcf
 
         public List<Dictionary<string, object>> CreneauxByHoraire(DateTime dateRecherche)
             => metier.CreneauxByHoraire(dateRecherche);
+        public List<int> ListeTimeCreneau(DateTime dateRecherche, int? idMedecin = null) =>
+                    metier.ListeTimeCreneau(dateRecherche, idMedecin);
     }
 }

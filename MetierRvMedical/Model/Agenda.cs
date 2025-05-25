@@ -6,28 +6,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MetierRvMedical.Model;
+
 namespace MetierRvMedical.Model
 {
     public class Agenda
     {
         [Key]
-      public int IdAgenda { get; set; }
+        public int IdAgenda { get; set; }
 
-        public DateTime? DatePlanifie { get; set; }
+        [Required] // Ajout de [Required] pour rendre la colonne NOT NULL
+        public DateTime DatePlanifie { get; set; } // Suppression du ? pour rendre la colonne NOT NULL
 
+        [MaxLength(100)]
         public string Titre { get; set; }
 
-        public string HeureDebut { get; set; }
+        [Required, MaxLength(10)] // Ajout de [Required] pour rendre la colonne NOT NULL
+        public string HeureDebut { get; set; } // Suppression du ? pour rendre la colonne NOT NULL
 
-        public string HeureFin { get; set; }
+        [Required, MaxLength(10)] // Ajout de [Required] pour rendre la colonne NOT NULL
+        public string HeureFin { get; set; } // Suppression du ? pour rendre la colonne NOT NULL
 
-        public int Creneau { get; set; }
-        
+        public int Creneau { get; set; } // Déjà NOT NULL
+
+        [MaxLength(100)]
         public string Lieu { get; set; }
 
+        [MaxLength(50)]
         public string statut { get; set; }
 
-        public int? IdMedecin { get; set;  }
+        [Required] // Ajout de [Required] pour rendre la colonne NOT NULL
+        public int IdMedecin { get; set; } // Suppression du ? pour rendre la colonne NOT NULL
+
         [ForeignKey("IdMedecin")]
         public Medecin Medecin { get; set; }
 

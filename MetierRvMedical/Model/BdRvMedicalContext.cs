@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using  System.Data.Entity;
-using MySql.Data.EntityFramework;
-using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
 using MetierRvMedical.Model;
+using MySql.Data.EntityFramework;
 namespace MetierRvMedical.Model
 {
     [DbConfigurationType(typeof(MySqlEFConfiguration))]
@@ -25,6 +24,14 @@ namespace MetierRvMedical.Model
         public DbSet<Secretaire> Secretaires { get; set; }
 
         public DbSet<Agenda> Agendas { get; set; }
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<Agenda>()
+        //        .HasIndex(a => new { a.DatePlanifie, a.HeureDebut, a.HeureFin, a.Creneau, a.IdMedecin })
+        //        .IsUnique()
+        //        .HasName("UC_Agenda");
+        //}
+
 
         public DbSet<RendezVous> AllRendezvous { get; set; }
 
@@ -35,7 +42,5 @@ namespace MetierRvMedical.Model
         public DbSet<Paiement> Paiements { get; set; }
         public DbSet<Creneau> Creneaux { get; set; }
         public DbSet<Td_Erreur> td_Erreurs { get; set; }
-
-
     }
 }

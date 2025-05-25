@@ -20,12 +20,6 @@
   <wsdl:message name="IAgendaService_LoadAgenda_OutputMessage">
     <wsdl:part name="parameters" element="tns:LoadAgendaResponse" />
   </wsdl:message>
-  <wsdl:message name="IAgendaService_ListeTimeCreneau_InputMessage">
-    <wsdl:part name="parameters" element="tns:ListeTimeCreneau" />
-  </wsdl:message>
-  <wsdl:message name="IAgendaService_ListeTimeCreneau_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ListeTimeCreneauResponse" />
-  </wsdl:message>
   <wsdl:message name="IAgendaService_LoadCreneauxByDate_InputMessage">
     <wsdl:part name="parameters" element="tns:LoadCreneauxByDate" />
   </wsdl:message>
@@ -38,6 +32,12 @@
   <wsdl:message name="IAgendaService_CreneauxByHoraire_OutputMessage">
     <wsdl:part name="parameters" element="tns:CreneauxByHoraireResponse" />
   </wsdl:message>
+  <wsdl:message name="IAgendaService_ListeTimeCreneau_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListeTimeCreneau" />
+  </wsdl:message>
+  <wsdl:message name="IAgendaService_ListeTimeCreneau_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListeTimeCreneauResponse" />
+  </wsdl:message>
   <wsdl:portType name="IAgendaService">
     <wsdl:operation name="DoWork">
       <wsdl:input wsaw:Action="http://tempuri.org/IAgendaService/DoWork" message="tns:IAgendaService_DoWork_InputMessage" />
@@ -47,10 +47,6 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IAgendaService/LoadAgenda" message="tns:IAgendaService_LoadAgenda_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAgendaService/LoadAgendaResponse" message="tns:IAgendaService_LoadAgenda_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ListeTimeCreneau">
-      <wsdl:input wsaw:Action="http://tempuri.org/IAgendaService/ListeTimeCreneau" message="tns:IAgendaService_ListeTimeCreneau_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IAgendaService/ListeTimeCreneauResponse" message="tns:IAgendaService_ListeTimeCreneau_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="LoadCreneauxByDate">
       <wsdl:input wsaw:Action="http://tempuri.org/IAgendaService/LoadCreneauxByDate" message="tns:IAgendaService_LoadCreneauxByDate_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAgendaService/LoadCreneauxByDateResponse" message="tns:IAgendaService_LoadCreneauxByDate_OutputMessage" />
@@ -58,6 +54,10 @@
     <wsdl:operation name="CreneauxByHoraire">
       <wsdl:input wsaw:Action="http://tempuri.org/IAgendaService/CreneauxByHoraire" message="tns:IAgendaService_CreneauxByHoraire_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAgendaService/CreneauxByHoraireResponse" message="tns:IAgendaService_CreneauxByHoraire_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListeTimeCreneau">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAgendaService/ListeTimeCreneau" message="tns:IAgendaService_ListeTimeCreneau_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAgendaService/ListeTimeCreneauResponse" message="tns:IAgendaService_ListeTimeCreneau_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IAgendaService" type="tns:IAgendaService">
@@ -80,15 +80,6 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ListeTimeCreneau">
-      <soap:operation soapAction="http://tempuri.org/IAgendaService/ListeTimeCreneau" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="LoadCreneauxByDate">
       <soap:operation soapAction="http://tempuri.org/IAgendaService/LoadCreneauxByDate" style="document" />
       <wsdl:input>
@@ -100,6 +91,15 @@
     </wsdl:operation>
     <wsdl:operation name="CreneauxByHoraire">
       <soap:operation soapAction="http://tempuri.org/IAgendaService/CreneauxByHoraire" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListeTimeCreneau">
+      <soap:operation soapAction="http://tempuri.org/IAgendaService/ListeTimeCreneau" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

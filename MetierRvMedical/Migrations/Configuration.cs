@@ -10,7 +10,7 @@
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = false;
+            AutomaticMigrationDataLossAllowed = false; // Set to true with caution, as it may lead to data loss
         }
 
         protected override void Seed(MetierRvMedical.Model.BdRvMedicalContext context)
