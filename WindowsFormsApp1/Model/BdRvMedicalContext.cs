@@ -10,7 +10,7 @@ using MySql.Data.MySqlClient;
 using MySql.Data.EntityFramework; // Nécessaire pour MySqlEFConfiguration
 namespace WindowsFormsApp1.Model
 {
-    [DbConfigurationType(typeof(MySql.Data.EntityFramework.MySqlEFConfiguration))]
+    [DbConfigurationType(typeof(MySqlConfiguration))]
     public class BdRvMedicalContext : DbContext
     {
         public BdRvMedicalContext() : base("bdRvMedicalContext") { }

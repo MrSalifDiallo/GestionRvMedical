@@ -679,7 +679,7 @@ namespace WindowsFormsApp1.ServiceMetier {
         private WindowsFormsApp1.ServiceMetier.Creneau[] CreneauxField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> DatePlanifieField;
+        private System.DateTime DatePlanifieField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string HeureDebutField;
@@ -691,7 +691,7 @@ namespace WindowsFormsApp1.ServiceMetier {
         private int IdAgendaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> IdMedecinField;
+        private int IdMedecinField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LieuField;
@@ -745,7 +745,7 @@ namespace WindowsFormsApp1.ServiceMetier {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> DatePlanifie {
+        public System.DateTime DatePlanifie {
             get {
                 return this.DatePlanifieField;
             }
@@ -797,7 +797,7 @@ namespace WindowsFormsApp1.ServiceMetier {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> IdMedecin {
+        public int IdMedecin {
             get {
                 return this.IdMedecinField;
             }
