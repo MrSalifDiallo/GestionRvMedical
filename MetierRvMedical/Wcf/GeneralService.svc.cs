@@ -22,9 +22,13 @@ namespace MetierRvMedical.Wcf
                 limit = 5; // Application valeur par défaut
             return metier.GetPhoneNumbersForAutoComplete(limit);
         }
-        public List<Soin> GetListSoins()=> metier.GetListSoins();
+        public List<Soin> GetListSoins() => metier.GetListSoins();
         public List<GroupeSanguin> GetListeGroupesSanguins() => metier.GetListeGroupesSanguins();
-
-
+        public bool AddFirstUser() => metier.AddFirstUser();
+        public bool CheckUser(string identifiantinbd, string mdp)
+        {
+            return metier.CheckUser(identifiantinbd, mdp);
+        }
+        public bool CheckAdmin() =>metier.CheckAdmin(); 
     }
 }

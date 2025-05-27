@@ -58,7 +58,6 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="dateRecherche" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="idMedecin" nillable="true" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -66,6 +65,21 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ListeTimeCreneauResult" nillable="true" type="q4:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreneauxByHoraireMedecin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dateRecherche" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="idMedecin" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreneauxByHoraireMedecinResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CreneauxByHoraireMedecinResult" nillable="true" type="q5:ArrayOfArrayOfKeyValueOfstringanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

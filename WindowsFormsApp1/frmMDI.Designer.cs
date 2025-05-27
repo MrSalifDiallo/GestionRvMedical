@@ -47,6 +47,7 @@
             this.rendezVousToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_close = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripSplitButton();
+            this.lblUserBienvenue = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -205,6 +206,16 @@
             this.toolStripButton1.Text = "toolStripButton1";
             this.toolStripButton1.ButtonClick += new System.EventHandler(this.toolStripButton1_ButtonClick);
             // 
+            // lblUserBienvenue
+            // 
+            this.lblUserBienvenue.AutoEllipsis = true;
+            this.lblUserBienvenue.Location = new System.Drawing.Point(12, 53);
+            this.lblUserBienvenue.Name = "lblUserBienvenue";
+            this.lblUserBienvenue.Size = new System.Drawing.Size(156, 47);
+            this.lblUserBienvenue.TabIndex = 32;
+            this.lblUserBienvenue.Text = "Bienvenue";
+            this.lblUserBienvenue.Click += new System.EventHandler(this.label1_Click);
+            // 
             // frmMDI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -213,6 +224,7 @@
             this.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.abstract_health_medical_science_healthcare_icon_digital_technology_science_concept_modern_innovation_treatment_medicine_on_hi_tech_future_blue_background_for_wallpaper_template_web_design_vec;
             this.ClientSize = new System.Drawing.Size(1082, 803);
             this.ControlBox = false;
+            this.Controls.Add(this.lblUserBienvenue);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frmMDI";
             this.Text = "Gestion Rendez Vous";
@@ -244,6 +256,7 @@
         private System.Windows.Forms.ToolStripMenuItem rendezVousToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator side2;
         private System.Windows.Forms.ToolStripButton btn_close;
+        private System.Windows.Forms.Label lblUserBienvenue;
     }
 }
 

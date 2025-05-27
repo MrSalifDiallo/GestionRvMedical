@@ -79,13 +79,12 @@ namespace MetierRvMedical.Services
         /// </summary>
         /// <param name="dateRecherche"></param>
         /// <returns></returns>
-        public List<int> ListeTimeCreneau(DateTime dateRecherche, int? idMedecin = null)
+        public List<int> ListeTimeCreneau(DateTime dateRecherche)
         {
             try
             {
                 // Utilisation de LoadAgenda pour récupérer les agendats
                 var agenda = LoadAgenda(dateRecherche)
-                            .Where(a => !idMedecin.HasValue || a.IdMedecin == idMedecin.Value)
                             .ToList();
                 // Extraction des créneaux distincts
                 var distinctCreneaux = agenda
@@ -113,9 +112,7 @@ namespace MetierRvMedical.Services
         /// <summary>
         /// Générer un tableau des créneaux pour une date donnée.Si le créneau est déjà pris, il est marqué comme occupé.
         /// </summary>
-        /// <param name="agendas"></param>
         /// <param name="dateRecherche"></param>
-        /// <param name="creneauxPrises"></param>
         /// <returns></returns>
         public List<Dictionary<string, object>> LoadCreneauxByDate(DateTime dateRecherche)
         {
@@ -244,7 +241,7 @@ namespace MetierRvMedical.Services
                             ["occupe"] = occupe,
                             ["libre"] = libre,
                             ["TimeCreneau"] = g.Key.TimeCreneau,
-                            ["idMedecin"] = idMedecin, // Ajouté ici pour pouvoir filtrer ensuite
+                            ["idMedecin"] = idMedecin, 
                             ["estOccupe"] = occupe > 0 // true si au moins un est occupé
                         };
                     })
@@ -260,5 +257,56 @@ namespace MetierRvMedical.Services
             }
         }
 
+
+        /// <summary>
+        /// Genere un tableau des créneaux pour une date donnée, groupés par horaire et par médecin.
+        /// </summary>
+        /// <param name="dateRecherche"></param>
+        /// <param name="idMedecin"></param>
+        /// <returns></returns>
+        public List<Dictionary<string, object>> CreneauxByHoraireMedecin(DateTime dateRecherche, int idMedecin)
+        {
+            try
+            {
+                var creneaux = LoadCreneauxByDate(dateRecherche)
+                    .Where(c => Convert.ToInt32(c["idMedecin"]) == idMedecin) // filtre ici avant le groupement
+                    .ToList();
+
+                var resultat = creneaux
+                    .GroupBy(c => new
+                    {
+                        HeureDebut = c["heureDebut"].ToString(),
+                        HeureFin = c["heureFin"].ToString(),
+                        TimeCreneau = c["creneau"].ToString()
+                    })
+                    .Select(g =>
+                    {
+                        int total = g.Count();
+                        int occupe = g.Count(x => Convert.ToBoolean(x["estOccupe"]));
+                        int libre = total - occupe;
+
+                        return new Dictionary<string, object>
+                        {
+                            ["horaire"] = $"{g.Key.HeureDebut} - {g.Key.HeureFin}",
+                            ["nombre"] = total,
+                            ["occupe"] = occupe,
+                            ["libre"] = libre,
+                            ["TimeCreneau"] = g.Key.TimeCreneau,
+                            ["idMedecin"] = idMedecin, // ici tu le remets dans le résultat
+                            ["estOccupe"] = occupe > 0
+                        };
+                    })
+                    .OrderBy(r => r["horaire"])
+                    .ToList();
+
+                return resultat;
+            }
+            catch (Exception ex)
+            {
+                Utils.WriteLogSystem(ex.ToString(), "Erreur lors du groupement des créneaux par horaire - Erreur");
+                utils.WriteDataError("Erreur lors du groupement des créneaux par horaire : - Erreur", ex.ToString());
+                return new List<Dictionary<string, object>>();
+            }
+        }
     }
 }

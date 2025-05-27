@@ -21,6 +21,8 @@ namespace MetierRvMedical.Wcf
         [OperationContract]
         List<Dictionary<string, object>> CreneauxByHoraire(DateTime dateRecherche);
         [OperationContract]
-        List<int> ListeTimeCreneau(DateTime dateRecherche, int? idMedecin = null);
+        List<int> ListeTimeCreneau(DateTime dateRecherche);
+        [OperationContract]
+        List<Dictionary<string, object>> CreneauxByHoraireMedecin(DateTime dateRecherche, int idMedecin);
     }
 }

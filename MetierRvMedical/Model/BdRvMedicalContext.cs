@@ -42,5 +42,8 @@ namespace MetierRvMedical.Model
         public DbSet<Paiement> Paiements { get; set; }
         public DbSet<Creneau> Creneaux { get; set; }
         public DbSet<Td_Erreur> td_Erreurs { get; set; }
+
+        public DbSet<Role> Roles { get; set; }
+
     }
 }

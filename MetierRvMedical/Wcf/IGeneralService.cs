@@ -15,9 +15,20 @@ namespace MetierRvMedical.Wcf
     {
         [OperationContract]
         List<string> GetPhoneNumbersForAutoComplete(int limit);
+
         [OperationContract]
         List<Soin> GetListSoins();
+
         [OperationContract]
         List<GroupeSanguin> GetListeGroupesSanguins();
+
+        [OperationContract]
+        bool AddFirstUser();
+
+        [OperationContract]
+        bool CheckUser(string identifiantinbd, string mdp);
+
+        [OperationContract]
+        bool CheckAdmin();
     }
 }

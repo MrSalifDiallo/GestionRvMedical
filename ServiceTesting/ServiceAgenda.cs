@@ -14,8 +14,6 @@ namespace ServiceTesting
             // Avec WCF (commenté ici pour utiliser la version locale)
             // ServiceMetierAgenda.AgendaServiceClient service = new ServiceMetierAgenda.AgendaServiceClient();
             // var agendas = service.LoadAgenda(dateRecherche);
-
-            // Demander à l'utilisateur une date
             DateTime dateRecherche;
             while (true)
             {
@@ -23,15 +21,32 @@ namespace ServiceTesting
                 string input = Console.ReadLine()?.Trim();
                 if (input == null)
                 {
-                    // Gérer le cas null : erreur, valeur par défaut, ou sortie
                     Console.WriteLine("Entrée vide détectée.");
-                    return; // ou throw, ou autre gestion
+                    return;
                 }
 
                 if (DateTime.TryParseExact(input, "yyyy-MM-dd", null, System.Globalization.DateTimeStyles.None, out dateRecherche))
                     break;
 
-                Console.WriteLine("Format invalide. Veuillez réessayer.");
+                Console.WriteLine("Format de date invalide. Veuillez réessayer.");
+            }
+
+            // 2. Saisie de l'id médecin
+            int idMedecin;
+            while (true)
+            {
+                Console.Write("Entrez l'ID du médecin : ");
+                string input2 = Console.ReadLine()?.Trim();
+                if (input2 == null)
+                {
+                    Console.WriteLine("Entrée vide détectée.");
+                    return;
+                }
+
+                if (int.TryParse(input2, out idMedecin))
+                    break;
+
+                Console.WriteLine("Format d'ID invalide. Veuillez entrer un nombre.");
             }
 
             // 1. Charger les agendas
@@ -64,6 +79,14 @@ namespace ServiceTesting
             foreach (var g in groupes)
             {
                 Console.WriteLine($"Horaire: {g["horaire"]}, Total: {g["nombre"]}, Occupé: {g["occupe"]}, Libre: {g["libre"]}, MédecinId: {g["idMedecin"]}");
+            }
+
+            // 4. Groupes par horaire
+            Console.WriteLine("\n=== CreneauxByHoraire&Medecin ===");
+            var groupesparmedecin = agendaMetier.CreneauxByHoraireMedecin(dateRecherche, idMedecin);
+            foreach (var g in groupesparmedecin)
+            {
+                Console.WriteLine($"Horaire: {g["horaire"]}, Total: {g["nombre"]}, Occupé: {g["occupe"]}, Libre: {g["libre"]}");
             }
 
             Console.WriteLine("\nFin du programme. Appuyez sur une touche pour quitter.");

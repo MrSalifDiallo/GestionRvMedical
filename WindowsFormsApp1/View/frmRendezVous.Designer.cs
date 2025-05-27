@@ -356,6 +356,7 @@
             this.cbbCreneauHoraire.Name = "cbbCreneauHoraire";
             this.cbbCreneauHoraire.Size = new System.Drawing.Size(228, 24);
             this.cbbCreneauHoraire.TabIndex = 84;
+            this.cbbCreneauHoraire.SelectedIndexChanged += new System.EventHandler(this.cbbCreneauHoraire_SelectedIndexChanged);
             // 
             // cbbDureeCreneaux
             // 
@@ -365,6 +366,7 @@
             this.cbbDureeCreneaux.Name = "cbbDureeCreneaux";
             this.cbbDureeCreneaux.Size = new System.Drawing.Size(228, 24);
             this.cbbDureeCreneaux.TabIndex = 83;
+            this.cbbDureeCreneaux.SelectedIndexChanged += new System.EventHandler(this.cbbDureeCreneaux_SelectedIndexChanged);
             // 
             // dtRendezVous
             // 

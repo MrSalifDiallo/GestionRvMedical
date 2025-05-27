@@ -13,11 +13,12 @@ namespace WindowsFormsApp1
 {
     public partial class frmConexion : Form
     {
-        BdRvMedicalContext bd=new BdRvMedicalContext();
+        //BdRvMedicalContext bd=new BdRvMedicalContext();  
+        //private Utilisateur currentUser;  
+        Utils utils= new Utils(); // ✅ Instance of Utils class for logging
         public frmConexion()
         {
             InitializeComponent();
-
         }
 
         private void frmConexion_Load(object sender, EventArgs e)
@@ -52,27 +53,56 @@ namespace WindowsFormsApp1
 
         private void btnConnexion_Click(object sender, EventArgs e)
         {
+            ServiceMetierAuthentification.AuthentificationServiceClient serviceAuthentification = new ServiceMetierAuthentification.AuthentificationServiceClient(); // ✅ Service WCF for General Method  
             string identifiantinbd = txtIdentifiant.Text.ToLower();
-            string mdp = CryptString.GetMd5Hash(txtMotDePasse.Text);
-
-            var leUser = bd.Utilisateurs
-                .Where(a => a.identifiant.ToLower() == identifiantinbd)
-                .AsEnumerable() // passe en LINQ to Objects après le filtre SQL
-                .FirstOrDefault(a => a.MotDePasse == mdp);
-
-            //var leUser=bd.Utilisateurs.Where(a=>a.identifiant.ToLower()==txtIdentifiant.Text.ToLower() && a.MotDePasse==CryptString.GetMd5Hash(txtMotDePasse.Text) ).FirstOrDefault();
-            if (leUser != null)
+            string mdp = txtMotDePasse.Text;
+            try
             {
-                frmMDI f = new frmMDI();
-                f.role = leUser.Role.Code;
-                f.Show();
-                this.Hide();
+                // Check if the user exists in the database
+                bool existinguser = serviceAuthentification.CheckUser(identifiantinbd, mdp);
+                if (existinguser)
+                {
+                    frmMDI f = new frmMDI(); // Create an instance of frmMDI with the mapped user
+                    f.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    lblMessage.Text = "Identifiant ou Mot de Passe incorrect";
+                }
+                //if (existinguser)
+                //{
+                //    var verificationuser = serviceAuthentification.UserInformation(identifiantinbd, mdp);
+                //    if (verificationuser != null)
+                //    {
+                //        // Map the ServiceMetierAuthentification.Utilisateur to WindowsFormsApp1.Model.Utilisateur  
+                //        Utilisateur mappedUser = new Utilisateur
+                //        {
+                //            identifiant = verificationuser.identifiant,
+                //            MotDePasse = verificationuser.MotDePasse,
+                //            statut = verificationuser.statut,
+                //            IdRole = verificationuser.IdRole,
+                //            Adresse = verificationuser.Adresse,
+                //            Email = verificationuser.Email,
+                //            TEL = verificationuser.TEL,
+                //        };
+                //        frmMDI f = new frmMDI(mappedUser); // Create an instance of frmMDI with the mapped user
+                //        f.Show();
+                //        this.Hide();
+                //    }
+                //    else
+                //    {
+                //        lblMessage.Text = "Identifiant ou Mot de Passe incorrect";
+                //    }
+                //}
             }
-            else
+            catch (Exception ex)
             {
-                lblMessage.Text = "Identifiant ou Mot de Passe incorrect";
+                Utils.WriteLogSystem(ex.ToString(), "frmMdi-BtnConnexion");
+                utils.WriteDataError("Erreur lors de la vérification de l'utilisateur", ex.ToString());
             }
-                //Utilisateur ut = new Utilisateur();
+           // var verificationuser = serviceAuthentification.UserInformation(identifiantinbd, mdp);
+            
         }
 
         private void btnQuitter_Click(object sender, EventArgs e)

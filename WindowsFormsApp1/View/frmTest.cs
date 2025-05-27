@@ -130,7 +130,7 @@ namespace WindowsFormsApp1.View
 
             DateTime date = new DateTime(2025, 5, 21);
 
-            var typesCreneaux = serviceAgenda.ListeTimeCreneau(date,null);
+            var typesCreneaux = serviceAgenda.ListeTimeCreneau(date);
 
             foreach (var typeCreneau in typesCreneaux)
             {

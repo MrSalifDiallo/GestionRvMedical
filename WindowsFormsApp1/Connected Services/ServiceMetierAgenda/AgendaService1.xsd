@@ -10,11 +10,11 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Creneau" type="xs:int" />
       <xs:element minOccurs="0" name="Creneaux" nillable="true" type="tns:ArrayOfCreneau" />
-      <xs:element minOccurs="0" name="DatePlanifie" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DatePlanifie" type="xs:dateTime" />
       <xs:element minOccurs="0" name="HeureDebut" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="HeureFin" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="IdAgenda" type="xs:int" />
-      <xs:element minOccurs="0" name="IdMedecin" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IdMedecin" type="xs:int" />
       <xs:element minOccurs="0" name="Lieu" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Medecin" nillable="true" type="tns:Medecin" />
       <xs:element minOccurs="0" name="RendezVous" nillable="true" type="tns:ArrayOfRendezVous" />

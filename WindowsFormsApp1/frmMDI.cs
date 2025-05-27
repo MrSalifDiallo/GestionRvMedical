@@ -17,22 +17,25 @@ namespace WindowsFormsApp1
     public partial class frmMDI : Form
     {
         public string role;
+        //private Utilisateur currentUser;
+
         public frmMDI()
         {
             InitializeComponent();
-            this.IsMdiContainer = true; // Ajoute cette ligne
+           // this.currentUser = user;
         }
 
         private void frmMDI_Load(object sender, EventArgs e)
         {
-            Computer myComputer = new Computer();
-            this.Width = myComputer.Screen.Bounds.Width;
-            this.Height = myComputer.Screen.Bounds.Height;
-            this.Location = new Point(0, 0);
-            if (role.ToLower()=="Admin".ToLower())
-            {
+            //Computer myComputer = new Computer();
+            //this.Width = myComputer.Screen.Bounds.Width;
+            //this.Height = myComputer.Screen.Bounds.Height;
+            //this.Location = new Point(0, 0);
+            //if (role.ToLower()=="Admin".ToLower())
+            //{
                 
-            }
+            //}
+            //lblUserBienvenue.Text = $"Bienvenue {currentUser.NomPrenom}"; // Affiche le nom de l'utilisateur connecté
         }
 
         // Fonction générique pour ouvrir un formulaire MDI
@@ -148,6 +151,11 @@ namespace WindowsFormsApp1
         private void rendezVousToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             OpenMdiChildForm(new frmTest()); 
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
 
         }
     }

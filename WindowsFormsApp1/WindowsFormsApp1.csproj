@@ -177,6 +177,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\ServiceMetierAuthentification\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\ServiceMetierGeneral\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -348,6 +353,19 @@
     <None Include="Connected Services\ServiceMetierAgenda\WindowsFormsApp1.ServiceMetierAgenda.Agenda.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\ServiceMetierAuthentification\AuthentificationService.wsdl" />
+    <None Include="Connected Services\ServiceMetierAuthentification\AuthentificationService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceMetierAuthentification\AuthentificationService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceMetierAuthentification\AuthentificationService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceMetierAuthentification\WindowsFormsApp1.ServiceMetierAuthentification.Utilisateur.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ServiceMetierGeneral\GeneralService.wsdl" />
     <None Include="Connected Services\ServiceMetierGeneral\GeneralService.xsd">
       <SubType>Designer</SubType>
@@ -437,6 +455,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\ServiceMetierAgenda\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceMetierAuthentification\" />
     <WCFMetadataStorage Include="Connected Services\ServiceMetierGeneral\" />
     <WCFMetadataStorage Include="Connected Services\ServiceMetierPatient\" />
     <WCFMetadataStorage Include="Connected Services\ServiceMetier\" />
@@ -475,6 +494,13 @@
     <None Include="Connected Services\ServiceMetierAgenda\configuration91.svcinfo" />
     <None Include="Connected Services\ServiceMetierAgenda\configuration.svcinfo" />
     <None Include="Connected Services\ServiceMetierAgenda\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\ServiceMetierAuthentification\AuthentificationService.disco" />
+    <None Include="Connected Services\ServiceMetierAuthentification\configuration91.svcinfo" />
+    <None Include="Connected Services\ServiceMetierAuthentification\configuration.svcinfo" />
+    <None Include="Connected Services\ServiceMetierAuthentification\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

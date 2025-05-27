@@ -220,6 +220,24 @@ namespace WindowsFormsApp1.ServiceMetierGeneral {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneralService/GetListeGroupesSanguins", ReplyAction="http://tempuri.org/IGeneralService/GetListeGroupesSanguinsResponse")]
         System.Threading.Tasks.Task<WindowsFormsApp1.ServiceMetierGeneral.GroupeSanguin[]> GetListeGroupesSanguinsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneralService/AddFirstUser", ReplyAction="http://tempuri.org/IGeneralService/AddFirstUserResponse")]
+        bool AddFirstUser();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneralService/AddFirstUser", ReplyAction="http://tempuri.org/IGeneralService/AddFirstUserResponse")]
+        System.Threading.Tasks.Task<bool> AddFirstUserAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneralService/CheckUser", ReplyAction="http://tempuri.org/IGeneralService/CheckUserResponse")]
+        bool CheckUser(string identifiantinbd, string mdp);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneralService/CheckUser", ReplyAction="http://tempuri.org/IGeneralService/CheckUserResponse")]
+        System.Threading.Tasks.Task<bool> CheckUserAsync(string identifiantinbd, string mdp);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneralService/CheckAdmin", ReplyAction="http://tempuri.org/IGeneralService/CheckAdminResponse")]
+        bool CheckAdmin();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneralService/CheckAdmin", ReplyAction="http://tempuri.org/IGeneralService/CheckAdminResponse")]
+        System.Threading.Tasks.Task<bool> CheckAdminAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -271,6 +289,30 @@ namespace WindowsFormsApp1.ServiceMetierGeneral {
         
         public System.Threading.Tasks.Task<WindowsFormsApp1.ServiceMetierGeneral.GroupeSanguin[]> GetListeGroupesSanguinsAsync() {
             return base.Channel.GetListeGroupesSanguinsAsync();
+        }
+        
+        public bool AddFirstUser() {
+            return base.Channel.AddFirstUser();
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddFirstUserAsync() {
+            return base.Channel.AddFirstUserAsync();
+        }
+        
+        public bool CheckUser(string identifiantinbd, string mdp) {
+            return base.Channel.CheckUser(identifiantinbd, mdp);
+        }
+        
+        public System.Threading.Tasks.Task<bool> CheckUserAsync(string identifiantinbd, string mdp) {
+            return base.Channel.CheckUserAsync(identifiantinbd, mdp);
+        }
+        
+        public bool CheckAdmin() {
+            return base.Channel.CheckAdmin();
+        }
+        
+        public System.Threading.Tasks.Task<bool> CheckAdminAsync() {
+            return base.Channel.CheckAdminAsync();
         }
     }
 }

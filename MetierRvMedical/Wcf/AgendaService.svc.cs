@@ -25,7 +25,9 @@ namespace MetierRvMedical.Wcf
 
         public List<Dictionary<string, object>> CreneauxByHoraire(DateTime dateRecherche)
             => metier.CreneauxByHoraire(dateRecherche);
-        public List<int> ListeTimeCreneau(DateTime dateRecherche, int? idMedecin = null) =>
-                    metier.ListeTimeCreneau(dateRecherche, idMedecin);
+        public List<int> ListeTimeCreneau(DateTime dateRecherche) =>
+                    metier.ListeTimeCreneau(dateRecherche);
+        public List<Dictionary<string, object>> CreneauxByHoraireMedecin(DateTime dateRecherche, int idMedecin)=>
+            metier.CreneauxByHoraireMedecin(dateRecherche, idMedecin);
     }
 }
