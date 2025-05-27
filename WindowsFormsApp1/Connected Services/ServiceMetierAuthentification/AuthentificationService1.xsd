@@ -4,7 +4,7 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:Personne">
         <xs:sequence>
-          <xs:element minOccurs="0" name="IdRole" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="IdRole" type="xs:int" />
           <xs:element minOccurs="0" name="MotDePasse" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Role" nillable="true" type="tns:Role" />
           <xs:element minOccurs="0" name="identifiant" nillable="true" type="xs:string" />

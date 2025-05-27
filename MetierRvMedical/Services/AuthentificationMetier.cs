@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Web;
+using System.Data.Entity;
 
 namespace MetierRvMedical.Services
 {
@@ -91,6 +92,7 @@ namespace MetierRvMedical.Services
             {
                 string mdpCrypt = Helper.CryptString.GetMd5Hash(mdp);
                 var utilisateur = bd.Utilisateurs
+                    .Include(u => u.Role) //Permet de charger Role avec la clé etrangere IdRole
                     .FirstOrDefault(a => a.identifiant.ToLower() == identifiantinbd && a.MotDePasse == mdpCrypt);
 
                 return utilisateur;

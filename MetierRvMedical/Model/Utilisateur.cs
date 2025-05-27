@@ -12,15 +12,18 @@ namespace MetierRvMedical.Model
     public class Utilisateur:Personne
     {
 
-        [MaxLength(50)]
+        [MaxLength(50),Required]
         public string identifiant { get; set; }
 
-        [MaxLength(100)]
+        [MaxLength(100),Required]
         public string MotDePasse { get; set; }
         public bool? statut { get; set; }
-        public int? IdRole { get; set; }
+
+        [Required]
+        public int IdRole { get; set; } // Clé étrangère stockée en base
+
         [ForeignKey("IdRole")]
-        public virtual Role Role { get; set; } // Navigation property
+        public Role Role { get; set; } // Relation avec l'entité Role
     }
 
 }

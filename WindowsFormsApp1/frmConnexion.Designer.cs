@@ -28,87 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lblMessage = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lbl = new System.Windows.Forms.Label();
             this.txtIdentifiant = new System.Windows.Forms.TextBox();
             this.btnConnexion = new System.Windows.Forms.Button();
             this.lblIdentifiant = new System.Windows.Forms.Label();
             this.lblMotDePasse = new System.Windows.Forms.Label();
             this.txtMotDePasse = new System.Windows.Forms.TextBox();
             this.btnQuitter = new System.Windows.Forms.Button();
-            this.splitter2 = new System.Windows.Forms.Splitter();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lbl = new System.Windows.Forms.Label();
+            this.lblMessage = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.splitter1 = new System.Windows.Forms.Splitter();
+            this.splitter2 = new System.Windows.Forms.Splitter();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Red;
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.splitter1);
-            this.panel1.Location = new System.Drawing.Point(2, 1);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(995, 541);
-            this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Red;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel2.Controls.Add(this.lblMessage);
-            this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Controls.Add(this.lbl);
-            this.panel2.Controls.Add(this.txtIdentifiant);
-            this.panel2.Controls.Add(this.btnConnexion);
-            this.panel2.Controls.Add(this.lblIdentifiant);
-            this.panel2.Controls.Add(this.lblMotDePasse);
-            this.panel2.Controls.Add(this.txtMotDePasse);
-            this.panel2.Controls.Add(this.btnQuitter);
-            this.panel2.Controls.Add(this.splitter2);
-            this.panel2.Location = new System.Drawing.Point(47, 92);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(894, 409);
-            this.panel2.TabIndex = 10;
-            // 
-            // lblMessage
-            // 
-            this.lblMessage.AutoSize = true;
-            this.lblMessage.BackColor = System.Drawing.Color.Black;
-            this.lblMessage.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMessage.ForeColor = System.Drawing.Color.Red;
-            this.lblMessage.Location = new System.Drawing.Point(106, 347);
-            this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(0, 30);
-            this.lblMessage.TabIndex = 9;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = global::WindowsFormsApp1.Properties.Resources.WhatsApp_Image_2024_11_06_at_4_54_45_PM;
-            this.pictureBox1.Location = new System.Drawing.Point(432, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(433, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(458, 405);
+            this.pictureBox1.Size = new System.Drawing.Size(457, 405);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // lbl
-            // 
-            this.lbl.AutoSize = true;
-            this.lbl.BackColor = System.Drawing.Color.Transparent;
-            this.lbl.Location = new System.Drawing.Point(60, 58);
-            this.lbl.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.lbl.Name = "lbl";
-            this.lbl.Size = new System.Drawing.Size(300, 45);
-            this.lbl.TabIndex = 0;
-            this.lbl.Text = "Authentification";
             // 
             // txtIdentifiant
             // 
@@ -181,15 +129,57 @@
             this.btnQuitter.UseVisualStyleBackColor = false;
             this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
             // 
-            // splitter2
+            // panel1
             // 
-            this.splitter2.BackColor = System.Drawing.Color.Red;
-            this.splitter2.Location = new System.Drawing.Point(0, 0);
-            this.splitter2.Name = "splitter2";
-            this.splitter2.Size = new System.Drawing.Size(432, 405);
-            this.splitter2.TabIndex = 7;
-            this.splitter2.TabStop = false;
-            this.splitter2.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitter2_SplitterMoved);
+            this.panel1.BackColor = System.Drawing.Color.Red;
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.splitter1);
+            this.panel1.Location = new System.Drawing.Point(2, 1);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(995, 541);
+            this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // lbl
+            // 
+            this.lbl.AutoSize = true;
+            this.lbl.BackColor = System.Drawing.Color.Transparent;
+            this.lbl.Location = new System.Drawing.Point(60, 58);
+            this.lbl.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lbl.Name = "lbl";
+            this.lbl.Size = new System.Drawing.Size(300, 45);
+            this.lbl.TabIndex = 0;
+            this.lbl.Text = "Authentification";
+            // 
+            // lblMessage
+            // 
+            this.lblMessage.AutoSize = true;
+            this.lblMessage.BackColor = System.Drawing.Color.Black;
+            this.lblMessage.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMessage.ForeColor = System.Drawing.Color.Red;
+            this.lblMessage.Location = new System.Drawing.Point(106, 347);
+            this.lblMessage.Name = "lblMessage";
+            this.lblMessage.Size = new System.Drawing.Size(0, 30);
+            this.lblMessage.TabIndex = 9;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Red;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.lblMessage);
+            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Controls.Add(this.lbl);
+            this.panel2.Controls.Add(this.txtIdentifiant);
+            this.panel2.Controls.Add(this.btnConnexion);
+            this.panel2.Controls.Add(this.lblIdentifiant);
+            this.panel2.Controls.Add(this.lblMotDePasse);
+            this.panel2.Controls.Add(this.txtMotDePasse);
+            this.panel2.Controls.Add(this.btnQuitter);
+            this.panel2.Controls.Add(this.splitter2);
+            this.panel2.Location = new System.Drawing.Point(47, 92);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(894, 409);
+            this.panel2.TabIndex = 10;
             // 
             // splitter1
             // 
@@ -199,6 +189,16 @@
             this.splitter1.Size = new System.Drawing.Size(482, 541);
             this.splitter1.TabIndex = 0;
             this.splitter1.TabStop = false;
+            // 
+            // splitter2
+            // 
+            this.splitter2.BackColor = System.Drawing.Color.Red;
+            this.splitter2.Location = new System.Drawing.Point(0, 0);
+            this.splitter2.Name = "splitter2";
+            this.splitter2.Size = new System.Drawing.Size(433, 405);
+            this.splitter2.TabIndex = 7;
+            this.splitter2.TabStop = false;
+            this.splitter2.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitter2_SplitterMoved);
             // 
             // frmConexion
             // 
@@ -212,28 +212,27 @@
             this.Name = "frmConexion";
             this.Text = "Connexion";
             this.Load += new System.EventHandler(this.frmConexion_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Splitter splitter1;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label lbl;
         private System.Windows.Forms.TextBox txtIdentifiant;
         private System.Windows.Forms.Button btnConnexion;
         private System.Windows.Forms.Label lblIdentifiant;
         private System.Windows.Forms.Label lblMotDePasse;
         private System.Windows.Forms.TextBox txtMotDePasse;
         private System.Windows.Forms.Button btnQuitter;
-        private System.Windows.Forms.Splitter splitter2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblMessage;
+        private System.Windows.Forms.Label lbl;
+        private System.Windows.Forms.Splitter splitter2;
+        private System.Windows.Forms.Splitter splitter1;
     }
 }

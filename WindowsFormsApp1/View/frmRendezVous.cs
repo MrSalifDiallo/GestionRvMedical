@@ -41,9 +41,8 @@ namespace WindowsFormsApp1.View
             DateTime selectedDate = dtRendezVous.Value.Date;
             GetTableCreneau(listView1, selectedDate);
             lblMessageCreneaux.Text = $"Créneaux disponibles pour le {selectedDate.ToShortDateString()} :";
-            //LoadPhoneNumbers();
-            serviceAgenda.LoadAgenda(selectedDate);
-            //LoadAgenda(selectedDate);
+            LoadPhoneNumbers();
+            //serviceAgenda.LoadAgenda(selectedDate);
             LoadBloodGroups();  // Charger les groupes sanguins
             cbbSoins.DataSource = LoadCbbSoins();
             cbbSoins.DisplayMember = "Text";  // Ce que tu veux afficher dans le ComboBox
@@ -277,7 +276,7 @@ namespace WindowsFormsApp1.View
 
         private void cbbTelephone_TextChanged(object sender, EventArgs e)
         {
-            LoadPhoneNumbers();
+           // LoadPhoneNumbers();
             // Si le texte dans cbbTelephone change, on vérifie si le numéro correspond à un patient
             var phoneParts = cbbTelephone.Text.Split(new string[] { " - " }, StringSplitOptions.None);
             string phoneNumber = phoneParts[0].Trim(); // On prend uniquement le numéro
@@ -414,8 +413,19 @@ namespace WindowsFormsApp1.View
             ResetComboBox(cbbCreneauHoraire);
             ListeHoraireCreneaux.Add(CreateDefaultItem("Sélectionnez un créneau horaire..."));
 
-
             var typesCreneaux = serviceAgenda.ListeTimeCreneau(date);
+            if (typesCreneaux != null && typesCreneaux.Any())
+            {
+                // La liste n’est pas vide → on peut l’utiliser
+                lblTabMessage.Text = "";
+            }
+            else
+            {
+                // La liste est vide OU nulle → rien à afficher / à faire
+                lblTabMessage.Text= "Aucun créneau disponible pour cette date.";
+
+            }
+
             int nombrecreneau = 0;
 
             foreach (var typeCreneau in typesCreneaux)
@@ -586,7 +596,6 @@ namespace WindowsFormsApp1.View
         private void cbbMedecin_TextChanged(object sender, EventArgs e)
         {
             string texteTape = cbbMedecin.Text?.Trim().ToLower();
-
             var correspondance = cbbMedecin.Items.Cast<SelectListView>()
                 .FirstOrDefault(item => item.Text.Trim().ToLower() == texteTape);
             DateTime selectedDate = dtRendezVous.Value.Date;
@@ -616,6 +625,7 @@ namespace WindowsFormsApp1.View
                     cbbDureeCreneaux.Items.Clear();
                     //lblMessageCreneaux.Text = $"Créneaux disponibles pour le {selectedDate.ToShortDateString()}";
                     LoadCbbDureeCreneaux(selectedDate);
+                    GetTableCreneau(listView1, selectedDate);
                 }
             }
             else
@@ -624,7 +634,8 @@ namespace WindowsFormsApp1.View
                 cbbDureeCreneaux.DataSource = null;
                 cbbDureeCreneaux.Items.Clear();
                 LoadCbbDureeCreneaux(selectedDate);
-               // lblMessageCreneaux.Text = "Aucun médecin correspondant.";
+                GetTableCreneau(listView1, selectedDate);
+                // lblMessageCreneaux.Text = "Aucun médecin correspondant.";
             }
         }
 
@@ -635,9 +646,10 @@ namespace WindowsFormsApp1.View
 
         private void cbbCreneauHoraire_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            DateTime selectedDate = dtRendezVous.Value.Date;
+            GetTableCreneau(listView1, selectedDate);
         }
 
-        
+
     }
 }

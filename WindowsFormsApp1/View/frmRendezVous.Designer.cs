@@ -61,6 +61,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.lblTabMessage = new System.Windows.Forms.Label();
             this.lblMessageCreneaux = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -426,12 +427,23 @@
             this.panel7.BackColor = System.Drawing.Color.Transparent;
             this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel7.CausesValidation = false;
+            this.panel7.Controls.Add(this.lblTabMessage);
             this.panel7.Controls.Add(this.lblMessageCreneaux);
             this.panel7.Controls.Add(this.listView1);
             this.panel7.Location = new System.Drawing.Point(7, 266);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(562, 329);
             this.panel7.TabIndex = 96;
+            // 
+            // lblTabMessage
+            // 
+            this.lblTabMessage.AutoSize = true;
+            this.lblTabMessage.BackColor = System.Drawing.Color.White;
+            this.lblTabMessage.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTabMessage.Location = new System.Drawing.Point(36, 141);
+            this.lblTabMessage.Name = "lblTabMessage";
+            this.lblTabMessage.Size = new System.Drawing.Size(0, 26);
+            this.lblTabMessage.TabIndex = 97;
             // 
             // lblMessageCreneaux
             // 
@@ -712,5 +724,6 @@
         private System.Windows.Forms.Panel pnlimpression;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label lblTabMessage;
     }
 }

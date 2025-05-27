@@ -47,7 +47,6 @@
             this.rendezVousToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_close = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripSplitButton();
-            this.lblUserBienvenue = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,21 +83,21 @@
             // parientsToolStripMenuItem
             // 
             this.parientsToolStripMenuItem.Name = "parientsToolStripMenuItem";
-            this.parientsToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
+            this.parientsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.parientsToolStripMenuItem.Text = "Patient";
             this.parientsToolStripMenuItem.Click += new System.EventHandler(this.patientsToolStripMenuItem_Click);
             // 
             // docteursToolStripMenuItem
             // 
             this.docteursToolStripMenuItem.Name = "docteursToolStripMenuItem";
-            this.docteursToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
+            this.docteursToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.docteursToolStripMenuItem.Text = "Medecin";
             this.docteursToolStripMenuItem.Click += new System.EventHandler(this.docteursToolStripMenuItem_Click);
             // 
             // rendezToolStripMenuItem
             // 
             this.rendezToolStripMenuItem.Name = "rendezToolStripMenuItem";
-            this.rendezToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
+            this.rendezToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.rendezToolStripMenuItem.Text = "Rendez-Vous";
             this.rendezToolStripMenuItem.Click += new System.EventHandler(this.rendezToolStripMenuItem_Click);
             // 
@@ -118,19 +117,19 @@
             // patientsToolStripMenuItem
             // 
             this.patientsToolStripMenuItem.Name = "patientsToolStripMenuItem";
-            this.patientsToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
+            this.patientsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.patientsToolStripMenuItem.Text = "Patient";
             // 
             // docteursToolStripMenuItem1
             // 
             this.docteursToolStripMenuItem1.Name = "docteursToolStripMenuItem1";
-            this.docteursToolStripMenuItem1.Size = new System.Drawing.Size(178, 26);
+            this.docteursToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.docteursToolStripMenuItem1.Text = "Medecin";
             // 
             // rendezVousToolStripMenuItem
             // 
             this.rendezVousToolStripMenuItem.Name = "rendezVousToolStripMenuItem";
-            this.rendezVousToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
+            this.rendezVousToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.rendezVousToolStripMenuItem.Text = "Rendez-Vous";
             // 
             // side2
@@ -183,7 +182,7 @@
             // rendezVousToolStripMenuItem1
             // 
             this.rendezVousToolStripMenuItem1.Name = "rendezVousToolStripMenuItem1";
-            this.rendezVousToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.rendezVousToolStripMenuItem1.Size = new System.Drawing.Size(178, 26);
             this.rendezVousToolStripMenuItem1.Text = "Rendez-Vous";
             this.rendezVousToolStripMenuItem1.Click += new System.EventHandler(this.rendezVousToolStripMenuItem1_Click);
             // 
@@ -206,16 +205,6 @@
             this.toolStripButton1.Text = "toolStripButton1";
             this.toolStripButton1.ButtonClick += new System.EventHandler(this.toolStripButton1_ButtonClick);
             // 
-            // lblUserBienvenue
-            // 
-            this.lblUserBienvenue.AutoEllipsis = true;
-            this.lblUserBienvenue.Location = new System.Drawing.Point(12, 53);
-            this.lblUserBienvenue.Name = "lblUserBienvenue";
-            this.lblUserBienvenue.Size = new System.Drawing.Size(156, 47);
-            this.lblUserBienvenue.TabIndex = 32;
-            this.lblUserBienvenue.Text = "Bienvenue";
-            this.lblUserBienvenue.Click += new System.EventHandler(this.label1_Click);
-            // 
             // frmMDI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -224,7 +213,6 @@
             this.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.abstract_health_medical_science_healthcare_icon_digital_technology_science_concept_modern_innovation_treatment_medicine_on_hi_tech_future_blue_background_for_wallpaper_template_web_design_vec;
             this.ClientSize = new System.Drawing.Size(1082, 803);
             this.ControlBox = false;
-            this.Controls.Add(this.lblUserBienvenue);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frmMDI";
             this.Text = "Gestion Rendez Vous";
@@ -256,7 +244,6 @@
         private System.Windows.Forms.ToolStripMenuItem rendezVousToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator side2;
         private System.Windows.Forms.ToolStripButton btn_close;
-        private System.Windows.Forms.Label lblUserBienvenue;
     }
 }
 

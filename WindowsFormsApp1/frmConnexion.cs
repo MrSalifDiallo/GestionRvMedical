@@ -19,6 +19,8 @@ namespace WindowsFormsApp1
         public frmConexion()
         {
             InitializeComponent();
+            //this.WindowState=FormWindowState.Maximized; // Set the form to maximized state
+
         }
 
         private void frmConexion_Load(object sender, EventArgs e)
@@ -59,42 +61,33 @@ namespace WindowsFormsApp1
             try
             {
                 // Check if the user exists in the database
+                //if (existinguser)
+                //{
+                //    frmMDI f = new frmMDI(); // Create an instance of frmMDI with the mapped user
+                //    f.Show();
+                //    this.Hide();
+                //}
+                //else
+                //{
+                //    lblMessage.Text = "Identifiant ou Mot de Passe incorrect";
+                //}
                 bool existinguser = serviceAuthentification.CheckUser(identifiantinbd, mdp);
                 if (existinguser)
                 {
-                    frmMDI f = new frmMDI(); // Create an instance of frmMDI with the mapped user
-                    f.Show();
-                    this.Hide();
+                    var verificationuser = serviceAuthentification.UserInformation(identifiantinbd, mdp);
+                    if (verificationuser != null)
+                    {
+                        // Map the ServiceMetierAuthentification.Utilisateur to WindowsFormsApp1.Model.Utilisateur  
+                        ServiceMetierAuthentification.Utilisateur mappedUser = verificationuser;
+                        frmMDI f = new frmMDI(mappedUser); // Create an instance of frmMDI with the mapped user
+                        f.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        lblMessage.Text = "Identifiant ou Mot de Passe incorrect";
+                    }
                 }
-                else
-                {
-                    lblMessage.Text = "Identifiant ou Mot de Passe incorrect";
-                }
-                //if (existinguser)
-                //{
-                //    var verificationuser = serviceAuthentification.UserInformation(identifiantinbd, mdp);
-                //    if (verificationuser != null)
-                //    {
-                //        // Map the ServiceMetierAuthentification.Utilisateur to WindowsFormsApp1.Model.Utilisateur  
-                //        Utilisateur mappedUser = new Utilisateur
-                //        {
-                //            identifiant = verificationuser.identifiant,
-                //            MotDePasse = verificationuser.MotDePasse,
-                //            statut = verificationuser.statut,
-                //            IdRole = verificationuser.IdRole,
-                //            Adresse = verificationuser.Adresse,
-                //            Email = verificationuser.Email,
-                //            TEL = verificationuser.TEL,
-                //        };
-                //        frmMDI f = new frmMDI(mappedUser); // Create an instance of frmMDI with the mapped user
-                //        f.Show();
-                //        this.Hide();
-                //    }
-                //    else
-                //    {
-                //        lblMessage.Text = "Identifiant ou Mot de Passe incorrect";
-                //    }
-                //}
             }
             catch (Exception ex)
             {
@@ -108,6 +101,21 @@ namespace WindowsFormsApp1
         private void btnQuitter_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void AutoResizeAllControls(Control parent)
+        {
+            foreach (Control ctrl in parent.Controls)
+            {
+                ctrl.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+                // ou bien : ctrl.Dock = DockStyle.Fill;
+                AutoResizeAllControls(ctrl); // Récursion pour les enfants
+            }
+        }
+
+        private void splitter2_SplitterMoved_1(object sender, SplitterEventArgs e)
+        {
+
         }
     }
 }

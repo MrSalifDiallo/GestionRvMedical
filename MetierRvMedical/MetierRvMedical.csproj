@@ -211,6 +211,14 @@
     <Compile Include="Migrations\202505251051330_InitialMigration.Designer.cs">
       <DependentUpon>202505251051330_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202505270543429_ChangeUtilisateurModel.cs" />
+    <Compile Include="Migrations\202505270543429_ChangeUtilisateurModel.Designer.cs">
+      <DependentUpon>202505270543429_ChangeUtilisateurModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202505270617155_MakeRequiredformdpandidentifiant.cs" />
+    <Compile Include="Migrations\202505270617155_MakeRequiredformdpandidentifiant.Designer.cs">
+      <DependentUpon>202505270617155_MakeRequiredformdpandidentifiant.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Admin.cs" />
     <Compile Include="Model\Agenda.cs" />
@@ -276,6 +284,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202505251051330_InitialMigration.resx">
       <DependentUpon>202505251051330_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202505270543429_ChangeUtilisateurModel.resx">
+      <DependentUpon>202505270543429_ChangeUtilisateurModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202505270617155_MakeRequiredformdpandidentifiant.resx">
+      <DependentUpon>202505270617155_MakeRequiredformdpandidentifiant.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
