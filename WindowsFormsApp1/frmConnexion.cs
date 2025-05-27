@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.Model;
 using WindowsFormsApp1.Helper;
+using WindowsFormsApp1.View;
 namespace WindowsFormsApp1
 {
     public partial class frmConexion : Form
@@ -77,11 +78,22 @@ namespace WindowsFormsApp1
                     var verificationuser = serviceAuthentification.UserInformation(identifiantinbd, mdp);
                     if (verificationuser != null)
                     {
-                        // Map the ServiceMetierAuthentification.Utilisateur to WindowsFormsApp1.Model.Utilisateur  
-                        ServiceMetierAuthentification.Utilisateur mappedUser = verificationuser;
-                        frmMDI f = new frmMDI(mappedUser); // Create an instance of frmMDI with the mapped user
-                        f.Show();
-                        this.Hide();
+                        
+                        ////frmMDI f = new frmMDI(mappedUser); // Create an instance of frmMDI with the mapped user
+                        //if (CryptString.GetMd5Hash(mdp)==CryptString.GetMd5Hash("passer"))
+                        //{
+                        //    frmChangePassword form = new frmChangePassword();
+                        //    form.Show();
+                        //    this.Hide();
+                        //}
+                        //else
+                        //{
+                            // Map the ServiceMetierAuthentification.Utilisateur to WindowsFormsApp1.Model.Utilisateur  
+                            ServiceMetierAuthentification.Utilisateur mappedUser = verificationuser;
+                            frmMDI f = new frmMDI(mappedUser); // Create an instance of frmMDI with the mapped user
+                            f.Show();
+                            this.Hide();
+                        //}
                     }
                     else
                     {

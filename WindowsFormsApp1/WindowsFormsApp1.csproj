@@ -325,6 +325,9 @@
     <EmbeddedResource Include="View\frmAgenda.resx">
       <DependentUpon>frmAgenda.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\frmChangePassword.resx">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\frmMedecins.resx">
       <DependentUpon>frmMedecins.cs</DependentUpon>
     </EmbeddedResource>
@@ -482,6 +485,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\3791939.jpg" />
     <None Include="Connected Services\ServiceMetierPatient\PatientService.disco" />
     <None Include="Connected Services\ServiceMetierPatient\configuration91.svcinfo" />
     <None Include="Connected Services\ServiceMetierPatient\configuration.svcinfo" />
