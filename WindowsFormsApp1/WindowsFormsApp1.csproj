@@ -257,6 +257,12 @@
     <Compile Include="View\frmAgenda.Designer.cs">
       <DependentUpon>frmAgenda.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\frmChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmChangePassword.Designer.cs">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\frmMedecins.cs">
       <SubType>Form</SubType>
     </Compile>

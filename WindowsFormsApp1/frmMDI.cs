@@ -49,24 +49,15 @@ namespace WindowsFormsApp1
             }
 
             // Fonction générique pour ouvrir un formulaire MDI
-            private void OpenMdiChildForm(Form form)
+            private void OpenMdiChildForm()
             {
                 Form[] charr = this.MdiChildren;
                 // Vérifier si l'instance du formulaire est déjà ouverte
                 foreach (Form frm in charr)
                 {
                     frm.Close();
-                    //if (frm.GetType() == form.GetType()) // Vérifie si le formulaire est déjà ouvert
-                    //{
-                    //    frm.BringToFront(); // Si le formulaire est déjà ouvert, on le met au premier plan
-                    //    return;
-                    //}
                 }
 
-                // Crée une nouvelle instance du formulaire et définit-le comme enfant MDI
-                form.MdiParent = this; // frmMDI est le parent
-                form.Show(); // Affiche le formulaire
-                form.WindowState = FormWindowState.Maximized; // Ouvre le formulaire en mode maximisé
             }
 
 
@@ -112,7 +103,12 @@ namespace WindowsFormsApp1
 
             private void patientsToolStripMenuItem_Click(object sender, EventArgs e)
             {
-                OpenMdiChildForm(new frmPatients()); // Ouvre frmPatients
+                OpenMdiChildForm(); // Ouvre frmPatients
+                frmPatients f = new frmPatients();
+                f.MdiParent = this;
+            f.Show();
+            f.WindowState = FormWindowState.Maximized;
+
 
             }
 
@@ -128,9 +124,14 @@ namespace WindowsFormsApp1
 
             private void rendezToolStripMenuItem_Click(object sender, EventArgs e)
             {
-                OpenMdiChildForm(new frmRendezVous()); // Ouvre frmPatients
+                OpenMdiChildForm(); // Ouvre frmRendezVous
+            frmRendezVous f = new frmRendezVous();
+            f.MdiParent = this;
+            f.Show();
+            f.WindowState = FormWindowState.Maximized;
 
-            }
+
+        }
 
             private void toolStripButton2_Click_1(object sender, EventArgs e)
             {
@@ -160,9 +161,13 @@ namespace WindowsFormsApp1
 
             private void rendezVousToolStripMenuItem1_Click(object sender, EventArgs e)
             {
-                OpenMdiChildForm(new frmTest()); 
+                OpenMdiChildForm();
+            frmTest f = new frmTest();
+            f.MdiParent = this;
+            f.Show();
+            f.WindowState = FormWindowState.Maximized;
 
-            }
+        }
 
             private void label1_Click(object sender, EventArgs e)
             {

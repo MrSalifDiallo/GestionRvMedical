@@ -42,12 +42,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtNomPrenom = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dtDateNaissance = new System.Windows.Forms.DateTimePicker();
+            this.lblDateNaissance = new System.Windows.Forms.Label();
             this.lblTelephone = new System.Windows.Forms.Label();
             this.txtTelephone = new System.Windows.Forms.TextBox();
             this.btnRenitialiser = new System.Windows.Forms.Button();
             this.btnValider = new System.Windows.Forms.Button();
-            this.lblDateNaissance = new System.Windows.Forms.Label();
-            this.dtDateNaissance = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -176,6 +176,8 @@
             // 
             // panel1
             // 
+            this.panel1.AutoSize = true;
+            this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel1.Controls.Add(this.dtDateNaissance);
             this.panel1.Controls.Add(this.lblDateNaissance);
             this.panel1.Controls.Add(this.lblTelephone);
@@ -197,9 +199,26 @@
             this.panel1.Controls.Add(this.txtTaille);
             this.panel1.Location = new System.Drawing.Point(12, 44);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(352, 572);
+            this.panel1.Size = new System.Drawing.Size(326, 553);
             this.panel1.TabIndex = 72;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // dtDateNaissance
+            // 
+            this.dtDateNaissance.Location = new System.Drawing.Point(13, 418);
+            this.dtDateNaissance.Name = "dtDateNaissance";
+            this.dtDateNaissance.Size = new System.Drawing.Size(309, 22);
+            this.dtDateNaissance.TabIndex = 77;
+            // 
+            // lblDateNaissance
+            // 
+            this.lblDateNaissance.AutoSize = true;
+            this.lblDateNaissance.Location = new System.Drawing.Point(13, 392);
+            this.lblDateNaissance.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDateNaissance.Name = "lblDateNaissance";
+            this.lblDateNaissance.Size = new System.Drawing.Size(104, 16);
+            this.lblDateNaissance.TabIndex = 76;
+            this.lblDateNaissance.Text = "Date Naissance";
             // 
             // lblTelephone
             // 
@@ -243,27 +262,11 @@
             this.btnValider.UseVisualStyleBackColor = false;
             this.btnValider.Click += new System.EventHandler(this.btnValider_Click);
             // 
-            // lblDateNaissance
-            // 
-            this.lblDateNaissance.AutoSize = true;
-            this.lblDateNaissance.Location = new System.Drawing.Point(13, 392);
-            this.lblDateNaissance.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDateNaissance.Name = "lblDateNaissance";
-            this.lblDateNaissance.Size = new System.Drawing.Size(104, 16);
-            this.lblDateNaissance.TabIndex = 76;
-            this.lblDateNaissance.Text = "Date Naissance";
-            // 
-            // dtDateNaissance
-            // 
-            this.dtDateNaissance.Location = new System.Drawing.Point(13, 418);
-            this.dtDateNaissance.Name = "dtDateNaissance";
-            this.dtDateNaissance.Size = new System.Drawing.Size(309, 22);
-            this.dtDateNaissance.TabIndex = 77;
-            // 
             // frmPatients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.abstract_health_medical_science_healthcare_icon_digital_technology_science_concept_modern_innovation_treatment_medicine_on_hi_tech_future_blue_background_for_wallpaper_template_web_design_vec;
             this.ClientSize = new System.Drawing.Size(1137, 671);
             this.ControlBox = false;
@@ -277,6 +280,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

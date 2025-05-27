@@ -424,6 +424,7 @@
             // 
             // panel7
             // 
+            this.panel7.AutoSize = true;
             this.panel7.BackColor = System.Drawing.Color.Transparent;
             this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel7.CausesValidation = false;
@@ -432,7 +433,7 @@
             this.panel7.Controls.Add(this.listView1);
             this.panel7.Location = new System.Drawing.Point(7, 266);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(562, 329);
+            this.panel7.Size = new System.Drawing.Size(567, 334);
             this.panel7.TabIndex = 96;
             // 
             // lblTabMessage
@@ -465,6 +466,7 @@
             // 
             // panel10
             // 
+            this.panel10.AutoSize = true;
             this.panel10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel10.Controls.Add(this.panel6);
@@ -476,6 +478,7 @@
             // 
             // panel6
             // 
+            this.panel6.AutoSize = true;
             this.panel6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel6.Controls.Add(this.comboBox1);
             this.panel6.Controls.Add(this.label9);
@@ -518,6 +521,7 @@
             // 
             // panel8
             // 
+            this.panel8.AutoSize = true;
             this.panel8.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel8.Controls.Add(this.button2);
             this.panel8.Controls.Add(this.button1);
@@ -606,6 +610,7 @@
             // 
             // panel5
             // 
+            this.panel5.AutoSize = true;
             this.panel5.BackColor = System.Drawing.Color.Transparent;
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel5.CausesValidation = false;
@@ -656,9 +661,11 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel8.ResumeLayout(false);
