@@ -60,11 +60,14 @@ Update-Database -Verbose
 
 ```
 
-## 👤 Auteur
+## 👤 Auteurs
 
-**Salif Diallo**  
-💼 Développeur && passionné par les solutions de gestion  
-📧 [salifdiallo@esp.sn](mailto:salifdiallo@esp.sn)  
-🔗 [GitHub - MrSalifDiallo](https://github.com/MrSalifDiallo)  
-🌍 Basé à Dakar, Sénégal
+- **Salif Diallo**  Développeur principal
+      📧 [salifdiallo@esp.sn](mailto:salifdiallo@esp.sn)  
+      🔗 [GitHub - MrSalifDiallo](https://github.com/MrSalifDiallo)  
+      🌍 Basé à Dakar, Sénégal
+
+- **Papa Ahmadou Fall**  Mise en Place Front-End(RV)
+      🔗 [GitHub - papaahmadoufall](https://github.com/papaahmadoufall)  
+      🌍 Basé à Dakar, Sénégal
 
