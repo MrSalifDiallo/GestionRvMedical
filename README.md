@@ -48,9 +48,9 @@ git clone https://github.com/MrSalifDiallo/GestionRvMedical.git
 
 ### 2.Après avoir cloné le projet, ouvrez la Console du Gestionnaire de Package dans Visual Studio :
 
-```powershell```
+```powershell
 Update-Package -reinstall
-
+```
 ### Migration Base Donnée (Nuget)
 ```bash
 Enable-Migrations -ContextTypeName BdrvMedicalContext
