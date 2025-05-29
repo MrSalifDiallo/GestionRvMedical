@@ -31,16 +31,16 @@ namespace WindowsFormsApp1
                 this.ControlBox = false;  // Supprime les boutons de contrôle (fermer, réduire, agrandir)
                 this.ShowIcon = false;    // Supprime l'icône dans la barre de titre
                 this.ShowInTaskbar = false; // Ne pas afficher dans la barre des tâches
-                this.utilisateurConnecte = utilisateurConnecte;
+            this.utilisateurConnecte = utilisateurConnecte;
             }
 
             private void frmMDI_Load(object sender, EventArgs e)
             {
-                //Computer myComputer = new Computer();
-                //this.Width = myComputer.Screen.Bounds.Width;
-                //this.Height = myComputer.Screen.Bounds.Height;
-                //this.Location = new Point(0, 0);
-                if (utilisateurConnecte.Role.Code.ToLower() == "Admin".ToLower())
+            Computer myComputer = new Computer();
+            this.Width = myComputer.Screen.Bounds.Width;
+            this.Height = myComputer.Screen.Bounds.Height;
+            this.Location = new Point(0, 0);
+            if (utilisateurConnecte.Role.Code.ToLower() == "Admin".ToLower())
                 {
                     //Menu a cacher ou montrer pour Admin
                     //rendezToolStripMenuItem.Visible = false;
@@ -49,16 +49,6 @@ namespace WindowsFormsApp1
             }
 
             // Fonction générique pour ouvrir un formulaire MDI
-            private void OpenMdiChildForm()
-            {
-                Form[] charr = this.MdiChildren;
-                // Vérifier si l'instance du formulaire est déjà ouverte
-                foreach (Form frm in charr)
-                {
-                    frm.Close();
-                }
-
-            }
 
 
             private void btn_Add_Click(object sender, EventArgs e)
@@ -103,13 +93,11 @@ namespace WindowsFormsApp1
 
             private void patientsToolStripMenuItem_Click(object sender, EventArgs e)
             {
-                OpenMdiChildForm(); // Ouvre frmPatients
-                frmPatients f = new frmPatients();
+            fermer();
+            frmPatients f = new frmPatients();
                 f.MdiParent = this;
-            f.Show();
-            f.WindowState = FormWindowState.Maximized;
-
-
+                f.Show();
+                f.WindowState = FormWindowState.Maximized;
             }
 
             private void toolStripButton1_ButtonClick(object sender, EventArgs e)
@@ -124,16 +112,26 @@ namespace WindowsFormsApp1
 
             private void rendezToolStripMenuItem_Click(object sender, EventArgs e)
             {
-                OpenMdiChildForm(); // Ouvre frmRendezVous
+                //OpenMdiChildForm(); // Ouvre frmRendezVous
+                fermer();
             frmRendezVous f = new frmRendezVous();
             f.MdiParent = this;
             f.Show();
             f.WindowState = FormWindowState.Maximized;
+            }
+        private void fermer()
+        {
+            Form[] charr = this.MdiChildren;
 
-
+            //For each child form set the window state to Maximized 
+            foreach (Form chform in charr)
+            {
+                //chform.WindowState = FormWindowState.Maximized;
+                chform.Close();
+            }
         }
 
-            private void toolStripButton2_Click_1(object sender, EventArgs e)
+        private void toolStripButton2_Click_1(object sender, EventArgs e)
             {
 
             }
@@ -161,7 +159,7 @@ namespace WindowsFormsApp1
 
             private void rendezVousToolStripMenuItem1_Click(object sender, EventArgs e)
             {
-                OpenMdiChildForm();
+            fermer();
             frmTest f = new frmTest();
             f.MdiParent = this;
             f.Show();

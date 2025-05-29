@@ -194,13 +194,28 @@ namespace WindowsFormsApp1.View
         {
             // Liste des creneaux disponibles pour la date sélectionnée
             List<SelectListView> ListeDureeCreneaux = new List<SelectListView>();
-
-
-            var Creneaux = serviceAgenda.LoadCreneauxByDate(selectedDate)
+                var Creneaux = (idMedecin == null) ?
+                    serviceAgenda.LoadCreneauxByDate(selectedDate)
+                    .Where(c =>
+                    c["date"].ToString() == selectedDate.ToString("yyyy-MM-dd")
+                    &&
+                    Convert.ToBoolean(c["estOccupe"]) == false
+                    )
+                    .GroupBy(c => Convert.ToString(c["creneau"]))
+                    .Select(g => g.First())
+                    .Select(c => new
+                    {
+                        Creneau = c["creneau"].ToString(),
+                        Date = c["date"].ToString(),
+                    })
+                    .ToList()
+                    :
+                    //Si on a l'id du medecin
+                    serviceAgenda.LoadCreneauxByDate(selectedDate)
                 .Where(c =>
                     c["date"].ToString() == selectedDate.ToString("yyyy-MM-dd") &&
                     Convert.ToBoolean(c["estOccupe"]) == false &&
-                    (!idMedecin.HasValue || Convert.ToInt32(c["idMedecin"]) == idMedecin.Value)
+                    (Convert.ToInt32(c["idMedecin"]) == idMedecin.Value)
                 )
                 .GroupBy(c => Convert.ToString(c["creneau"]))
                 .Select(g => g.First())
@@ -210,22 +225,12 @@ namespace WindowsFormsApp1.View
                     Date = c["date"].ToString(),
                 })
                 .ToList();
-            if (Creneaux.Count()>1)
+            if (Creneaux.Any())
             {
                 // Ajouter un élément par défaut
-                ListeDureeCreneaux.Add(CreateDefaultItem("Sélectionnez un créneau..."));
-                foreach (var oneCreneau in Creneaux)
+                if (Creneaux.Count()>1)
                 {
-                    SelectListView item = new SelectListView();
-                    item.Text = oneCreneau.Creneau; // Corrected to directly use the Medecin property
-                    item.Value = oneCreneau.Creneau.ToString(); // Convert the integer IdMedecin to a string
-                    ListeDureeCreneaux.Add(item);
-                }
-            }
-            else
-            {
-                if (Creneaux.Count()==1)
-                {
+                    ListeDureeCreneaux.Add(CreateDefaultItem("Sélectionnez un créneau..."));
                     foreach (var oneCreneau in Creneaux)
                     {
                         SelectListView item = new SelectListView();
@@ -236,12 +241,28 @@ namespace WindowsFormsApp1.View
                 }
                 else
                 {
-                    // Ajouter un élément par défaut
-                    SelectListView def = new SelectListView();
-                    def.Text = "Aucun Time Creneau...";
-                    def.Value = "";
-                    ListeDureeCreneaux.Add(def);
+                    if (Creneaux.Count() == 1)
+                    {
+                        foreach (var oneCreneau in Creneaux)
+                        {
+                            SelectListView item = new SelectListView();
+                            item.Text = oneCreneau.Creneau; // Corrected to directly use the Medecin property
+                            item.Value = oneCreneau.Creneau.ToString(); // Convert the integer IdMedecin to a string
+                            ListeDureeCreneaux.Add(item);
+                        }
+                    }
+                    else
+                    {
+                        // Ajouter un élément par défaut
+                        ListeDureeCreneaux.Add(CreateDefaultItem("Aucune Durée Creneau..."));
+                    }
                 }
+
+            }
+            else
+            {
+                // Ajouter un élément par défaut
+                ListeDureeCreneaux.Add(CreateDefaultItem("Aucune Durée Creneau..."));
             }
 
             return ListeDureeCreneaux;
@@ -352,29 +373,14 @@ namespace WindowsFormsApp1.View
         private void DisableFields(ServiceMetierPatient.Patient servicePatient)
         {
             // Convert the ServiceMetierPatient.Patient to WindowsFormsApp1.Model.Patient
-            var patient = new Patient
-            {
-                NomPrenom = servicePatient.NomPrenom,
-                Adresse = servicePatient.Adresse,
-                Email = servicePatient.Email,
-                TEL = servicePatient.TEL,
-                Poids = servicePatient.Poids,
-                Taille = servicePatient.Taille,
-                GroupeSanguin = servicePatient.GroupeSanguin != null
-                    ? new GroupeSanguin
-                    {
-                        CodeGroupeSanguin = servicePatient.GroupeSanguin.CodeGroupeSanguin
-                    }
-                    : null
-            };
-
+            
             // Activer les champs si la valeur est null ou vide, sinon désactiver les champs
-            txtNomPrenom.Enabled = string.IsNullOrEmpty(patient.NomPrenom);
-            txtAdresse.Enabled = string.IsNullOrEmpty(patient.Adresse);
-            txtEmail.Enabled = string.IsNullOrEmpty(patient.Email);
-            txtPoids.Enabled = patient.Poids == null || patient.Poids == 0; // Peut aussi vérifier si Poids est égal à 0 (si c'est le cas)
-            txtTaille.Enabled = patient.Taille == null || patient.Taille == 0; // Même logique pour la taille
-            cbbGroupeSanguin.Enabled = string.IsNullOrEmpty(patient.GroupeSanguin?.CodeGroupeSanguin); // Vérifie si le groupe sanguin est null ou vide
+            txtNomPrenom.Enabled = string.IsNullOrEmpty(servicePatient.NomPrenom);
+            txtAdresse.Enabled = string.IsNullOrEmpty(servicePatient.Adresse);
+            txtEmail.Enabled = string.IsNullOrEmpty(servicePatient.Email);
+            txtPoids.Enabled = servicePatient.Poids == null || servicePatient.Poids == 0; // Peut aussi vérifier si Poids est égal à 0 (si c'est le cas)
+            txtTaille.Enabled = servicePatient.Taille == null || servicePatient.Taille == 0; // Même logique pour la taille
+            cbbGroupeSanguin.Enabled = string.IsNullOrEmpty(servicePatient.GroupeSanguin?.CodeGroupeSanguin); // Vérifie si le groupe sanguin est null ou vide
         }
 
         private void EnableAllFields()
@@ -410,8 +416,9 @@ namespace WindowsFormsApp1.View
 
             //Remplissage combo box creneaux
             List<SelectListView> ListeHoraireCreneaux = new List<SelectListView>();
-            ResetComboBox(cbbCreneauHoraire);
-            ListeHoraireCreneaux.Add(CreateDefaultItem("Sélectionnez un créneau horaire..."));
+           // ResetComboBox(cbbCreneauHoraire);
+            ListeHoraireCreneaux = LoadCbbDureeCreneaux(date,null);
+            //ListeHoraireCreneaux.Add(CreateDefaultItem("Sélectionnez un créneau horaire..."));
 
             var typesCreneaux = serviceAgenda.ListeTimeCreneau(date);
             if (typesCreneaux != null && typesCreneaux.Any())
@@ -423,7 +430,10 @@ namespace WindowsFormsApp1.View
             {
                 // La liste est vide OU nulle → rien à afficher / à faire
                 lblTabMessage.Text= "Aucun créneau disponible pour cette date.";
-
+                ListeHoraireCreneaux = LoadCbbDureeCreneaux(date,null);
+                cbbCreneauHoraire.DataSource = ListeHoraireCreneaux;
+                cbbCreneauHoraire.DisplayMember = "Text";
+                cbbCreneauHoraire.ValueMember = "Value";
             }
 
             int nombrecreneau = 0;
@@ -526,6 +536,7 @@ namespace WindowsFormsApp1.View
             lblMessageCreneaux.Text = $"Créneaux disponibles pour le {selectedDate.ToShortDateString()} :";
             GetTableCreneau(listView1, selectedDate);
             cbbMedecin.DataSource = LoadCbbMedecin(selectedDate);
+            
         }
         private void ResetComboBox(ComboBox comboBox)
         {
@@ -608,21 +619,15 @@ namespace WindowsFormsApp1.View
 
                 if (int.TryParse(correspondance.Value, out int idMedecin))
                 {
-                    var listeCreneaux = LoadCbbDureeCreneaux(selectedDate, idMedecin);
-                    cbbDureeCreneaux.DataSource = null;
-                    cbbDureeCreneaux.Items.Clear();
-
-                    cbbDureeCreneaux.DataSource = listeCreneaux;
-                    cbbDureeCreneaux.DisplayMember = "Text";
-                    cbbDureeCreneaux.ValueMember = "Value";
-
+                    ResetComboBox(cbbDureeCreneaux);
+                    cbbDureeCreneaux.DataSource = LoadCbbDureeCreneaux(selectedDate);
                     //lblMessageCreneaux.Text = $"Créneaux disponibles pour le {selectedDate.ToShortDateString()} : {correspondance.Text}";
                 }
                 else
                 {
                     // Valeur invalide
-                    cbbDureeCreneaux.DataSource = null;
-                    cbbDureeCreneaux.Items.Clear();
+                    ResetComboBox(cbbDureeCreneaux);
+                    cbbDureeCreneaux.DataSource = LoadCbbDureeCreneaux(selectedDate);
                     //lblMessageCreneaux.Text = $"Créneaux disponibles pour le {selectedDate.ToShortDateString()}";
                     LoadCbbDureeCreneaux(selectedDate);
                     GetTableCreneau(listView1, selectedDate);
@@ -631,9 +636,9 @@ namespace WindowsFormsApp1.View
             else
             {
                 // Aucun médecin correspondant
-                cbbDureeCreneaux.DataSource = null;
-                cbbDureeCreneaux.Items.Clear();
-                LoadCbbDureeCreneaux(selectedDate);
+                //cbbDureeCreneaux.Items.Clear();
+                ResetComboBox(cbbDureeCreneaux);
+                cbbDureeCreneaux.DataSource = LoadCbbDureeCreneaux(selectedDate);
                 GetTableCreneau(listView1, selectedDate);
                 // lblMessageCreneaux.Text = "Aucun médecin correspondant.";
             }

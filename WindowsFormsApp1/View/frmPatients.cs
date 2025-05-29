@@ -23,7 +23,9 @@ namespace WindowsFormsApp1.View
             this.FormBorderStyle = FormBorderStyle.None;
             this.ControlBox = false;  // Supprimer les boutons de contrôle
             this.ShowIcon = false;    // Supprimer l'icône
-            this.ShowInTaskbar = false; // Ne pas afficher dans la barre des tâches
+            this.ShowInTaskbar = true; // Ne pas afficher dans la barre des tâches
+            this.StartPosition = FormStartPosition.CenterParent;
+                
         }
 
         //BdRvMedicalContext bd = new BdRvMedicalContext(); // ❌ Supprimé – plus utilisé
