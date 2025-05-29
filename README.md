@@ -59,3 +59,12 @@ Enable-Migrations -ContextTypeName BdrvMedicalContext
 Update-Database -Verbose
 
 ```
+
+## 👤 Auteur
+
+**Salif Diallo**  
+💼 Développeur && passionné par les solutions de gestion  
+📧 [salifdiallo@esp.sn](mailto:salifdiallo@esp.sn)  
+🔗 [GitHub - MrSalifDiallo](https://github.com/MrSalifDiallo)  
+🌍 Basé à Dakar, Sénégal
+
