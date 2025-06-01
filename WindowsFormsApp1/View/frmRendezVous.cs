@@ -1,12 +1,13 @@
-﻿using System;
-using System.Linq;
-using System.Windows.Forms;
-using System.Data.Entity;
-using WindowsFormsApp1.Model;
+﻿using Org.BouncyCastle.Utilities.Collections;
+using System;
 using System.Collections.Generic;
-using System.Globalization;
+using System.Data.Entity;
 using System.Drawing;
+using System.Globalization;
+using System.Linq;
 using System.Security.Cryptography;
+using System.Windows.Forms;
+using WindowsFormsApp1.Model;
 
 namespace WindowsFormsApp1.View
 {
@@ -38,9 +39,11 @@ namespace WindowsFormsApp1.View
         private void frmRendezVous_Load(object sender, EventArgs e)
         {
             ResetForm();
-            DateTime selectedDate = dtRendezVous.Value.Date;
-            GetTableCreneau(listView1, selectedDate);
-            lblMessageCreneaux.Text = $"Créneaux disponibles pour le {selectedDate.ToShortDateString()} :";
+            DateTime selectedDate = new DateTime(2025, 05, 21);
+            //DateTime selectedDate = dtRendezVous.Value.Date;
+            dtRendezVous.Value = selectedDate;
+            GetTableCreneau(listView1, new DateTime(2025, 05, 21));
+           //lblMessageCreneaux.Text = $"Créneaux disponibles pour le {selectedDate.ToShortDateString()} :";
             LoadPhoneNumbers();
             //serviceAgenda.LoadAgenda(selectedDate);
             LoadBloodGroups();  // Charger les groupes sanguins
@@ -48,15 +51,18 @@ namespace WindowsFormsApp1.View
             cbbSoins.DisplayMember = "Text";  // Ce que tu veux afficher dans le ComboBox
             cbbSoins.ValueMember = "Value";   // La valeur associée à chaque item
 
-            cbbDureeCreneaux.DataSource = LoadCbbDureeCreneaux(selectedDate);  // ComboBox avec les durées disponibles
+            //cbbDureeCreneaux.DataSource = LoadCbbDureeCreneaux(selectedDate);  // ComboBox avec les durées disponibles
+            cbbDureeCreneaux.DataSource = LoadCbbDureeCreneaux(new DateTime(2025,05,21));  // ComboBox avec les durées disponibles
             cbbDureeCreneaux.DisplayMember = "Text";
             cbbDureeCreneaux.ValueMember = "Value";
 
-            cbbMedecin.DataSource=LoadCbbMedecin(selectedDate);
+            cbbMedecin.DataSource=LoadCbbMedecin(new DateTime(2025, 05, 21));
             cbbMedecin.DisplayMember = "Text";
             cbbMedecin.ValueMember = "Value";
 
-
+            cbbCreneauHoraire.DataSource = LoadCbbCreneauxHoraire(new DateTime(2025, 05, 21));
+            cbbCreneauHoraire.DisplayMember = "Text";
+            cbbCreneauHoraire.ValueMember = "Value";
         }
 
         private void LoadPhoneNumbers(int limit = 5)
@@ -103,58 +109,7 @@ namespace WindowsFormsApp1.View
             return ListeSoins;
 
         }
-        //private List<SelectListView> LoadCbbHoraireCreneau(DateTime daterecherche)
-        //{
-        //    ResetComboBox(cbbCreneauHoraire);
-        //    int leMedecin = 0;
-        //    if (cbbMedecin.SelectedItem is SelectListView selectedItem &&
-        //        int.TryParse(selectedItem.Value, out int id))
-        //    {
-        //        leMedecin = id;
-        //    }
-        //    //int leMedecin = 0;
-        //    //if (cbbMedecin.SelectedItem is SelectListView selectedItem &&
-        //    //    int.TryParse(selectedItem.Value, out int id))
-        //    //{
-        //    //    leMedecin = id;
-        //    //}
-
-        //    //ListeHoraireCreneau.Add(CreateDefaultItem("Sélectionnez un créneau horaire..."));
-
-        //    //var creneaux = (leMedecin == 0)
-        //    //    ? serviceAgenda.CreneauxByHoraire(daterecherche)
-        //    //        .Where(c => c.ContainsKey("horaire") && c.ContainsKey("creneau"))
-        //    //        .Select(c => new
-        //    //        {
-        //    //            Horaire = c["horaire"]?.ToString(),
-        //    //            Creneau = c["creneau"]?.ToString(),
-        //    //            MedecinId = c.ContainsKey("idMedecin") && c["idMedecin"] != null
-        //    //                        ? Convert.ToInt32(c["idMedecin"])
-        //    //                        : 0
-        //    //        })
-        //    //        .ToList()
-        //    //    : serviceAgenda.CreneauxByHoraireMedecin(daterecherche, leMedecin)
-        //    //        .Where(c => c.ContainsKey("horaire") && c.ContainsKey("creneau"))
-        //    //        .Select(c => new
-        //    //        {
-        //    //            Horaire = c["horaire"]?.ToString(),
-        //    //            Creneau = c["creneau"]?.ToString(),
-        //    //            MedecinId = leMedecin
-        //    //        })
-        //    //        .ToList();
-
-        //    //foreach (var item in creneaux)
-        //    //{
-        //    //    ListeHoraireCreneau.Add(new SelectListView
-        //    //    {
-        //    //        Text = item.Horaire,
-        //    //        Value = $"{item.Creneau}-{item.MedecinId}"
-        //    //    });
-        //    //}
-
-        //    return ListeHoraireCreneau;
-
-        //}
+        
         private List<SelectListView> LoadCbbMedecin(DateTime selectedDate)
         {
             // Liste de médecins
@@ -162,7 +117,6 @@ namespace WindowsFormsApp1.View
 
             // Ajouter un élément par défaut
             SelectListView def = new SelectListView();
-            ListeMedecins.Add(CreateDefaultItem("Sélectionnez un médecin..."));
             var medecinsDisponibles = serviceAgenda.LoadCreneauxByDate(selectedDate)
                             .Where(c => c["date"].ToString() == selectedDate.ToString("yyyy-MM-dd") &&
                                         Convert.ToBoolean(c["estOccupe"]) == false)
@@ -179,15 +133,23 @@ namespace WindowsFormsApp1.View
                             })
                             .ToList();
             // Ajouter les médecins au ComboBox
-            foreach (var medecindispo in medecinsDisponibles)
+            if (medecinsDisponibles.Any())
             {
-                SelectListView item = new SelectListView();
-                item.Text = medecindispo.Medecin; // Corrected to directly use the Medecin property
-                item.Value = medecindispo.IdMedecin.ToString(); // Convert the integer IdMedecin to a string
-                ListeMedecins.Add(item);
+                ListeMedecins.Add(CreateDefaultItem("Sélectionnez un médecin..."));
+                foreach (var medecindispo in medecinsDisponibles)
+                {
+                    SelectListView item = new SelectListView();
+                    item.Text = medecindispo.Medecin; // Corrected to directly use the Medecin property
+                    item.Value = medecindispo.IdMedecin.ToString(); // Convert the integer IdMedecin to a string
+                    ListeMedecins.Add(item);
+                }
+            }
+            else
+            {
+                ListeMedecins.Add(CreateDefaultItem("Aucun Médecin..."));
             }
 
-            return ListeMedecins;
+                return ListeMedecins;
         }
 
         private List<SelectListView> LoadCbbDureeCreneaux(DateTime selectedDate, int? idMedecin = null)
@@ -197,12 +159,12 @@ namespace WindowsFormsApp1.View
                 var Creneaux = (idMedecin == null) ?
                     serviceAgenda.LoadCreneauxByDate(selectedDate)
                     .Where(c =>
-                    c["date"].ToString() == selectedDate.ToString("yyyy-MM-dd")
-                    &&
-                    Convert.ToBoolean(c["estOccupe"]) == false
+                        c["date"].ToString() == selectedDate.ToString("yyyy-MM-dd")
+                        &&
+                        Convert.ToBoolean(c["estOccupe"]) == false
                     )
                     .GroupBy(c => Convert.ToString(c["creneau"]))
-                    .Select(g => g.First())
+                    .Select(c => c.First())
                     .Select(c => new
                     {
                         Creneau = c["creneau"].ToString(),
@@ -212,25 +174,27 @@ namespace WindowsFormsApp1.View
                     :
                     //Si on a l'id du medecin
                     serviceAgenda.LoadCreneauxByDate(selectedDate)
-                .Where(c =>
-                    c["date"].ToString() == selectedDate.ToString("yyyy-MM-dd") &&
-                    Convert.ToBoolean(c["estOccupe"]) == false &&
-                    (Convert.ToInt32(c["idMedecin"]) == idMedecin.Value)
-                )
-                .GroupBy(c => Convert.ToString(c["creneau"]))
-                .Select(g => g.First())
-                .Select(c => new
-                {
-                    Creneau = c["creneau"].ToString(),
-                    Date = c["date"].ToString(),
-                })
-                .ToList();
+                    .Where(c =>
+                        c["date"].ToString() == selectedDate.ToString("yyyy-MM-dd") 
+                        &&
+                        Convert.ToBoolean(c["estOccupe"]) == false 
+                        &&
+                        (Convert.ToInt32(c["idMedecin"]) == idMedecin.Value)
+                    )
+                    .GroupBy(c => Convert.ToString(c["creneau"]))
+                    .Select(g => g.First())
+                    .Select(c => new
+                    {
+                        Creneau = c["creneau"].ToString(),
+                        Date = c["date"].ToString(),
+                    })
+                    .ToList();
             if (Creneaux.Any())
             {
                 // Ajouter un élément par défaut
                 if (Creneaux.Count()>1)
                 {
-                    ListeDureeCreneaux.Add(CreateDefaultItem("Sélectionnez un créneau..."));
+                    ListeDureeCreneaux.Add(CreateDefaultItem("Sélectionnez une durée..."));
                     foreach (var oneCreneau in Creneaux)
                     {
                         SelectListView item = new SelectListView();
@@ -269,6 +233,81 @@ namespace WindowsFormsApp1.View
         }
 
 
+        private List<SelectListView> LoadCbbCreneauxHoraire(DateTime selectedDate, int? idMedecin = null, int?TimeCreneau=null)
+        {
+            // Liste des creneaux disponibles pour la date sélectionnée
+            List<SelectListView> ListeDureeCreneaux = new List<SelectListView>();
+            var Creneaux = (!idMedecin.HasValue) ?
+                serviceAgenda.CreneauxByHoraire(selectedDate)
+                .Where(c =>Convert.ToBoolean(c["estOccupe"]) == false)
+                .Select(c => new
+                {
+                    Horaire = c.ContainsKey("horaire") ? c["horaire"].ToString() : string.Empty,
+                    DureeCreneau = c.ContainsKey("TimeCreneau") ? c["TimeCreneau"]:string.Empty
+                })
+                .ToList()
+                :
+                //Si on a l'id du medecin
+                serviceAgenda.CreneauxByHoraireMedecin(selectedDate, idMedecin.Value)
+                .Where(c => Convert.ToBoolean(c["estOccupe"]) == false)
+                .Select(c => new
+                {
+                    Horaire = c.ContainsKey("horaire") ? c["horaire"].ToString() : string.Empty,
+                    DureeCreneau = c.ContainsKey("TimeCreneau") ? c["TimeCreneau"] : string.Empty
+                })
+                .ToList();
+            if (Creneaux.Any())
+            {
+                // Ajouter un élément par défaut
+                var specificCreneauByTime = (!TimeCreneau.HasValue) ?
+                    Creneaux.ToList()
+                    :
+                    Creneaux.Where(c => c.DureeCreneau.ToString() == TimeCreneau.ToString())
+                    .ToList();
+
+                if (specificCreneauByTime.Count() > 1)
+                {
+                    ListeDureeCreneaux.Add(CreateDefaultItem("Sélectionnez un créneau..."));
+                    foreach (var oneCreneau in specificCreneauByTime)
+                    {
+                        SelectListView item = new SelectListView();
+                        item.Text = oneCreneau.Horaire; // Corrected to directly use the Medecin property
+                        item.Value = oneCreneau.Horaire.ToString(); // Convert the integer IdMedecin to a string
+                        ListeDureeCreneaux.Add(item);
+                    }
+                }
+                else
+                {
+                    if (specificCreneauByTime.Count() == 1)
+                    {
+                        foreach (var oneCreneau in specificCreneauByTime)
+                        {
+                            SelectListView item = new SelectListView();
+                            item.Text = oneCreneau.Horaire; // Corrected to directly use the Medecin property
+                            item.Value = oneCreneau.Horaire.ToString(); // Convert the integer IdMedecin to a string
+                            ListeDureeCreneaux.Add(item);
+                        }
+                    }
+                    else
+                    {
+                        // Ajouter un élément par défaut
+                        ListeDureeCreneaux.Add(CreateDefaultItem("Aucun Creneau Horaire..."));
+                    }
+                }
+
+            }
+            else
+            {
+                // Ajouter un élément par défaut
+                ListeDureeCreneaux.Add(CreateDefaultItem("Aucun Creneau Horaire..."));
+            }
+
+            return ListeDureeCreneaux;
+        }
+
+
+
+
         private void ResetForm()
         {
             txtNomPrenom.Clear();
@@ -305,6 +344,7 @@ namespace WindowsFormsApp1.View
             // Charger les données du patient correspondant au numéro de téléphone
             UpdatePatientDetails(phoneNumber);
         }
+
         /// <summary>
         /// Cette fonction va permettre de supprimer le nom prenom dans le champs Telephone
         /// </summary>
@@ -327,6 +367,7 @@ namespace WindowsFormsApp1.View
             }
         }
 
+
         private void cbbTelephone_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Lorsque l'utilisateur sélectionne une valeur dans la liste d'autocomplétion
@@ -341,7 +382,10 @@ namespace WindowsFormsApp1.View
                 // Recherche du patient correspondant au numéro de téléphone
             }
         }
-
+        /// <summary>
+        /// Pour faire une mise a jour des champs autocompletés apres une mise a jour du numéro du patient 
+        /// </summary>
+        /// <param name="phoneNumberInput"></param>
         private void UpdatePatientDetails(string phoneNumberInput)
         {
             var patient=servicePatient.ResearchPatient(phoneNumberInput);
@@ -370,6 +414,10 @@ namespace WindowsFormsApp1.View
             }
         }
 
+        /// <summary>
+        /// Desactiver les champs apres une autocompletion a travers le numéro de patient
+        /// </summary>
+        /// <param name="servicePatient"></param>
         private void DisableFields(ServiceMetierPatient.Patient servicePatient)
         {
             // Convert the ServiceMetierPatient.Patient to WindowsFormsApp1.Model.Patient
@@ -383,6 +431,9 @@ namespace WindowsFormsApp1.View
             cbbGroupeSanguin.Enabled = string.IsNullOrEmpty(servicePatient.GroupeSanguin?.CodeGroupeSanguin); // Vérifie si le groupe sanguin est null ou vide
         }
 
+        /// <summary>
+        /// Pour activer les champs de patient a nouveau
+        /// </summary>
         private void EnableAllFields()
         {
             // Activer tous les champs de saisie
@@ -400,6 +451,12 @@ namespace WindowsFormsApp1.View
             frmPrintTicket.Show();
         }
 
+        /// <summary>
+        /// Pour remplir la liste view 
+        /// </summary>
+        /// <param name="listView"></param>
+        /// <param name="date"></param>
+        /// <param name="idMedecin"></param>
         private void GetTableCreneau(ListView listView,DateTime date, int? idMedecin = null)
         {
             listView.Items.Clear();
@@ -414,26 +471,17 @@ namespace WindowsFormsApp1.View
             listView.Columns.Add("Disponible", 100);
             listView.Columns.Add("Occupé", 100);
 
-            //Remplissage combo box creneaux
-            List<SelectListView> ListeHoraireCreneaux = new List<SelectListView>();
-           // ResetComboBox(cbbCreneauHoraire);
-            ListeHoraireCreneaux = LoadCbbDureeCreneaux(date,null);
-            //ListeHoraireCreneaux.Add(CreateDefaultItem("Sélectionnez un créneau horaire..."));
 
             var typesCreneaux = serviceAgenda.ListeTimeCreneau(date);
             if (typesCreneaux != null && typesCreneaux.Any())
             {
-                // La liste n’est pas vide → on peut l’utiliser
+                // La liste n'est pas vide → on peut l'utiliser
                 lblTabMessage.Text = "";
             }
             else
             {
                 // La liste est vide OU nulle → rien à afficher / à faire
                 lblTabMessage.Text= "Aucun créneau disponible pour cette date.";
-                ListeHoraireCreneaux = LoadCbbDureeCreneaux(date,null);
-                cbbCreneauHoraire.DataSource = ListeHoraireCreneaux;
-                cbbCreneauHoraire.DisplayMember = "Text";
-                cbbCreneauHoraire.ValueMember = "Value";
             }
 
             int nombrecreneau = 0;
@@ -494,12 +542,7 @@ namespace WindowsFormsApp1.View
                         dispoTexte,
                         occupeTexte,
                     });
-                        ListeHoraireCreneaux.Add(new SelectListView
-                        {
-                            Text = creneau["horaire"].ToString(),
-                            Value = creneau["horaire"].ToString()
-                        });
-
+                        
                         item.UseItemStyleForSubItems = false;
 
                         if (i == indexTitre)
@@ -530,21 +573,21 @@ namespace WindowsFormsApp1.View
             }
             lblMessageCreneaux.Text = $"Créneaux disponibles pour le {date.ToShortDateString()} :{nombrecreneau}";
         }
+
+
         private void dtRendezVous_ValueChanged(object sender, EventArgs e)
         {
             DateTime selectedDate = dtRendezVous.Value.Date;
             lblMessageCreneaux.Text = $"Créneaux disponibles pour le {selectedDate.ToShortDateString()} :";
+            //Rechargement du tableau
             GetTableCreneau(listView1, selectedDate);
+            //Rehargement des Medecins avec un creneau dispo avec cette date
             cbbMedecin.DataSource = LoadCbbMedecin(selectedDate);
-            
+            //Rechargement des Creneaux Dispos
+            cbbCreneauHoraire.DataSource = LoadCbbCreneauxHoraire(selectedDate);
+            //Rechargement des Durées Créneaux de cette date
+            cbbDureeCreneaux.DataSource = LoadCbbDureeCreneaux(selectedDate);
         }
-        private void ResetComboBox(ComboBox comboBox)
-        {
-            comboBox.DataSource = null;
-            comboBox.Items.Clear();
-        }
-
-
         private SelectListView CreateDefaultItem(string text) =>
         new SelectListView { Text = text, Value = "" };
 
@@ -580,28 +623,24 @@ namespace WindowsFormsApp1.View
         private void cbbMedecin_SelectedIndexChanged(object sender, EventArgs e)
         {
             DateTime selectedDate = dtRendezVous.Value.Date;
-            // Nettoyage d'abord
-            cbbDureeCreneaux.DataSource = null;
-            cbbDureeCreneaux.Items.Clear();
+            
+            //cbbDureeCreneaux.DataSource = null;
+            //cbbDureeCreneaux.Items.Clear();
             if (cbbMedecin.SelectedItem is SelectListView selectedMedecin &&
                 int.TryParse(selectedMedecin.Value, out int idMedecin) &&
                 idMedecin != 0)
             {
                 GetTableCreneau(listView1,selectedDate, idMedecin);
-                var listeCreneaux = LoadCbbDureeCreneaux(selectedDate, idMedecin);
-
-                cbbDureeCreneaux.DataSource = listeCreneaux;
-                cbbDureeCreneaux.DisplayMember = "Text";
-                cbbDureeCreneaux.ValueMember = "Value";
-
-                //lblMessageCreneaux.Text = $"Créneaux disponibles pour le {selectedDate.ToShortDateString()} : {selectedMedecin.Text}";
+                cbbDureeCreneaux.DataSource = LoadCbbDureeCreneaux(selectedDate, idMedecin);
+                cbbCreneauHoraire.DataSource = LoadCbbCreneauxHoraire(selectedDate, idMedecin);
+                lblMessageCreneaux.Text = $"Créneaux disponibles pour le {selectedDate.ToShortDateString()} : {selectedMedecin.Text}";
             }
             else
             {
-                LoadCbbDureeCreneaux(selectedDate);
-                //lblMessageCreneaux.Text = $"Aucun créneau disponible pour le {selectedDate.ToShortDateString()}";
+                GetTableCreneau(listView1, selectedDate);
+                cbbDureeCreneaux.DataSource = LoadCbbDureeCreneaux(selectedDate);
+                cbbCreneauHoraire.DataSource = LoadCbbCreneauxHoraire(selectedDate);
             }
-
         }
 
         private void cbbMedecin_TextChanged(object sender, EventArgs e)
@@ -619,40 +658,60 @@ namespace WindowsFormsApp1.View
 
                 if (int.TryParse(correspondance.Value, out int idMedecin))
                 {
-                    ResetComboBox(cbbDureeCreneaux);
-                    cbbDureeCreneaux.DataSource = LoadCbbDureeCreneaux(selectedDate);
-                    //lblMessageCreneaux.Text = $"Créneaux disponibles pour le {selectedDate.ToShortDateString()} : {correspondance.Text}";
+                    //ResetComboBox(cbbDureeCreneaux);
+                    lblMessageCreneaux.Text = $"Créneaux disponibles pour le {selectedDate.ToShortDateString()} : {correspondance.Text}";
+                    GetTableCreneau(listView1, selectedDate, idMedecin);
+                    cbbDureeCreneaux.DataSource = LoadCbbDureeCreneaux(selectedDate, idMedecin);
+                    cbbCreneauHoraire.DataSource = LoadCbbCreneauxHoraire(selectedDate, idMedecin);
                 }
                 else
                 {
                     // Valeur invalide
-                    ResetComboBox(cbbDureeCreneaux);
-                    cbbDureeCreneaux.DataSource = LoadCbbDureeCreneaux(selectedDate);
-                    //lblMessageCreneaux.Text = $"Créneaux disponibles pour le {selectedDate.ToShortDateString()}";
-                    LoadCbbDureeCreneaux(selectedDate);
+                    //ResetComboBox(cbbDureeCreneaux);
+                    //cbbDureeCreneaux.DataSource = LoadCbbDureeCreneaux(selectedDate);
+                    lblMessageCreneaux.Text = "Aucun médecin correspondant...";
                     GetTableCreneau(listView1, selectedDate);
+                    cbbDureeCreneaux.DataSource = LoadCbbDureeCreneaux(selectedDate);
+                    cbbCreneauHoraire.DataSource = LoadCbbCreneauxHoraire(selectedDate);
                 }
             }
             else
             {
-                // Aucun médecin correspondant
-                //cbbDureeCreneaux.Items.Clear();
-                ResetComboBox(cbbDureeCreneaux);
-                cbbDureeCreneaux.DataSource = LoadCbbDureeCreneaux(selectedDate);
+
                 GetTableCreneau(listView1, selectedDate);
-                // lblMessageCreneaux.Text = "Aucun médecin correspondant.";
+                cbbDureeCreneaux.DataSource = LoadCbbDureeCreneaux(selectedDate);
+                cbbCreneauHoraire.DataSource = LoadCbbCreneauxHoraire(selectedDate);
+                lblMessageCreneaux.Text = "Aucun médecin correspondant.";
             }
         }
 
         private void cbbDureeCreneaux_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            DateTime selectedDate = dtRendezVous.Value.Date;
+            int selectedidMedecin = 0;
+            if (cbbMedecin.SelectedItem is SelectListView selectedMedecin &&
+                int.TryParse(selectedMedecin.Value, out selectedidMedecin))
+            {
+                if (cbbDureeCreneaux.SelectedItem is SelectListView selectedCreneau &&
+                    int.TryParse(selectedCreneau.Value, out int dureecreneau))
+                {
+                    cbbCreneauHoraire.DataSource = LoadCbbCreneauxHoraire(selectedDate, selectedidMedecin, dureecreneau);
+                }
+            }
+            else
+            {
+                if (cbbDureeCreneaux.SelectedItem is SelectListView selectedCreneau &&
+                    int.TryParse(selectedCreneau.Value, out int dureecreneau))
+                {
+                    cbbCreneauHoraire.DataSource = LoadCbbCreneauxHoraire(selectedDate, null, dureecreneau);
+                }
+            }
         }
 
         private void cbbCreneauHoraire_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DateTime selectedDate = dtRendezVous.Value.Date;
-            GetTableCreneau(listView1, selectedDate);
+            //DateTime selectedDate = dtRendezVous.Value.Date;
+            //GetTableCreneau(listView1, selectedDate);
         }
 
 

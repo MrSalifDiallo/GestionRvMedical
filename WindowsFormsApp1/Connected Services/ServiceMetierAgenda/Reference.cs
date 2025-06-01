@@ -858,7 +858,7 @@ namespace WindowsFormsApp1.ServiceMetierAgenda {
     public partial class Utilisateur : WindowsFormsApp1.ServiceMetierAgenda.Personne {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> IdRoleField;
+        private int IdRoleField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string MotDePasseField;
@@ -873,7 +873,7 @@ namespace WindowsFormsApp1.ServiceMetierAgenda {
         private System.Nullable<bool> statutField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> IdRole {
+        public int IdRole {
             get {
                 return this.IdRoleField;
             }

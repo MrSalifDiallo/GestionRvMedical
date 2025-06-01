@@ -184,7 +184,7 @@ namespace MetierRvMedical.Services
                             ["date"] = dateRecherche.ToString("yyyy-MM-dd"),
                             ["heureDebut"] = heureDebut.ToString("HH:mm"),
                             ["heureFin"] = nextTime.ToString("HH:mm"),
-                            ["estOccupe"] = isSlotOccupied
+                            ["estOccupe"] = isSlotOccupied,
                         });
                         // Passer au créneau suivant
                         heureDebut = nextTime;
@@ -245,6 +245,7 @@ namespace MetierRvMedical.Services
                             ["estOccupe"] = occupe > 0 // true si au moins un est occupé
                         };
                     })
+                    .OrderBy(r => r["horaire"])
                     .ToList();
 
                 return resultat;
@@ -259,7 +260,7 @@ namespace MetierRvMedical.Services
 
 
         /// <summary>
-        /// Genere un tableau des créneaux pour une date donnée, groupés par horaire et par médecin.
+        /// Genere un tableau des créneaux pour une date donnée, groupés par horaire et pour un medecin donné.
         /// </summary>
         /// <param name="dateRecherche"></param>
         /// <param name="idMedecin"></param>
