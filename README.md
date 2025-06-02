@@ -45,6 +45,7 @@
 
 ```bash
 git clone https://github.com/MrSalifDiallo/GestionRvMedical.git
+cd GestionRvMedical
 ```
 ### 🧰 Restauration des dépendances NuGet
 
