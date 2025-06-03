@@ -47,7 +47,7 @@ namespace MetierRvMedical.Services
             try
             {
                 bd.Entry(patient).State = EntityState.Deleted;
-                bd.Patients.Remove(patient);
+                bd.SaveChanges(); 
                 return true;
             }
             catch (Exception ex)
@@ -104,6 +104,7 @@ namespace MetierRvMedical.Services
             try
             {
                 bd.Entry(patient).State = EntityState.Modified;
+                bd.SaveChanges();
                 return true;
             }
             catch (Exception ex)

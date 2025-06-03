@@ -183,7 +183,7 @@ namespace WindowsFormsApp1.View
                 utils.WriteDataError("frmPatients-btnValider_Click - Erreur", ex.ToString());
 
                 // Afficher l'erreur à l'utilisateur
-                MessageBox.Show("Une erreur inattendue est survenue: " + ex.Message);
+                //MessageBox.Show("Une erreur inattendue est survenue: " + ex.Message);
             }
 
         }

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Security.Cryptography;
+using System.Text;
 using System.Windows.Forms;
 using WindowsFormsApp1.Model;
 
@@ -17,7 +18,7 @@ namespace WindowsFormsApp1.View
         bool patientTrouve = false;
         ServiceMetierGeneral.GeneralServiceClient serviceGeneral = new ServiceMetierGeneral.GeneralServiceClient(); // ✅ Service WCF for General Method
         ServiceMetierPatient.PatientServiceClient servicePatient = new ServiceMetierPatient.PatientServiceClient(); // ✅ Service WCF for All Model Patient Method
-        ServiceMetierAgenda.AgendaServiceClient serviceAgenda = new ServiceMetierAgenda.AgendaServiceClient(); // ✅ Service WCF
+        ServiceMetierAgenda.AgendaServiceClient serviceAgenda = new ServiceMetierAgenda.AgendaServiceClient(); // ✅ Service WCF for Method Agenda
 
         public frmRendezVous()
         {
@@ -34,6 +35,7 @@ namespace WindowsFormsApp1.View
             txtSoin.Enabled = false;  // Désactivation du champ de prix
             //panel2.Visible = false;
             pnlimpression.Visible = false;
+           
         }
 
         private void frmRendezVous_Load(object sender, EventArgs e)
@@ -305,8 +307,41 @@ namespace WindowsFormsApp1.View
             return ListeDureeCreneaux;
         }
 
+        // ... existing code ...
+        private bool ValidateComboBoxes()
 
+        {
+            // Si des erreurs existent, on les affiche
+          
+            StringBuilder erreurs = new StringBuilder();
+            if (cbbMedecin.SelectedItem == null || string.IsNullOrEmpty(((SelectListView)cbbMedecin.SelectedItem).Value))
+            {
+                erreurs.AppendLine("Veuillez sélectionner un médecin.");
+            }
 
+            if (cbbDureeCreneaux.SelectedItem == null || string.IsNullOrEmpty(((SelectListView)cbbDureeCreneaux.SelectedItem).Value))
+            {
+                erreurs.AppendLine("Veuillez sélectionner une durée de créneau.");
+            }
+
+            if (cbbCreneauHoraire.SelectedItem == null || string.IsNullOrEmpty(((SelectListView)cbbCreneauHoraire.SelectedItem).Value))
+            {
+                erreurs.AppendLine("Veuillez sélectionner un créneau horaire.");
+            }
+
+            if (cbbSoins.SelectedItem == null || string.IsNullOrEmpty(((SelectListView)cbbSoins.SelectedItem).Value))
+            {
+                erreurs.AppendLine("Veuillez sélectionner un soin.");
+            }
+            if (erreurs.Length > 0)
+            {
+                MessageBox.Show(erreurs.ToString(), "Erreurs de validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            return true;
+        }
+
+        
 
         private void ResetForm()
         {
@@ -326,13 +361,7 @@ namespace WindowsFormsApp1.View
             EnableAllFields();
         }
 
-        private void btnValider_Click(object sender, EventArgs e)
-        {
-            // Validation ou enregistrement des données si nécessaire
-            MessageBox.Show("Données validées.");
-            //panel2.Visible = true;
-            pnlimpression.Visible = true;
-        }
+        
 
         private void cbbTelephone_TextChanged(object sender, EventArgs e)
         {
@@ -714,6 +743,17 @@ namespace WindowsFormsApp1.View
             //GetTableCreneau(listView1, selectedDate);
         }
 
-
+        private void btnValidezRv_Click(object sender, EventArgs e)
+        {
+            ValidateComboBoxes();
+            //if (ValidateComboBoxes())
+            //{
+            //    btnValidezRv.Enabled = false;
+            //}
+            //else
+            //{
+            //    btnValidezRv.Enabled = true;
+            //}
+        }
     }
 }

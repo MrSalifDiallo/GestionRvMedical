@@ -21,14 +21,5 @@ namespace MetierRvMedical.Wcf
 
         [OperationContract]
         List<GroupeSanguin> GetListeGroupesSanguins();
-
-        [OperationContract]
-        bool AddFirstUser();
-
-        [OperationContract]
-        bool CheckUser(string identifiantinbd, string mdp);
-
-        [OperationContract]
-        bool CheckAdmin();
     }
 }

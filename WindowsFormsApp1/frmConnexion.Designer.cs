@@ -36,11 +36,11 @@
             this.txtMotDePasse = new System.Windows.Forms.TextBox();
             this.btnQuitter = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lbl = new System.Windows.Forms.Label();
-            this.lblMessage = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.splitter1 = new System.Windows.Forms.Splitter();
+            this.lblMessage = new System.Windows.Forms.Label();
+            this.lbl = new System.Windows.Forms.Label();
             this.splitter2 = new System.Windows.Forms.Splitter();
+            this.splitter1 = new System.Windows.Forms.Splitter();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -64,12 +64,13 @@
             this.txtIdentifiant.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdentifiant.Location = new System.Drawing.Point(68, 164);
             this.txtIdentifiant.Name = "txtIdentifiant";
-            this.txtIdentifiant.Size = new System.Drawing.Size(278, 33);
+            this.txtIdentifiant.Size = new System.Drawing.Size(278, 28);
             this.txtIdentifiant.TabIndex = 3;
             // 
             // btnConnexion
             // 
             this.btnConnexion.BackColor = System.Drawing.Color.Black;
+            this.btnConnexion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnConnexion.FlatAppearance.BorderColor = System.Drawing.Color.BlueViolet;
             this.btnConnexion.FlatAppearance.BorderSize = 2;
             this.btnConnexion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -89,7 +90,7 @@
             this.lblIdentifiant.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIdentifiant.Location = new System.Drawing.Point(68, 129);
             this.lblIdentifiant.Name = "lblIdentifiant";
-            this.lblIdentifiant.Size = new System.Drawing.Size(108, 27);
+            this.lblIdentifiant.Size = new System.Drawing.Size(89, 21);
             this.lblIdentifiant.TabIndex = 1;
             this.lblIdentifiant.Text = "Identifiant";
             // 
@@ -99,7 +100,7 @@
             this.lblMotDePasse.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMotDePasse.Location = new System.Drawing.Point(68, 206);
             this.lblMotDePasse.Name = "lblMotDePasse";
-            this.lblMotDePasse.Size = new System.Drawing.Size(141, 27);
+            this.lblMotDePasse.Size = new System.Drawing.Size(113, 21);
             this.lblMotDePasse.TabIndex = 2;
             this.lblMotDePasse.Text = "Mot de passe";
             // 
@@ -109,13 +110,14 @@
             this.txtMotDePasse.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMotDePasse.Location = new System.Drawing.Point(68, 241);
             this.txtMotDePasse.Name = "txtMotDePasse";
-            this.txtMotDePasse.Size = new System.Drawing.Size(283, 33);
+            this.txtMotDePasse.Size = new System.Drawing.Size(283, 28);
             this.txtMotDePasse.TabIndex = 4;
             this.txtMotDePasse.UseSystemPasswordChar = true;
             // 
             // btnQuitter
             // 
             this.btnQuitter.BackColor = System.Drawing.Color.Black;
+            this.btnQuitter.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnQuitter.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
             this.btnQuitter.FlatAppearance.BorderSize = 2;
             this.btnQuitter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -140,28 +142,6 @@
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // lbl
-            // 
-            this.lbl.AutoSize = true;
-            this.lbl.BackColor = System.Drawing.Color.Transparent;
-            this.lbl.Location = new System.Drawing.Point(60, 58);
-            this.lbl.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.lbl.Name = "lbl";
-            this.lbl.Size = new System.Drawing.Size(300, 45);
-            this.lbl.TabIndex = 0;
-            this.lbl.Text = "Authentification";
-            // 
-            // lblMessage
-            // 
-            this.lblMessage.AutoSize = true;
-            this.lblMessage.BackColor = System.Drawing.Color.Black;
-            this.lblMessage.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMessage.ForeColor = System.Drawing.Color.Red;
-            this.lblMessage.Location = new System.Drawing.Point(106, 347);
-            this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(0, 30);
-            this.lblMessage.TabIndex = 9;
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Red;
@@ -181,18 +161,32 @@
             this.panel2.Size = new System.Drawing.Size(894, 409);
             this.panel2.TabIndex = 10;
             // 
-            // splitter1
+            // lblMessage
             // 
-            this.splitter1.BackColor = System.Drawing.Color.LavenderBlush;
-            this.splitter1.Location = new System.Drawing.Point(0, 0);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(482, 541);
-            this.splitter1.TabIndex = 0;
-            this.splitter1.TabStop = false;
+            this.lblMessage.AutoSize = true;
+            this.lblMessage.BackColor = System.Drawing.Color.Black;
+            this.lblMessage.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMessage.ForeColor = System.Drawing.Color.Red;
+            this.lblMessage.Location = new System.Drawing.Point(106, 347);
+            this.lblMessage.Name = "lblMessage";
+            this.lblMessage.Size = new System.Drawing.Size(0, 25);
+            this.lblMessage.TabIndex = 9;
+            // 
+            // lbl
+            // 
+            this.lbl.AutoSize = true;
+            this.lbl.BackColor = System.Drawing.Color.Transparent;
+            this.lbl.Location = new System.Drawing.Point(60, 58);
+            this.lbl.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lbl.Name = "lbl";
+            this.lbl.Size = new System.Drawing.Size(238, 36);
+            this.lbl.TabIndex = 0;
+            this.lbl.Text = "Authentification";
             // 
             // splitter2
             // 
             this.splitter2.BackColor = System.Drawing.Color.Red;
+            this.splitter2.Cursor = System.Windows.Forms.Cursors.Default;
             this.splitter2.Location = new System.Drawing.Point(0, 0);
             this.splitter2.Name = "splitter2";
             this.splitter2.Size = new System.Drawing.Size(433, 405);
@@ -200,9 +194,19 @@
             this.splitter2.TabStop = false;
             this.splitter2.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitter2_SplitterMoved);
             // 
+            // splitter1
+            // 
+            this.splitter1.BackColor = System.Drawing.Color.LavenderBlush;
+            this.splitter1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.splitter1.Location = new System.Drawing.Point(0, 0);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(482, 541);
+            this.splitter1.TabIndex = 0;
+            this.splitter1.TabStop = false;
+            // 
             // frmConexion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(22F, 45F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 36F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(996, 540);
             this.ControlBox = false;

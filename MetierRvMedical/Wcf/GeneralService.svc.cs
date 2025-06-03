@@ -24,11 +24,5 @@ namespace MetierRvMedical.Wcf
         }
         public List<Soin> GetListSoins() => metier.GetListSoins();
         public List<GroupeSanguin> GetListeGroupesSanguins() => metier.GetListeGroupesSanguins();
-        public bool AddFirstUser() => metier.AddFirstUser();
-        public bool CheckUser(string identifiantinbd, string mdp)
-        {
-            return metier.CheckUser(identifiantinbd, mdp);
-        }
-        public bool CheckAdmin() =>metier.CheckAdmin(); 
     }
 }
