@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="82e6458a-932a-42f2-a9df-ea6fcb1fde8f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:60827/Wcf/RendezVousService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="RendezVousService.xsd" MetadataType="Schema" ID="55276e7b-bc07-44a6-a8c1-e0bb7c228ae0" SourceId="1" SourceUrl="http://localhost:60827/Wcf/RendezVousService.svc?xsd=xsd2" />
+    <MetadataFile FileName="RendezVousService.wsdl" MetadataType="Wsdl" ID="a060b47f-06ef-422e-8085-4ee1c84dc7e8" SourceId="1" SourceUrl="http://localhost:60827/Wcf/RendezVousService.svc?wsdl" />
+    <MetadataFile FileName="RendezVousService.disco" MetadataType="Disco" ID="14eb6f6a-729e-492a-ab5c-a602142fcee8" SourceId="1" SourceUrl="http://localhost:60827/Wcf/RendezVousService.svc?disco" />
+    <MetadataFile FileName="RendezVousService1.xsd" MetadataType="Schema" ID="7ec8040f-497b-48d4-9d15-4452993e699b" SourceId="1" SourceUrl="http://localhost:60827/Wcf/RendezVousService.svc?xsd=xsd0" />
+    <MetadataFile FileName="RendezVousService2.xsd" MetadataType="Schema" ID="8a6ca07d-6689-4018-af82-7e30355d89ae" SourceId="1" SourceUrl="http://localhost:60827/Wcf/RendezVousService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

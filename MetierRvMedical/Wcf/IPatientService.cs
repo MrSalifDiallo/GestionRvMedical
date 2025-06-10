@@ -21,8 +21,6 @@ namespace MetierRvMedical.Wcf
         [OperationContract]
         bool RemovePatient(Patient patient);
         [OperationContract]
-        List<GroupeSanguin> GetListeGroupesSanguins();
-        [OperationContract]
         Patient ResearchPatient(string phoneNumberInput);
     }
 }

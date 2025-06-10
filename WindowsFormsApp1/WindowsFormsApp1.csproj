@@ -182,6 +182,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\ServiceMetierCreneau\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\ServiceMetierGeneral\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -192,7 +197,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Connected Services\ServiceMetier\Reference.cs">
+    <Compile Include="Connected Services\ServiceMetierRendezVous\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -201,12 +206,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>erreur.txt</DependentUpon>
-    </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="frmConnexion.cs">
       <SubType>Form</SubType>
@@ -299,9 +298,6 @@
     <Compile Include="View\frmTest.Designer.cs">
       <DependentUpon>frmTest.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmConnexion.resx">
       <DependentUpon>frmConnexion.cs</DependentUpon>
     </EmbeddedResource>
@@ -375,6 +371,16 @@
     <None Include="Connected Services\ServiceMetierAuthentification\WindowsFormsApp1.ServiceMetierAuthentification.Utilisateur.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\ServiceMetierCreneau\CreneauxService.wsdl" />
+    <None Include="Connected Services\ServiceMetierCreneau\CreneauxService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceMetierCreneau\CreneauxService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceMetierCreneau\CreneauxService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ServiceMetierGeneral\GeneralService.wsdl" />
     <None Include="Connected Services\ServiceMetierGeneral\GeneralService.xsd">
       <SubType>Designer</SubType>
@@ -410,27 +416,15 @@
     <None Include="Connected Services\ServiceMetierPatient\WindowsFormsApp1.ServiceMetierPatient.Patient.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ServiceMetier\Service1.wsdl" />
-    <None Include="Connected Services\ServiceMetier\Service1.xsd">
+    <None Include="Connected Services\ServiceMetierRendezVous\RendezVousService.wsdl" />
+    <None Include="Connected Services\ServiceMetierRendezVous\RendezVousService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceMetier\Service11.xsd">
+    <None Include="Connected Services\ServiceMetierRendezVous\RendezVousService1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceMetier\Service12.xsd">
+    <None Include="Connected Services\ServiceMetierRendezVous\RendezVousService2.xsd">
       <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceMetier\Service13.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceMetier\WindowsFormsApp1.ServiceMetier.Agenda.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\ServiceMetier\WindowsFormsApp1.ServiceMetier.CompositeType.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\ServiceMetier\WindowsFormsApp1.ServiceMetier.GroupeSanguin.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -465,24 +459,10 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\ServiceMetierAgenda\" />
     <WCFMetadataStorage Include="Connected Services\ServiceMetierAuthentification\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceMetierCreneau\" />
     <WCFMetadataStorage Include="Connected Services\ServiceMetierGeneral\" />
     <WCFMetadataStorage Include="Connected Services\ServiceMetierPatient\" />
-    <WCFMetadataStorage Include="Connected Services\ServiceMetier\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceMetier\Service1.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceMetier\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceMetier\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceMetier\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
+    <WCFMetadataStorage Include="Connected Services\ServiceMetierRendezVous\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\3791939.jpg" />
@@ -514,14 +494,26 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Connected Services\ServiceMetierRendezVous\RendezVousService.disco" />
+    <None Include="Connected Services\ServiceMetierRendezVous\configuration91.svcinfo" />
+    <None Include="Connected Services\ServiceMetierRendezVous\configuration.svcinfo" />
+    <None Include="Connected Services\ServiceMetierRendezVous\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\ServiceMetierCreneau\CreneauxService.disco" />
+    <None Include="Connected Services\ServiceMetierCreneau\configuration91.svcinfo" />
+    <None Include="Connected Services\ServiceMetierCreneau\configuration.svcinfo" />
+    <None Include="Connected Services\ServiceMetierCreneau\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Error\erreur.txt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>erreur1.cs</LastGenOutput>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Screen\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

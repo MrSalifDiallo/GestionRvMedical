@@ -119,14 +119,6 @@ namespace MetierRvMedical.Services
             return bd.Patients.ToList();
         }
 
-        /// <summary>
-        /// Génération de la liste des Groupes Sanguins
-        /// </summary>
-        /// <returns></returns>
-        public List<GroupeSanguin> GetListeGroupesSanguins()
-        {
-            return bd.GroupeSanguins.ToList();
-        }
 
         /// <summary>
         /// Trouve les infos du patient a travers son numéro de téléphone

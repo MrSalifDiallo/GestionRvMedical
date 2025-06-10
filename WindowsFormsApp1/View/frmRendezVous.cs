@@ -19,7 +19,8 @@ namespace WindowsFormsApp1.View
         ServiceMetierGeneral.GeneralServiceClient serviceGeneral = new ServiceMetierGeneral.GeneralServiceClient(); // ✅ Service WCF for General Method
         ServiceMetierPatient.PatientServiceClient servicePatient = new ServiceMetierPatient.PatientServiceClient(); // ✅ Service WCF for All Model Patient Method
         ServiceMetierAgenda.AgendaServiceClient serviceAgenda = new ServiceMetierAgenda.AgendaServiceClient(); // ✅ Service WCF for Method Agenda
-
+        ServiceMetierRendezVous.RendezVousServiceClient serviceRendezVous = new ServiceMetierRendezVous.RendezVousServiceClient(); // ✅ Service WCF for Method Rendez Vous
+        ServiceMetierCreneau.CreneauxServiceClient serviceCreneau = new ServiceMetierCreneau.CreneauxServiceClient(); // ✅ Service WCF for Method Creneau
         public frmRendezVous()
         {
             InitializeComponent();
@@ -144,6 +145,7 @@ namespace WindowsFormsApp1.View
                     item.Text = medecindispo.Medecin; // Corrected to directly use the Medecin property
                     item.Value = medecindispo.IdMedecin.ToString(); // Convert the integer IdMedecin to a string
                     ListeMedecins.Add(item);
+
                 }
             }
             else
@@ -200,8 +202,8 @@ namespace WindowsFormsApp1.View
                     foreach (var oneCreneau in Creneaux)
                     {
                         SelectListView item = new SelectListView();
-                        item.Text = oneCreneau.Creneau; // Corrected to directly use the Medecin property
-                        item.Value = oneCreneau.Creneau.ToString(); // Convert the integer IdMedecin to a string
+                        item.Text = oneCreneau.Creneau; 
+                        item.Value = oneCreneau.Creneau.ToString(); 
                         ListeDureeCreneaux.Add(item);
                     }
                 }
@@ -745,7 +747,27 @@ namespace WindowsFormsApp1.View
 
         private void btnValidezRv_Click(object sender, EventArgs e)
         {
-            ValidateComboBoxes();
+            if (ValidateComboBoxes())
+            {
+                ServiceMetierCreneau.Creneau creneau = new ServiceMetierCreneau.Creneau(); // ✅ Instance of WCF Service for Creneau
+                ServiceMetierRendezVous.RendezVous serviceRendezVous = new ServiceMetierRendezVous.RendezVous(); // ✅ Instance of WCF Service for RendezVous
+
+                // Heure de début (ex: "08:00 - 08:15" → on garde juste "08:00")
+                string horaire = ((SelectListView)cbbCreneauHoraire.SelectedItem).Value;
+                string heureDebutStr = horaire.Substring(0, 5); // "08:00"
+                creneau.HeureDebut = heureDebutStr;
+
+                // Durée en minutes (ex: "15")
+                int dureeMinutes = int.Parse(((SelectListView)cbbDureeCreneaux.SelectedItem).Value);
+
+                // Calcul de l'heure de fin
+                DateTime heureDebut = DateTime.ParseExact(heureDebutStr, "HH:mm", null);
+                DateTime heureFin = heureDebut.AddMinutes(dureeMinutes);
+                creneau.HeureFin = heureFin.ToString("HH:mm");
+                creneau.IdAgenda = Convert.ToInt32(((SelectListView)cbbMedecin.SelectedItem).Value); // Id du médecin sélectionné
+
+            }
+            ;
             //if (ValidateComboBoxes())
             //{
             //    btnValidezRv.Enabled = false;

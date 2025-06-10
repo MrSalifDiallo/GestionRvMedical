@@ -18,7 +18,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44337</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -198,10 +198,12 @@
   <ItemGroup>
     <Content Include="Service1.svc" />
     <Content Include="Wcf\AgendaService.svc" />
+    <Content Include="Wcf\AllService.svc" />
     <Content Include="Wcf\AuthentificationService.svc" />
     <Content Include="Wcf\CreneauxService.svc" />
     <Content Include="Wcf\GeneralService.svc" />
     <Content Include="Wcf\PatientService.svc" />
+    <Content Include="Wcf\RendezVousService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -252,6 +254,9 @@
     <Compile Include="Wcf\AgendaService.svc.cs">
       <DependentUpon>AgendaService.svc</DependentUpon>
     </Compile>
+    <Compile Include="Wcf\AllService.svc.cs">
+      <DependentUpon>AllService.svc</DependentUpon>
+    </Compile>
     <Compile Include="Wcf\AuthentificationService.svc.cs">
       <DependentUpon>AuthentificationService.svc</DependentUpon>
     </Compile>
@@ -262,17 +267,21 @@
       <DependentUpon>GeneralService.svc</DependentUpon>
     </Compile>
     <Compile Include="Wcf\IAgendaService.cs" />
+    <Compile Include="Wcf\IAllService.cs" />
     <Compile Include="Wcf\IAuthentificationService.cs" />
     <Compile Include="Wcf\ICreneauxService.cs" />
     <Compile Include="Wcf\IGeneralService.cs" />
     <Compile Include="Wcf\IPatientService.cs" />
+    <Compile Include="Wcf\IRendezVousService.cs" />
     <Compile Include="Wcf\PatientService.svc.cs">
       <DependentUpon>PatientService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Wcf\RendezVousService.svc.cs">
+      <DependentUpon>RendezVousService.svc</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="TestService\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="libman.json" />

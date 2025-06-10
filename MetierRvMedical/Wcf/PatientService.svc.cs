@@ -23,8 +23,6 @@ namespace MetierRvMedical.Wcf
 
         public bool RemovePatient(Patient patient) => metier.RemovePatient(patient);
 
-        public List<GroupeSanguin> GetListeGroupesSanguins() => metier.GetListeGroupesSanguins();
-
         public Patient ResearchPatient(string phoneNumberInput) => metier.ResearchPatient(phoneNumberInput);
     }
 }
