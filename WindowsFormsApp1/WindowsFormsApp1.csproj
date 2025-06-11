@@ -172,6 +172,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connected Services\AllServiceMetier\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\ServiceMetierAgenda\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -342,6 +347,25 @@
     <EmbeddedResource Include="View\frmTest.resx">
       <DependentUpon>frmTest.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Connected Services\AllServiceMetier\AllService.wsdl" />
+    <None Include="Connected Services\AllServiceMetier\AllService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AllServiceMetier\AllService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AllServiceMetier\AllService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AllServiceMetier\AllService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AllServiceMetier\WindowsFormsApp1.AllServiceMetier.Agenda.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AllServiceMetier\WindowsFormsApp1.AllServiceMetier.Utilisateur.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ServiceMetierAgenda\AgendaService.wsdl" />
     <None Include="Connected Services\ServiceMetierAgenda\AgendaService.xsd">
       <SubType>Designer</SubType>
@@ -457,6 +481,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\AllServiceMetier\" />
     <WCFMetadataStorage Include="Connected Services\ServiceMetierAgenda\" />
     <WCFMetadataStorage Include="Connected Services\ServiceMetierAuthentification\" />
     <WCFMetadataStorage Include="Connected Services\ServiceMetierCreneau\" />
@@ -505,6 +530,13 @@
     <None Include="Connected Services\ServiceMetierCreneau\configuration91.svcinfo" />
     <None Include="Connected Services\ServiceMetierCreneau\configuration.svcinfo" />
     <None Include="Connected Services\ServiceMetierCreneau\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\AllServiceMetier\AllService.disco" />
+    <None Include="Connected Services\AllServiceMetier\configuration91.svcinfo" />
+    <None Include="Connected Services\AllServiceMetier\configuration.svcinfo" />
+    <None Include="Connected Services\AllServiceMetier\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

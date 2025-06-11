@@ -18,11 +18,11 @@ namespace WindowsFormsApp1
         public partial class frmMDI : Form
         {
             public string role;
-            private ServiceMetierAuthentification.Utilisateur utilisateurConnecte;
+            private AllServiceMetier.Utilisateur utilisateurConnecte;
 
-        public ServiceMetierAuthentification.Utilisateur user { get; internal set; }
+        public AllServiceMetier.Utilisateur user { get; internal set; }
 
-        public frmMDI(ServiceMetierAuthentification.Utilisateur utilisateurConnecte)
+        public frmMDI(AllServiceMetier.Utilisateur utilisateurConnecte)
             {
                 InitializeComponent();
                 this.IsMdiContainer = true; // <-- Cette ligne est essentielle

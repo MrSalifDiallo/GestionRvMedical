@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="AllService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpsBinding_IAllService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:60827/Wcf/AllService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:60827/Wcf/AllService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:60827/Wcf/AllService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MetierRvMedical.Model" />
+      <xsd:import schemaLocation="http://localhost:60827/Wcf/AllService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAllService_LoadAgenda_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadAgenda" />
+  </wsdl:message>
+  <wsdl:message name="IAllService_LoadAgenda_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadAgendaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllService_LoadCreneauxByDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadCreneauxByDate" />
+  </wsdl:message>
+  <wsdl:message name="IAllService_LoadCreneauxByDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadCreneauxByDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllService_CreneauxByHoraire_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreneauxByHoraire" />
+  </wsdl:message>
+  <wsdl:message name="IAllService_CreneauxByHoraire_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreneauxByHoraireResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllService_ListeTimeCreneau_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListeTimeCreneau" />
+  </wsdl:message>
+  <wsdl:message name="IAllService_ListeTimeCreneau_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListeTimeCreneauResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllService_CreneauxByHoraireMedecin_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreneauxByHoraireMedecin" />
+  </wsdl:message>
+  <wsdl:message name="IAllService_CreneauxByHoraireMedecin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreneauxByHoraireMedecinResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllService_AddFirstUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddFirstUser" />
+  </wsdl:message>
+  <wsdl:message name="IAllService_AddFirstUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddFirstUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllService_CheckUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckUser" />
+  </wsdl:message>
+  <wsdl:message name="IAllService_CheckUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllService_CheckAdmin_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckAdmin" />
+  </wsdl:message>
+  <wsdl:message name="IAllService_CheckAdmin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckAdminResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllService_UserInformation_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserInformation" />
+  </wsdl:message>
+  <wsdl:message name="IAllService_UserInformation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserInformationResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IAllService">
+    <wsdl:operation name="LoadAgenda">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllService/LoadAgenda" message="tns:IAllService_LoadAgenda_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllService/LoadAgendaResponse" message="tns:IAllService_LoadAgenda_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadCreneauxByDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllService/LoadCreneauxByDate" message="tns:IAllService_LoadCreneauxByDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllService/LoadCreneauxByDateResponse" message="tns:IAllService_LoadCreneauxByDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreneauxByHoraire">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllService/CreneauxByHoraire" message="tns:IAllService_CreneauxByHoraire_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllService/CreneauxByHoraireResponse" message="tns:IAllService_CreneauxByHoraire_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListeTimeCreneau">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllService/ListeTimeCreneau" message="tns:IAllService_ListeTimeCreneau_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllService/ListeTimeCreneauResponse" message="tns:IAllService_ListeTimeCreneau_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreneauxByHoraireMedecin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllService/CreneauxByHoraireMedecin" message="tns:IAllService_CreneauxByHoraireMedecin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllService/CreneauxByHoraireMedecinResponse" message="tns:IAllService_CreneauxByHoraireMedecin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddFirstUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllService/AddFirstUser" message="tns:IAllService_AddFirstUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllService/AddFirstUserResponse" message="tns:IAllService_AddFirstUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllService/CheckUser" message="tns:IAllService_CheckUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllService/CheckUserResponse" message="tns:IAllService_CheckUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckAdmin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllService/CheckAdmin" message="tns:IAllService_CheckAdmin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllService/CheckAdminResponse" message="tns:IAllService_CheckAdmin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UserInformation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllService/UserInformation" message="tns:IAllService_UserInformation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllService/UserInformationResponse" message="tns:IAllService_UserInformation_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IAllService" type="tns:IAllService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LoadAgenda">
+      <soap:operation soapAction="http://tempuri.org/IAllService/LoadAgenda" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadCreneauxByDate">
+      <soap:operation soapAction="http://tempuri.org/IAllService/LoadCreneauxByDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreneauxByHoraire">
+      <soap:operation soapAction="http://tempuri.org/IAllService/CreneauxByHoraire" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListeTimeCreneau">
+      <soap:operation soapAction="http://tempuri.org/IAllService/ListeTimeCreneau" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreneauxByHoraireMedecin">
+      <soap:operation soapAction="http://tempuri.org/IAllService/CreneauxByHoraireMedecin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFirstUser">
+      <soap:operation soapAction="http://tempuri.org/IAllService/AddFirstUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUser">
+      <soap:operation soapAction="http://tempuri.org/IAllService/CheckUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAdmin">
+      <soap:operation soapAction="http://tempuri.org/IAllService/CheckAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserInformation">
+      <soap:operation soapAction="http://tempuri.org/IAllService/UserInformation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpsBinding_IAllService" type="tns:IAllService">
+    <wsp:PolicyReference URI="#BasicHttpsBinding_IAllService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LoadAgenda">
+      <soap:operation soapAction="http://tempuri.org/IAllService/LoadAgenda" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadCreneauxByDate">
+      <soap:operation soapAction="http://tempuri.org/IAllService/LoadCreneauxByDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreneauxByHoraire">
+      <soap:operation soapAction="http://tempuri.org/IAllService/CreneauxByHoraire" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListeTimeCreneau">
+      <soap:operation soapAction="http://tempuri.org/IAllService/ListeTimeCreneau" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreneauxByHoraireMedecin">
+      <soap:operation soapAction="http://tempuri.org/IAllService/CreneauxByHoraireMedecin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFirstUser">
+      <soap:operation soapAction="http://tempuri.org/IAllService/AddFirstUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUser">
+      <soap:operation soapAction="http://tempuri.org/IAllService/CheckUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAdmin">
+      <soap:operation soapAction="http://tempuri.org/IAllService/CheckAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserInformation">
+      <soap:operation soapAction="http://tempuri.org/IAllService/UserInformation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AllService">
+    <wsdl:port name="BasicHttpBinding_IAllService" binding="tns:BasicHttpBinding_IAllService">
+      <soap:address location="http://localhost:60827/Wcf/AllService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpsBinding_IAllService" binding="tns:BasicHttpsBinding_IAllService">
+      <soap:address location="https://localhost:44337/Wcf/AllService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

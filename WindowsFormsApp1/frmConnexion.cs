@@ -56,7 +56,8 @@ namespace WindowsFormsApp1
 
         private void btnConnexion_Click(object sender, EventArgs e)
         {
-            ServiceMetierAuthentification.AuthentificationServiceClient serviceAuthentification = new ServiceMetierAuthentification.AuthentificationServiceClient(); // ✅ Service WCF for General Method  
+            AllServiceMetier.AllServiceClient allService = new AllServiceMetier.AllServiceClient(); // ✅ Service WCF for General Method
+            //ServiceMetierAuthentification.AuthentificationServiceClient serviceAuthentification = new ServiceMetierAuthentification.AuthentificationServiceClient(); // ✅ Service WCF for General Method  
             string identifiantinbd = txtIdentifiant.Text.ToLower();
             string mdp = txtMotDePasse.Text;
             try
@@ -72,10 +73,10 @@ namespace WindowsFormsApp1
                 //{
                 //    lblMessage.Text = "Identifiant ou Mot de Passe incorrect";
                 //}
-                bool existinguser = serviceAuthentification.CheckUser(identifiantinbd, mdp);
+                bool existinguser = allService.CheckUser(identifiantinbd, mdp);
                 if (existinguser)
                 {
-                    var verificationuser = serviceAuthentification.UserInformation(identifiantinbd, mdp);
+                    var verificationuser = allService.UserInformation(identifiantinbd, mdp);
                     if (verificationuser != null)
                     {
                         
@@ -89,7 +90,7 @@ namespace WindowsFormsApp1
                         //else
                         //{
                             // Map the ServiceMetierAuthentification.Utilisateur to WindowsFormsApp1.Model.Utilisateur  
-                            ServiceMetierAuthentification.Utilisateur mappedUser = verificationuser;
+                            AllServiceMetier.Utilisateur mappedUser = verificationuser;
                             frmMDI f = new frmMDI(mappedUser); // Create an instance of frmMDI with the mapped user
                             f.Show();
                             this.Hide();
