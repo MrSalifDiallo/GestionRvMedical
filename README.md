@@ -71,4 +71,7 @@ Update-Database -Verbose
 - **Papa Ahmadou Fall**  Mise en Place Front-End(RV)
       🔗 [GitHub - papaahmadoufall](https://github.com/papaahmadoufall)  
       🌍 Basé à Dakar, Sénégal
+- **Nzotcha Edmond Darren **  Mise en Place Front-End Developer(RV)
+      🔗 [GitHub - papaahmadoufall](https://github.com/DarrenNz2004)  
+      🌍 Basé à Dakar, Sénégal
 
