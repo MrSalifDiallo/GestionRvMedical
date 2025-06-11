@@ -750,8 +750,8 @@ namespace WindowsFormsApp1.View
         {
             if (ValidateComboBoxes())
             {
-                ServiceMetierCreneau.Creneau creneau = new ServiceMetierCreneau.Creneau(); // ✅ Instance of WCF Service for Creneau
-                ServiceMetierRendezVous.RendezVous serviceRendezVous = new ServiceMetierRendezVous.RendezVous(); // ✅ Instance of WCF Service for RendezVous
+                AllServiceMetier.Creneau creneau = new AllServiceMetier.Creneau(); // ✅ Instance of WCF Service for Creneau
+                AllServiceMetier.RendezVous serviceRendezVous = new AllServiceMetier.RendezVous(); // ✅ Instance of WCF Service for RendezVous
 
                 // Heure de début (ex: "08:00 - 08:15" → on garde juste "08:00")
                 string horaire = ((SelectListView)cbbCreneauHoraire.SelectedItem).Value;

@@ -177,36 +177,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Connected Services\ServiceMetierAgenda\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Connected Services\ServiceMetierAuthentification\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Connected Services\ServiceMetierCreneau\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Connected Services\ServiceMetierGeneral\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Connected Services\ServiceMetierPatient\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Connected Services\ServiceMetierRendezVous\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="Error\erreur1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -375,90 +345,6 @@
     <None Include="Connected Services\AllServiceMetier\WindowsFormsApp1.AllServiceMetier.Utilisateur.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ServiceMetierAgenda\AgendaService.wsdl" />
-    <None Include="Connected Services\ServiceMetierAgenda\AgendaService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceMetierAgenda\AgendaService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceMetierAgenda\AgendaService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceMetierAgenda\AgendaService3.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceMetierAgenda\WindowsFormsApp1.ServiceMetierAgenda.Agenda.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\ServiceMetierAuthentification\AuthentificationService.wsdl" />
-    <None Include="Connected Services\ServiceMetierAuthentification\AuthentificationService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceMetierAuthentification\AuthentificationService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceMetierAuthentification\AuthentificationService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceMetierAuthentification\WindowsFormsApp1.ServiceMetierAuthentification.Utilisateur.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\ServiceMetierCreneau\CreneauxService.wsdl" />
-    <None Include="Connected Services\ServiceMetierCreneau\CreneauxService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceMetierCreneau\CreneauxService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceMetierCreneau\CreneauxService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceMetierGeneral\GeneralService.wsdl" />
-    <None Include="Connected Services\ServiceMetierGeneral\GeneralService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceMetierGeneral\GeneralService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceMetierGeneral\GeneralService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceMetierGeneral\GeneralService3.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceMetierGeneral\WindowsFormsApp1.ServiceMetierGeneral.GroupeSanguin.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\ServiceMetierGeneral\WindowsFormsApp1.ServiceMetierGeneral.Soin.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\ServiceMetierPatient\PatientService.wsdl" />
-    <None Include="Connected Services\ServiceMetierPatient\PatientService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceMetierPatient\PatientService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceMetierPatient\PatientService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceMetierPatient\WindowsFormsApp1.ServiceMetierPatient.GroupeSanguin.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\ServiceMetierPatient\WindowsFormsApp1.ServiceMetierPatient.Patient.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\ServiceMetierRendezVous\RendezVousService.wsdl" />
-    <None Include="Connected Services\ServiceMetierRendezVous\RendezVousService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceMetierRendezVous\RendezVousService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceMetierRendezVous\RendezVousService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -491,57 +377,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\AllServiceMetier\" />
-    <WCFMetadataStorage Include="Connected Services\ServiceMetierAgenda\" />
-    <WCFMetadataStorage Include="Connected Services\ServiceMetierAuthentification\" />
-    <WCFMetadataStorage Include="Connected Services\ServiceMetierCreneau\" />
-    <WCFMetadataStorage Include="Connected Services\ServiceMetierGeneral\" />
-    <WCFMetadataStorage Include="Connected Services\ServiceMetierPatient\" />
-    <WCFMetadataStorage Include="Connected Services\ServiceMetierRendezVous\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\3791939.jpg" />
-    <None Include="Connected Services\ServiceMetierPatient\PatientService.disco" />
-    <None Include="Connected Services\ServiceMetierPatient\configuration91.svcinfo" />
-    <None Include="Connected Services\ServiceMetierPatient\configuration.svcinfo" />
-    <None Include="Connected Services\ServiceMetierPatient\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Connected Services\ServiceMetierGeneral\GeneralService.disco" />
-    <None Include="Connected Services\ServiceMetierGeneral\configuration91.svcinfo" />
-    <None Include="Connected Services\ServiceMetierGeneral\configuration.svcinfo" />
-    <None Include="Connected Services\ServiceMetierGeneral\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Connected Services\ServiceMetierAgenda\AgendaService.disco" />
-    <None Include="Connected Services\ServiceMetierAgenda\configuration91.svcinfo" />
-    <None Include="Connected Services\ServiceMetierAgenda\configuration.svcinfo" />
-    <None Include="Connected Services\ServiceMetierAgenda\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Connected Services\ServiceMetierAuthentification\AuthentificationService.disco" />
-    <None Include="Connected Services\ServiceMetierAuthentification\configuration91.svcinfo" />
-    <None Include="Connected Services\ServiceMetierAuthentification\configuration.svcinfo" />
-    <None Include="Connected Services\ServiceMetierAuthentification\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Connected Services\ServiceMetierRendezVous\RendezVousService.disco" />
-    <None Include="Connected Services\ServiceMetierRendezVous\configuration91.svcinfo" />
-    <None Include="Connected Services\ServiceMetierRendezVous\configuration.svcinfo" />
-    <None Include="Connected Services\ServiceMetierRendezVous\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Connected Services\ServiceMetierCreneau\CreneauxService.disco" />
-    <None Include="Connected Services\ServiceMetierCreneau\configuration91.svcinfo" />
-    <None Include="Connected Services\ServiceMetierCreneau\configuration.svcinfo" />
-    <None Include="Connected Services\ServiceMetierCreneau\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <None Include="Connected Services\AllServiceMetier\AllService.disco" />
     <None Include="Connected Services\AllServiceMetier\configuration91.svcinfo" />
     <None Include="Connected Services\AllServiceMetier\configuration.svcinfo" />

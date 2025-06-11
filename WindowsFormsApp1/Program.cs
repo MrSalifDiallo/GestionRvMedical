@@ -25,7 +25,7 @@ namespace WindowsFormsApp1
         static void CreateAdmin()
         {
             // Vérifier si l'utilisateur admin existe déjà dans la base de données
-            ServiceMetierAuthentification.AuthentificationServiceClient serviceAuthentification = new ServiceMetierAuthentification.AuthentificationServiceClient(); // ✅ Service WCF for General Method
+            AllServiceMetier.AllServiceClient serviceAuthentification = new AllServiceMetier.AllServiceClient(); // ✅ Service WCF for General Method
             bool adminExists = serviceAuthentification.CheckAdmin();
             if (adminExists)
             {

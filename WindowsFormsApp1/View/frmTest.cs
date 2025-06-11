@@ -12,7 +12,8 @@ namespace WindowsFormsApp1.View
 {
     public partial class frmTest : Form
     {
-        ServiceMetierAgenda.AgendaServiceClient serviceAgenda = new ServiceMetierAgenda.AgendaServiceClient(); // ✅ Service WCF
+        AllServiceMetier.AllServiceClient allService = new AllServiceMetier.AllServiceClient(); // ✅ Service WCF pour les méthodes générales
+        //ServiceMetierAgenda.AgendaServiceClient serviceAgenda = new ServiceMetierAgenda.AgendaServiceClient(); // ✅ Service WCF
         public frmTest()
         {
             InitializeComponent();
@@ -130,11 +131,11 @@ namespace WindowsFormsApp1.View
 
             DateTime date = new DateTime(2025, 5, 21);
 
-            var typesCreneaux = serviceAgenda.ListeTimeCreneau(date);
+            var typesCreneaux = allService.ListeTimeCreneau(date);
 
             foreach (var typeCreneau in typesCreneaux)
             {
-                var tousCreneaux = serviceAgenda.CreneauxByHoraire(date)
+                var tousCreneaux = allService.CreneauxByHoraire(date)
                                      .Where(c => c["TimeCreneau"].ToString() == typeCreneau.ToString())
                                      .ToList();
 
