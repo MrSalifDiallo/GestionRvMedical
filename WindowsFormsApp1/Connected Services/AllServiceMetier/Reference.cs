@@ -1335,6 +1335,54 @@ namespace WindowsFormsApp1.AllServiceMetier {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAllService/UserInformation", ReplyAction="http://tempuri.org/IAllService/UserInformationResponse")]
         System.Threading.Tasks.Task<WindowsFormsApp1.AllServiceMetier.Utilisateur> UserInformationAsync(string identifiantinbd, string mdp);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAllService/GetPhoneNumbersForAutoComplete", ReplyAction="http://tempuri.org/IAllService/GetPhoneNumbersForAutoCompleteResponse")]
+        string[] GetPhoneNumbersForAutoComplete(int limit);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAllService/GetPhoneNumbersForAutoComplete", ReplyAction="http://tempuri.org/IAllService/GetPhoneNumbersForAutoCompleteResponse")]
+        System.Threading.Tasks.Task<string[]> GetPhoneNumbersForAutoCompleteAsync(int limit);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAllService/GetListSoins", ReplyAction="http://tempuri.org/IAllService/GetListSoinsResponse")]
+        WindowsFormsApp1.AllServiceMetier.Soin[] GetListSoins();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAllService/GetListSoins", ReplyAction="http://tempuri.org/IAllService/GetListSoinsResponse")]
+        System.Threading.Tasks.Task<WindowsFormsApp1.AllServiceMetier.Soin[]> GetListSoinsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAllService/GetListeGroupesSanguins", ReplyAction="http://tempuri.org/IAllService/GetListeGroupesSanguinsResponse")]
+        WindowsFormsApp1.AllServiceMetier.GroupeSanguin[] GetListeGroupesSanguins();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAllService/GetListeGroupesSanguins", ReplyAction="http://tempuri.org/IAllService/GetListeGroupesSanguinsResponse")]
+        System.Threading.Tasks.Task<WindowsFormsApp1.AllServiceMetier.GroupeSanguin[]> GetListeGroupesSanguinsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAllService/GetListePatients", ReplyAction="http://tempuri.org/IAllService/GetListePatientsResponse")]
+        WindowsFormsApp1.AllServiceMetier.Patient[] GetListePatients();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAllService/GetListePatients", ReplyAction="http://tempuri.org/IAllService/GetListePatientsResponse")]
+        System.Threading.Tasks.Task<WindowsFormsApp1.AllServiceMetier.Patient[]> GetListePatientsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAllService/AddPatient", ReplyAction="http://tempuri.org/IAllService/AddPatientResponse")]
+        bool AddPatient(WindowsFormsApp1.AllServiceMetier.Patient patient);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAllService/AddPatient", ReplyAction="http://tempuri.org/IAllService/AddPatientResponse")]
+        System.Threading.Tasks.Task<bool> AddPatientAsync(WindowsFormsApp1.AllServiceMetier.Patient patient);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAllService/UpdatePatient", ReplyAction="http://tempuri.org/IAllService/UpdatePatientResponse")]
+        bool UpdatePatient(WindowsFormsApp1.AllServiceMetier.Patient patient);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAllService/UpdatePatient", ReplyAction="http://tempuri.org/IAllService/UpdatePatientResponse")]
+        System.Threading.Tasks.Task<bool> UpdatePatientAsync(WindowsFormsApp1.AllServiceMetier.Patient patient);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAllService/RemovePatient", ReplyAction="http://tempuri.org/IAllService/RemovePatientResponse")]
+        bool RemovePatient(WindowsFormsApp1.AllServiceMetier.Patient patient);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAllService/RemovePatient", ReplyAction="http://tempuri.org/IAllService/RemovePatientResponse")]
+        System.Threading.Tasks.Task<bool> RemovePatientAsync(WindowsFormsApp1.AllServiceMetier.Patient patient);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAllService/ResearchPatient", ReplyAction="http://tempuri.org/IAllService/ResearchPatientResponse")]
+        WindowsFormsApp1.AllServiceMetier.Patient ResearchPatient(string phoneNumberInput);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAllService/ResearchPatient", ReplyAction="http://tempuri.org/IAllService/ResearchPatientResponse")]
+        System.Threading.Tasks.Task<WindowsFormsApp1.AllServiceMetier.Patient> ResearchPatientAsync(string phoneNumberInput);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1434,6 +1482,70 @@ namespace WindowsFormsApp1.AllServiceMetier {
         
         public System.Threading.Tasks.Task<WindowsFormsApp1.AllServiceMetier.Utilisateur> UserInformationAsync(string identifiantinbd, string mdp) {
             return base.Channel.UserInformationAsync(identifiantinbd, mdp);
+        }
+        
+        public string[] GetPhoneNumbersForAutoComplete(int limit) {
+            return base.Channel.GetPhoneNumbersForAutoComplete(limit);
+        }
+        
+        public System.Threading.Tasks.Task<string[]> GetPhoneNumbersForAutoCompleteAsync(int limit) {
+            return base.Channel.GetPhoneNumbersForAutoCompleteAsync(limit);
+        }
+        
+        public WindowsFormsApp1.AllServiceMetier.Soin[] GetListSoins() {
+            return base.Channel.GetListSoins();
+        }
+        
+        public System.Threading.Tasks.Task<WindowsFormsApp1.AllServiceMetier.Soin[]> GetListSoinsAsync() {
+            return base.Channel.GetListSoinsAsync();
+        }
+        
+        public WindowsFormsApp1.AllServiceMetier.GroupeSanguin[] GetListeGroupesSanguins() {
+            return base.Channel.GetListeGroupesSanguins();
+        }
+        
+        public System.Threading.Tasks.Task<WindowsFormsApp1.AllServiceMetier.GroupeSanguin[]> GetListeGroupesSanguinsAsync() {
+            return base.Channel.GetListeGroupesSanguinsAsync();
+        }
+        
+        public WindowsFormsApp1.AllServiceMetier.Patient[] GetListePatients() {
+            return base.Channel.GetListePatients();
+        }
+        
+        public System.Threading.Tasks.Task<WindowsFormsApp1.AllServiceMetier.Patient[]> GetListePatientsAsync() {
+            return base.Channel.GetListePatientsAsync();
+        }
+        
+        public bool AddPatient(WindowsFormsApp1.AllServiceMetier.Patient patient) {
+            return base.Channel.AddPatient(patient);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddPatientAsync(WindowsFormsApp1.AllServiceMetier.Patient patient) {
+            return base.Channel.AddPatientAsync(patient);
+        }
+        
+        public bool UpdatePatient(WindowsFormsApp1.AllServiceMetier.Patient patient) {
+            return base.Channel.UpdatePatient(patient);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdatePatientAsync(WindowsFormsApp1.AllServiceMetier.Patient patient) {
+            return base.Channel.UpdatePatientAsync(patient);
+        }
+        
+        public bool RemovePatient(WindowsFormsApp1.AllServiceMetier.Patient patient) {
+            return base.Channel.RemovePatient(patient);
+        }
+        
+        public System.Threading.Tasks.Task<bool> RemovePatientAsync(WindowsFormsApp1.AllServiceMetier.Patient patient) {
+            return base.Channel.RemovePatientAsync(patient);
+        }
+        
+        public WindowsFormsApp1.AllServiceMetier.Patient ResearchPatient(string phoneNumberInput) {
+            return base.Channel.ResearchPatient(phoneNumberInput);
+        }
+        
+        public System.Threading.Tasks.Task<WindowsFormsApp1.AllServiceMetier.Patient> ResearchPatientAsync(string phoneNumberInput) {
+            return base.Channel.ResearchPatientAsync(phoneNumberInput);
         }
     }
 }

@@ -25,7 +25,7 @@ namespace MetierRvMedical.Wcf
         List<Dictionary<string, object>> CreneauxByHoraireMedecin(DateTime dateRecherche, int idMedecin);
 
 
-        // Patient Service Operations
+        // Authentification Service Operations
         [OperationContract]
         bool AddFirstUser();
         [OperationContract]
@@ -35,7 +35,26 @@ namespace MetierRvMedical.Wcf
         [OperationContract]
         Utilisateur UserInformation(string identifiantinbd, string mdp);
 
+        //General Service Operations
+        [OperationContract]
+        List<string> GetPhoneNumbersForAutoComplete(int limit);
 
+        [OperationContract]
+        List<Soin> GetListSoins();
 
+        [OperationContract]
+        List<GroupeSanguin> GetListeGroupesSanguins();
+
+        //Patient Service Operations
+        [OperationContract]
+        List<Patient> GetListePatients();
+        [OperationContract]
+        bool AddPatient(Patient patient);
+        [OperationContract]
+        bool UpdatePatient(Patient patient);
+        [OperationContract]
+        bool RemovePatient(Patient patient);
+        [OperationContract]
+        Patient ResearchPatient(string phoneNumberInput);
     }
 }

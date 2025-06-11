@@ -363,6 +363,15 @@
     <None Include="Connected Services\AllServiceMetier\WindowsFormsApp1.AllServiceMetier.Agenda.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\AllServiceMetier\WindowsFormsApp1.AllServiceMetier.GroupeSanguin.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AllServiceMetier\WindowsFormsApp1.AllServiceMetier.Patient.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AllServiceMetier\WindowsFormsApp1.AllServiceMetier.Soin.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\AllServiceMetier\WindowsFormsApp1.AllServiceMetier.Utilisateur.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

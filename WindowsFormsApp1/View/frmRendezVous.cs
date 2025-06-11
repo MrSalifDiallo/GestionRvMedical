@@ -16,11 +16,12 @@ namespace WindowsFormsApp1.View
     {
         //BdRvMedicalContext bd = new BdRvMedicalContext();
         bool patientTrouve = false;
-        ServiceMetierGeneral.GeneralServiceClient serviceGeneral = new ServiceMetierGeneral.GeneralServiceClient(); // ✅ Service WCF for General Method
-        ServiceMetierPatient.PatientServiceClient servicePatient = new ServiceMetierPatient.PatientServiceClient(); // ✅ Service WCF for All Model Patient Method
-        ServiceMetierAgenda.AgendaServiceClient serviceAgenda = new ServiceMetierAgenda.AgendaServiceClient(); // ✅ Service WCF for Method Agenda
-        ServiceMetierRendezVous.RendezVousServiceClient serviceRendezVous = new ServiceMetierRendezVous.RendezVousServiceClient(); // ✅ Service WCF for Method Rendez Vous
-        ServiceMetierCreneau.CreneauxServiceClient serviceCreneau = new ServiceMetierCreneau.CreneauxServiceClient(); // ✅ Service WCF for Method Creneau
+        AllServiceMetier.AllServiceClient allService = new AllServiceMetier.AllServiceClient(); // ✅ Service WCF for General Method
+        //ServiceMetierGeneral.GeneralServiceClient serviceGeneral = new ServiceMetierGeneral.GeneralServiceClient(); // ✅ Service WCF for General Method
+        //ServiceMetierPatient.PatientServiceClient servicePatient = new ServiceMetierPatient.PatientServiceClient(); // ✅ Service WCF for All Model Patient Method
+        //ServiceMetierAgenda.AgendaServiceClient serviceAgenda = new ServiceMetierAgenda.AgendaServiceClient(); // ✅ Service WCF for Method Agenda
+        //ServiceMetierRendezVous.RendezVousServiceClient serviceRendezVous = new ServiceMetierRendezVous.RendezVousServiceClient(); // ✅ Service WCF for Method Rendez Vous
+        //ServiceMetierCreneau.CreneauxServiceClient serviceCreneau = new ServiceMetierCreneau.CreneauxServiceClient(); // ✅ Service WCF for Method Creneau
         public frmRendezVous()
         {
             InitializeComponent();
@@ -70,7 +71,7 @@ namespace WindowsFormsApp1.View
 
         private void LoadPhoneNumbers(int limit = 5)
         {
-            var phoneList = serviceGeneral.GetPhoneNumbersForAutoComplete(limit);
+            var phoneList = allService.GetPhoneNumbersForAutoComplete(limit);
 
             AutoCompleteStringCollection phoneCollection = new AutoCompleteStringCollection();
             phoneCollection.AddRange((string[])phoneList.ToArray());
@@ -84,7 +85,7 @@ namespace WindowsFormsApp1.View
         {
             // Récupérer tous les groupes sanguins depuis la base de données
 
-            var bloodGroups = serviceGeneral.GetListeGroupesSanguins();
+            var bloodGroups = allService.GetListeGroupesSanguins();
 
             // Ajouter chaque groupe sanguin au ComboBox
             cbbGroupeSanguin.Items.Clear();  // Effacer les anciens items, si nécessaires
@@ -96,7 +97,7 @@ namespace WindowsFormsApp1.View
 
         private List<SelectListView> LoadCbbSoins()
         {
-            var allSoins = serviceGeneral.GetListSoins();
+            var allSoins = allService.GetListSoins();
             List<SelectListView> ListeSoins = new List<SelectListView>();
             SelectListView def = new SelectListView();
             def.Text = "Selectionnez un soin...";
@@ -120,7 +121,7 @@ namespace WindowsFormsApp1.View
 
             // Ajouter un élément par défaut
             SelectListView def = new SelectListView();
-            var medecinsDisponibles = serviceAgenda.LoadCreneauxByDate(selectedDate)
+            var medecinsDisponibles = allService.LoadCreneauxByDate(selectedDate)
                             .Where(c => c["date"].ToString() == selectedDate.ToString("yyyy-MM-dd") &&
                                         Convert.ToBoolean(c["estOccupe"]) == false)
                             .GroupBy(c => Convert.ToInt32(c["idMedecin"]))
@@ -161,7 +162,7 @@ namespace WindowsFormsApp1.View
             // Liste des creneaux disponibles pour la date sélectionnée
             List<SelectListView> ListeDureeCreneaux = new List<SelectListView>();
                 var Creneaux = (idMedecin == null) ?
-                    serviceAgenda.LoadCreneauxByDate(selectedDate)
+                    allService.LoadCreneauxByDate(selectedDate)
                     .Where(c =>
                         c["date"].ToString() == selectedDate.ToString("yyyy-MM-dd")
                         &&
@@ -177,7 +178,7 @@ namespace WindowsFormsApp1.View
                     .ToList()
                     :
                     //Si on a l'id du medecin
-                    serviceAgenda.LoadCreneauxByDate(selectedDate)
+                    allService.LoadCreneauxByDate(selectedDate)
                     .Where(c =>
                         c["date"].ToString() == selectedDate.ToString("yyyy-MM-dd") 
                         &&
@@ -242,7 +243,7 @@ namespace WindowsFormsApp1.View
             // Liste des creneaux disponibles pour la date sélectionnée
             List<SelectListView> ListeDureeCreneaux = new List<SelectListView>();
             var Creneaux = (!idMedecin.HasValue) ?
-                serviceAgenda.CreneauxByHoraire(selectedDate)
+                allService.CreneauxByHoraire(selectedDate)
                 .Where(c =>Convert.ToBoolean(c["estOccupe"]) == false)
                 .Select(c => new
                 {
@@ -252,7 +253,7 @@ namespace WindowsFormsApp1.View
                 .ToList()
                 :
                 //Si on a l'id du medecin
-                serviceAgenda.CreneauxByHoraireMedecin(selectedDate, idMedecin.Value)
+                allService.CreneauxByHoraireMedecin(selectedDate, idMedecin.Value)
                 .Where(c => Convert.ToBoolean(c["estOccupe"]) == false)
                 .Select(c => new
                 {
@@ -419,7 +420,7 @@ namespace WindowsFormsApp1.View
         /// <param name="phoneNumberInput"></param>
         private void UpdatePatientDetails(string phoneNumberInput)
         {
-            var patient=servicePatient.ResearchPatient(phoneNumberInput);
+            var patient=allService.ResearchPatient(phoneNumberInput);
             if (patient != null) {
                 // Si un patient est trouvé, on remplit les champs du formulaire avec les données du patient
                 patientTrouve = true;
@@ -449,7 +450,7 @@ namespace WindowsFormsApp1.View
         /// Desactiver les champs apres une autocompletion a travers le numéro de patient
         /// </summary>
         /// <param name="servicePatient"></param>
-        private void DisableFields(ServiceMetierPatient.Patient servicePatient)
+        private void DisableFields(AllServiceMetier.Patient servicePatient)
         {
             // Convert the ServiceMetierPatient.Patient to WindowsFormsApp1.Model.Patient
             
@@ -503,7 +504,7 @@ namespace WindowsFormsApp1.View
             listView.Columns.Add("Occupé", 100);
 
 
-            var typesCreneaux = serviceAgenda.ListeTimeCreneau(date);
+            var typesCreneaux = allService.ListeTimeCreneau(date);
             if (typesCreneaux != null && typesCreneaux.Any())
             {
                 // La liste n'est pas vide → on peut l'utiliser
@@ -520,10 +521,10 @@ namespace WindowsFormsApp1.View
             foreach (var typeCreneau in typesCreneaux)
             {
                 var tousCreneaux = (idMedecin == null)
-                ? serviceAgenda.CreneauxByHoraire(date)
+                ? allService.CreneauxByHoraire(date)
                     .Where(c => c["TimeCreneau"].ToString() == typeCreneau.ToString())
                     .ToList()
-                : serviceAgenda.CreneauxByHoraireMedecin(date, (int)idMedecin)
+                : allService.CreneauxByHoraireMedecin(date, (int)idMedecin)
                     .Where(c => c["TimeCreneau"].ToString() == typeCreneau.ToString())
                     .ToList();
                 if (tousCreneaux.Count == 0)
@@ -629,7 +630,7 @@ namespace WindowsFormsApp1.View
             {
                 SelectListView selectedItem = (SelectListView)cbbSoins.SelectedItem;
                 // Rechercher le soin correspondant dans la base de données
-                var allSoins = serviceGeneral.GetListSoins();
+                var allSoins = allService.GetListSoins();
                 var selectedSoin = allSoins
                                            .FirstOrDefault(gs => gs.NameSoin == selectedItem.Value);
 

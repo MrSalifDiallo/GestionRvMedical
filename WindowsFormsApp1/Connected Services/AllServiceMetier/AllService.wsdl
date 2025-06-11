@@ -87,6 +87,54 @@
   <wsdl:message name="IAllService_UserInformation_OutputMessage">
     <wsdl:part name="parameters" element="tns:UserInformationResponse" />
   </wsdl:message>
+  <wsdl:message name="IAllService_GetPhoneNumbersForAutoComplete_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPhoneNumbersForAutoComplete" />
+  </wsdl:message>
+  <wsdl:message name="IAllService_GetPhoneNumbersForAutoComplete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPhoneNumbersForAutoCompleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllService_GetListSoins_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListSoins" />
+  </wsdl:message>
+  <wsdl:message name="IAllService_GetListSoins_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListSoinsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllService_GetListeGroupesSanguins_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListeGroupesSanguins" />
+  </wsdl:message>
+  <wsdl:message name="IAllService_GetListeGroupesSanguins_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListeGroupesSanguinsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllService_GetListePatients_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListePatients" />
+  </wsdl:message>
+  <wsdl:message name="IAllService_GetListePatients_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListePatientsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllService_AddPatient_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPatient" />
+  </wsdl:message>
+  <wsdl:message name="IAllService_AddPatient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPatientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllService_UpdatePatient_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePatient" />
+  </wsdl:message>
+  <wsdl:message name="IAllService_UpdatePatient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePatientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllService_RemovePatient_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemovePatient" />
+  </wsdl:message>
+  <wsdl:message name="IAllService_RemovePatient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemovePatientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllService_ResearchPatient_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResearchPatient" />
+  </wsdl:message>
+  <wsdl:message name="IAllService_ResearchPatient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResearchPatientResponse" />
+  </wsdl:message>
   <wsdl:portType name="IAllService">
     <wsdl:operation name="LoadAgenda">
       <wsdl:input wsaw:Action="http://tempuri.org/IAllService/LoadAgenda" message="tns:IAllService_LoadAgenda_InputMessage" />
@@ -123,6 +171,38 @@
     <wsdl:operation name="UserInformation">
       <wsdl:input wsaw:Action="http://tempuri.org/IAllService/UserInformation" message="tns:IAllService_UserInformation_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAllService/UserInformationResponse" message="tns:IAllService_UserInformation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPhoneNumbersForAutoComplete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllService/GetPhoneNumbersForAutoComplete" message="tns:IAllService_GetPhoneNumbersForAutoComplete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllService/GetPhoneNumbersForAutoCompleteResponse" message="tns:IAllService_GetPhoneNumbersForAutoComplete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListSoins">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllService/GetListSoins" message="tns:IAllService_GetListSoins_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllService/GetListSoinsResponse" message="tns:IAllService_GetListSoins_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListeGroupesSanguins">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllService/GetListeGroupesSanguins" message="tns:IAllService_GetListeGroupesSanguins_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllService/GetListeGroupesSanguinsResponse" message="tns:IAllService_GetListeGroupesSanguins_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListePatients">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllService/GetListePatients" message="tns:IAllService_GetListePatients_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllService/GetListePatientsResponse" message="tns:IAllService_GetListePatients_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPatient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllService/AddPatient" message="tns:IAllService_AddPatient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllService/AddPatientResponse" message="tns:IAllService_AddPatient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePatient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllService/UpdatePatient" message="tns:IAllService_UpdatePatient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllService/UpdatePatientResponse" message="tns:IAllService_UpdatePatient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemovePatient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllService/RemovePatient" message="tns:IAllService_RemovePatient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllService/RemovePatientResponse" message="tns:IAllService_RemovePatient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResearchPatient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllService/ResearchPatient" message="tns:IAllService_ResearchPatient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllService/ResearchPatientResponse" message="tns:IAllService_ResearchPatient_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IAllService" type="tns:IAllService">
@@ -208,6 +288,78 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetPhoneNumbersForAutoComplete">
+      <soap:operation soapAction="http://tempuri.org/IAllService/GetPhoneNumbersForAutoComplete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListSoins">
+      <soap:operation soapAction="http://tempuri.org/IAllService/GetListSoins" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListeGroupesSanguins">
+      <soap:operation soapAction="http://tempuri.org/IAllService/GetListeGroupesSanguins" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListePatients">
+      <soap:operation soapAction="http://tempuri.org/IAllService/GetListePatients" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPatient">
+      <soap:operation soapAction="http://tempuri.org/IAllService/AddPatient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePatient">
+      <soap:operation soapAction="http://tempuri.org/IAllService/UpdatePatient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemovePatient">
+      <soap:operation soapAction="http://tempuri.org/IAllService/RemovePatient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResearchPatient">
+      <soap:operation soapAction="http://tempuri.org/IAllService/ResearchPatient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="BasicHttpsBinding_IAllService" type="tns:IAllService">
     <wsp:PolicyReference URI="#BasicHttpsBinding_IAllService_policy" />
@@ -286,6 +438,78 @@
     </wsdl:operation>
     <wsdl:operation name="UserInformation">
       <soap:operation soapAction="http://tempuri.org/IAllService/UserInformation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPhoneNumbersForAutoComplete">
+      <soap:operation soapAction="http://tempuri.org/IAllService/GetPhoneNumbersForAutoComplete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListSoins">
+      <soap:operation soapAction="http://tempuri.org/IAllService/GetListSoins" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListeGroupesSanguins">
+      <soap:operation soapAction="http://tempuri.org/IAllService/GetListeGroupesSanguins" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListePatients">
+      <soap:operation soapAction="http://tempuri.org/IAllService/GetListePatients" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPatient">
+      <soap:operation soapAction="http://tempuri.org/IAllService/AddPatient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePatient">
+      <soap:operation soapAction="http://tempuri.org/IAllService/UpdatePatient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemovePatient">
+      <soap:operation soapAction="http://tempuri.org/IAllService/RemovePatient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResearchPatient">
+      <soap:operation soapAction="http://tempuri.org/IAllService/ResearchPatient" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
