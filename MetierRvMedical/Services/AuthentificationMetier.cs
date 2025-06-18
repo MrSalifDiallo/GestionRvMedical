@@ -19,11 +19,20 @@ namespace MetierRvMedical.Services
             try
             {
                 int adminInBd = bd.Utilisateurs.Count(a => a.identifiant.ToLower() == "admin");
-                return adminInBd == 0;
+                Utils.WriteLogSystem($"Nombre d'admins trouvés: {adminInBd}", "CheckAdmin");
+                
+                if (adminInBd >= 1)
+                {
+                    Utils.WriteLogSystem("Admin existe déjà", "CheckAdmin");
+                    return true;
+                }
+                
+                Utils.WriteLogSystem("Aucun admin trouvé", "CheckAdmin");
+                return false;
             }
             catch (Exception ex)
             {
-                Utils.WriteLogSystem(ex.ToString(), "Erreur dans CheckAdmin");
+                Utils.WriteLogSystem($"Erreur dans CheckAdmin: {ex.Message}", "CheckAdmin");
                 utils.WriteDataError("Erreur dans CheckAdmin", ex.ToString());
                 return false;
             }
@@ -34,7 +43,21 @@ namespace MetierRvMedical.Services
             try
             {
                 bool checkadmin = CheckAdmin();
-                if (!checkadmin) return false;
+                Utils.WriteLogSystem($"CheckAdmin retourne: {checkadmin}", "AddFirstUser");
+                
+                if (checkadmin)
+                {
+                    Utils.WriteLogSystem("Admin existe déjà, on ne crée pas de nouvel admin", "AddFirstUser");
+                    return false;
+                }
+
+                // Vérifier si le rôle admin existe
+                var roleAdmin = bd.Roles.FirstOrDefault(a => a.Code.ToLower() == "admin");
+                if (roleAdmin == null)
+                {
+                    Utils.WriteLogSystem("Le rôle admin n'existe pas dans la base de données", "AddFirstUser");
+                    return false;
+                }
 
                 Utilisateur admin = new Utilisateur
                 {
@@ -45,22 +68,23 @@ namespace MetierRvMedical.Services
                     TEL = "UseTel",
                     Email = "user@example.com",
                     statut = true,
-                    IdRole = bd.Roles.FirstOrDefault(a => a.Code.ToLower() == "admin")?.Id ?? 0
+                    IdRole = roleAdmin.Id
                 };
 
                 bd.Utilisateurs.Add(admin);
-                bd.SaveChanges();
+                int result = bd.SaveChanges();
+                Utils.WriteLogSystem($"Admin créé avec succès. Résultat SaveChanges: {result}", "AddFirstUser");
                 return true;
             }
             catch (DbUpdateException ex)
             {
-                Utils.WriteLogSystem(ex.ToString(), "Erreur DbUpdate dans AddFirstUser");
+                Utils.WriteLogSystem($"Erreur DbUpdate dans AddFirstUser: {ex.Message}", "AddFirstUser");
                 utils.WriteDataError("Erreur lors de l'ajout du premier utilisateur (DbUpdate)", ex.ToString());
                 return false;
             }
             catch (Exception ex)
             {
-                Utils.WriteLogSystem(ex.ToString(), "Erreur générale dans AddFirstUser");
+                Utils.WriteLogSystem($"Erreur générale dans AddFirstUser: {ex.Message}", "AddFirstUser");
                 utils.WriteDataError("Erreur lors de l'ajout du premier utilisateur", ex.ToString());
                 return false;
             }

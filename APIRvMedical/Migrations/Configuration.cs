@@ -9,8 +9,8 @@
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = false;
+            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationDataLossAllowed=false; // Permet la perte de données lors des migrations automatiques
         }
 
         protected override void Seed(APIRvMedical.Model.BdRvMedicalContext context)
