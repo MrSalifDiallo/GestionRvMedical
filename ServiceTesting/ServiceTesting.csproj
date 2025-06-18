@@ -9,7 +9,6 @@
   <ItemGroup>
     <PackageReference Include="MySql.Data.EntityFramework" Version="9.1.0" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="9.0.5" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
     <PackageReference Include="System.Security.Permissions" Version="9.0.5" />
     <PackageReference Include="System.ServiceModel.Http" Version="8.*" />
     <PackageReference Include="System.ServiceModel.NetTcp" Version="8.*" />
