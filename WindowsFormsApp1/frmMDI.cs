@@ -12,6 +12,8 @@
 
     using System.Windows.Forms;
     using WindowsFormsApp1.View;
+using WindowsFormsApp1.View.Api;
+
 
 namespace WindowsFormsApp1
     {
@@ -159,17 +161,40 @@ namespace WindowsFormsApp1
 
             private void rendezVousToolStripMenuItem1_Click(object sender, EventArgs e)
             {
-            fermer();
-            frmTest f = new frmTest();
-            f.MdiParent = this;
-            f.Show();
-            f.WindowState = FormWindowState.Maximized;
-
-        }
+           
+            }
 
             private void label1_Click(object sender, EventArgs e)
             {
 
             }
+
+        private void toolStripDropDownApi_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripApiPatient_Click(object sender, EventArgs e)
+        {
+            fermer();
+            frmRendezVous f = new frmRendezVous();
+            f.MdiParent = this;
+            f.Show();
+            f.WindowState = FormWindowState.Maximized;
+        }
+
+        private void soinsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void soinsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            fermer();
+            frmApiSoins f = new frmApiSoins();
+            f.MdiParent = this;
+            f.Show();
+            f.WindowState = FormWindowState.Maximized;
         }
     }
+}

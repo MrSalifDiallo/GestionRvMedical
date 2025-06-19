@@ -105,6 +105,9 @@
     <Reference Include="MySql.Data.EntityFramework, Version=9.1.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\WindowsFormsApp1\packages\MySql.Data.EntityFramework.9.1.0\lib\net48\MySql.Data.EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\WindowsFormsApp1\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Renci.SshNet, Version=2025.0.0.1, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
       <HintPath>..\WindowsFormsApp1\packages\SSH.NET.2025.0.0\lib\net462\Renci.SshNet.dll</HintPath>
     </Reference>

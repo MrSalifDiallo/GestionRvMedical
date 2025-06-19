@@ -19,7 +19,7 @@ namespace APIRvMedical2.Controllers
         }
 
         // GET: api/Soin/5
-        public async Task<IHttpActionResult> GetSoinById(int id)
+        public async Task<IHttpActionResult> GetSoins(int id)
         {
             var soin = await db.Soins.FindAsync(id);
             if (soin == null)

@@ -101,6 +101,9 @@
     <Reference Include="MySql.Data.EntityFramework, Version=9.1.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>packages\MySql.Data.EntityFramework.9.1.0\lib\net48\MySql.Data.EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Renci.SshNet, Version=2025.0.0.1, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
       <HintPath>packages\SSH.NET.2025.0.0\lib\net462\Renci.SshNet.dll</HintPath>
     </Reference>
@@ -225,6 +228,12 @@
       <DependentUpon>rptTicketRv.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="View\Api\frmApiSoins.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Api\frmApiSoins.Designer.cs">
+      <DependentUpon>frmApiSoins.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\frmAgenda.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -292,6 +301,9 @@
     <EmbeddedResource Include="Report\rptTicketRv.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptTicketRv.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Api\frmApiSoins.resx">
+      <DependentUpon>frmApiSoins.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmAgenda.resx">
       <DependentUpon>frmAgenda.cs</DependentUpon>
