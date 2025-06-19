@@ -196,5 +196,7 @@ namespace WindowsFormsApp1
             f.Show();
             f.WindowState = FormWindowState.Maximized;
         }
+
+      
     }
 }
