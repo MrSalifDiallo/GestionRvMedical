@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MetierRvMedical</RootNamespace>
     <AssemblyName>MetierRvMedical</AssemblyName>
-    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <UseIISExpress>true</UseIISExpress>
@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -177,7 +178,6 @@
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
-    <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.EnterpriseServices" />
@@ -204,18 +204,6 @@
     <Compile Include="Helper\CryptString.cs" />
     <Compile Include="Helper\GMailer.cs" />
     <Compile Include="Helper\Utils.cs" />
-    <Compile Include="Migrations\202505251051330_InitialMigration.cs" />
-    <Compile Include="Migrations\202505251051330_InitialMigration.Designer.cs">
-      <DependentUpon>202505251051330_InitialMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202505270543429_ChangeUtilisateurModel.cs" />
-    <Compile Include="Migrations\202505270543429_ChangeUtilisateurModel.Designer.cs">
-      <DependentUpon>202505270543429_ChangeUtilisateurModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202505270617155_MakeRequiredformdpandidentifiant.cs" />
-    <Compile Include="Migrations\202505270617155_MakeRequiredformdpandidentifiant.Designer.cs">
-      <DependentUpon>202505270617155_MakeRequiredformdpandidentifiant.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Admin.cs" />
     <Compile Include="Model\Agenda.cs" />
@@ -265,17 +253,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202505251051330_InitialMigration.resx">
-      <DependentUpon>202505251051330_InitialMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202505270543429_ChangeUtilisateurModel.resx">
-      <DependentUpon>202505270543429_ChangeUtilisateurModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202505270617155_MakeRequiredformdpandidentifiant.resx">
-      <DependentUpon>202505270617155_MakeRequiredformdpandidentifiant.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

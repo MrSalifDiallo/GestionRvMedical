@@ -5,7 +5,7 @@
 *.userosscache
 *.sln.docstates
 *.vscode
-
+*.config
 # Dossiers de compilation
 bin/
 obj/
