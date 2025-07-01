@@ -30,9 +30,8 @@ namespace WindowsFormsApp1
                 this.IsMdiContainer = true; // <-- Cette ligne est essentielle
                 this.WindowState = FormWindowState.Maximized; // Définit l'état du formulaire sur maximisé
                 this.FormBorderStyle = FormBorderStyle.None; // Supprime la bordure du formulaire
-                this.ControlBox = false;  // Supprime les boutons de contrôle (fermer, réduire, agrandir)
-                this.ShowIcon = false;    // Supprime l'icône dans la barre de titre
-                this.ShowInTaskbar = false; // Ne pas afficher dans la barre des tâches
+                //this.ShowIcon = false;    // Supprime l'icône dans la barre de titre
+                //this.ShowInTaskbar = false; // Ne pas afficher dans la barre des tâches
             this.utilisateurConnecte = utilisateurConnecte;
             }
 

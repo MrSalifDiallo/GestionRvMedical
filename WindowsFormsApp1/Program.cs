@@ -8,6 +8,7 @@ using WindowsFormsApp1.Report;
 using WindowsFormsApp1.View;
 using WindowsFormsApp1.Helper;
 using WindowsFormsApp1.View.Api;
+using WindowsFormsApp1.View.GunaUi;
 namespace WindowsFormsApp1
 {
     internal static class Program
@@ -21,7 +22,7 @@ namespace WindowsFormsApp1
             CreateAdmin();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmConexion());
+            Application.Run(new frmConnexion());
         }
         static void CreateAdmin()
         {

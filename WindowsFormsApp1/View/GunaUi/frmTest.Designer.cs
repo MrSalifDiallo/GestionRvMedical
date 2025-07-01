@@ -1,16 +1,16 @@
-﻿namespace WindowsFormsApp1
+﻿namespace WindowsFormsApp1.View.GunaUi
 {
-    partial class frmConnexion
+    partial class frmTest
     {
         /// <summary>
-        /// Variable nécessaire au concepteur.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Nettoyage des ressources utilisées.
+        /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">true si les ressources managées doivent être supprimées ; sinon, false.</param>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,31 +20,85 @@
             base.Dispose(disposing);
         }
 
-        #region Code généré par le Concepteur Windows Form
+        #region Windows Form Designer generated code
 
         /// <summary>
-        /// Méthode requise pour la prise en charge du concepteur - ne modifiez pas
-        /// le contenu de cette méthode avec l'éditeur de code.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.gunaMediumCheckBox1 = new Guna.UI.WinForms.GunaMediumCheckBox();
+            this.lblMessage = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lbl = new System.Windows.Forms.Label();
             this.btnConnexion = new System.Windows.Forms.Button();
             this.lblIdentifiant = new System.Windows.Forms.Label();
             this.lblMotDePasse = new System.Windows.Forms.Label();
             this.btnQuitter = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lblMessage = new System.Windows.Forms.Label();
-            this.lbl = new System.Windows.Forms.Label();
             this.splitter2 = new System.Windows.Forms.Splitter();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.txtIdentifiant = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtMotdePasse = new Guna.UI2.WinForms.Guna2TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Red;
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.splitter1);
+            this.panel1.Location = new System.Drawing.Point(-97, -45);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(995, 541);
+            this.panel1.TabIndex = 1;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Red;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.txtMotdePasse);
+            this.panel2.Controls.Add(this.txtIdentifiant);
+            this.panel2.Controls.Add(this.gunaMediumCheckBox1);
+            this.panel2.Controls.Add(this.lblMessage);
+            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Controls.Add(this.lbl);
+            this.panel2.Controls.Add(this.btnConnexion);
+            this.panel2.Controls.Add(this.lblIdentifiant);
+            this.panel2.Controls.Add(this.lblMotDePasse);
+            this.panel2.Controls.Add(this.btnQuitter);
+            this.panel2.Controls.Add(this.splitter2);
+            this.panel2.Location = new System.Drawing.Point(47, 92);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(894, 409);
+            this.panel2.TabIndex = 10;
+            // 
+            // gunaMediumCheckBox1
+            // 
+            this.gunaMediumCheckBox1.BackColor = System.Drawing.Color.White;
+            this.gunaMediumCheckBox1.BaseColor = System.Drawing.Color.White;
+            this.gunaMediumCheckBox1.CheckedOffColor = System.Drawing.SystemColors.GrayText;
+            this.gunaMediumCheckBox1.CheckedOnColor = System.Drawing.Color.Red;
+            this.gunaMediumCheckBox1.FillColor = System.Drawing.Color.White;
+            this.gunaMediumCheckBox1.Location = new System.Drawing.Point(558, 181);
+            this.gunaMediumCheckBox1.Name = "gunaMediumCheckBox1";
+            this.gunaMediumCheckBox1.Size = new System.Drawing.Size(20, 20);
+            this.gunaMediumCheckBox1.TabIndex = 11;
+            // 
+            // lblMessage
+            // 
+            this.lblMessage.AutoSize = true;
+            this.lblMessage.BackColor = System.Drawing.Color.Black;
+            this.lblMessage.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMessage.ForeColor = System.Drawing.Color.Red;
+            this.lblMessage.Location = new System.Drawing.Point(106, 347);
+            this.lblMessage.Name = "lblMessage";
+            this.lblMessage.Size = new System.Drawing.Size(0, 25);
+            this.lblMessage.TabIndex = 9;
             // 
             // pictureBox1
             // 
@@ -56,7 +110,17 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // lbl
+            // 
+            this.lbl.AutoSize = true;
+            this.lbl.BackColor = System.Drawing.Color.Transparent;
+            this.lbl.Location = new System.Drawing.Point(60, 58);
+            this.lbl.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lbl.Name = "lbl";
+            this.lbl.Size = new System.Drawing.Size(80, 13);
+            this.lbl.TabIndex = 0;
+            this.lbl.Text = "Authentification";
             // 
             // btnConnexion
             // 
@@ -89,7 +153,7 @@
             // 
             this.lblMotDePasse.AutoSize = true;
             this.lblMotDePasse.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMotDePasse.Location = new System.Drawing.Point(68, 196);
+            this.lblMotDePasse.Location = new System.Drawing.Point(68, 206);
             this.lblMotDePasse.Name = "lblMotDePasse";
             this.lblMotDePasse.Size = new System.Drawing.Size(113, 21);
             this.lblMotDePasse.TabIndex = 2;
@@ -110,59 +174,6 @@
             this.btnQuitter.TabIndex = 5;
             this.btnQuitter.Text = "&Quitter";
             this.btnQuitter.UseVisualStyleBackColor = false;
-            this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Red;
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.splitter1);
-            this.panel1.Location = new System.Drawing.Point(2, 1);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(995, 541);
-            this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Red;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel2.Controls.Add(this.txtMotdePasse);
-            this.panel2.Controls.Add(this.txtIdentifiant);
-            this.panel2.Controls.Add(this.lblMessage);
-            this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Controls.Add(this.lbl);
-            this.panel2.Controls.Add(this.btnConnexion);
-            this.panel2.Controls.Add(this.lblIdentifiant);
-            this.panel2.Controls.Add(this.lblMotDePasse);
-            this.panel2.Controls.Add(this.btnQuitter);
-            this.panel2.Controls.Add(this.splitter2);
-            this.panel2.Location = new System.Drawing.Point(47, 92);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(894, 409);
-            this.panel2.TabIndex = 10;
-            // 
-            // lblMessage
-            // 
-            this.lblMessage.AutoSize = true;
-            this.lblMessage.BackColor = System.Drawing.Color.Black;
-            this.lblMessage.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMessage.ForeColor = System.Drawing.Color.Red;
-            this.lblMessage.Location = new System.Drawing.Point(106, 347);
-            this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(0, 25);
-            this.lblMessage.TabIndex = 9;
-            // 
-            // lbl
-            // 
-            this.lbl.AutoSize = true;
-            this.lbl.BackColor = System.Drawing.Color.Transparent;
-            this.lbl.Location = new System.Drawing.Point(60, 58);
-            this.lbl.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.lbl.Name = "lbl";
-            this.lbl.Size = new System.Drawing.Size(238, 36);
-            this.lbl.TabIndex = 0;
-            this.lbl.Text = "Authentification";
             // 
             // splitter2
             // 
@@ -173,7 +184,6 @@
             this.splitter2.Size = new System.Drawing.Size(433, 405);
             this.splitter2.TabIndex = 7;
             this.splitter2.TabStop = false;
-            this.splitter2.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitter2_SplitterMoved);
             // 
             // splitter1
             // 
@@ -187,7 +197,7 @@
             // 
             // txtIdentifiant
             // 
-            this.txtIdentifiant.BorderRadius = 5;
+            this.txtIdentifiant.BorderRadius = 10;
             this.txtIdentifiant.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtIdentifiant.DefaultText = "";
             this.txtIdentifiant.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -195,21 +205,20 @@
             this.txtIdentifiant.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtIdentifiant.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtIdentifiant.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtIdentifiant.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F);
+            this.txtIdentifiant.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtIdentifiant.ForeColor = System.Drawing.Color.Black;
             this.txtIdentifiant.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtIdentifiant.Location = new System.Drawing.Point(72, 154);
-            this.txtIdentifiant.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIdentifiant.Location = new System.Drawing.Point(68, 153);
             this.txtIdentifiant.Name = "txtIdentifiant";
             this.txtIdentifiant.PlaceholderForeColor = System.Drawing.Color.Gray;
             this.txtIdentifiant.PlaceholderText = "Identifiant\r\n";
             this.txtIdentifiant.SelectedText = "";
-            this.txtIdentifiant.Size = new System.Drawing.Size(285, 28);
-            this.txtIdentifiant.TabIndex = 13;
+            this.txtIdentifiant.Size = new System.Drawing.Size(325, 36);
+            this.txtIdentifiant.TabIndex = 12;
             // 
             // txtMotdePasse
             // 
-            this.txtMotdePasse.BorderRadius = 5;
+            this.txtMotdePasse.BorderRadius = 10;
             this.txtMotdePasse.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtMotdePasse.DefaultText = "";
             this.txtMotdePasse.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -217,49 +226,47 @@
             this.txtMotdePasse.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtMotdePasse.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtMotdePasse.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMotdePasse.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F);
-            this.txtMotdePasse.ForeColor = System.Drawing.Color.Black;
+            this.txtMotdePasse.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtMotdePasse.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMotdePasse.Location = new System.Drawing.Point(72, 230);
-            this.txtMotdePasse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMotdePasse.Location = new System.Drawing.Point(68, 230);
             this.txtMotdePasse.Name = "txtMotdePasse";
-            this.txtMotdePasse.PlaceholderForeColor = System.Drawing.Color.Gray;
-            this.txtMotdePasse.PlaceholderText = "Mot De Passe";
+            this.txtMotdePasse.PlaceholderText = "Mot de Passe\r\n";
             this.txtMotdePasse.SelectedText = "";
-            this.txtMotdePasse.Size = new System.Drawing.Size(283, 28);
-            this.txtMotdePasse.TabIndex = 14;
+            this.txtMotdePasse.Size = new System.Drawing.Size(325, 36);
+            this.txtMotdePasse.TabIndex = 13;
             this.txtMotdePasse.UseSystemPasswordChar = true;
             // 
-            // frmConnexion
+            // frmTest
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 36F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(996, 540);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
-            this.Font = new System.Drawing.Font("Microsoft YaHei UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(8);
-            this.Name = "frmConnexion";
-            this.Text = "Connexion";
-            this.Load += new System.EventHandler(this.frmConnexion_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "frmTest";
+            this.Text = "frmTest";
+            this.Load += new System.EventHandler(this.frmTest_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private Guna.UI.WinForms.GunaMediumCheckBox gunaMediumCheckBox1;
+        private System.Windows.Forms.Label lblMessage;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lbl;
         private System.Windows.Forms.Button btnConnexion;
         private System.Windows.Forms.Label lblIdentifiant;
         private System.Windows.Forms.Label lblMotDePasse;
         private System.Windows.Forms.Button btnQuitter;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label lblMessage;
-        private System.Windows.Forms.Label lbl;
         private System.Windows.Forms.Splitter splitter2;
         private System.Windows.Forms.Splitter splitter1;
         private Guna.UI2.WinForms.Guna2TextBox txtIdentifiant;
