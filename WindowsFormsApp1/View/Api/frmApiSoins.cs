@@ -129,5 +129,10 @@ namespace WindowsFormsApp1.View.Api
         {
 
         }
+
+        private void dtSoins_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

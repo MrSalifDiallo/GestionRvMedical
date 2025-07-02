@@ -62,6 +62,7 @@
             this.dtSoins.Name = "dtSoins";
             this.dtSoins.Size = new System.Drawing.Size(394, 174);
             this.dtSoins.TabIndex = 3;
+            this.dtSoins.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtSoins_CellContentClick);
             // 
             // frmApiSoins
             // 

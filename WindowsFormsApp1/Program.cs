@@ -22,7 +22,7 @@ namespace WindowsFormsApp1
             CreateAdmin();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmConnexion());
+            Application.Run(new frmListePatient());
         }
         static void CreateAdmin()
         {

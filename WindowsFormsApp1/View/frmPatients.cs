@@ -23,9 +23,7 @@ namespace WindowsFormsApp1.View
             this.FormBorderStyle = FormBorderStyle.None;
             this.ControlBox = false;  // Supprimer les boutons de contrôle
             this.ShowIcon = false;    // Supprimer l'icône
-            this.ShowInTaskbar = true; // Ne pas afficher dans la barre des tâches
-            this.StartPosition = FormStartPosition.CenterParent;
-                
+            this.WindowState = FormWindowState.Maximized; // Définit l'état du formulaire sur maximisé
         }
 
         //ServiceMetier.Service1Client service = new ServiceMetier.Service1Client(); // ✅ Service WCF

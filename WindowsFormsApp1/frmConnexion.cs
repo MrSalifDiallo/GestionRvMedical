@@ -21,6 +21,8 @@ namespace WindowsFormsApp1
         //BdRvMedicalContext bd=new BdRvMedicalContext();  
         //private Utilisateur currentUser;  
         Utils utils= new Utils(); // ✅ Instance of Utils class for logging
+        AllServiceMetier.AllServiceClient allService = new AllServiceMetier.AllServiceClient(); // ✅ Service WCF for General Method
+
         public frmConnexion()
         {
             InitializeComponent();
@@ -84,7 +86,6 @@ namespace WindowsFormsApp1
             //txtMotdePasse.Enabled = false;
             //lblMessage.Text = "Authentification en cours...";
             
-            AllServiceMetier.AllServiceClient allService = new AllServiceMetier.AllServiceClient(); // ✅ Service WCF for General Method
             //ServiceMetierAuthentification.AuthentificationServiceClient serviceAuthentification = new ServiceMetierAuthentification.AuthentificationServiceClient(); // ✅ Service WCF for General Method  
             string identifiantinbd = txtIdentifiant.Text.ToLower();
             string mdp = txtMotdePasse.Text;
@@ -109,8 +110,8 @@ namespace WindowsFormsApp1
                         _load.Show();
                         this.Hide();
                             
-                        // Wait for loading to complete (100% = 5 seconds at 50ms interval)
-                        await Task.Delay(TimeSpan.FromSeconds(7));
+                        // Wait for loading to complete (100% = 8 seconds at 50ms interval)
+                        await Task.Delay(TimeSpan.FromSeconds(8));
                         
                         frmMDI f = new frmMDI(mappedUser); // Create an instance of frmMDI with the mapped user
                         f.Show();

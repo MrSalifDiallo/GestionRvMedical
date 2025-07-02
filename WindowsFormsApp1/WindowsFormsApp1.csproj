@@ -291,6 +291,12 @@
     <Compile Include="View\frmTest.Designer.cs">
       <DependentUpon>frmTest.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\GunaUi\frmListePatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\GunaUi\frmListePatient.Designer.cs">
+      <DependentUpon>frmListePatient.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\GunaUi\frmLoading.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -349,6 +355,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmTest.resx">
       <DependentUpon>frmTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\GunaUi\frmListePatient.resx">
+      <DependentUpon>frmListePatient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\GunaUi\frmLoading.resx">
       <DependentUpon>frmLoading.cs</DependentUpon>
