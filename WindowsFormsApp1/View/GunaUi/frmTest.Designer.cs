@@ -30,7 +30,6 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.gunaMediumCheckBox1 = new Guna.UI.WinForms.GunaMediumCheckBox();
             this.lblMessage = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbl = new System.Windows.Forms.Label();
@@ -63,7 +62,6 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.txtMotdePasse);
             this.panel2.Controls.Add(this.txtIdentifiant);
-            this.panel2.Controls.Add(this.gunaMediumCheckBox1);
             this.panel2.Controls.Add(this.lblMessage);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.lbl);
@@ -79,7 +77,7 @@
             // 
             // gunaMediumCheckBox1
             // 
-            this.gunaMediumCheckBox1.BackColor = System.Drawing.Color.White;
+            /*this.gunaMediumCheckBox1.BackColor = System.Drawing.Color.White;
             this.gunaMediumCheckBox1.BaseColor = System.Drawing.Color.White;
             this.gunaMediumCheckBox1.CheckedOffColor = System.Drawing.SystemColors.GrayText;
             this.gunaMediumCheckBox1.CheckedOnColor = System.Drawing.Color.Red;
@@ -87,7 +85,7 @@
             this.gunaMediumCheckBox1.Location = new System.Drawing.Point(558, 181);
             this.gunaMediumCheckBox1.Name = "gunaMediumCheckBox1";
             this.gunaMediumCheckBox1.Size = new System.Drawing.Size(20, 20);
-            this.gunaMediumCheckBox1.TabIndex = 11;
+            this.gunaMediumCheckBox1.TabIndex = 11;*/
             // 
             // lblMessage
             // 
@@ -259,7 +257,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private Guna.UI.WinForms.GunaMediumCheckBox gunaMediumCheckBox1;
         private System.Windows.Forms.Label lblMessage;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lbl;

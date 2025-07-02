@@ -204,6 +204,7 @@
     <Compile Include="Helper\CryptString.cs" />
     <Compile Include="Helper\GMailer.cs" />
     <Compile Include="Helper\Utils.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Admin.cs" />
     <Compile Include="Model\Agenda.cs" />
     <Compile Include="Model\BdRvMedicalContext.cs" />
