@@ -29,6 +29,9 @@ namespace MetierRvMedical.Services
 
             return phoneDetails;
         }
+
+
+
         /// <summary>
         /// Retrieves a list of all available soins.
         /// </summary>

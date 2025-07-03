@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.Helper;
 using WindowsFormsApp1.Model;
-
+using typeMetierService=MetierRvMedical.Model;
 namespace WindowsFormsApp1.View
 {
     public partial class frmPatients : Form
@@ -101,7 +101,7 @@ namespace WindowsFormsApp1.View
             try
             {
                 
-                AllServiceMetier.Patient p = new AllServiceMetier.Patient();
+                typeMetierService.Patient p = new typeMetierService.Patient();
                 //ServiceMetier.Patient p = new ServiceMetier.Patient();
                 p.Adresse = txtAdresse.Text;
                 p.TEL = txtTelephone.Text;

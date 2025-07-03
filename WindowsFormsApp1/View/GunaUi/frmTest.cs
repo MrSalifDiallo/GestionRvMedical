@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using typeMetierService = MetierRvMedical.Model;
 namespace WindowsFormsApp1.View.GunaUi
 {
     public partial class frmTest : Form
@@ -59,7 +60,7 @@ namespace WindowsFormsApp1.View.GunaUi
                         //else
                         //{
                         // Map the ServiceMetierAuthentification.Utilisateur to WindowsFormsApp1.Model.Utilisateur  
-                        AllServiceMetier.Utilisateur mappedUser = verificationuser;
+                        typeMetierService.Utilisateur mappedUser = verificationuser;
                         frmMDI f = new frmMDI(mappedUser); // Create an instance of frmMDI with the mapped user
                         f.Show();
                         this.Hide();

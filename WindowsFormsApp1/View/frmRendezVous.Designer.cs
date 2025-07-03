@@ -78,6 +78,8 @@
             this.txtTaille = new System.Windows.Forms.TextBox();
             this.cbbTelephone = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.dtDateNaissance = new System.Windows.Forms.DateTimePicker();
+            this.lblDateNaissance = new System.Windows.Forms.Label();
             this.pnlRv.SuspendLayout();
             this.pnlListeCreneau.SuspendLayout();
             this.pnlActionPaiement.SuspendLayout();
@@ -456,6 +458,8 @@
             // 
             this.pnlPatient.AutoSize = true;
             this.pnlPatient.BackColor = System.Drawing.Color.Gray;
+            this.pnlPatient.Controls.Add(this.dtDateNaissance);
+            this.pnlPatient.Controls.Add(this.lblDateNaissance);
             this.pnlPatient.Controls.Add(this.label3);
             this.pnlPatient.Controls.Add(this.label2);
             this.pnlPatient.Controls.Add(this.lblNomPrenom);
@@ -483,7 +487,7 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 41);
+            this.label3.Location = new System.Drawing.Point(11, 41);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 13);
             this.label3.TabIndex = 82;
@@ -507,7 +511,7 @@
             this.lblNomPrenom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lblNomPrenom.AutoSize = true;
-            this.lblNomPrenom.Location = new System.Drawing.Point(9, 110);
+            this.lblNomPrenom.Location = new System.Drawing.Point(11, 105);
             this.lblNomPrenom.Name = "lblNomPrenom";
             this.lblNomPrenom.Size = new System.Drawing.Size(68, 13);
             this.lblNomPrenom.TabIndex = 80;
@@ -517,7 +521,7 @@
             // 
             this.txtNomPrenom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtNomPrenom.Location = new System.Drawing.Point(11, 127);
+            this.txtNomPrenom.Location = new System.Drawing.Point(11, 133);
             this.txtNomPrenom.Name = "txtNomPrenom";
             this.txtNomPrenom.Size = new System.Drawing.Size(278, 20);
             this.txtNomPrenom.TabIndex = 2;
@@ -526,9 +530,9 @@
             // 
             this.txtAdresse.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtAdresse.Location = new System.Drawing.Point(7, 270);
+            this.txtAdresse.Location = new System.Drawing.Point(11, 322);
             this.txtAdresse.Name = "txtAdresse";
-            this.txtAdresse.Size = new System.Drawing.Size(280, 20);
+            this.txtAdresse.Size = new System.Drawing.Size(278, 20);
             this.txtAdresse.TabIndex = 4;
             // 
             // lblAdresse
@@ -536,7 +540,7 @@
             this.lblAdresse.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lblAdresse.AutoSize = true;
-            this.lblAdresse.Location = new System.Drawing.Point(7, 248);
+            this.lblAdresse.Location = new System.Drawing.Point(11, 294);
             this.lblAdresse.Name = "lblAdresse";
             this.lblAdresse.Size = new System.Drawing.Size(45, 13);
             this.lblAdresse.TabIndex = 74;
@@ -547,18 +551,18 @@
             this.cbbGroupeSanguin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.cbbGroupeSanguin.FormattingEnabled = true;
-            this.cbbGroupeSanguin.Location = new System.Drawing.Point(10, 334);
+            this.cbbGroupeSanguin.Location = new System.Drawing.Point(11, 385);
             this.cbbGroupeSanguin.Name = "cbbGroupeSanguin";
-            this.cbbGroupeSanguin.Size = new System.Drawing.Size(280, 21);
+            this.cbbGroupeSanguin.Size = new System.Drawing.Size(278, 21);
             this.cbbGroupeSanguin.TabIndex = 5;
             // 
             // txtEmail
             // 
             this.txtEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtEmail.Location = new System.Drawing.Point(10, 196);
+            this.txtEmail.Location = new System.Drawing.Point(11, 259);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(280, 20);
+            this.txtEmail.Size = new System.Drawing.Size(278, 20);
             this.txtEmail.TabIndex = 3;
             // 
             // lblPoids
@@ -566,7 +570,7 @@
             this.lblPoids.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPoids.AutoSize = true;
-            this.lblPoids.Location = new System.Drawing.Point(161, 394);
+            this.lblPoids.Location = new System.Drawing.Point(163, 431);
             this.lblPoids.Name = "lblPoids";
             this.lblPoids.Size = new System.Drawing.Size(33, 13);
             this.lblPoids.TabIndex = 78;
@@ -577,7 +581,7 @@
             this.lblEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(10, 174);
+            this.lblEmail.Location = new System.Drawing.Point(11, 231);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(32, 13);
             this.lblEmail.TabIndex = 75;
@@ -587,7 +591,7 @@
             // 
             this.txtPoids.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPoids.Location = new System.Drawing.Point(164, 410);
+            this.txtPoids.Location = new System.Drawing.Point(166, 447);
             this.txtPoids.Name = "txtPoids";
             this.txtPoids.Size = new System.Drawing.Size(126, 20);
             this.txtPoids.TabIndex = 7;
@@ -597,7 +601,7 @@
             this.lblGroupeeSanguin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lblGroupeeSanguin.AutoSize = true;
-            this.lblGroupeeSanguin.Location = new System.Drawing.Point(10, 312);
+            this.lblGroupeeSanguin.Location = new System.Drawing.Point(11, 357);
             this.lblGroupeeSanguin.Name = "lblGroupeeSanguin";
             this.lblGroupeeSanguin.Size = new System.Drawing.Size(84, 13);
             this.lblGroupeeSanguin.TabIndex = 76;
@@ -608,7 +612,7 @@
             this.lblTaille.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lblTaille.AutoSize = true;
-            this.lblTaille.Location = new System.Drawing.Point(10, 394);
+            this.lblTaille.Location = new System.Drawing.Point(12, 431);
             this.lblTaille.Name = "lblTaille";
             this.lblTaille.Size = new System.Drawing.Size(32, 13);
             this.lblTaille.TabIndex = 77;
@@ -618,7 +622,7 @@
             // 
             this.txtTaille.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtTaille.Location = new System.Drawing.Point(10, 410);
+            this.txtTaille.Location = new System.Drawing.Point(12, 447);
             this.txtTaille.Name = "txtTaille";
             this.txtTaille.Size = new System.Drawing.Size(126, 20);
             this.txtTaille.TabIndex = 6;
@@ -628,7 +632,7 @@
             this.cbbTelephone.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.cbbTelephone.FormattingEnabled = true;
-            this.cbbTelephone.Location = new System.Drawing.Point(12, 56);
+            this.cbbTelephone.Location = new System.Drawing.Point(11, 56);
             this.cbbTelephone.Margin = new System.Windows.Forms.Padding(2);
             this.cbbTelephone.Name = "cbbTelephone";
             this.cbbTelephone.Size = new System.Drawing.Size(278, 21);
@@ -649,6 +653,23 @@
             this.panel3.Padding = new System.Windows.Forms.Padding(8, 16, 8, 16);
             this.panel3.Size = new System.Drawing.Size(1160, 545);
             this.panel3.TabIndex = 94;
+            // 
+            // dtDateNaissance
+            // 
+            this.dtDateNaissance.Location = new System.Drawing.Point(11, 196);
+            this.dtDateNaissance.Margin = new System.Windows.Forms.Padding(2);
+            this.dtDateNaissance.Name = "dtDateNaissance";
+            this.dtDateNaissance.Size = new System.Drawing.Size(278, 20);
+            this.dtDateNaissance.TabIndex = 84;
+            // 
+            // lblDateNaissance
+            // 
+            this.lblDateNaissance.AutoSize = true;
+            this.lblDateNaissance.Location = new System.Drawing.Point(11, 168);
+            this.lblDateNaissance.Name = "lblDateNaissance";
+            this.lblDateNaissance.Size = new System.Drawing.Size(83, 13);
+            this.lblDateNaissance.TabIndex = 83;
+            this.lblDateNaissance.Text = "Date Naissance";
             // 
             // frmRendezVous
             // 
@@ -744,5 +765,7 @@
         private System.Windows.Forms.TextBox txtTaille;
         private System.Windows.Forms.ComboBox cbbTelephone;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.DateTimePicker dtDateNaissance;
+        private System.Windows.Forms.Label lblDateNaissance;
     }
 }

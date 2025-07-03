@@ -13,19 +13,19 @@ namespace MetierRvMedical.Services
 
         Utils utils = new Utils();
 
-        public bool AddCreneaux(Creneau creneau)
+        public int AddCreneaux(Creneau creneau)
         {
             try
             {
                 bd.Creneaux.Add(creneau);
                 bd.SaveChanges();
-                return true;
+                return creneau.IdCreneau; // Retourne l'ID généré
             }
             catch (Exception ex)
             {
                 Utils.WriteLogSystem(ex.ToString(), "frmRendezVous-btnValider_Click - Erreur");
                 utils.WriteDataError("frmRendezVous-btnValider_Click - Erreur", ex.ToString());
-                return false;
+                return -1;
             }
         }
     }

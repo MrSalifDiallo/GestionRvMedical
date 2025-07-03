@@ -38,5 +38,9 @@ namespace MetierRvMedical.Model
         public int? IdCreneau { get; set; }  // Le créneau réservé
         [ForeignKey("IdCreneau")]
         public virtual Creneau Creneau { get; set; }
+
+        public int? IdAgenda { get; set; }  // Le créneau réservé
+        [ForeignKey("IdAgenda")]
+        public virtual Agenda Agenda { get; set; }
     }
 }

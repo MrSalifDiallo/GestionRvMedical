@@ -238,6 +238,7 @@
     <Compile Include="Models\BdRvMedicalContext.cs" />
     <Compile Include="Models\Creneau.cs" />
     <Compile Include="Models\GroupeSanguin.cs" />
+    <Compile Include="Models\InfosRendezVous.cs" />
     <Compile Include="Models\Medecin.cs" />
     <Compile Include="Models\MoyenPayment.cs" />
     <Compile Include="Models\Paiement.cs" />

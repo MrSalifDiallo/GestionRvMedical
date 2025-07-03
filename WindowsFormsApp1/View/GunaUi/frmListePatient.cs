@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
+using typeMetierService = MetierRvMedical.Model;
 
 namespace WindowsFormsApp1.View.GunaUi
 {
@@ -94,7 +95,7 @@ namespace WindowsFormsApp1.View.GunaUi
         // --- Fin fonction générique ---
 
         // Nouvelle méthode pour remplir le DataGridView manuellement
-        private void RemplirDataGridViewPatients(List<AllServiceMetier.Patient> patients)
+        private void RemplirDataGridViewPatients(List<typeMetierService.Patient> patients)
         {
             /*guna2DataGridView1.Columns.Clear();
             guna2DataGridView1.Rows.Clear();*/
@@ -129,16 +130,16 @@ namespace WindowsFormsApp1.View.GunaUi
             }
         }
 
-        private List<AllServiceMetier.Patient> GetPatients()
+        private List<typeMetierService.Patient> GetPatients()
         {
             try
             {
-                return allService.GetListePatients()?.ToList() ?? new List<AllServiceMetier.Patient>();
+                return allService.GetListePatients()?.ToList() ?? new List<typeMetierService.Patient>();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Erreur lors de la récupération des patients : " + ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return new List<AllServiceMetier.Patient>();
+                return new List<typeMetierService.Patient>();
             }
         }
     }

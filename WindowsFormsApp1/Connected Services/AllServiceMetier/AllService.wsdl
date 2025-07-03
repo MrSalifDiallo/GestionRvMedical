@@ -135,6 +135,18 @@
   <wsdl:message name="IAllService_ResearchPatient_OutputMessage">
     <wsdl:part name="parameters" element="tns:ResearchPatientResponse" />
   </wsdl:message>
+  <wsdl:message name="IAllService_AddCreneaux_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCreneaux" />
+  </wsdl:message>
+  <wsdl:message name="IAllService_AddCreneaux_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCreneauxResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllService_AddRendezVous_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddRendezVous" />
+  </wsdl:message>
+  <wsdl:message name="IAllService_AddRendezVous_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddRendezVousResponse" />
+  </wsdl:message>
   <wsdl:portType name="IAllService">
     <wsdl:operation name="LoadAgenda">
       <wsdl:input wsaw:Action="http://tempuri.org/IAllService/LoadAgenda" message="tns:IAllService_LoadAgenda_InputMessage" />
@@ -203,6 +215,14 @@
     <wsdl:operation name="ResearchPatient">
       <wsdl:input wsaw:Action="http://tempuri.org/IAllService/ResearchPatient" message="tns:IAllService_ResearchPatient_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAllService/ResearchPatientResponse" message="tns:IAllService_ResearchPatient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCreneaux">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllService/AddCreneaux" message="tns:IAllService_AddCreneaux_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllService/AddCreneauxResponse" message="tns:IAllService_AddCreneaux_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddRendezVous">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllService/AddRendezVous" message="tns:IAllService_AddRendezVous_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllService/AddRendezVousResponse" message="tns:IAllService_AddRendezVous_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IAllService" type="tns:IAllService">
@@ -360,6 +380,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="AddCreneaux">
+      <soap:operation soapAction="http://tempuri.org/IAllService/AddCreneaux" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddRendezVous">
+      <soap:operation soapAction="http://tempuri.org/IAllService/AddRendezVous" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="BasicHttpsBinding_IAllService" type="tns:IAllService">
     <wsp:PolicyReference URI="#BasicHttpsBinding_IAllService_policy" />
@@ -510,6 +548,24 @@
     </wsdl:operation>
     <wsdl:operation name="ResearchPatient">
       <soap:operation soapAction="http://tempuri.org/IAllService/ResearchPatient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCreneaux">
+      <soap:operation soapAction="http://tempuri.org/IAllService/AddCreneaux" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddRendezVous">
+      <soap:operation soapAction="http://tempuri.org/IAllService/AddRendezVous" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

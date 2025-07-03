@@ -12,6 +12,16 @@ namespace WindowsFormsApp1.View.GunaUi
 {
     public partial class frmLoading : Form
     {
+        public event EventHandler LoadingCompleted;
+
+        /// <summary>
+        /// Déclenche l'événement pour signaler que le chargement est terminé
+        /// </summary>
+        protected virtual void OnLoadingCompleted()
+        {
+            LoadingCompleted?.Invoke(this, EventArgs.Empty);
+        }
+
         public frmLoading()
         {
             InitializeComponent();
@@ -27,7 +37,8 @@ namespace WindowsFormsApp1.View.GunaUi
             if (guna2CircleProgressBar1.Value == 100)
             {
                 timer1.Stop();
-
+                // Déclenche l'événement pour signaler que le chargement est terminé
+                OnLoadingCompleted();
                 //Principal p = new Principal();
                 //p.Show();
                 //this.Hide();

@@ -1,19 +1,9 @@
-﻿using Org.BouncyCastle.Asn1.Cms;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading;
+﻿using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.Helper;
-using WindowsFormsApp1.Model;
-using WindowsFormsApp1.View;
 using WindowsFormsApp1.View.GunaUi;
+using MetierRvMedical.Model;
 namespace WindowsFormsApp1
 {
     public partial class frmConnexion : Form
@@ -103,20 +93,19 @@ namespace WindowsFormsApp1
                     if (verificationuser != null)
                     {
                         Application.DoEvents();
-                        
-                        // Map the ServiceMetierAuthentification.Utilisateur to WindowsFormsApp1.Model.Utilisateur  
-                        AllServiceMetier.Utilisateur mappedUser = verificationuser;
+                        Utilisateur mappedUser = verificationuser;
                         frmLoading _load = new frmLoading();
+
+                        // Souscription à l'événement de fin de chargement
+                        _load.LoadingCompleted += (s, args) =>
+                        {
+                            frmMDI f = new frmMDI(mappedUser);
+                            f.Show();
+                            _load.Hide();
+                        };
+
                         _load.Show();
                         this.Hide();
-                            
-                        // Wait for loading to complete (100% = 8 seconds at 50ms interval)
-                        await Task.Delay(TimeSpan.FromSeconds(8));
-                        
-                        frmMDI f = new frmMDI(mappedUser); // Create an instance of frmMDI with the mapped user
-                        f.Show();
-                        _load.Hide();
-                        //}
                     }
                     else
                     {

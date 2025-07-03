@@ -28,13 +28,16 @@ namespace MetierRvMedical.Services
             {
                 // .Where(a => DbFunctions.TruncateTime(a.DatePlanifie) == datetoday.Date)
                 //Pour eviter la comparaison entre de la date en jour mois annnée
+                var dateOnly = datetoday.Date;
                 var agenda = bd.Agendas
-                           .Where(a => 
-                                       a.DatePlanifie.Day == datetoday.Day &&
-                                       a.DatePlanifie.Month == datetoday.Month &&
-                                       a.DatePlanifie.Year == datetoday.Year)
-                           .Include(m => m.Medecin) // Inclure la navigation vers Medecin
+                            .Where(a => a.DatePlanifie.Year == dateOnly.Year &&
+                a.DatePlanifie.Month == dateOnly.Month &&
+                a.DatePlanifie.Day == dateOnly.Day)
+                            .Include(m => m.Medecin) // Inclure la navigation vers Medecin
                            .ToList();
+                Utils.WriteLogSystem("LoadAgenda appelé avec : " + datetoday.ToString("yyyy-MM-dd"), "DEBUG");
+                Utils.WriteLogSystem($"Nombre d'agendas chargés : {agenda.Count}", "DEBUG");
+                Utils.WriteLogSystem("LoadAgenda - date reçue: " + datetoday.ToString("O"), "DEBUG");
                 return agenda;
             }
             catch (DbEntityValidationException ex)

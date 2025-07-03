@@ -378,22 +378,12 @@
     <None Include="Connected Services\AllServiceMetier\AllService3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\AllServiceMetier\WindowsFormsApp1.AllServiceMetier.Agenda.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\AllServiceMetier\WindowsFormsApp1.AllServiceMetier.GroupeSanguin.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\AllServiceMetier\WindowsFormsApp1.AllServiceMetier.Patient.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\AllServiceMetier\WindowsFormsApp1.AllServiceMetier.Soin.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\AllServiceMetier\WindowsFormsApp1.AllServiceMetier.Utilisateur.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\MetierRvMedical.Model.Agenda.datasource" />
+    <None Include="Properties\DataSources\MetierRvMedical.Model.GroupeSanguin.datasource" />
+    <None Include="Properties\DataSources\MetierRvMedical.Model.Patient.datasource" />
+    <None Include="Properties\DataSources\MetierRvMedical.Model.Soin.datasource" />
+    <None Include="Properties\DataSources\MetierRvMedical.Model.Utilisateur.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

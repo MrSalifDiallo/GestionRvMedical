@@ -196,19 +196,30 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Error\erreur.txt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>erreur1.cs</LastGenOutput>
+    </Content>
     <Content Include="Service1.svc" />
     <Content Include="Wcf\AllService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Error\erreur1.cs">
+      <DependentUpon>erreur.txt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Helper\CryptString.cs" />
     <Compile Include="Helper\GMailer.cs" />
     <Compile Include="Helper\Utils.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Admin.cs" />
     <Compile Include="Model\Agenda.cs" />
     <Compile Include="Model\BdRvMedicalContext.cs" />
     <Compile Include="Model\Creneau.cs" />
     <Compile Include="Model\GroupeSanguin.cs" />
+    <Compile Include="Model\InfosRendezVous.cs" />
     <Compile Include="Model\Medecin.cs" />
     <Compile Include="Model\MoyenPayment.cs" />
     <Compile Include="Model\Paiement.cs" />

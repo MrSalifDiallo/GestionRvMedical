@@ -1,30 +1,28 @@
-﻿    using MySqlX.XDevAPI.Relational;
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Data;
-    using System.Drawing;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using Microsoft.VisualBasic.Devices;
-    using WindowsFormsApp1.Model;
-
-    using System.Windows.Forms;
-    using WindowsFormsApp1.View;
+﻿using MySqlX.XDevAPI.Relational;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.VisualBasic.Devices;
+using System.Windows.Forms;
+using WindowsFormsApp1.View;
+using MetierRvMedical.Model;
 using WindowsFormsApp1.View.Api;
-
 
 namespace WindowsFormsApp1
     {
         public partial class frmMDI : Form
         {
             public string role;
-            private AllServiceMetier.Utilisateur utilisateurConnecte;
+            private Utilisateur utilisateurConnecte;
 
-        public AllServiceMetier.Utilisateur user { get; internal set; }
+        public Utilisateur user { get; internal set; }
 
-        public frmMDI(AllServiceMetier.Utilisateur utilisateurConnecte)
+        public frmMDI(Utilisateur utilisateurConnecte)
             {
                 InitializeComponent();
                 this.IsMdiContainer = true; // <-- Cette ligne est essentielle
