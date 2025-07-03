@@ -72,6 +72,6 @@ Update-Database -Verbose
       🔗 [GitHub - papaahmadoufall](https://github.com/papaahmadoufall)  
       🌍 Basé à Dakar, Sénégal
 - **Nzotcha Edmond Darren **  Mise en Place Front-End Developer(RV)
-      🔗 [GitHub - papaahmadoufall](https://github.com/DarrenNz2004)  
+      🔗 [GitHub - Darren](https://github.com/DarrenNz2004)  
       🌍 Basé à Dakar, Sénégal
 
