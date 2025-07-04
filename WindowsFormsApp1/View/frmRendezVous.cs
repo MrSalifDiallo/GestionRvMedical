@@ -433,9 +433,9 @@ namespace WindowsFormsApp1.View
             dtDateNaissance.Value =DateTime.Now; // Utiliser DateTime.Now si la date de naissance est nulle
             /*cbbMedecin.DataSource = LoadCbbMedecin(todayDate);
             cbbCreneauHoraire.DataSource = LoadCbbCreneauxHoraire(todayDate);
-            cbbDureeCreneaux.DataSource = LoadCbbDureeCreneaux(todayDate);  // ComboBox avec les durées disponibles
+            cbbDureeCreneaux.DataSource = LoadCbbDureeCreneaux(todayDate);  // ComboBox avec les durées disponibles*/
             cbbTelephone.Text = string.Empty; // Réinitialiser le champ téléphone
-            EnableAllFields();*/
+            EnableAllFields();
         }
 
         private void ResetDetailsRv()
@@ -445,10 +445,12 @@ namespace WindowsFormsApp1.View
             cbbCreneauHoraire.DataSource = LoadCbbCreneauxHoraire(defaultDate);
             cbbMedecin.DataSource = LoadCbbMedecin(defaultDate);
             cbbDureeCreneaux.DataSource = LoadCbbDureeCreneaux(defaultDate);
-            cbbCreneauHoraire.SelectedIndex = -1;
-            cbbMedecin.SelectedIndex = -1;
-            cbbDureeCreneaux.SelectedIndex = -1;
-            cbbSoins.SelectedIndex = -1;
+            cbbSoins.DataSource = LoadCbbSoins();
+/*            cbbGroupeSanguin.DataSource=LoadBloodGroups();  // Charger les groupes sanguins
+*/            cbbCreneauHoraire.SelectedIndex = 0;
+            cbbMedecin.SelectedIndex = 0;
+            cbbDureeCreneaux.SelectedIndex = 0;
+            cbbSoins.SelectedIndex = 0;
         }
         private void btnRenitialiser_Click(object sender, EventArgs e)
         {
@@ -465,12 +467,24 @@ namespace WindowsFormsApp1.View
         /// <param name="e"></param>
         private void cbbTelephone_TextChanged(object sender, EventArgs e)
         {
-            // Si le texte dans cbbTelephone change, on vérifie si le numéro correspond à un patient
-            var phoneParts = cbbTelephone.Text.Split(new string[] { " - " }, StringSplitOptions.None);
-            string phoneNumber = phoneParts[0].Trim(); // On prend uniquement le numéro
-
-            // Charger les données du patient correspondant au numéro de téléphone
-            UpdatePatientDetails(phoneNumber);
+            string phoneNumber = cbbTelephone.Text.Trim();
+            if (string.IsNullOrEmpty(phoneNumber))
+            {
+                // Si le champ est vide, on réinitialise tout de suite
+                patientTrouve = false;
+                ResetForm();
+                EnableAllFields();
+                patientInfos = null;
+            }
+            else
+            {
+                var patient = allService.ResearchPatient(phoneNumber);
+                if (patient != null)
+                {
+                    UpdatePatientDetails(phoneNumber);
+                }
+                // Sinon, on ne fait rien : on ne réinitialise pas, on ne remplit pas
+            }
         }
 
         /// <summary>
@@ -501,6 +515,26 @@ namespace WindowsFormsApp1.View
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void cbbTelephone_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbbTelephone.SelectedItem != null)
+            {
+            var selectedText = cbbTelephone.SelectedItem.ToString();
+            var phoneParts = selectedText.Split(new string[] { " - " }, StringSplitOptions.None);
+            if (phoneParts.Length > 0)
+            {
+                    string phoneNumber = phoneParts[0].Trim();
+                    cbbTelephone.Text = phoneNumber;
+                    UpdatePatientDetails(phoneNumber); // Recherche patient si sélection d'une suggestion
+                }
+            }
+        }
+
+        /// <summary>
+        /// Lorsque l'utilisateur sélectionne une valeur dans la liste d'autocomplétion (avec flèches ou souris)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cbbTelephone_SelectionChangeCommitted(object sender, EventArgs e)
         {
             if (cbbTelephone.SelectedItem != null)
             {
@@ -918,8 +952,8 @@ namespace WindowsFormsApp1.View
                         else
                         {
                             MessageBox.Show("Erreur lors de la création du nouveau patient.", "Erreurs Création", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            return;
-                        }
+                    return;
+                }
                     }
                     /*MessageBox.Show("Rendez-vous créé avec succès !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     */

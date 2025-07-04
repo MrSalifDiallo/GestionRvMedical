@@ -639,6 +639,7 @@
             this.cbbTelephone.TabIndex = 1;
             this.cbbTelephone.TextChanged += new System.EventHandler(this.cbbTelephone_TextChanged);
             this.cbbTelephone.Leave += new System.EventHandler(this.cbbTelephone_Leave);
+            this.cbbTelephone.SelectionChangeCommitted += new System.EventHandler(this.cbbTelephone_SelectionChangeCommitted);
             // 
             // panel3
             // 
