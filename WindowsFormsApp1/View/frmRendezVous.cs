@@ -52,7 +52,11 @@ namespace WindowsFormsApp1.View
            //lblMessageCreneaux.Text = $"Créneaux disponibles pour le {selectedDate.ToShortDateString()} :";
             LoadPhoneNumbers();
             //serviceAgenda.LoadAgenda(selectedDate);
-            LoadBloodGroups();  // Charger les groupes sanguins
+
+            cbbGroupeSanguin.DataSource = LoadBloodGroups();
+            cbbGroupeSanguin.DisplayMember = "Text";  // Afficher le texte du groupe sanguin
+            cbbGroupeSanguin.ValueMember = "Value";   // La valeur utilisée lors de la sélection
+
             cbbSoins.DataSource = LoadCbbSoins();
             cbbSoins.DisplayMember = "Text";  // Ce que tu veux afficher dans le ComboBox
             cbbSoins.ValueMember = "Value";   // La valeur associée à chaque item
@@ -92,18 +96,32 @@ namespace WindowsFormsApp1.View
         /// <summary>
         /// Liste des groupes sanguins disponibles
         /// </summary>
-        private void LoadBloodGroups()
+        private List<SelectListView> LoadBloodGroups()
         {
-            var bloodGroups = allService.GetListeGroupesSanguins().ToList();
-            // Ajoute le groupe "Inconnu" si absent
-            if (!bloodGroups.Any(g => g.IdGroupeSanguin == 0))
-                bloodGroups.Insert(0, new MetierRvMedical.Model.GroupeSanguin { IdGroupeSanguin = 0, CodeGroupeSanguin = "?", NomGroupeSanguin = "Inconnu" });
+            var grpsang = allService.GetListeGroupesSanguins(); // 🔄 CHANGÉ – appel service WCF
+            List<SelectListView> ListeGS = new List<SelectListView>();
 
+            ListeGS.Add(new SelectListView { Text = "Sélectionnez le groupe sanguin", Value = "" });
+
+            foreach (var onegrp in grpsang)
+            {
+                ListeGS.Add(new SelectListView
+                {
+                    Text = onegrp.NomGroupeSanguin + "(" + onegrp.CodeGroupeSanguin + ")",
+                    Value = onegrp.CodeGroupeSanguin
+                });
+            }
+            return ListeGS;
+            
+/*            var bloodGroups = allService.GetListeGroupesSanguins().ToList();
+*/            /*// Ajouter l'option "Sélectionnez un groupe sanguin..." en premier
+            bloodGroups.Insert(0, new MetierRvMedical.Model.GroupeSanguin { IdGroupeSanguin = -1, CodeGroupeSanguin = "", NomGroupeSanguin = "Sélectionnez un groupe sanguin..." });
             cbbGroupeSanguin.DataSource = bloodGroups;
             cbbGroupeSanguin.DisplayMember = "NomGroupeSanguin";
             cbbGroupeSanguin.ValueMember = "IdGroupeSanguin";
-            cbbGroupeSanguin.SelectedValue = 0;
+            cbbGroupeSanguin.SelectedIndex = 0; // Sélection par défaut*/
         }
+
         /// <summary>
         /// Liste des soins disponibles pour le rendez-vous
         /// </summary>
@@ -386,16 +404,42 @@ namespace WindowsFormsApp1.View
                     erreurs.AppendLine("La date de naissance ne peut pas être aujourd'hui ou dans le futur.");
                 }
 
-                // On vérifie que le groupe sanguin est sélectionné
-                if (cbbGroupeSanguin.SelectedItem is SelectListView selectedItem)
+                // Vérification du groupe sanguin (SelectedItem null ou Value vide ou valeur non valide)
+                if (cbbGroupeSanguin == null)
                 {
+                    MessageBox.Show("ComboBox Groupe Sanguin est null !");
+                    return false;
+                }
+                if (cbbGroupeSanguin.Items.Count == 0)
+                {
+                    MessageBox.Show("ComboBox Groupe Sanguin n'a aucun item !");
+                    return false;
+                }
+                if (cbbGroupeSanguin.SelectedItem == null)
+                {
+                    MessageBox.Show("Aucun groupe sanguin sélectionné !");
+                    return false;
+                }
+                /* var selectedItem = cbbGroupeSanguin.SelectedItem as SelectListView;
+                 if (selectedItem == null || string.IsNullOrEmpty(selectedItem.Value) || selectedItem.Value == "-1" || selectedItem.Value == "0")
+                 {
+                     erreurs.AppendLine("Veuillez sélectionner un groupe sanguin.");
+                 }
+                 else
+                 {
+                     int.TryParse(selectedItem.Value, out int idGroupeSanguin);
+                     patientInfos.IdGroupeSanguin = idGroupeSanguin;
+                 }*/
+                // On vérifie que le groupe sanguin est sélectionné
+                if (cbbGroupeSanguin.SelectedItem != null)
+                {
+                    SelectListView selectedItem = (SelectListView)cbbGroupeSanguin.SelectedItem;
                     var listeGroupes = allService.GetListeGroupesSanguins();
                     var selectedGroup = listeGroupes.FirstOrDefault(gs => gs.CodeGroupeSanguin == selectedItem.Value);
 
                     if (selectedGroup != null)
                     {
-                        patientInfos.GroupeSanguin = selectedGroup;
-                        patientInfos.IdGroupeSanguin = selectedGroup.IdGroupeSanguin;
+                        patientInfos.IdGroupeSanguin= selectedGroup.IdGroupeSanguin;
                     }
                     else
                     {
@@ -428,13 +472,14 @@ namespace WindowsFormsApp1.View
             txtPoids.Clear();
             txtTaille.Clear();
             //Reset All ComboBox
-            cbbGroupeSanguin.SelectedIndex = -1;
+            cbbGroupeSanguin.DataSource = LoadBloodGroups(); // Recharge la source de données
+            cbbGroupeSanguin.SelectedIndex = 0;
             cbbTelephone.SelectedIndex = -1;
             dtDateNaissance.Value =DateTime.Now; // Utiliser DateTime.Now si la date de naissance est nulle
             /*cbbMedecin.DataSource = LoadCbbMedecin(todayDate);
             cbbCreneauHoraire.DataSource = LoadCbbCreneauxHoraire(todayDate);
             cbbDureeCreneaux.DataSource = LoadCbbDureeCreneaux(todayDate);  // ComboBox avec les durées disponibles*/
-            cbbTelephone.Text = string.Empty; // Réinitialiser le champ téléphone
+            //cbbTelephone.Text = string.Empty; // Ne pas réinitialiser le champ téléphone ici
             EnableAllFields();
         }
 
@@ -446,8 +491,7 @@ namespace WindowsFormsApp1.View
             cbbMedecin.DataSource = LoadCbbMedecin(defaultDate);
             cbbDureeCreneaux.DataSource = LoadCbbDureeCreneaux(defaultDate);
             cbbSoins.DataSource = LoadCbbSoins();
-/*            cbbGroupeSanguin.DataSource=LoadBloodGroups();  // Charger les groupes sanguins
-*/            cbbCreneauHoraire.SelectedIndex = 0;
+           cbbCreneauHoraire.SelectedIndex = 0;
             cbbMedecin.SelectedIndex = 0;
             cbbDureeCreneaux.SelectedIndex = 0;
             cbbSoins.SelectedIndex = 0;
@@ -474,7 +518,7 @@ namespace WindowsFormsApp1.View
                 patientTrouve = false;
                 ResetForm();
                 EnableAllFields();
-                patientInfos = null;
+                patientInfos = new typeMetierService.Patient();
             }
             else
             {
@@ -483,8 +527,27 @@ namespace WindowsFormsApp1.View
                 {
                     UpdatePatientDetails(phoneNumber);
                 }
-                // Sinon, on ne fait rien : on ne réinitialise pas, on ne remplit pas
+                else
+                {
+                    // On réinitialise uniquement les champs patient, pas le champ téléphone
+                    patientTrouve = false;
+                    ResetPatientFields();
+                    EnableAllFields();
+                    patientInfos = new typeMetierService.Patient();
+                }
             }
+        }
+
+        // Réinitialise uniquement les champs patient (hors téléphone)
+        private void ResetPatientFields()
+        {
+            txtNomPrenom.Text = "";
+            txtAdresse.Text = "";
+            txtEmail.Text = "";
+            txtPoids.Text = "";
+            txtTaille.Text = "";
+            cbbGroupeSanguin.SelectedIndex = 0;
+            dtDateNaissance.Value = DateTime.Now;
         }
 
         /// <summary>
@@ -569,14 +632,14 @@ namespace WindowsFormsApp1.View
                 try { idGs = patient.IdGroupeSanguin; } catch { idGs = 0; }
                 cbbGroupeSanguin.SelectedValue = idGs;
                 DisableFields(patient);
-                patientInfos=patient; // Mettre à jour les infos du patient
+                patientInfos = patient; // Mettre à jour les infos du patient
             }
             else
             {
                 patientTrouve = false;
-                ResetForm();
+                ResetPatientFields(); // Ne pas toucher au champ téléphone
                 EnableAllFields();
-                patientInfos = null; // Réinitialiser les infos du patient
+                patientInfos = new typeMetierService.Patient(); // Réinitialiser les infos du patient
             }
         }
 
@@ -947,13 +1010,18 @@ namespace WindowsFormsApp1.View
                         bool patientCree = allService.AddPatient(patientInfos);
                         if (patientCree)
                         {
+                            LoadPhoneNumbers();
                             mmessagesInfos.AppendLine("Patient Ajouté avec Succès !");
+                            //Permet de recuperer les infos du patient créé
+                            var patientCreeInfos = allService.ResearchPatient(patientInfos.TEL);
+                            if (patientCreeInfos != null)
+                                patientInfos = patientCreeInfos;
                         }
                         else
                         {
                             MessageBox.Show("Erreur lors de la création du nouveau patient.", "Erreurs Création", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+                            return;
+                        }
                     }
                     /*MessageBox.Show("Rendez-vous créé avec succès !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     */
@@ -1008,7 +1076,7 @@ namespace WindowsFormsApp1.View
                             MessageBox.Show(mmessagesInfos.ToString(), "Validation", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             ResetDetailsRv();
                             ResetForm();
-
+                            cbbTelephone.Text = string.Empty;
                         }
                         else
                         {
