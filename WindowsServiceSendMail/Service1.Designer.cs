@@ -1,6 +1,6 @@
 ﻿namespace WindowsServiceSendMail
 {
-    partial class Service1
+    partial class ServiceSendMailMedical
     {
         /// <summary> 
         /// Variable nécessaire au concepteur.
@@ -28,8 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            this.ServiceName = "Service1";
+            // 
+            // ServiceSendMailMedical
+            // 
+            this.ServiceName = "ServiceSendMailMedical";
+
         }
 
         #endregion
