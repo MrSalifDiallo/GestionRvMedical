@@ -365,6 +365,7 @@
     <EmbeddedResource Include="View\GunaUi\frmTest.resx">
       <DependentUpon>frmTest.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="App.config.example" />
     <None Include="Connected Services\AllServiceMetier\AllService.wsdl" />
     <None Include="Connected Services\AllServiceMetier\AllService.xsd">
       <SubType>Designer</SubType>
@@ -378,6 +379,7 @@
     <None Include="Connected Services\AllServiceMetier\AllService3.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="packages.config.example" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\MetierRvMedical.Model.Agenda.datasource" />
     <None Include="Properties\DataSources\MetierRvMedical.Model.GroupeSanguin.datasource" />
