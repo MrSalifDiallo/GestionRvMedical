@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceTesting", "..\Servic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIRvMedical2", "..\APIRvMedical2\APIRvMedical2.csproj", "{FD8896AE-7E26-4742-A988-FF228943196E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsServiceSendMail", "..\WindowsServiceSendMail\WindowsServiceSendMail.csproj", "{40C5FDD8-E6A3-46D1-9E25-4C79C21E8791}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +38,10 @@ Global
 		{FD8896AE-7E26-4742-A988-FF228943196E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD8896AE-7E26-4742-A988-FF228943196E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD8896AE-7E26-4742-A988-FF228943196E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40C5FDD8-E6A3-46D1-9E25-4C79C21E8791}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40C5FDD8-E6A3-46D1-9E25-4C79C21E8791}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40C5FDD8-E6A3-46D1-9E25-4C79C21E8791}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40C5FDD8-E6A3-46D1-9E25-4C79C21E8791}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
