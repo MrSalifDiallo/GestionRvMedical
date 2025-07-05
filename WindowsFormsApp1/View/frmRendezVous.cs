@@ -1007,6 +1007,7 @@ namespace WindowsFormsApp1.View
                         patientInfos.DateNaissance = dtDateNaissance.Value.Date;
                         patientInfos.TEL = cbbTelephone.Text;
                         // Ajout du nouveau patient
+                        
                         bool patientCree = allService.AddPatient(patientInfos);
                         if (patientCree)
                         {

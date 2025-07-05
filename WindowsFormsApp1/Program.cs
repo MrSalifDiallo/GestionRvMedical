@@ -23,7 +23,10 @@ namespace WindowsFormsApp1
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frmConnexion());
-        }
+
+            //A Décommenter lors d'essai d'un frm
+/*            Application.Run(new frmListePatient());
+*/        }
         static void CreateAdmin()
         {
             // La méthode AddFirstUser contient déjà la logique de vérification
