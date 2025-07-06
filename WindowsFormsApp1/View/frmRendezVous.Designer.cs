@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pnlRv = new System.Windows.Forms.Panel();
             this.pnlListeCreneau = new System.Windows.Forms.Panel();
             this.lblTabMessage = new System.Windows.Forms.Label();
@@ -39,10 +40,12 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.pnlAction = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.btnValidezRv = new System.Windows.Forms.Button();
+            this.btnPrevisualisez = new Guna.UI2.WinForms.Guna2Button();
+            this.btnValidezRv = new Guna.UI2.WinForms.Guna2Button();
             this.label17 = new System.Windows.Forms.Label();
             this.pnlAllImpression = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.pnlimpression = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
@@ -62,6 +65,8 @@
             this.cbbMedecin = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pnlPatient = new System.Windows.Forms.Panel();
+            this.dtDateNaissance = new System.Windows.Forms.DateTimePicker();
+            this.lblDateNaissance = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblNomPrenom = new System.Windows.Forms.Label();
@@ -78,19 +83,24 @@
             this.txtTaille = new System.Windows.Forms.TextBox();
             this.cbbTelephone = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dtDateNaissance = new System.Windows.Forms.DateTimePicker();
-            this.lblDateNaissance = new System.Windows.Forms.Label();
+            this.guna2HtmlToolTip1 = new Guna.UI2.WinForms.Guna2HtmlToolTip();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
             this.pnlRv.SuspendLayout();
             this.pnlListeCreneau.SuspendLayout();
             this.pnlActionPaiement.SuspendLayout();
             this.pnlPaiement.SuspendLayout();
             this.pnlAction.SuspendLayout();
             this.pnlAllImpression.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.pnlimpression.SuspendLayout();
             this.pnlDetailsRv.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.pnlPatient.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlRv
@@ -102,10 +112,10 @@
             this.pnlRv.Controls.Add(this.pnlAllImpression);
             this.pnlRv.Controls.Add(this.pnlDetailsRv);
             this.pnlRv.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlRv.Location = new System.Drawing.Point(313, 2);
+            this.pnlRv.Location = new System.Drawing.Point(312, 2);
             this.pnlRv.Margin = new System.Windows.Forms.Padding(2);
             this.pnlRv.Name = "pnlRv";
-            this.pnlRv.Size = new System.Drawing.Size(829, 509);
+            this.pnlRv.Size = new System.Drawing.Size(828, 507);
             this.pnlRv.TabIndex = 94;
             // 
             // pnlListeCreneau
@@ -210,7 +220,7 @@
             // 
             this.pnlAction.AutoSize = true;
             this.pnlAction.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pnlAction.Controls.Add(this.button2);
+            this.pnlAction.Controls.Add(this.btnPrevisualisez);
             this.pnlAction.Controls.Add(this.btnValidezRv);
             this.pnlAction.Controls.Add(this.label17);
             this.pnlAction.Location = new System.Drawing.Point(3, 148);
@@ -218,25 +228,45 @@
             this.pnlAction.Size = new System.Drawing.Size(314, 90);
             this.pnlAction.TabIndex = 99;
             // 
-            // button2
+            // btnPrevisualisez
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.button2.Location = new System.Drawing.Point(155, 44);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(133, 23);
-            this.button2.TabIndex = 28;
-            this.button2.Text = "Previsualisez ";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnPrevisualisez.Animated = true;
+            this.btnPrevisualisez.BackColor = System.Drawing.Color.Transparent;
+            this.btnPrevisualisez.BorderRadius = 7;
+            this.btnPrevisualisez.BorderThickness = 3;
+            this.btnPrevisualisez.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPrevisualisez.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPrevisualisez.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPrevisualisez.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPrevisualisez.FillColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnPrevisualisez.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnPrevisualisez.ForeColor = System.Drawing.Color.Black;
+            this.btnPrevisualisez.Location = new System.Drawing.Point(168, 51);
+            this.btnPrevisualisez.Name = "btnPrevisualisez";
+            this.btnPrevisualisez.Size = new System.Drawing.Size(134, 27);
+            this.btnPrevisualisez.TabIndex = 30;
+            this.btnPrevisualisez.Text = "Prévisualisez";
+            this.btnPrevisualisez.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // btnValidezRv
             // 
-            this.btnValidezRv.BackColor = System.Drawing.Color.Lime;
-            this.btnValidezRv.Location = new System.Drawing.Point(16, 44);
+            this.btnValidezRv.Animated = true;
+            this.btnValidezRv.BackColor = System.Drawing.Color.Transparent;
+            this.btnValidezRv.BorderRadius = 7;
+            this.btnValidezRv.BorderThickness = 3;
+            this.btnValidezRv.DefaultAutoSize = true;
+            this.btnValidezRv.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnValidezRv.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnValidezRv.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnValidezRv.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnValidezRv.FillColor = System.Drawing.Color.Lime;
+            this.btnValidezRv.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnValidezRv.ForeColor = System.Drawing.Color.Black;
+            this.btnValidezRv.Location = new System.Drawing.Point(3, 51);
             this.btnValidezRv.Name = "btnValidezRv";
-            this.btnValidezRv.Size = new System.Drawing.Size(133, 23);
-            this.btnValidezRv.TabIndex = 27;
+            this.btnValidezRv.Size = new System.Drawing.Size(159, 27);
+            this.btnValidezRv.TabIndex = 29;
             this.btnValidezRv.Text = "Valider le rendez-vous";
-            this.btnValidezRv.UseVisualStyleBackColor = false;
             this.btnValidezRv.Click += new System.EventHandler(this.btnValidezRv_Click);
             // 
             // label17
@@ -253,12 +283,32 @@
             // 
             this.pnlAllImpression.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pnlAllImpression.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlAllImpression.Controls.Add(this.panel1);
             this.pnlAllImpression.Controls.Add(this.pnlimpression);
             this.pnlAllImpression.Location = new System.Drawing.Point(481, 8);
             this.pnlAllImpression.Margin = new System.Windows.Forms.Padding(2);
             this.pnlAllImpression.Name = "pnlAllImpression";
             this.pnlAllImpression.Size = new System.Drawing.Size(324, 197);
             this.pnlAllImpression.TabIndex = 97;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.gunaLabel1);
+            this.panel1.Location = new System.Drawing.Point(13, 8);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(272, 100);
+            this.panel1.TabIndex = 100;
+            // 
+            // gunaLabel1
+            // 
+            this.gunaLabel1.AutoSize = true;
+            this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaLabel1.Location = new System.Drawing.Point(3, 21);
+            this.gunaLabel1.Name = "gunaLabel1";
+            this.gunaLabel1.Size = new System.Drawing.Size(68, 15);
+            this.gunaLabel1.TabIndex = 0;
+            this.gunaLabel1.Text = "gunaLabel1";
             // 
             // pnlimpression
             // 
@@ -451,7 +501,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1144, 513);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1142, 511);
             this.tableLayoutPanel1.TabIndex = 95;
             // 
             // pnlPatient
@@ -479,8 +529,25 @@
             this.pnlPatient.Location = new System.Drawing.Point(2, 2);
             this.pnlPatient.Margin = new System.Windows.Forms.Padding(2);
             this.pnlPatient.Name = "pnlPatient";
-            this.pnlPatient.Size = new System.Drawing.Size(307, 509);
+            this.pnlPatient.Size = new System.Drawing.Size(306, 507);
             this.pnlPatient.TabIndex = 72;
+            // 
+            // dtDateNaissance
+            // 
+            this.dtDateNaissance.Location = new System.Drawing.Point(11, 196);
+            this.dtDateNaissance.Margin = new System.Windows.Forms.Padding(2);
+            this.dtDateNaissance.Name = "dtDateNaissance";
+            this.dtDateNaissance.Size = new System.Drawing.Size(278, 20);
+            this.dtDateNaissance.TabIndex = 84;
+            // 
+            // lblDateNaissance
+            // 
+            this.lblDateNaissance.AutoSize = true;
+            this.lblDateNaissance.Location = new System.Drawing.Point(11, 168);
+            this.lblDateNaissance.Name = "lblDateNaissance";
+            this.lblDateNaissance.Size = new System.Drawing.Size(83, 13);
+            this.lblDateNaissance.TabIndex = 83;
+            this.lblDateNaissance.Text = "Date Naissance";
             // 
             // label3
             // 
@@ -570,7 +637,7 @@
             this.lblPoids.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPoids.AutoSize = true;
-            this.lblPoids.Location = new System.Drawing.Point(163, 431);
+            this.lblPoids.Location = new System.Drawing.Point(162, 431);
             this.lblPoids.Name = "lblPoids";
             this.lblPoids.Size = new System.Drawing.Size(33, 13);
             this.lblPoids.TabIndex = 78;
@@ -591,7 +658,7 @@
             // 
             this.txtPoids.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPoids.Location = new System.Drawing.Point(166, 447);
+            this.txtPoids.Location = new System.Drawing.Point(165, 447);
             this.txtPoids.Name = "txtPoids";
             this.txtPoids.Size = new System.Drawing.Size(126, 20);
             this.txtPoids.TabIndex = 7;
@@ -637,14 +704,15 @@
             this.cbbTelephone.Name = "cbbTelephone";
             this.cbbTelephone.Size = new System.Drawing.Size(278, 21);
             this.cbbTelephone.TabIndex = 1;
+            this.cbbTelephone.SelectionChangeCommitted += new System.EventHandler(this.cbbTelephone_SelectionChangeCommitted);
             this.cbbTelephone.TextChanged += new System.EventHandler(this.cbbTelephone_TextChanged);
             this.cbbTelephone.Leave += new System.EventHandler(this.cbbTelephone_Leave);
-            this.cbbTelephone.SelectionChangeCommitted += new System.EventHandler(this.cbbTelephone_SelectionChangeCommitted);
             // 
             // panel3
             // 
             this.panel3.AutoSize = true;
             this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.tableLayoutPanel1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -655,22 +723,28 @@
             this.panel3.Size = new System.Drawing.Size(1160, 545);
             this.panel3.TabIndex = 94;
             // 
-            // dtDateNaissance
+            // guna2HtmlToolTip1
             // 
-            this.dtDateNaissance.Location = new System.Drawing.Point(11, 196);
-            this.dtDateNaissance.Margin = new System.Windows.Forms.Padding(2);
-            this.dtDateNaissance.Name = "dtDateNaissance";
-            this.dtDateNaissance.Size = new System.Drawing.Size(278, 20);
-            this.dtDateNaissance.TabIndex = 84;
+            this.guna2HtmlToolTip1.AllowLinksHandling = true;
+            this.guna2HtmlToolTip1.MaximumSize = new System.Drawing.Size(0, 0);
             // 
-            // lblDateNaissance
+            // panel2
             // 
-            this.lblDateNaissance.AutoSize = true;
-            this.lblDateNaissance.Location = new System.Drawing.Point(11, 168);
-            this.lblDateNaissance.Name = "lblDateNaissance";
-            this.lblDateNaissance.Size = new System.Drawing.Size(83, 13);
-            this.lblDateNaissance.TabIndex = 83;
-            this.lblDateNaissance.Text = "Date Naissance";
+            this.panel2.Controls.Add(this.gunaLabel2);
+            this.panel2.Location = new System.Drawing.Point(8, 8);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(272, 100);
+            this.panel2.TabIndex = 101;
+            // 
+            // gunaLabel2
+            // 
+            this.gunaLabel2.AutoSize = true;
+            this.gunaLabel2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaLabel2.Location = new System.Drawing.Point(3, 21);
+            this.gunaLabel2.Name = "gunaLabel2";
+            this.gunaLabel2.Size = new System.Drawing.Size(68, 15);
+            this.gunaLabel2.TabIndex = 0;
+            this.gunaLabel2.Text = "gunaLabel2";
             // 
             // frmRendezVous
             // 
@@ -699,6 +773,8 @@
             this.pnlAction.ResumeLayout(false);
             this.pnlAction.PerformLayout();
             this.pnlAllImpression.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.pnlimpression.ResumeLayout(false);
             this.pnlimpression.PerformLayout();
             this.pnlDetailsRv.ResumeLayout(false);
@@ -709,6 +785,8 @@
             this.pnlPatient.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -727,8 +805,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel pnlAction;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button btnValidezRv;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Panel pnlAllImpression;
         private System.Windows.Forms.Panel pnlimpression;
@@ -768,5 +844,14 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DateTimePicker dtDateNaissance;
         private System.Windows.Forms.Label lblDateNaissance;
+        private Guna.UI2.WinForms.Guna2Button btnValidezRv;
+        private System.Windows.Forms.Panel panel1;
+        private Guna.UI.WinForms.GunaLabel gunaLabel1;
+        private Guna.UI2.WinForms.Guna2HtmlToolTip guna2HtmlToolTip1;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private Guna.UI2.WinForms.Guna2Button btnPrevisualisez;
+        private System.Windows.Forms.ToolTip toolTip2;
+        private System.Windows.Forms.Panel panel2;
+        private Guna.UI.WinForms.GunaLabel gunaLabel2;
     }
 }

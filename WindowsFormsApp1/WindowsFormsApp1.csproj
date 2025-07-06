@@ -237,12 +237,22 @@
       <DependentUpon>rptTicketRv.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="View\Api\frmAllApi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Api\frmAllApi.Designer.cs">
+      <DependentUpon>frmAllApi.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Api\frmApiSoins.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\Api\frmApiSoins.Designer.cs">
       <DependentUpon>frmApiSoins.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\CustomToolTipForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormValidator.cs" />
     <Compile Include="View\frmAgenda.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -328,6 +338,9 @@
     <EmbeddedResource Include="Report\rptTicketRv.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptTicketRv.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Api\frmAllApi.resx">
+      <DependentUpon>frmAllApi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Api\frmApiSoins.resx">
       <DependentUpon>frmApiSoins.cs</DependentUpon>
@@ -437,6 +450,9 @@
       <Project>{2E14E211-9C0E-4737-A777-F9A2DADC9411}</Project>
       <Name>MetierRvMedical</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="View\Php\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

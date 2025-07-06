@@ -22,11 +22,11 @@ namespace WindowsFormsApp1
             CreateAdmin();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmConnexion());
-
+            /*            Application.Run(new frmConnexion());
+            */
             //A Décommenter lors d'essai d'un frm
-/*            Application.Run(new frmListePatient());
-*/        }
+            Application.Run(new frmRendezVous());
+        }
         static void CreateAdmin()
         {
             // La méthode AddFirstUser contient déjà la logique de vérification

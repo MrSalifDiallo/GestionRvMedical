@@ -25,22 +25,85 @@ namespace WindowsFormsApp1.View
         typeMetierService.InfosRendezVous infos = new typeMetierService.InfosRendezVous();
         DateTime selectedDate = new DateTime(2025, 05, 21);
         typeMetierService.Patient patientInfos = new typeMetierService.Patient();
+
+        private StringBuilder erreurs = new StringBuilder(); // Pour stocker les erreurs de validation
+        private bool tooltipShown = false;
+        private Timer tooltipCooldownTimer;
+        private bool buttonIsHovered = false;
+        private FormValidator formValidator;
+        private FormValidator formValidator2;
         public frmRendezVous()
         {
             InitializeComponent();
-            frmConfiuration();
+            frmConfiguration();
+            formValidator = new FormValidator(toolTip1, btnValidezRv, ValidateAndGetErrors, gunaLabel1);
+            formValidator2 = new FormValidator(toolTip2, btnPrevisualisez, ValidateAndGetErrors, gunaLabel2);
+            AttachFieldObservers();
+            AttachFieldObservers2();
+
+        }
+        private string ValidateAndGetErrors()
+        {
+            erreurs.Clear();
+
+            // Ta logique de validation actuelle (extrait) :
+            if (cbbMedecin.SelectedItem == null || string.IsNullOrEmpty(((SelectListView)cbbMedecin.SelectedItem).Value))
+                erreurs.AppendLine("Veuillez sélectionner un médecin.");
+            if (cbbDureeCreneaux.SelectedItem == null || string.IsNullOrEmpty(((SelectListView)cbbDureeCreneaux.SelectedItem).Value))
+            {
+                erreurs.AppendLine("Veuillez sélectionner une durée de créneau.");
+            }
+
+            if (cbbCreneauHoraire.SelectedItem == null || string.IsNullOrEmpty(((SelectListView)cbbCreneauHoraire.SelectedItem).Value))
+            {
+                erreurs.AppendLine("Veuillez sélectionner un créneau horaire.");
+            }
+
+            // ... (idem pour les autres champs)
+
+            // Exemple complet ici, tu remplaces ta méthode ValidateComboBoxes par celle-ci
+
+                string result = erreurs.ToString().Replace(Environment.NewLine, " ; ");
+                return result;
         }
 
-        private void frmConfiuration()
+        private void AttachFieldObservers()
+        {
+            cbbMedecin.SelectedIndexChanged += (s, e) => formValidator.Validate();
+            cbbSoins.SelectedIndexChanged += (s, e) => formValidator.Validate();
+            cbbDureeCreneaux.SelectedIndexChanged += (s, e) => formValidator.Validate();
+            cbbCreneauHoraire.SelectedIndexChanged += (s, e) => formValidator.Validate();
+
+            txtPoids.TextChanged += (s, e) => formValidator.Validate();
+            txtTaille.TextChanged += (s, e) => formValidator.Validate();
+
+            dtDateNaissance.ValueChanged += (s, e) => formValidator.Validate();
+            cbbGroupeSanguin.SelectedIndexChanged += (s, e) => formValidator.Validate();
+        }
+        private void AttachFieldObservers2()
+        {
+            cbbMedecin.SelectedIndexChanged += (s, e) => formValidator2.Validate();
+            cbbSoins.SelectedIndexChanged += (s, e) => formValidator2.Validate();
+            cbbDureeCreneaux.SelectedIndexChanged += (s, e) => formValidator2.Validate();
+            cbbCreneauHoraire.SelectedIndexChanged += (s, e) => formValidator2.Validate();
+
+            txtPoids.TextChanged += (s, e) => formValidator2.Validate();
+            txtTaille.TextChanged += (s, e) => formValidator2.Validate();
+
+            dtDateNaissance.ValueChanged += (s, e) => formValidator2.Validate();
+            cbbGroupeSanguin.SelectedIndexChanged += (s, e) => formValidator2.Validate();
+        }
+
+        private void frmConfiguration()
         {
             this.FormBorderStyle = FormBorderStyle.None;
-            this.ControlBox = false;  // Supprimer les boutons de contrôle
-            this.ShowIcon = false;    // Supprimer l'icône
-            this.ShowInTaskbar = false; // Ne pas afficher dans la barre des tâches
-            txtSoin.Enabled = false;  // Désactivation du champ de prix
+/*            this.ShowIcon = false;    // Supprimer l'icône
+*//*            this.ShowInTaskbar = false; // Ne pas afficher dans la barre des tâches
+*/            txtSoin.Enabled = false;  // Désactivation du champ de prix
             //panel2.Visible = false;
             pnlimpression.Visible = false;
-           
+            toolTip1.UseFading = false;
+            toolTip1.UseAnimation = false;
         }
 
         private void frmRendezVous_Load(object sender, EventArgs e)
@@ -363,9 +426,11 @@ namespace WindowsFormsApp1.View
         private bool ValidateComboBoxes()
 
         {
+            // ✅ CLEAR errors at the start to prevent accumulation
+            erreurs.Clear();
+            
             // Si des erreurs existent, on les affiche
           
-            StringBuilder erreurs = new StringBuilder();
             if (cbbMedecin.SelectedItem == null || string.IsNullOrEmpty(((SelectListView)cbbMedecin.SelectedItem).Value))
             {
                 erreurs.AppendLine("Veuillez sélectionner un médecin.");
@@ -407,17 +472,17 @@ namespace WindowsFormsApp1.View
                 // Vérification du groupe sanguin (SelectedItem null ou Value vide ou valeur non valide)
                 if (cbbGroupeSanguin == null)
                 {
-                    MessageBox.Show("ComboBox Groupe Sanguin est null !");
+                    erreurs.AppendLine("ComboBox Groupe Sanguin est null !");
                     return false;
                 }
                 if (cbbGroupeSanguin.Items.Count == 0)
                 {
-                    MessageBox.Show("ComboBox Groupe Sanguin n'a aucun item !");
+                    erreurs.AppendLine("ComboBox Groupe Sanguin n'a aucun item !");
                     return false;
                 }
                 if (cbbGroupeSanguin.SelectedItem == null)
                 {
-                    MessageBox.Show("Aucun groupe sanguin sélectionné !");
+                    erreurs.AppendLine("Aucun groupe sanguin sélectionné !");
                     return false;
                 }
                 /* var selectedItem = cbbGroupeSanguin.SelectedItem as SelectListView;
@@ -434,17 +499,13 @@ namespace WindowsFormsApp1.View
                 if (cbbGroupeSanguin.SelectedItem != null)
                 {
                     SelectListView selectedItem = (SelectListView)cbbGroupeSanguin.SelectedItem;
-                    var listeGroupes = allService.GetListeGroupesSanguins();
-                    var selectedGroup = listeGroupes.FirstOrDefault(gs => gs.CodeGroupeSanguin == selectedItem.Value);
-
-                    if (selectedGroup != null)
+                    
+                    // ✅ Check only for empty value - no service call during validation!
+                    if (string.IsNullOrEmpty(selectedItem.Value))
                     {
-                        patientInfos.IdGroupeSanguin= selectedGroup.IdGroupeSanguin;
+                        erreurs.AppendLine("Veuillez sélectionner un groupe sanguin.");
                     }
-                    else
-                    {
-                        erreurs.AppendLine("Le groupe sanguin sélectionné est invalide.");
-                    }
+                    // Note: Set patientInfos.IdGroupeSanguin only when actually saving, not during validation
                 }
                 else
                 {
@@ -453,7 +514,9 @@ namespace WindowsFormsApp1.View
             }
             if (erreurs.Length > 0)
             {
-                MessageBox.Show(erreurs.ToString(), "Erreurs de validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+/*                MessageBox.Show(erreurs.ToString(), "Erreurs de validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+ *                
+*/              gunaLabel1.Text=erreurs.ToString();
                 return false;
             }
             
@@ -1161,6 +1224,66 @@ namespace WindowsFormsApp1.View
             return false;
         }
 
-        
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            frmPrintTicket frmPrintTicket = new frmPrintTicket();
+            frmPrintTicket.Show();
+        }
+
+
+        /*private void btnValidezRv_MouseEnter(object sender, EventArgs e)
+        {
+            // Only validate if we're not already hovering
+            buttonState();
+        }*/
+
+        /* private void buttonState(bool buttonIsHovered)
+         {
+             if (buttonIsHovered)
+             {
+                 if (!ValidateComboBoxes())
+                 {
+                     btnValidezRv.HoverState.FillColor = Color.DarkGray;
+                     Cursor = Cursors.No;
+
+                     if (!tooltipShown)
+                     {
+                         toolTip1.Show(erreurs.ToString(), btnValidezRv, 0, -20);
+                         tooltipShown = true;
+                         tooltipCooldownTimer.Start(); // Lance cooldown
+                     }
+                 }
+                 else
+                 {
+                     btnValidezRv.HoverState.FillColor = Color.Lime;
+                     toolTip1.Hide(btnValidezRv);
+                     tooltipCooldownTimer.Stop();
+                     tooltipShown = false;
+                     Cursor = Cursors.Hand;
+                 }
+             }
+             else
+             {
+                 btnValidezRv.HoverState.FillColor = Color.DarkGray;
+                 toolTip1.Hide(btnValidezRv);
+                 tooltipCooldownTimer.Stop();
+                 tooltipShown = false;
+                 Cursor = Cursors.Default;
+             }
+         }
+
+         private void btnValidezRv_MouseEnter(object sender, EventArgs e)
+         {
+             buttonIsHovered = true;
+             buttonState(buttonIsHovered);
+         }
+
+         private void btnValidezRv_MouseLeave(object sender, EventArgs e)
+         {
+             toolTip1.Hide(btnValidezRv);
+             tooltipCooldownTimer.Stop();
+             tooltipShown = false;
+             Cursor = Cursors.Default;
+         }*/
     }
 }

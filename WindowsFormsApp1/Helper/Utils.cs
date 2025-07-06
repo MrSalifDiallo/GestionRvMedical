@@ -153,10 +153,23 @@ namespace WindowsFormsApp1.Helper
                 MessageBox.Show($"Erreur lors du chargement des données : {ex.Message}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
+
         // --- Fin fonction générique ---
 
-
+        /// <summary>
+        /// Exemple Utilisation pour remplir un DataGridView avec des patients
+        /*var columns = new List<(string columnName, Type columnType, string propertyName)>
+                {
+                    ("Nom", typeof(string), "NomPrenom"),
+                    ("Email", typeof(string), "Email"),
+                    ("Téléphone", typeof(string), "TEL"),
+                    ("Adresse", typeof(string), "Adresse"),
+                    ("Date de naissance", typeof(DateTime), "DateNaissance"),
+                    ("Poids", typeof(float), "Poids"),
+                    ("Taille", typeof(float), "Taille"),
+                    ("Groupe Sanguin", typeof(string), "GroupeSanguin")
+                };
+        utils.LoadDataInDataGridView(patients, guna2DataGridView1, columns)*/
 
 
     }
