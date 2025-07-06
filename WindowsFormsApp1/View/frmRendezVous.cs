@@ -36,10 +36,17 @@ namespace WindowsFormsApp1.View
         {
             InitializeComponent();
             frmConfiguration();
+
             formValidator = new FormValidator(toolTip1, btnValidezRv, ValidateAndGetErrors, gunaLabel1);
-            formValidator2 = new FormValidator(toolTip2, btnPrevisualisez, ValidateAndGetErrors, gunaLabel2);
-            AttachFieldObservers();
-            AttachFieldObservers2();
+            formValidator2 = new FormValidator(toolTip1, btnPrevisualisez, ValidateAndGetErrors, gunaLabel1);
+
+            // Appel DRY
+            var comboBoxes = new[] { cbbMedecin, cbbSoins, cbbDureeCreneaux, cbbCreneauHoraire, cbbGroupeSanguin };
+            var textBoxes = new[] { txtPoids, txtTaille };
+            var datePickers = new[] { dtDateNaissance };
+
+            AttachFieldObserversTo(formValidator, comboBoxes, textBoxes, datePickers);
+            AttachFieldObserversTo(formValidator2, comboBoxes, textBoxes, datePickers);
 
         }
         private string ValidateAndGetErrors()
@@ -92,6 +99,22 @@ namespace WindowsFormsApp1.View
 
             dtDateNaissance.ValueChanged += (s, e) => formValidator2.Validate();
             cbbGroupeSanguin.SelectedIndexChanged += (s, e) => formValidator2.Validate();
+        }
+
+
+        private void AttachFieldObserversTo(FormValidator validator,
+                                    ComboBox[] comboBoxes,
+                                    TextBox[] textBoxes,
+                                    DateTimePicker[] datePickers)
+        {
+            foreach (var cb in comboBoxes)
+                cb.SelectedIndexChanged += (s, e) => validator.Validate();
+
+            foreach (var tb in textBoxes)
+                tb.TextChanged += (s, e) => validator.Validate();
+
+            foreach (var dt in datePickers)
+                dt.ValueChanged += (s, e) => validator.Validate();
         }
 
         private void frmConfiguration()
