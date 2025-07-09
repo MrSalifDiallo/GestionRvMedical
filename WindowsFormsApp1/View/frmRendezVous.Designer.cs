@@ -45,6 +45,8 @@
             this.label17 = new System.Windows.Forms.Label();
             this.pnlAllImpression = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.pnlimpression = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
@@ -86,8 +88,6 @@
             this.guna2HtmlToolTip1 = new Guna.UI2.WinForms.Guna2HtmlToolTip();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
             this.pnlRv.SuspendLayout();
             this.pnlListeCreneau.SuspendLayout();
             this.pnlActionPaiement.SuspendLayout();
@@ -95,12 +95,12 @@
             this.pnlAction.SuspendLayout();
             this.pnlAllImpression.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.pnlimpression.SuspendLayout();
             this.pnlDetailsRv.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.pnlPatient.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlRv
@@ -246,7 +246,7 @@
             this.btnPrevisualisez.Size = new System.Drawing.Size(134, 27);
             this.btnPrevisualisez.TabIndex = 30;
             this.btnPrevisualisez.Text = "Prévisualisez";
-            this.btnPrevisualisez.Click += new System.EventHandler(this.guna2Button1_Click);
+            this.btnPrevisualisez.Click += new System.EventHandler(this.btnPrevisualisez_Click);
             // 
             // btnValidezRv
             // 
@@ -300,6 +300,24 @@
             this.panel1.Size = new System.Drawing.Size(272, 100);
             this.panel1.TabIndex = 100;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.gunaLabel2);
+            this.panel2.Location = new System.Drawing.Point(8, 8);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(272, 100);
+            this.panel2.TabIndex = 101;
+            // 
+            // gunaLabel2
+            // 
+            this.gunaLabel2.AutoSize = true;
+            this.gunaLabel2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaLabel2.Location = new System.Drawing.Point(3, 21);
+            this.gunaLabel2.Name = "gunaLabel2";
+            this.gunaLabel2.Size = new System.Drawing.Size(68, 15);
+            this.gunaLabel2.TabIndex = 0;
+            this.gunaLabel2.Text = "gunaLabel2";
+            // 
             // gunaLabel1
             // 
             this.gunaLabel1.AutoSize = true;
@@ -342,7 +360,6 @@
             this.button3.TabIndex = 91;
             this.button3.Text = "&Impression";
             this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.btnImpression_Click);
             // 
             // pnlDetailsRv
             // 
@@ -716,6 +733,7 @@
             this.panel3.Controls.Add(this.tableLayoutPanel1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.panel3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
@@ -727,24 +745,6 @@
             // 
             this.guna2HtmlToolTip1.AllowLinksHandling = true;
             this.guna2HtmlToolTip1.MaximumSize = new System.Drawing.Size(0, 0);
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.gunaLabel2);
-            this.panel2.Location = new System.Drawing.Point(8, 8);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(272, 100);
-            this.panel2.TabIndex = 101;
-            // 
-            // gunaLabel2
-            // 
-            this.gunaLabel2.AutoSize = true;
-            this.gunaLabel2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaLabel2.Location = new System.Drawing.Point(3, 21);
-            this.gunaLabel2.Name = "gunaLabel2";
-            this.gunaLabel2.Size = new System.Drawing.Size(68, 15);
-            this.gunaLabel2.TabIndex = 0;
-            this.gunaLabel2.Text = "gunaLabel2";
             // 
             // frmRendezVous
             // 
@@ -775,6 +775,8 @@
             this.pnlAllImpression.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.pnlimpression.ResumeLayout(false);
             this.pnlimpression.PerformLayout();
             this.pnlDetailsRv.ResumeLayout(false);
@@ -785,8 +787,6 @@
             this.pnlPatient.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

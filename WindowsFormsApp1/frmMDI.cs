@@ -23,17 +23,17 @@ namespace WindowsFormsApp1
         public Utilisateur user { get; internal set; }
 
         public frmMDI(Utilisateur utilisateurConnecte)
-            {
-                InitializeComponent();
-                this.IsMdiContainer = true; // <-- Cette ligne est essentielle
-                this.WindowState = FormWindowState.Maximized; // Définit l'état du formulaire sur maximisé
-                this.FormBorderStyle = FormBorderStyle.None; // Supprime la bordure du formulaire
-                //this.ShowIcon = false;    // Supprime l'icône dans la barre de titre
-                //this.ShowInTaskbar = false; // Ne pas afficher dans la barre des tâches
+        {
+            InitializeComponent();
+            this.IsMdiContainer = true; // <-- Cette ligne est essentielle
+            this.WindowState = FormWindowState.Maximized; // Définit l'état du formulaire sur maximisé
+            this.FormBorderStyle = FormBorderStyle.None; // Supprime la bordure du formulaire
+                                                         //this.ShowIcon = false;    // Supprime l'icône dans la barre de titre
+                                                         //this.ShowInTaskbar = false; // Ne pas afficher dans la barre des tâches
             this.utilisateurConnecte = utilisateurConnecte;
-            }
+        }
 
-            private void frmMDI_Load(object sender, EventArgs e)
+        private void frmMDI_Load(object sender, EventArgs e)
             {
             Computer myComputer = new Computer();
             this.Width = myComputer.Screen.Bounds.Width;

@@ -18,6 +18,7 @@ namespace WindowsFormsApp1.View
 {
     public partial class frmRendezVous : Form
     {
+        
         //BdRvMedicalContext bd = new BdRvMedicalContext();
         bool patientTrouve = false;
         AllServiceMetier.AllServiceClient allService = new AllServiceMetier.AllServiceClient(); // ✅ Service WCF for General Method
@@ -44,6 +45,7 @@ namespace WindowsFormsApp1.View
             var comboBoxes = new[] { cbbMedecin, cbbSoins, cbbDureeCreneaux, cbbCreneauHoraire, cbbGroupeSanguin };
             var textBoxes = new[] { txtPoids, txtTaille };
             var datePickers = new[] { dtDateNaissance };
+            var buttons = new[] { btnValidezRv, btnPrevisualisez};
 
             AttachFieldObserversTo(formValidator, comboBoxes, textBoxes, datePickers);
             AttachFieldObserversTo(formValidator2, comboBoxes, textBoxes, datePickers);
@@ -74,32 +76,6 @@ namespace WindowsFormsApp1.View
                 return result;
         }
 
-        private void AttachFieldObservers()
-        {
-            cbbMedecin.SelectedIndexChanged += (s, e) => formValidator.Validate();
-            cbbSoins.SelectedIndexChanged += (s, e) => formValidator.Validate();
-            cbbDureeCreneaux.SelectedIndexChanged += (s, e) => formValidator.Validate();
-            cbbCreneauHoraire.SelectedIndexChanged += (s, e) => formValidator.Validate();
-
-            txtPoids.TextChanged += (s, e) => formValidator.Validate();
-            txtTaille.TextChanged += (s, e) => formValidator.Validate();
-
-            dtDateNaissance.ValueChanged += (s, e) => formValidator.Validate();
-            cbbGroupeSanguin.SelectedIndexChanged += (s, e) => formValidator.Validate();
-        }
-        private void AttachFieldObservers2()
-        {
-            cbbMedecin.SelectedIndexChanged += (s, e) => formValidator2.Validate();
-            cbbSoins.SelectedIndexChanged += (s, e) => formValidator2.Validate();
-            cbbDureeCreneaux.SelectedIndexChanged += (s, e) => formValidator2.Validate();
-            cbbCreneauHoraire.SelectedIndexChanged += (s, e) => formValidator2.Validate();
-
-            txtPoids.TextChanged += (s, e) => formValidator2.Validate();
-            txtTaille.TextChanged += (s, e) => formValidator2.Validate();
-
-            dtDateNaissance.ValueChanged += (s, e) => formValidator2.Validate();
-            cbbGroupeSanguin.SelectedIndexChanged += (s, e) => formValidator2.Validate();
-        }
 
 
         private void AttachFieldObserversTo(FormValidator validator,
@@ -115,6 +91,7 @@ namespace WindowsFormsApp1.View
 
             foreach (var dt in datePickers)
                 dt.ValueChanged += (s, e) => validator.Validate();
+            
         }
 
         private void frmConfiguration()
@@ -449,7 +426,7 @@ namespace WindowsFormsApp1.View
         private bool ValidateComboBoxes()
 
         {
-            // ✅ CLEAR errors at the start to prevent accumulation
+            // CLEAR errors at the start to prevent accumulation
             erreurs.Clear();
             
             // Si des erreurs existent, on les affiche
@@ -538,11 +515,11 @@ namespace WindowsFormsApp1.View
             if (erreurs.Length > 0)
             {
 /*                MessageBox.Show(erreurs.ToString(), "Erreurs de validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
- *                
-*/              gunaLabel1.Text=erreurs.ToString();
+ *              
+*/              
+                gunaLabel1.Text=erreurs.ToString();
                 return false;
             }
-            
             return true;
         }
 
@@ -697,10 +674,7 @@ namespace WindowsFormsApp1.View
                 }
             }
         }
-        /// <summary>
-        /// Pour faire une mise a jour des champs autocompletés apres une mise a jour du numéro du patient 
-        /// </summary>
-        /// <param name="phoneNumberInput"></param>
+        // Remplace la méthode UpdatePatientDetails par cette version sécurisée
         private void UpdatePatientDetails(string phoneNumberInput)
         {
             var patient = allService.ResearchPatient(phoneNumberInput);
@@ -713,10 +687,45 @@ namespace WindowsFormsApp1.View
                 txtPoids.Text = patient.Poids?.ToString() ?? string.Empty;
                 txtTaille.Text = patient.Taille?.ToString() ?? string.Empty;
                 dtDateNaissance.Value = patient.DateNaissance ?? DateTime.Now;
+
                 // Sélectionne le groupe sanguin de façon sécurisée
-                int idGs = 0;
-                try { idGs = patient.IdGroupeSanguin; } catch { idGs = 0; }
-                cbbGroupeSanguin.SelectedValue = idGs;
+                if (patient.GroupeSanguin != null)
+                {
+                    // On cherche l'item correspondant dans la liste du ComboBox
+                    foreach (var item in cbbGroupeSanguin.Items)
+                    {
+                        if (item is SelectListView slv && int.TryParse(slv.Value, out int idGS))
+                        {
+                            if (idGS == patient.GroupeSanguin.IdGroupeSanguin)
+                            {
+                                cbbGroupeSanguin.SelectedItem = item;
+                                break;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    cbbGroupeSanguin.SelectedIndex = 0;
+                }
+
+                // Met à jour patientInfos avec le bon groupe sanguin si possible
+                SelectListView selectedItem = cbbGroupeSanguin.SelectedItem as SelectListView;
+                if (selectedItem != null && !string.IsNullOrEmpty(selectedItem.Value))
+                {
+                    var listeGroupes = allService.GetListeGroupesSanguins();
+                    var selectedGroup = listeGroupes.FirstOrDefault(gs => gs.CodeGroupeSanguin == selectedItem.Value);
+                    if (selectedGroup != null)
+                    {
+                        patientInfos.GroupeSanguin = selectedGroup;
+                        patientInfos.IdGroupeSanguin = selectedGroup.IdGroupeSanguin;
+                    }
+                }
+                else
+                {
+                    patientInfos = new typeMetierService.Patient(); // Réinitialiser les infos du patient
+                }
+
                 DisableFields(patient);
                 patientInfos = patient; // Mettre à jour les infos du patient
             }
@@ -762,11 +771,11 @@ namespace WindowsFormsApp1.View
             dtDateNaissance.Enabled = true;
         }
 
-        private void btnImpression_Click(object sender, EventArgs e)
+     /*   private void btnImpression_Click(object sender, EventArgs e)
         {
             frmPrintTicket frmPrintTicket = new frmPrintTicket();
             frmPrintTicket.Show();
-        }
+        }*/
 
         /// <summary>
         /// Pour remplir la liste view 
@@ -1085,13 +1094,14 @@ namespace WindowsFormsApp1.View
                     if (!patientTrouve)
                     {
                         // Si le patient n'est pas trouvé, on crée un nouveau patient
-                        patientInfos.NomPrenom = txtNomPrenom.Text;
+                        /*patientInfos.NomPrenom = txtNomPrenom.Text;
                         patientInfos.Adresse = txtAdresse.Text;
                         patientInfos.Email = txtEmail.Text;
                         patientInfos.Poids = string.IsNullOrEmpty(txtPoids.Text) ? (float?)null : float.Parse(txtPoids.Text);
                         patientInfos.Taille = string.IsNullOrEmpty(txtTaille.Text) ? (float?)null : float.Parse(txtTaille.Text);
                         patientInfos.DateNaissance = dtDateNaissance.Value.Date;
-                        patientInfos.TEL = cbbTelephone.Text;
+                        patientInfos.TEL = cbbTelephone.Text;*/
+                        patientInfos=GetPatientInfos(patientInfos);
                         // Ajout du nouveau patient
                         
                         bool patientCree = allService.AddPatient(patientInfos);
@@ -1192,6 +1202,20 @@ namespace WindowsFormsApp1.View
             //}
         }
 
+        private typeMetierService.Patient GetPatientInfos(typeMetierService.Patient patientInfos)
+        {
+            // Si le patient n'est pas trouvé, on crée un nouveau patient
+            patientInfos.NomPrenom = txtNomPrenom.Text;
+            patientInfos.Adresse = txtAdresse.Text;
+            patientInfos.Email = txtEmail.Text;
+            patientInfos.Poids = string.IsNullOrEmpty(txtPoids.Text) ? (float?)null : float.Parse(txtPoids.Text);
+            patientInfos.Taille = string.IsNullOrEmpty(txtTaille.Text) ? (float?)null : float.Parse(txtTaille.Text);
+            patientInfos.DateNaissance = dtDateNaissance.Value.Date;
+            patientInfos.TEL = cbbTelephone.Text;
+
+            return patientInfos;
+        }
+
 
         public typeMetierService.InfosRendezVous RecupererInfosComboBoxes()
         {
@@ -1222,7 +1246,7 @@ namespace WindowsFormsApp1.View
                 infos.IdSoin = int.Parse(soin.Value);
                 infos.NomSoin = soin.Text;
             }
-
+            infos.DateRv = dtRendezVous.Value.Date;
             return infos;
         }
 
@@ -1247,11 +1271,122 @@ namespace WindowsFormsApp1.View
             return false;
         }
 
-        private void guna2Button1_Click(object sender, EventArgs e)
+   
+
+        private (typeMetierService.Creneau creneau, typeMetierService.RendezVous rendezVous, string message) ConstruireRendezVousEtCreneau()
         {
-            frmPrintTicket frmPrintTicket = new frmPrintTicket();
-            frmPrintTicket.Show();
+            StringBuilder mmessagesInfos = new StringBuilder();
+            var creneau = new typeMetierService.Creneau();
+            var rendezVous = new typeMetierService.RendezVous();
+
+            string horaireSelectionne = infos.Horaire.ToString();
+            string heureDebutStr = horaireSelectionne.Substring(0, 5);
+            creneau.HeureDebut = heureDebutStr;
+
+            int dureeMinutes = infos.DureeCreneau;
+            DateTime heureDebut = DateTime.ParseExact(heureDebutStr, "HH:mm", null);
+            DateTime heureFin = heureDebut.AddMinutes(dureeMinutes);
+            creneau.HeureFin = heureFin.ToString("HH:mm");
+            creneau.IdAgenda = Convert.ToInt32(((SelectListView)cbbMedecin.SelectedItem).Value);
+            creneau.Date = dtRendezVous.Value.Date;
+            creneau.Disponible = true;
+
+            //infos.Horaire
+            //infos.DureeCreneau
+            //infos.IdSoin
+            //infos.IdMedecin
+            //infos.NomSoin
+            //infos.NomMedecin
+
+            try
+            {
+                if (!patientTrouve)
+                {
+                    patientInfos.NomPrenom = txtNomPrenom.Text;
+                    patientInfos.Adresse = txtAdresse.Text;
+                    patientInfos.Email = txtEmail.Text;
+                    patientInfos.Poids = string.IsNullOrEmpty(txtPoids.Text) ? (float?)null : float.Parse(txtPoids.Text);
+                    patientInfos.Taille = string.IsNullOrEmpty(txtTaille.Text) ? (float?)null : float.Parse(txtTaille.Text);
+                    patientInfos.DateNaissance = dtDateNaissance.Value.Date;
+                    patientInfos.TEL = cbbTelephone.Text;
+
+                    bool patientCree = allService.AddPatient(patientInfos);
+                    if (patientCree)
+                    {
+                        LoadPhoneNumbers();
+                        mmessagesInfos.AppendLine("Patient Ajouté avec Succès !");
+                        var patientCreeInfos = allService.ResearchPatient(patientInfos.TEL);
+                        if (patientCreeInfos != null)
+                            patientInfos = patientCreeInfos;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erreur lors de la création du nouveau patient.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return (null, null, null);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Exception :\n" + ex.ToString());
+                return (null, null, null);
+            }
+
+            var creneaux = allService.LoadCreneauxByDate(dtRendezVous.Value.Date);
+            var creneauTrouve = creneaux.FirstOrDefault(c =>
+                (int)c["idMedecin"] == infos.IdMedecin &&
+                c["date"].ToString() == dtRendezVous.Value.Date.ToString("yyyy-MM-dd") &&
+                c["heureDebut"].ToString() == creneau.HeureDebut &&
+                c["heureFin"].ToString() == creneau.HeureFin
+            );
+
+            if (creneauTrouve != null)
+            {
+                int idAgenda = (int)creneauTrouve["IdAgenda"];
+                creneau.IdAgenda = idAgenda;
+                int creneauCree = allService.AddCreneaux(creneau);
+
+                if (creneauCree > 0)
+                {
+                    creneau.IdCreneau = creneauCree;
+
+                    rendezVous.DateRv = dtRendezVous.Value.Date;
+                    rendezVous.Statut = "Validée";
+                    rendezVous.IdSoin = infos.IdSoin;
+                    rendezVous.IdPatient = patientInfos.IdU;
+                    rendezVous.IdMedecin = infos.IdMedecin;
+                    rendezVous.IdCreneau = creneau.IdCreneau;
+                    rendezVous.IdAgenda = creneau.IdAgenda;
+
+                    return (creneau, rendezVous, mmessagesInfos.ToString());
+                }
+                else
+                {
+                    MessageBox.Show("Erreur lors de la création du créneau.");
+                    return (null, null, null);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Aucun créneau trouvé pour ce médecin et cet horaire.");
+                return (null, null, null);
+            }
         }
+
+        private void btnPrevisualisez_Click(object sender, EventArgs e)
+        {
+
+            if (ValidateComboBoxes())
+            {
+                infos = RecupererInfosComboBoxes();
+                patientInfos = GetPatientInfos(patientInfos);
+                frmPrintTicket frmPrintTicket = new frmPrintTicket(patientInfos, infos);
+                frmPrintTicket.Show();
+            }
+            
+            
+        }
+
 
 
         /*private void btnValidezRv_MouseEnter(object sender, EventArgs e)

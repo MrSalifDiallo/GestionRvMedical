@@ -15,7 +15,7 @@ namespace WindowsFormsApp1.Helper
     {
         BdRvMedicalContext db=new BdRvMedicalContext();
         /// <summary>
-        /// Pour Rédiger les Erreurs au niveau de la Base de Donnée.
+        /// Pour Rédiger les Erreurs au niveau de la Base de     Donnée.
         /// Donc Log dans la Base de Donnée
         /// </summary>
         /// <param name="TitreErreur"></param>

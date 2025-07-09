@@ -24,6 +24,7 @@ namespace WindowsFormsApp1.View
             this.validationFunc = validationFunc ?? throw new ArgumentNullException(nameof(validationFunc));
             this.errorLabel = errorLabel;
 
+
             // Event pour afficher/cacher tooltip au survol
             this.button.MouseHover += Button_MouseHover;
             this.button.MouseLeave += Button_MouseLeave;

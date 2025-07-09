@@ -30,8 +30,10 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dtSoins = new System.Windows.Forms.DataGridView();
+            this.dtSoinsPHP = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtSoins)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtSoinsPHP)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -40,6 +42,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.dtSoins, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.dtSoinsPHP, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -64,6 +67,14 @@
             this.dtSoins.TabIndex = 3;
             this.dtSoins.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtSoins_CellContentClick);
             // 
+            // dtSoinsPHP
+            // 
+            this.dtSoinsPHP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtSoinsPHP.Location = new System.Drawing.Point(403, 48);
+            this.dtSoinsPHP.Name = "dtSoinsPHP";
+            this.dtSoinsPHP.Size = new System.Drawing.Size(394, 174);
+            this.dtSoinsPHP.TabIndex = 4;
+            // 
             // frmApiSoins
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -76,6 +87,7 @@
             this.Load += new System.EventHandler(this.frmApiSoins_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtSoins)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtSoinsPHP)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -83,5 +95,6 @@
         #endregion
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.DataGridView dtSoins;
+        private System.Windows.Forms.DataGridView dtSoinsPHP;
     }
 }

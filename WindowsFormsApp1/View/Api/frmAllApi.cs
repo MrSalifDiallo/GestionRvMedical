@@ -16,5 +16,10 @@ namespace WindowsFormsApp1.View.Api
         {
             InitializeComponent();
         }
+
+        private void gunaChart1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -25,6 +25,7 @@ namespace WindowsFormsApp1.View.Api
         private void frmApiSoins_Load(object sender, EventArgs e)
         {
             LoadSoinsInDataGridView();
+            LoadSoinsInDataGridViewPHP();
         }
 
         // Fonction pour charger les soins dans le DataGridView
@@ -64,6 +65,42 @@ namespace WindowsFormsApp1.View.Api
             }
         }
 
+        public void LoadSoinsInDataGridViewPHP()
+        {
+            try
+            {
+                var soins = servGetListSoins();
+                if (soins != null && soins.Count > 0)
+                {
+                    // Créer un DataTable pour le DataGridView
+                    DataTable dt = new DataTable();
+                    dt.Columns.Add("ID Soin", typeof(int));
+                    dt.Columns.Add("Nom du Soin", typeof(string));
+                    dt.Columns.Add("Durée", typeof(string));
+                    dt.Columns.Add("Prix", typeof(int));
+                    dt.Columns.Add("Catégorie", typeof(string));
+
+                    // Remplir le DataTable avec les données des soins
+                    foreach (var soin in soins)
+                    {
+                        dt.Rows.Add(soin.IdSoin, soin.NameSoin, soin.Duration, soin.Price, soin.Category);
+                    }
+
+                    // Assigner le DataTable au DataGridView
+                    dtSoinsPHP.DataSource = dt;
+
+                }
+                else
+                {
+                    MessageBox.Show("Aucun soin trouvé ou erreur lors du chargement des données.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur lors du chargement des soins : {ex.Message}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         public List<Soin> servGetListSoins()
         {
             HttpClient client;
@@ -75,6 +112,26 @@ namespace WindowsFormsApp1.View.Api
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             //var response = client.GetAsync(System.Configuration.ConfigurationManager.AppSettings["gl2021/Values/GetEmployees"]).Result;
             var response = client.GetAsync("api/Soin/GetSoins").Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                var responseData = response.Content.ReadAsStringAsync().Result;
+                services = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Soin>>(responseData);
+            }
+            return services;
+        }
+
+        public List<Soin> servGetListSoinsWithPhp()
+        {
+            HttpClient client;
+            client = new HttpClient();
+            var services = new List<Soin>();
+            // OBSOLETE: client.BaseAddress = new Uri(System.Configuration.ConfigurationSettings.AppSettings["ServeurApiURL"]);
+            client.BaseAddress = new Uri(System.Configuration.ConfigurationManager.AppSettings["ServeurApiPHP"]);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            //var response = client.GetAsync(System.Configuration.ConfigurationManager.AppSettings["gl2021/Values/GetEmployees"]).Result;
+            var response = client.GetAsync("/Soins/List.php").Result;
 
             if (response.IsSuccessStatusCode)
             {

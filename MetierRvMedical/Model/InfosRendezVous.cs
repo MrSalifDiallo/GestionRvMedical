@@ -15,5 +15,6 @@ namespace MetierRvMedical.Model
         public string Horaire { get; set; }
         public int IdSoin { get; set; }
         public string NomSoin { get; set; }
+        public DateTime DateRv { get; set; }
     }
 }
