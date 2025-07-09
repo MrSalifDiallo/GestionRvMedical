@@ -28,9 +28,6 @@ namespace WindowsFormsApp1.View
         typeMetierService.Patient patientInfos = new typeMetierService.Patient();
 
         private StringBuilder erreurs = new StringBuilder(); // Pour stocker les erreurs de validation
-        private bool tooltipShown = false;
-        private Timer tooltipCooldownTimer;
-        private bool buttonIsHovered = false;
         private FormValidator formValidator;
         private FormValidator formValidator2;
         public frmRendezVous()
@@ -38,8 +35,8 @@ namespace WindowsFormsApp1.View
             InitializeComponent();
             frmConfiguration();
 
-            formValidator = new FormValidator(toolTip1, btnValidezRv, ValidateAndGetErrors, gunaLabel1);
-            formValidator2 = new FormValidator(toolTip1, btnPrevisualisez, ValidateAndGetErrors, gunaLabel1);
+            formValidator = new FormValidator(toolTip1, btnValidezRv, ValidateAndGetErrorsDual, gunaLabel1);
+            formValidator2 = new FormValidator(toolTip1, btnPrevisualisez, ValidateAndGetErrorsDual, gunaLabel1);
 
             // Appel DRY
             var comboBoxes = new[] { cbbMedecin, cbbSoins, cbbDureeCreneaux, cbbCreneauHoraire, cbbGroupeSanguin };
@@ -51,29 +48,47 @@ namespace WindowsFormsApp1.View
             AttachFieldObserversTo(formValidator2, comboBoxes, textBoxes, datePickers);
 
         }
-        private string ValidateAndGetErrors()
+        private (string toolTipErrors, string labelErrors) ValidateAndGetErrorsDual()
         {
-            erreurs.Clear();
+            var erreurs = new StringBuilder();
 
-            // Ta logique de validation actuelle (extrait) :
             if (cbbMedecin.SelectedItem == null || string.IsNullOrEmpty(((SelectListView)cbbMedecin.SelectedItem).Value))
                 erreurs.AppendLine("Veuillez sélectionner un médecin.");
+
             if (cbbDureeCreneaux.SelectedItem == null || string.IsNullOrEmpty(((SelectListView)cbbDureeCreneaux.SelectedItem).Value))
-            {
                 erreurs.AppendLine("Veuillez sélectionner une durée de créneau.");
-            }
 
             if (cbbCreneauHoraire.SelectedItem == null || string.IsNullOrEmpty(((SelectListView)cbbCreneauHoraire.SelectedItem).Value))
-            {
                 erreurs.AppendLine("Veuillez sélectionner un créneau horaire.");
+
+            if (cbbSoins.SelectedItem == null || string.IsNullOrEmpty(((SelectListView)cbbSoins.SelectedItem).Value))
+                erreurs.AppendLine("Veuillez sélectionner un soin.");
+
+            if (!patientTrouve)
+            {
+                if (!float.TryParse(txtPoids.Text, out _))
+                    erreurs.AppendLine("Poids invalide.");
+
+                if (!float.TryParse(txtTaille.Text, out _))
+                    erreurs.AppendLine("Taille invalide.");
+
+                if (dtDateNaissance.Value.Date >= DateTime.Now.Date)
+                    erreurs.AppendLine("La date de naissance ne peut pas être aujourd'hui ou dans le futur.");
+
+                if (cbbGroupeSanguin == null || cbbGroupeSanguin.Items.Count == 0 || cbbGroupeSanguin.SelectedItem == null)
+                    erreurs.AppendLine("Veuillez sélectionner un groupe sanguin.");
+                else
+                {
+                    var selectedItem = (SelectListView)cbbGroupeSanguin.SelectedItem;
+                    if (string.IsNullOrEmpty(selectedItem.Value))
+                        erreurs.AppendLine("Veuillez sélectionner un groupe sanguin.");
+                }
             }
 
-            // ... (idem pour les autres champs)
+            string labelMessage = erreurs.ToString(); // avec \n
+            string toolTipMessage = labelMessage.Replace(Environment.NewLine, "; "); // sur une ligne
 
-            // Exemple complet ici, tu remplaces ta méthode ValidateComboBoxes par celle-ci
-
-                string result = erreurs.ToString().Replace(Environment.NewLine, " ; ");
-                return result;
+            return (toolTipMessage, labelMessage);
         }
 
 
@@ -97,11 +112,12 @@ namespace WindowsFormsApp1.View
         private void frmConfiguration()
         {
             this.FormBorderStyle = FormBorderStyle.None;
-/*            this.ShowIcon = false;    // Supprimer l'icône
-*//*            this.ShowInTaskbar = false; // Ne pas afficher dans la barre des tâches
-*/            txtSoin.Enabled = false;  // Désactivation du champ de prix
+            this.WindowState = FormWindowState.Maximized; // Définit l'état du formulaire sur maximisé
+            /*            this.ShowIcon = false;    // Supprimer l'icône
+            *//*            this.ShowInTaskbar = false; // Ne pas afficher dans la barre des tâches
+            */
+            txtSoin.Enabled = false;  // Désactivation du champ de prix
             //panel2.Visible = false;
-            pnlimpression.Visible = false;
             toolTip1.UseFading = false;
             toolTip1.UseAnimation = false;
         }
@@ -417,110 +433,6 @@ namespace WindowsFormsApp1.View
             }
 
             return ListeDureeCreneaux;
-        }
-
-        /// <summary>
-        /// Validation des ComboBoxes pour s'assurer que l'utilisateur a sélectionné une valeur
-        /// </summary>
-        /// <returns></returns>
-        private bool ValidateComboBoxes()
-
-        {
-            // CLEAR errors at the start to prevent accumulation
-            erreurs.Clear();
-            
-            // Si des erreurs existent, on les affiche
-          
-            if (cbbMedecin.SelectedItem == null || string.IsNullOrEmpty(((SelectListView)cbbMedecin.SelectedItem).Value))
-            {
-                erreurs.AppendLine("Veuillez sélectionner un médecin.");
-            }
-
-            if (cbbDureeCreneaux.SelectedItem == null || string.IsNullOrEmpty(((SelectListView)cbbDureeCreneaux.SelectedItem).Value))
-            {
-                erreurs.AppendLine("Veuillez sélectionner une durée de créneau.");
-            }
-
-            if (cbbCreneauHoraire.SelectedItem == null || string.IsNullOrEmpty(((SelectListView)cbbCreneauHoraire.SelectedItem).Value))
-            {
-                erreurs.AppendLine("Veuillez sélectionner un créneau horaire.");
-            }
-
-            if (cbbSoins.SelectedItem == null || string.IsNullOrEmpty(((SelectListView)cbbSoins.SelectedItem).Value))
-            {
-                erreurs.AppendLine("Veuillez sélectionner un soin.");
-            }
-            if (!patientTrouve) 
-            {
-                if (!float.TryParse(txtPoids.Text, out float poids))
-                {
-                    erreurs.AppendLine("Poids invalide.");
-                }
-
-                // Vérification de la taille
-                if (!float.TryParse(txtTaille.Text, out float taille))
-                {
-                    erreurs.AppendLine("Taille invalide.");
-                }
-
-                // Vérification de la date de naissance
-                if (dtDateNaissance.Value.Date >= DateTime.Now.Date)
-                {
-                    erreurs.AppendLine("La date de naissance ne peut pas être aujourd'hui ou dans le futur.");
-                }
-
-                // Vérification du groupe sanguin (SelectedItem null ou Value vide ou valeur non valide)
-                if (cbbGroupeSanguin == null)
-                {
-                    erreurs.AppendLine("ComboBox Groupe Sanguin est null !");
-                    return false;
-                }
-                if (cbbGroupeSanguin.Items.Count == 0)
-                {
-                    erreurs.AppendLine("ComboBox Groupe Sanguin n'a aucun item !");
-                    return false;
-                }
-                if (cbbGroupeSanguin.SelectedItem == null)
-                {
-                    erreurs.AppendLine("Aucun groupe sanguin sélectionné !");
-                    return false;
-                }
-                /* var selectedItem = cbbGroupeSanguin.SelectedItem as SelectListView;
-                 if (selectedItem == null || string.IsNullOrEmpty(selectedItem.Value) || selectedItem.Value == "-1" || selectedItem.Value == "0")
-                 {
-                     erreurs.AppendLine("Veuillez sélectionner un groupe sanguin.");
-                 }
-                 else
-                 {
-                     int.TryParse(selectedItem.Value, out int idGroupeSanguin);
-                     patientInfos.IdGroupeSanguin = idGroupeSanguin;
-                 }*/
-                // On vérifie que le groupe sanguin est sélectionné
-                if (cbbGroupeSanguin.SelectedItem != null)
-                {
-                    SelectListView selectedItem = (SelectListView)cbbGroupeSanguin.SelectedItem;
-                    
-                    // ✅ Check only for empty value - no service call during validation!
-                    if (string.IsNullOrEmpty(selectedItem.Value))
-                    {
-                        erreurs.AppendLine("Veuillez sélectionner un groupe sanguin.");
-                    }
-                    // Note: Set patientInfos.IdGroupeSanguin only when actually saving, not during validation
-                }
-                else
-                {
-                    erreurs.AppendLine("Veuillez sélectionner un groupe sanguin.");
-                }
-            }
-            if (erreurs.Length > 0)
-            {
-/*                MessageBox.Show(erreurs.ToString(), "Erreurs de validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
- *              
-*/              
-                gunaLabel1.Text=erreurs.ToString();
-                return false;
-            }
-            return true;
         }
 
 
@@ -1066,7 +978,8 @@ namespace WindowsFormsApp1.View
         /// <param name="e"></param>
         private void btnValidezRv_Click(object sender, EventArgs e)
         {
-            if (ValidateComboBoxes())
+            var (toolTipErrors, _) = ValidateAndGetErrorsDual(); // ignore labelErrors
+            if (string.IsNullOrWhiteSpace(toolTipErrors))
             {
                 infos= RecupererInfosComboBoxes();
                 StringBuilder mmessagesInfos = new StringBuilder();
@@ -1191,15 +1104,6 @@ namespace WindowsFormsApp1.View
                     // Gérer le cas d'erreur ici
                 }
             };
-
-            //if (ValidateComboBoxes())
-            //{
-            //    btnValidezRv.Enabled = false;
-            //}
-            //else
-            //{
-            //    btnValidezRv.Enabled = true;
-            //}
         }
 
         private typeMetierService.Patient GetPatientInfos(typeMetierService.Patient patientInfos)
@@ -1273,110 +1177,13 @@ namespace WindowsFormsApp1.View
 
    
 
-        private (typeMetierService.Creneau creneau, typeMetierService.RendezVous rendezVous, string message) ConstruireRendezVousEtCreneau()
-        {
-            StringBuilder mmessagesInfos = new StringBuilder();
-            var creneau = new typeMetierService.Creneau();
-            var rendezVous = new typeMetierService.RendezVous();
-
-            string horaireSelectionne = infos.Horaire.ToString();
-            string heureDebutStr = horaireSelectionne.Substring(0, 5);
-            creneau.HeureDebut = heureDebutStr;
-
-            int dureeMinutes = infos.DureeCreneau;
-            DateTime heureDebut = DateTime.ParseExact(heureDebutStr, "HH:mm", null);
-            DateTime heureFin = heureDebut.AddMinutes(dureeMinutes);
-            creneau.HeureFin = heureFin.ToString("HH:mm");
-            creneau.IdAgenda = Convert.ToInt32(((SelectListView)cbbMedecin.SelectedItem).Value);
-            creneau.Date = dtRendezVous.Value.Date;
-            creneau.Disponible = true;
-
-            //infos.Horaire
-            //infos.DureeCreneau
-            //infos.IdSoin
-            //infos.IdMedecin
-            //infos.NomSoin
-            //infos.NomMedecin
-
-            try
-            {
-                if (!patientTrouve)
-                {
-                    patientInfos.NomPrenom = txtNomPrenom.Text;
-                    patientInfos.Adresse = txtAdresse.Text;
-                    patientInfos.Email = txtEmail.Text;
-                    patientInfos.Poids = string.IsNullOrEmpty(txtPoids.Text) ? (float?)null : float.Parse(txtPoids.Text);
-                    patientInfos.Taille = string.IsNullOrEmpty(txtTaille.Text) ? (float?)null : float.Parse(txtTaille.Text);
-                    patientInfos.DateNaissance = dtDateNaissance.Value.Date;
-                    patientInfos.TEL = cbbTelephone.Text;
-
-                    bool patientCree = allService.AddPatient(patientInfos);
-                    if (patientCree)
-                    {
-                        LoadPhoneNumbers();
-                        mmessagesInfos.AppendLine("Patient Ajouté avec Succès !");
-                        var patientCreeInfos = allService.ResearchPatient(patientInfos.TEL);
-                        if (patientCreeInfos != null)
-                            patientInfos = patientCreeInfos;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Erreur lors de la création du nouveau patient.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return (null, null, null);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Exception :\n" + ex.ToString());
-                return (null, null, null);
-            }
-
-            var creneaux = allService.LoadCreneauxByDate(dtRendezVous.Value.Date);
-            var creneauTrouve = creneaux.FirstOrDefault(c =>
-                (int)c["idMedecin"] == infos.IdMedecin &&
-                c["date"].ToString() == dtRendezVous.Value.Date.ToString("yyyy-MM-dd") &&
-                c["heureDebut"].ToString() == creneau.HeureDebut &&
-                c["heureFin"].ToString() == creneau.HeureFin
-            );
-
-            if (creneauTrouve != null)
-            {
-                int idAgenda = (int)creneauTrouve["IdAgenda"];
-                creneau.IdAgenda = idAgenda;
-                int creneauCree = allService.AddCreneaux(creneau);
-
-                if (creneauCree > 0)
-                {
-                    creneau.IdCreneau = creneauCree;
-
-                    rendezVous.DateRv = dtRendezVous.Value.Date;
-                    rendezVous.Statut = "Validée";
-                    rendezVous.IdSoin = infos.IdSoin;
-                    rendezVous.IdPatient = patientInfos.IdU;
-                    rendezVous.IdMedecin = infos.IdMedecin;
-                    rendezVous.IdCreneau = creneau.IdCreneau;
-                    rendezVous.IdAgenda = creneau.IdAgenda;
-
-                    return (creneau, rendezVous, mmessagesInfos.ToString());
-                }
-                else
-                {
-                    MessageBox.Show("Erreur lors de la création du créneau.");
-                    return (null, null, null);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Aucun créneau trouvé pour ce médecin et cet horaire.");
-                return (null, null, null);
-            }
-        }
 
         private void btnPrevisualisez_Click(object sender, EventArgs e)
         {
 
-            if (ValidateComboBoxes())
+            var (toolTipErrors, _) = ValidateAndGetErrorsDual(); // ignore labelErrors
+
+if (string.IsNullOrWhiteSpace(toolTipErrors))
             {
                 infos = RecupererInfosComboBoxes();
                 patientInfos = GetPatientInfos(patientInfos);
@@ -1389,59 +1196,6 @@ namespace WindowsFormsApp1.View
 
 
 
-        /*private void btnValidezRv_MouseEnter(object sender, EventArgs e)
-        {
-            // Only validate if we're not already hovering
-            buttonState();
-        }*/
-
-        /* private void buttonState(bool buttonIsHovered)
-         {
-             if (buttonIsHovered)
-             {
-                 if (!ValidateComboBoxes())
-                 {
-                     btnValidezRv.HoverState.FillColor = Color.DarkGray;
-                     Cursor = Cursors.No;
-
-                     if (!tooltipShown)
-                     {
-                         toolTip1.Show(erreurs.ToString(), btnValidezRv, 0, -20);
-                         tooltipShown = true;
-                         tooltipCooldownTimer.Start(); // Lance cooldown
-                     }
-                 }
-                 else
-                 {
-                     btnValidezRv.HoverState.FillColor = Color.Lime;
-                     toolTip1.Hide(btnValidezRv);
-                     tooltipCooldownTimer.Stop();
-                     tooltipShown = false;
-                     Cursor = Cursors.Hand;
-                 }
-             }
-             else
-             {
-                 btnValidezRv.HoverState.FillColor = Color.DarkGray;
-                 toolTip1.Hide(btnValidezRv);
-                 tooltipCooldownTimer.Stop();
-                 tooltipShown = false;
-                 Cursor = Cursors.Default;
-             }
-         }
-
-         private void btnValidezRv_MouseEnter(object sender, EventArgs e)
-         {
-             buttonIsHovered = true;
-             buttonState(buttonIsHovered);
-         }
-
-         private void btnValidezRv_MouseLeave(object sender, EventArgs e)
-         {
-             toolTip1.Hide(btnValidezRv);
-             tooltipCooldownTimer.Stop();
-             tooltipShown = false;
-             Cursor = Cursors.Default;
-         }*/
+        
     }
 }

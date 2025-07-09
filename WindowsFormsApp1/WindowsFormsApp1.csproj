@@ -261,23 +261,11 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\FormValidator.cs" />
-    <Compile Include="View\frmAgenda.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\frmAgenda.Designer.cs">
-      <DependentUpon>frmAgenda.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\frmChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\frmChangePassword.Designer.cs">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\frmMedecins.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\frmMedecins.Designer.cs">
-      <DependentUpon>frmMedecins.cs</DependentUpon>
     </Compile>
     <Compile Include="View\frmPatients.cs">
       <SubType>Form</SubType>
@@ -321,11 +309,35 @@
     <Compile Include="View\GunaUi\frmLoading.Designer.cs">
       <DependentUpon>frmLoading.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\GunaUi\frmSmallLoading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\GunaUi\frmSmallLoading.Designer.cs">
+      <DependentUpon>frmSmallLoading.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\GunaUi\frmTest.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\GunaUi\frmTest.Designer.cs">
       <DependentUpon>frmTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Medecin\frmAgenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Medecin\frmAgenda.Designer.cs">
+      <DependentUpon>frmAgenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Medecin\frmDashboardMedecin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Medecin\frmDashboardMedecin.Designer.cs">
+      <DependentUpon>frmDashboardMedecin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Medecin\frmMedecins.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Medecin\frmMedecins.Designer.cs">
+      <DependentUpon>frmMedecins.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="frmConnexion.resx">
       <DependentUpon>frmConnexion.cs</DependentUpon>
@@ -353,14 +365,8 @@
     <EmbeddedResource Include="View\Api\frmApiSoins.resx">
       <DependentUpon>frmApiSoins.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\frmAgenda.resx">
-      <DependentUpon>frmAgenda.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\frmChangePassword.resx">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\frmMedecins.resx">
-      <DependentUpon>frmMedecins.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmPatients.resx">
       <DependentUpon>frmPatients.cs</DependentUpon>
@@ -383,8 +389,20 @@
     <EmbeddedResource Include="View\GunaUi\frmLoading.resx">
       <DependentUpon>frmLoading.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\GunaUi\frmSmallLoading.resx">
+      <DependentUpon>frmSmallLoading.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\GunaUi\frmTest.resx">
       <DependentUpon>frmTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Medecin\frmAgenda.resx">
+      <DependentUpon>frmAgenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Medecin\frmDashboardMedecin.resx">
+      <DependentUpon>frmDashboardMedecin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Medecin\frmMedecins.resx">
+      <DependentUpon>frmMedecins.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config.example" />
     <None Include="Connected Services\AllServiceMetier\AllService.wsdl" />
@@ -460,6 +478,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="View\Medecin\Change password\" />
     <Folder Include="View\Php\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

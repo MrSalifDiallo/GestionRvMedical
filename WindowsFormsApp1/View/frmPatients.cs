@@ -1,4 +1,5 @@
 ﻿using Google.Protobuf.WellKnownTypes;
+using MetierRvMedical.Wcf;
 using MySqlX.XDevAPI.Common;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,7 @@ namespace WindowsFormsApp1.View
             this.ControlBox = false;  // Supprimer les boutons de contrôle
             this.ShowIcon = false;    // Supprimer l'icône
             this.WindowState = FormWindowState.Maximized; // Définit l'état du formulaire sur maximisé
+            
         }
 
         //ServiceMetier.Service1Client service = new ServiceMetier.Service1Client(); // ✅ Service WCF
@@ -47,19 +49,22 @@ namespace WindowsFormsApp1.View
             cbbGroupeSanguin.DisplayMember = "Text";  // Afficher le texte du groupe sanguin
             cbbGroupeSanguin.ValueMember = "Value";   // La valeur utilisée lors de la sélection
             ResetForm();
+            var patientsMetier = allService.GetListePatients().ToList(); // 🔄 CHANGÉ – utilise le service WCF pour charger les patients
+            var columns = new List<(string columnName, System.Type columnType, string propertyName)>
+                {
+                    ("Nom", typeof(string), "NomPrenom"),
+                    ("Email", typeof(string), "Email"),
+                    ("Téléphone", typeof(string), "TEL"),
+                    ("Adresse", typeof(string), "Adresse"),
+                    ("Date de naissance", typeof(DateTime), "DateNaissance"),
+                    ("Poids", typeof(float), "Poids"),
+                    ("Taille", typeof(float), "Taille"),
+                    ("Groupe Sanguin", typeof(string), "GroupeSanguinNom")
+                };
+            utils.LoadDataInDataGridView(patientsMetier,dgPatient, columns, "Nom");
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-        }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-        }
-
-        private void grpSanguin_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
 
         private List<SelectListView> LoadCbbGroupeSanguins()
         {
@@ -187,8 +192,9 @@ namespace WindowsFormsApp1.View
 
         }
 
-        private void txtPoids_TextChanged(object sender, EventArgs e)
+        private void pnlForm_Paint(object sender, PaintEventArgs e)
         {
+
         }
     }
 }

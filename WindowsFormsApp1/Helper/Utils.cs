@@ -108,12 +108,15 @@ namespace WindowsFormsApp1.Helper
         {
             try
             {
+                // Vérification des paramètres
                 if (data != null && data.Count > 0)
                 {
                     DataTable dt = new DataTable();
                     // Création des colonnes
+                                        
                     foreach (var col in columns)
                         dt.Columns.Add(col.columnName, col.columnType);
+
 
                     // Remplissage des lignes
                     foreach (var item in data)

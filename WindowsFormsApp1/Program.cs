@@ -10,6 +10,7 @@ using WindowsFormsApp1.Report;
 using WindowsFormsApp1.View;
 using WindowsFormsApp1.View.Api;
 using WindowsFormsApp1.View.GunaUi;
+using WindowsFormsApp1.View.Medecin;
 namespace WindowsFormsApp1
 {
     internal static class Program
@@ -24,12 +25,12 @@ namespace WindowsFormsApp1
             CreateTicketsFolder();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmConnexion());
-
+            /*            Application.Run(new frmConnexion());
+            */
             //A Décommenter lors d'essai d'un frm
 
-/*            Application.Run(new frmRendezVous());
-*/        }
+            Application.Run(new frmPatients());
+        }
         static void CreateAdmin()
         {
             // La méthode AddFirstUser contient déjà la logique de vérification

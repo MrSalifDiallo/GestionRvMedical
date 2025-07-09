@@ -25,7 +25,7 @@ namespace WindowsFormsApp1
         public frmMDI(Utilisateur utilisateurConnecte)
         {
             InitializeComponent();
-            this.IsMdiContainer = true; // <-- Cette ligne est essentielle
+            this.IsMdiContainer = true;
             this.WindowState = FormWindowState.Maximized; // Définit l'état du formulaire sur maximisé
             this.FormBorderStyle = FormBorderStyle.None; // Supprime la bordure du formulaire
                                                          //this.ShowIcon = false;    // Supprime l'icône dans la barre de titre
@@ -125,8 +125,8 @@ namespace WindowsFormsApp1
             //For each child form set the window state to Maximized 
             foreach (Form chform in charr)
             {
-                //chform.WindowState = FormWindowState.Maximized;
-                chform.Close();
+/*                chform.WindowState = FormWindowState.Maximized;
+*/                chform.Close();
             }
         }
 

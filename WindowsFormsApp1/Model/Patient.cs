@@ -14,7 +14,7 @@ namespace WindowsFormsApp1.Model
         public int IdGroupeSanguin { get; set; } // Clé étrangère stockée en base
 
         [ForeignKey("IdGroupeSanguin")]
-        public GroupeSanguin GroupeSanguin { get; set; } // Relation avec l'entité GroupeSanguin
+        public string GroupeSanguin { get; set; } // Nom du groupe sanguin
 
         [Required]
         public float? Poids {  get; set; }

@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.pnlRv = new System.Windows.Forms.Panel();
+            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.pnlListeCreneau = new System.Windows.Forms.Panel();
             this.lblTabMessage = new System.Windows.Forms.Label();
             this.lblMessageCreneaux = new System.Windows.Forms.Label();
@@ -44,13 +45,6 @@
             this.btnValidezRv = new Guna.UI2.WinForms.Guna2Button();
             this.label17 = new System.Windows.Forms.Label();
             this.pnlAllImpression = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
-            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
-            this.pnlimpression = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             this.pnlDetailsRv = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -94,9 +88,6 @@
             this.pnlPaiement.SuspendLayout();
             this.pnlAction.SuspendLayout();
             this.pnlAllImpression.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.pnlimpression.SuspendLayout();
             this.pnlDetailsRv.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.pnlPatient.SuspendLayout();
@@ -117,6 +108,15 @@
             this.pnlRv.Name = "pnlRv";
             this.pnlRv.Size = new System.Drawing.Size(828, 507);
             this.pnlRv.TabIndex = 94;
+            // 
+            // gunaLabel1
+            // 
+            this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaLabel1.Location = new System.Drawing.Point(-2, 0);
+            this.gunaLabel1.Name = "gunaLabel1";
+            this.gunaLabel1.Size = new System.Drawing.Size(319, 191);
+            this.gunaLabel1.TabIndex = 0;
+            this.gunaLabel1.Visible = false;
             // 
             // pnlListeCreneau
             // 
@@ -283,83 +283,12 @@
             // 
             this.pnlAllImpression.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pnlAllImpression.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlAllImpression.Controls.Add(this.panel1);
-            this.pnlAllImpression.Controls.Add(this.pnlimpression);
+            this.pnlAllImpression.Controls.Add(this.gunaLabel1);
             this.pnlAllImpression.Location = new System.Drawing.Point(481, 8);
             this.pnlAllImpression.Margin = new System.Windows.Forms.Padding(2);
             this.pnlAllImpression.Name = "pnlAllImpression";
             this.pnlAllImpression.Size = new System.Drawing.Size(324, 197);
             this.pnlAllImpression.TabIndex = 97;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.gunaLabel1);
-            this.panel1.Location = new System.Drawing.Point(13, 8);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(272, 100);
-            this.panel1.TabIndex = 100;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.gunaLabel2);
-            this.panel2.Location = new System.Drawing.Point(8, 8);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(272, 100);
-            this.panel2.TabIndex = 101;
-            // 
-            // gunaLabel2
-            // 
-            this.gunaLabel2.AutoSize = true;
-            this.gunaLabel2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaLabel2.Location = new System.Drawing.Point(3, 21);
-            this.gunaLabel2.Name = "gunaLabel2";
-            this.gunaLabel2.Size = new System.Drawing.Size(68, 15);
-            this.gunaLabel2.TabIndex = 0;
-            this.gunaLabel2.Text = "gunaLabel2";
-            // 
-            // gunaLabel1
-            // 
-            this.gunaLabel1.AutoSize = true;
-            this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaLabel1.Location = new System.Drawing.Point(3, 21);
-            this.gunaLabel1.Name = "gunaLabel1";
-            this.gunaLabel1.Size = new System.Drawing.Size(68, 15);
-            this.gunaLabel1.TabIndex = 0;
-            this.gunaLabel1.Text = "gunaLabel1";
-            // 
-            // pnlimpression
-            // 
-            this.pnlimpression.Controls.Add(this.label4);
-            this.pnlimpression.Controls.Add(this.button3);
-            this.pnlimpression.Location = new System.Drawing.Point(92, 59);
-            this.pnlimpression.Margin = new System.Windows.Forms.Padding(2);
-            this.pnlimpression.Name = "pnlimpression";
-            this.pnlimpression.Size = new System.Drawing.Size(150, 81);
-            this.pnlimpression.TabIndex = 92;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(78, 15);
-            this.label4.TabIndex = 91;
-            this.label4.Text = "Impression";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button3.Location = new System.Drawing.Point(19, 34);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(114, 26);
-            this.button3.TabIndex = 91;
-            this.button3.Text = "&Impression";
-            this.button3.UseVisualStyleBackColor = false;
             // 
             // pnlDetailsRv
             // 
@@ -773,12 +702,6 @@
             this.pnlAction.ResumeLayout(false);
             this.pnlAction.PerformLayout();
             this.pnlAllImpression.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.pnlimpression.ResumeLayout(false);
-            this.pnlimpression.PerformLayout();
             this.pnlDetailsRv.ResumeLayout(false);
             this.pnlDetailsRv.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -807,9 +730,6 @@
         private System.Windows.Forms.Panel pnlAction;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Panel pnlAllImpression;
-        private System.Windows.Forms.Panel pnlimpression;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel pnlDetailsRv;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label10;
@@ -845,13 +765,10 @@
         private System.Windows.Forms.DateTimePicker dtDateNaissance;
         private System.Windows.Forms.Label lblDateNaissance;
         private Guna.UI2.WinForms.Guna2Button btnValidezRv;
-        private System.Windows.Forms.Panel panel1;
         private Guna.UI.WinForms.GunaLabel gunaLabel1;
         private Guna.UI2.WinForms.Guna2HtmlToolTip guna2HtmlToolTip1;
         private System.Windows.Forms.ToolTip toolTip1;
         private Guna.UI2.WinForms.Guna2Button btnPrevisualisez;
         private System.Windows.Forms.ToolTip toolTip2;
-        private System.Windows.Forms.Panel panel2;
-        private Guna.UI.WinForms.GunaLabel gunaLabel2;
     }
 }

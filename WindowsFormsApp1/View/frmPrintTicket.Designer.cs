@@ -54,7 +54,6 @@
             this.Name = "frmPrintTicket";
             this.ShowIcon = false;
             this.Text = "Print Ticket";
-            this.Load += new System.EventHandler(this.frmPrintTicket_Load);
             this.ResumeLayout(false);
 
         }
