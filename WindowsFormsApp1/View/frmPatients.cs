@@ -20,12 +20,7 @@ namespace WindowsFormsApp1.View
         Utils utils=new Utils();
         public frmPatients()
         {
-            InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.ControlBox = false;  // Supprimer les boutons de contrôle
-            this.ShowIcon = false;    // Supprimer l'icône
-            this.WindowState = FormWindowState.Maximized; // Définit l'état du formulaire sur maximisé
-            
+            InitializeComponent(); 
         }
 
         //ServiceMetier.Service1Client service = new ServiceMetier.Service1Client(); // ✅ Service WCF

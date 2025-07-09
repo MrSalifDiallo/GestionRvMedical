@@ -12,7 +12,6 @@ using System.Windows.Forms;
 using WindowsFormsApp1.View;
 using MetierRvMedical.Model;
 using WindowsFormsApp1.View.Api;
-
 namespace WindowsFormsApp1
     {
         public partial class frmMDI : Form
@@ -25,11 +24,6 @@ namespace WindowsFormsApp1
         public frmMDI(Utilisateur utilisateurConnecte)
         {
             InitializeComponent();
-            this.IsMdiContainer = true;
-            this.WindowState = FormWindowState.Maximized; // Définit l'état du formulaire sur maximisé
-            this.FormBorderStyle = FormBorderStyle.None; // Supprime la bordure du formulaire
-                                                         //this.ShowIcon = false;    // Supprime l'icône dans la barre de titre
-                                                         //this.ShowInTaskbar = false; // Ne pas afficher dans la barre des tâches
             this.utilisateurConnecte = utilisateurConnecte;
         }
 
@@ -92,7 +86,7 @@ namespace WindowsFormsApp1
 
             private void patientsToolStripMenuItem_Click(object sender, EventArgs e)
             {
-            fermer();
+                fermer();
             frmPatients f = new frmPatients();
                 f.MdiParent = this;
                 f.Show();
@@ -188,12 +182,99 @@ namespace WindowsFormsApp1
         private void soinsToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             fermer();
-            frmApiSoins f = new frmApiSoins();
+            frmApiPhpSoins f = new frmApiPhpSoins();
             f.MdiParent = this;
             f.Show();
             f.WindowState = FormWindowState.Maximized;
         }
 
-      
+        private void agendaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            fermer();
+            frmApiPhpAgenda f = new frmApiPhpAgenda();
+            f.MdiParent = this;
+            f.Show();
+            f.WindowState = FormWindowState.Maximized;
+        }
+
+        private void creneauxToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fermer();
+            frmApiPhpCreneaux f = new frmApiPhpCreneaux();
+            f.MdiParent = this;
+            f.Show();
+            f.WindowState = FormWindowState.Maximized;
+        }
+
+        private void groupeSanguinsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void moyenPaimentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fermer();
+            frmApiPhpMoyenPayments f = new frmApiPhpMoyenPayments();
+            f.MdiParent = this;
+            f.Show();
+            f.WindowState = FormWindowState.Maximized;
+        }
+
+        private void paiementsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fermer();
+            frmApiPhpPaiements f = new frmApiPhpPaiements();
+            f.MdiParent = this;
+            f.Show();
+            f.WindowState = FormWindowState.Maximized;
+        }
+
+        private void rendezVousToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            fermer();
+            frmApiPhpRv f = new frmApiPhpRv();
+            f.MdiParent = this;
+            f.Show();
+            f.WindowState = FormWindowState.Maximized;
+        }
+
+        private void rolesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fermer();
+            frmApiPhpRoles f = new frmApiPhpRoles();
+            f.MdiParent = this;
+            f.Show();
+            f.WindowState = FormWindowState.Maximized;
+        }
+
+        private void specialitéToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fermer();
+            frmApiPhpSpecialite f = new frmApiPhpSpecialite();
+            f.MdiParent = this;
+            f.Show();
+            f.WindowState = FormWindowState.Maximized;
+        }
+
+        private void patientsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void assistantMedecinToolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void medecinsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void adminsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

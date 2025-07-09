@@ -29,7 +29,7 @@ namespace WindowsFormsApp1
             */
             //A Décommenter lors d'essai d'un frm
 
-            Application.Run(new frmApiPhpRoles());
+            Application.Run(new frmConnexion());
         }
         static void CreateAdmin()
         {
