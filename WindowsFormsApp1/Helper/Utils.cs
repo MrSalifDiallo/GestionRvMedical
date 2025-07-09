@@ -174,6 +174,10 @@ namespace WindowsFormsApp1.Helper
                 };
         utils.LoadDataInDataGridView(patients, guna2DataGridView1, columns)*/
 
-
+        public string BuildApiPhpUrl(string action, string table)
+        {
+            string baseUrl = System.Configuration.ConfigurationManager.AppSettings["ServeurApiPHP"];
+            return $"{baseUrl}/api.php?action={action}&table={table}";
+        }
     }
 }

@@ -44,10 +44,13 @@
             Guna.Charts.WinForms.Tick tick3 = new Guna.Charts.WinForms.Tick();
             Guna.Charts.WinForms.ChartFont chartFont8 = new Guna.Charts.WinForms.ChartFont();
             this.gunaChart1 = new Guna.Charts.WinForms.GunaChart();
+            this.gunaPieDataset1 = new Guna.Charts.WinForms.GunaPieDataset();
             this.SuspendLayout();
             // 
             // gunaChart1
             // 
+            this.gunaChart1.Datasets.AddRange(new Guna.Charts.Interfaces.IGunaDataset[] {
+            this.gunaPieDataset1});
             chartFont1.FontName = "Arial";
             this.gunaChart1.Legend.LabelFont = chartFont1;
             this.gunaChart1.Location = new System.Drawing.Point(54, 35);
@@ -81,6 +84,11 @@
             this.gunaChart1.ZAxes.Ticks = tick3;
             this.gunaChart1.Load += new System.EventHandler(this.gunaChart1_Load);
             // 
+            // gunaPieDataset1
+            // 
+            this.gunaPieDataset1.Label = "Pie1";
+            this.gunaPieDataset1.TargetChart = this.gunaChart1;
+            // 
             // frmAllApi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -98,5 +106,6 @@
         #endregion
 
         private Guna.Charts.WinForms.GunaChart gunaChart1;
+        private Guna.Charts.WinForms.GunaPieDataset gunaPieDataset1;
     }
 }

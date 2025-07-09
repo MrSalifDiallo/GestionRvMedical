@@ -250,11 +250,101 @@
     <Compile Include="View\Api\frmAllApi.Designer.cs">
       <DependentUpon>frmAllApi.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Php\frmApiPhpAgenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Php\frmApiPhpAgenda.Designer.cs">
+      <DependentUpon>frmApiPhpAgenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Api\frmApiAgenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Api\frmApiAgenda.Designer.cs">
+      <DependentUpon>frmApiAgenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Php\frmApiPhpCreneaux.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Php\frmApiPhpCreneaux.Designer.cs">
+      <DependentUpon>frmApiPhpCreneaux.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Api\frmApiCreneaux.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Api\frmApiCreneaux.Designer.cs">
+      <DependentUpon>frmApiCreneaux.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Php\frmApiPhpMoyenPayments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Php\frmApiPhpMoyenPayments.Designer.cs">
+      <DependentUpon>frmApiPhpMoyenPayments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Api\frmApiMoyenPayments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Api\frmApiMoyenPayments.Designer.cs">
+      <DependentUpon>frmApiMoyenPayments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Php\frmApiPhpPaiements.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Php\frmApiPhpPaiements.Designer.cs">
+      <DependentUpon>frmApiPhpPaiements.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Api\frmApiPaiements.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Api\frmApiPaiements.Designer.cs">
+      <DependentUpon>frmApiPaiements.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Php\frmApiPhpRoles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Php\frmApiPhpRoles.Designer.cs">
+      <DependentUpon>frmApiPhpRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Api\frmApiRoles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Api\frmApiRoles.Designer.cs">
+      <DependentUpon>frmApiRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Php\frmApiPhpRv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Php\frmApiPhpRv.Designer.cs">
+      <DependentUpon>frmApiPhpRv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Api\frmApiRv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Api\frmApiRv.Designer.cs">
+      <DependentUpon>frmApiRv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Php\frmApiPhpSoins.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Php\frmApiPhpSoins.Designer.cs">
+      <DependentUpon>frmApiPhpSoins.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Api\frmApiSoins.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\Api\frmApiSoins.Designer.cs">
       <DependentUpon>frmApiSoins.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Php\frmApiPhpSpecialite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Php\frmApiPhpSpecialite.Designer.cs">
+      <DependentUpon>frmApiPhpSpecialite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Api\frmApiSpecialite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Api\frmApiSpecialite.Designer.cs">
+      <DependentUpon>frmApiSpecialite.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Api\SendMessage.cs" />
     <Compile Include="View\CustomToolTipForm.cs">
@@ -362,8 +452,50 @@
     <EmbeddedResource Include="View\Api\frmAllApi.resx">
       <DependentUpon>frmAllApi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Php\frmApiPhpAgenda.resx">
+      <DependentUpon>frmApiPhpAgenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Php\frmApiPhpCreneaux.resx">
+      <DependentUpon>frmApiPhpCreneaux.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Api\frmApiCreneaux.resx">
+      <DependentUpon>frmApiCreneaux.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Php\frmApiPhpMoyenPayments.resx">
+      <DependentUpon>frmApiPhpMoyenPayments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Api\frmApiMoyenPayments.resx">
+      <DependentUpon>frmApiMoyenPayments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Php\frmApiPhpPaiements.resx">
+      <DependentUpon>frmApiPhpPaiements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Api\frmApiPaiements.resx">
+      <DependentUpon>frmApiPaiements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Php\frmApiPhpRoles.resx">
+      <DependentUpon>frmApiPhpRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Api\frmApiRoles.resx">
+      <DependentUpon>frmApiRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Php\frmApiPhpRv.resx">
+      <DependentUpon>frmApiPhpRv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Api\frmApiRv.resx">
+      <DependentUpon>frmApiRv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Php\frmApiPhpSoins.resx">
+      <DependentUpon>frmApiPhpSoins.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Api\frmApiSoins.resx">
       <DependentUpon>frmApiSoins.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Php\frmApiPhpSpecialite.resx">
+      <DependentUpon>frmApiPhpSpecialite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Api\frmApiSpecialite.resx">
+      <DependentUpon>frmApiSpecialite.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmChangePassword.resx">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
@@ -479,7 +611,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="View\Medecin\Change password\" />
-    <Folder Include="View\Php\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

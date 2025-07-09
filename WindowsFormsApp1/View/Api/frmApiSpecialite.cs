@@ -1,48 +1,28 @@
-﻿using MetierRvMedical.Helper;
-using MetierRvMedical.Services;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
+using System.Drawing;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using typeMetierService = MetierRvMedical.Model;
-using utilsWinform = WindowsFormsApp1.Helper;
-
-namespace WindowsFormsApp1.View.GunaUi
+using MetierRvMedical.Model;
+using WindowsFormsApp1.Helper;
+namespace WindowsFormsApp1.View.Api
 {
-    public partial class frmListePatient : Form
+    public partial class frmApiSpecialite : Form
     {
-        AllServiceMetier.AllServiceClient allService = new AllServiceMetier.AllServiceClient(); // ✅ Service WCF for General Method
-        utilsWinform.Utils utils = new utilsWinform.Utils();
-        
-        public frmListePatient()
+        public frmApiSpecialite()
         {
             InitializeComponent();
-            this.WindowState = FormWindowState.Maximized; // Set the form to maximized state
-            this.FormBorderStyle = FormBorderStyle.None; // Remove the border of the form
-            // Load patients into the DataGridView when the form loads
-            RemplirDataGridViewPatients(GetPatients());
         }
-
-        private void frmListePatient_Load(object sender, EventArgs e)
+        Utils utils = new Utils();
+        private void RemplirDataGridViewPatients(List<Patient> patients)
         {
 
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-        // Nouvelle méthode pour remplir le DataGridView manuellement
-        private void RemplirDataGridViewPatients(List<typeMetierService.Patient> patients)
-        {
             // --- Utilisation de la méthode utilitaire générique ---
-                var columns = new List<(string columnName, Type columnType, string propertyName)>
+            var columns = new List<(string columnName, Type columnType, string propertyName)>
                 {
                     ("Nom", typeof(string), "NomPrenom"),
                     ("Email", typeof(string), "Email"),
@@ -53,7 +33,7 @@ namespace WindowsFormsApp1.View.GunaUi
                     ("Taille", typeof(float), "Taille"),
                     ("Groupe Sanguin", typeof(string), "GroupeSanguin")
                 };
-                utils.LoadDataInDataGridView(patients, guna2DataGridView1, columns);
+            utils.LoadDataInDataGridView(patients, guna2DataGridView1, columns);
             /*foreach (var patient in patients)
             {
                 int rowIndex = guna2DataGridView1.Rows.Add();
@@ -75,24 +55,6 @@ namespace WindowsFormsApp1.View.GunaUi
                 //    guna2DataGridView1.Rows[rowIndex].Cells[4].Value = "";
                 //}
             }*/
-        }
-
-        private List<typeMetierService.Patient> GetPatients()
-        {
-            try
-            {
-                return allService.GetListePatients()?.ToList() ?? new List<typeMetierService.Patient>();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erreur lors de la récupération des patients : " + ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return new List<typeMetierService.Patient>();
-            }
-        }
-
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
