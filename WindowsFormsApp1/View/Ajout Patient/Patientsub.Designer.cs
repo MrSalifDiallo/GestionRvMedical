@@ -1,6 +1,6 @@
-﻿namespace WindowsFormsApp1.View
+﻿namespace WindowsFormsApp1.View.Patient
 {
-    partial class frmAgenda
+    partial class Patientsub
     {
         /// <summary>
         /// Required designer variable.
@@ -28,18 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // frmAgenda
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "frmAgenda";
-            this.Text = "frmAgenda";
-            this.Load += new System.EventHandler(this.frmAgenda_Load);
-            this.ResumeLayout(false);
-
+            this.Text = "Patientsub";
         }
 
         #endregion

@@ -8,16 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1.View
+namespace WindowsFormsApp1.View.Medecin
 {
-    public partial class frmAgenda: Form
+    public partial class frmSondage : Form
     {
-        public frmAgenda()
+        public frmSondage()
         {
             InitializeComponent();
         }
 
-        private void frmAgenda_Load(object sender, EventArgs e)
+        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
         {
 
         }

@@ -68,6 +68,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label19 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -81,7 +82,7 @@
             // splitContainer1
             // 
             this.splitContainer1.Location = new System.Drawing.Point(13, 15);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -111,6 +112,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.splitContainer1.Panel2.Controls.Add(this.label19);
             this.splitContainer1.Panel2.Controls.Add(this.button3);
             this.splitContainer1.Panel2.Controls.Add(this.label14);
             this.splitContainer1.Panel2.Controls.Add(this.label13);
@@ -126,7 +128,7 @@
             // 
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(15, 582);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(305, 24);
             this.comboBox2.TabIndex = 33;
@@ -154,7 +156,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(11, 507);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(309, 22);
             this.textBox1.TabIndex = 19;
@@ -163,7 +165,7 @@
             // 
             this.grpSanguin.FormattingEnabled = true;
             this.grpSanguin.Location = new System.Drawing.Point(11, 322);
-            this.grpSanguin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpSanguin.Margin = new System.Windows.Forms.Padding(4);
             this.grpSanguin.Name = "grpSanguin";
             this.grpSanguin.Size = new System.Drawing.Size(309, 24);
             this.grpSanguin.TabIndex = 0;
@@ -181,7 +183,7 @@
             // txtPoids
             // 
             this.txtPoids.Location = new System.Drawing.Point(11, 444);
-            this.txtPoids.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPoids.Margin = new System.Windows.Forms.Padding(4);
             this.txtPoids.Name = "txtPoids";
             this.txtPoids.Size = new System.Drawing.Size(309, 22);
             this.txtPoids.TabIndex = 17;
@@ -199,7 +201,7 @@
             // txtTaille
             // 
             this.txtTaille.Location = new System.Drawing.Point(11, 384);
-            this.txtTaille.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTaille.Margin = new System.Windows.Forms.Padding(4);
             this.txtTaille.Name = "txtTaille";
             this.txtTaille.Size = new System.Drawing.Size(309, 22);
             this.txtTaille.TabIndex = 15;
@@ -227,7 +229,7 @@
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(11, 202);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(309, 22);
             this.txtEmail.TabIndex = 11;
@@ -245,7 +247,7 @@
             // txtAdresse
             // 
             this.txtAdresse.Location = new System.Drawing.Point(11, 262);
-            this.txtAdresse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAdresse.Margin = new System.Windows.Forms.Padding(4);
             this.txtAdresse.Name = "txtAdresse";
             this.txtAdresse.Size = new System.Drawing.Size(309, 22);
             this.txtAdresse.TabIndex = 9;
@@ -275,7 +277,7 @@
             // txtPrenom
             // 
             this.txtPrenom.Location = new System.Drawing.Point(11, 142);
-            this.txtPrenom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPrenom.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrenom.Name = "txtPrenom";
             this.txtPrenom.Size = new System.Drawing.Size(309, 22);
             this.txtPrenom.TabIndex = 6;
@@ -294,7 +296,7 @@
             // txtNom
             // 
             this.txtNom.Location = new System.Drawing.Point(11, 81);
-            this.txtNom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNom.Margin = new System.Windows.Forms.Padding(4);
             this.txtNom.Name = "txtNom";
             this.txtNom.Size = new System.Drawing.Size(309, 22);
             this.txtNom.TabIndex = 0;
@@ -304,7 +306,7 @@
             // 
             this.button3.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.button3.Location = new System.Drawing.Point(569, 55);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(100, 28);
             this.button3.TabIndex = 29;
@@ -336,7 +338,7 @@
             // 
             this.listView2.HideSelection = false;
             this.listView2.Location = new System.Drawing.Point(17, 431);
-            this.listView2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listView2.Margin = new System.Windows.Forms.Padding(4);
             this.listView2.Name = "listView2";
             this.listView2.Size = new System.Drawing.Size(651, 211);
             this.listView2.TabIndex = 24;
@@ -358,7 +360,7 @@
             // 
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(17, 55);
-            this.listView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listView1.Margin = new System.Windows.Forms.Padding(4);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(531, 271);
             this.listView1.TabIndex = 0;
@@ -380,7 +382,7 @@
             this.panel1.Controls.Add(this.Print);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Location = new System.Drawing.Point(1059, 15);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(455, 348);
             this.panel1.TabIndex = 26;
@@ -388,7 +390,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(112, 130);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(256, 182);
             this.pictureBox1.TabIndex = 29;
@@ -409,7 +411,7 @@
             // 
             this.Print.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.Print.Location = new System.Drawing.Point(21, 43);
-            this.Print.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Print.Margin = new System.Windows.Forms.Padding(4);
             this.Print.Name = "Print";
             this.Print.Size = new System.Drawing.Size(100, 28);
             this.Print.TabIndex = 27;
@@ -434,7 +436,7 @@
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.label17);
             this.panel2.Location = new System.Drawing.Point(1059, 575);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(455, 111);
             this.panel2.TabIndex = 29;
@@ -443,7 +445,7 @@
             // 
             this.button2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.button2.Location = new System.Drawing.Point(207, 54);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(177, 28);
             this.button2.TabIndex = 28;
@@ -454,7 +456,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.Lime;
             this.button1.Location = new System.Drawing.Point(21, 54);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(177, 28);
             this.button1.TabIndex = 27;
@@ -476,7 +478,7 @@
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(13, 69);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(256, 24);
             this.comboBox1.TabIndex = 31;
@@ -509,11 +511,20 @@
             this.panel3.Controls.Add(this.label10);
             this.panel3.Controls.Add(this.label9);
             this.panel3.Location = new System.Drawing.Point(1059, 373);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(455, 192);
             this.panel3.TabIndex = 31;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(586, 163);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(51, 16);
+            this.label19.TabIndex = 30;
+            this.label19.Text = "label19";
             // 
             // frmRendezVous2
             // 
@@ -526,7 +537,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.splitContainer1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmRendezVous2";
             this.Text = "gestion de rendez-vous";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -589,5 +600,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label19;
     }
 }

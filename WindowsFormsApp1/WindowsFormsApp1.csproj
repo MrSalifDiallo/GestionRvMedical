@@ -243,22 +243,28 @@
     <Compile Include="View\Api\frmApiSoins.Designer.cs">
       <DependentUpon>frmApiSoins.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\frmAgenda.cs">
+    <Compile Include="View\Medecin\Ajout contact.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\frmAgenda.Designer.cs">
+    <Compile Include="View\Medecin\Ajout contact.Designer.cs">
+      <DependentUpon>Ajout contact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Medecin\frmAgenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Medecin\frmAgenda.Designer.cs">
       <DependentUpon>frmAgenda.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\frmChangePassword.cs">
+    <Compile Include="View\Medecin\Change password\frmChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\frmChangePassword.Designer.cs">
+    <Compile Include="View\Medecin\Change password\frmChangePassword.Designer.cs">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\frmMedecins.cs">
+    <Compile Include="View\Medecin\frmMedecins.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\frmMedecins.Designer.cs">
+    <Compile Include="View\Medecin\frmMedecins.Designer.cs">
       <DependentUpon>frmMedecins.cs</DependentUpon>
     </Compile>
     <Compile Include="View\frmPatients.cs">
@@ -309,6 +315,12 @@
     <Compile Include="View\GunaUi\frmTest.Designer.cs">
       <DependentUpon>frmTest.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Medecin\frmSondage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Medecin\frmSondage.Designer.cs">
+      <DependentUpon>frmSondage.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmConnexion.resx">
       <DependentUpon>frmConnexion.cs</DependentUpon>
     </EmbeddedResource>
@@ -332,13 +344,16 @@
     <EmbeddedResource Include="View\Api\frmApiSoins.resx">
       <DependentUpon>frmApiSoins.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\frmAgenda.resx">
+    <EmbeddedResource Include="View\Medecin\Ajout contact.resx">
+      <DependentUpon>Ajout contact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Medecin\frmAgenda.resx">
       <DependentUpon>frmAgenda.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\frmChangePassword.resx">
+    <EmbeddedResource Include="View\Medecin\Change password\frmChangePassword.resx">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\frmMedecins.resx">
+    <EmbeddedResource Include="View\Medecin\frmMedecins.resx">
       <DependentUpon>frmMedecins.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmPatients.resx">
@@ -364,6 +379,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\GunaUi\frmTest.resx">
       <DependentUpon>frmTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Medecin\frmSondage.resx">
+      <DependentUpon>frmSondage.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Connected Services\AllServiceMetier\AllService.wsdl" />
     <None Include="Connected Services\AllServiceMetier\AllService.xsd">

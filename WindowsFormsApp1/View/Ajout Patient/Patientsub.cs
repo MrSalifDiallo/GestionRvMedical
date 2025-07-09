@@ -8,20 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1.View
+namespace WindowsFormsApp1.View.Patient
 {
-    public partial class frmMedecins: Form
+    public partial class Patientsub : Form
     {
-        public frmMedecins()
+        public Patientsub()
         {
             InitializeComponent();
         }
-
-        private void frmMedecins_Load(object sender, EventArgs e)
-        {
-
-        }
-
-
     }
 }
