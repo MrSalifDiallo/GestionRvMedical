@@ -24,6 +24,17 @@ switch ($action) {
         }
         break;
 
+    case 'update':
+        $id = $_POST['id'] ?? null;
+        $data = $_POST;
+        unset($data['id']);
+        $result = updateById($table, "Id" . ucfirst(rtrim($table, "s")), $id, $data);
+        echo json_encode([
+            'success' => $result !== false,
+            'rows_updated' => $result
+        ]);
+
+        
     case 'insert':
         $data = $_POST;
         $insertId = insert($table, $data);
@@ -35,6 +46,8 @@ switch ($action) {
         } else {
             echo json_encode(['error' => 'Échec insertion']);
         }
+        break;
+    
         break;
 
     default:
