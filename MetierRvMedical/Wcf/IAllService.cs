@@ -56,5 +56,14 @@ namespace MetierRvMedical.Wcf
         bool RemovePatient(Patient patient);
         [OperationContract]
         Patient ResearchPatient(string phoneNumberInput);
+
+        //Creneaux Service Operations
+        [OperationContract]
+         int AddCreneaux(Creneau creneau);
+
+        // RendezVous Service Operations
+        [OperationContract]
+        bool AddRendezVous(RendezVous rv);
+
     }
 }

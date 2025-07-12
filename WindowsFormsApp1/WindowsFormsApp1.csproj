@@ -55,6 +55,15 @@
     <Reference Include="Google.Protobuf, Version=3.31.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>packages\Google.Protobuf.3.31.0\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
+    <Reference Include="Guna.Charts.WinForms, Version=1.1.0.0, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>packages\Guna.Charts.WinForms.1.1.0\lib\net48\Guna.Charts.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI">
+      <HintPath>..\..\Guna.UI-FrameworkCrack-main\Guna.UI-FrameworkCrack-main\Guna.UI-Framework-Lib-master (1)\Guna.UI-Framework-Lib-master\Guna.UI WinForms\.net 4.0\Guna.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>packages\Guna.UI2.WinForms.2.0.4.7\lib\net48\Guna.UI2.dll</HintPath>
+    </Reference>
     <Reference Include="K4os.Compression.LZ4, Version=1.3.8.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
       <HintPath>packages\K4os.Compression.LZ4.1.3.8\lib\net462\K4os.Compression.LZ4.dll</HintPath>
     </Reference>
@@ -104,6 +113,11 @@
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="QRCoder, Version=1.6.0.0, Culture=neutral, PublicKeyToken=c4ed5b9ae8358a28, processorArchitecture=MSIL">
+      <HintPath>packages\QRCoder.1.6.0\lib\net40\QRCoder.dll</HintPath>
+    </Reference>
     <Reference Include="Renci.SshNet, Version=2025.0.0.1, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
       <HintPath>packages\SSH.NET.2025.0.0\lib\net462\Renci.SshNet.dll</HintPath>
     </Reference>
@@ -126,6 +140,7 @@
     </Reference>
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=9.0.0.5, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Diagnostics.DiagnosticSource.9.0.5\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
@@ -133,6 +148,7 @@
     <Reference Include="System.Formats.Asn1, Version=9.0.0.5, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Formats.Asn1.9.0.5\lib\net462\System.Formats.Asn1.dll</HintPath>
     </Reference>
+    <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.IO.Pipelines, Version=9.0.0.5, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.IO.Pipelines.9.0.5\lib\net462\System.IO.Pipelines.dll</HintPath>
     </Reference>
@@ -170,6 +186,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
     <Reference Include="ZstdSharp, Version=0.8.5.0, Culture=neutral, PublicKeyToken=8d151af33a4ad5cf, processorArchitecture=MSIL">
       <HintPath>packages\ZstdSharp.Port.0.8.5\lib\net462\ZstdSharp.dll</HintPath>
     </Reference>
@@ -227,29 +244,88 @@
       <DependentUpon>rptTicketRv.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="View\Api\frmAllApi.cs" />
+    <Compile Include="View\Api\frmAllApi.Designer.cs">
+      <DependentUpon>frmAllApi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Php\frmApiPhpAgenda.cs" />
+    <Compile Include="View\Php\frmApiPhpAgenda.Designer.cs">
+      <DependentUpon>frmApiPhpAgenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Api\frmApiAgenda.cs" />
+    <Compile Include="View\Api\frmApiAgenda.Designer.cs">
+      <DependentUpon>frmApiAgenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Php\frmApiPhpCreneaux.cs" />
+    <Compile Include="View\Php\frmApiPhpCreneaux.Designer.cs">
+      <DependentUpon>frmApiPhpCreneaux.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Api\frmApiCreneaux.cs" />
+    <Compile Include="View\Api\frmApiCreneaux.Designer.cs">
+      <DependentUpon>frmApiCreneaux.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Php\frmApiPhpMoyenPayments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Php\frmApiPhpMoyenPayments.Designer.cs">
+      <DependentUpon>frmApiPhpMoyenPayments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Api\frmApiMoyenPayments.cs" />
+    <Compile Include="View\Api\frmApiMoyenPayments.Designer.cs">
+      <DependentUpon>frmApiMoyenPayments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Php\frmApiPhpPaiements.cs" />
+    <Compile Include="View\Php\frmApiPhpPaiements.Designer.cs">
+      <DependentUpon>frmApiPhpPaiements.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Api\frmApiPaiements.cs" />
+    <Compile Include="View\Api\frmApiPaiements.Designer.cs">
+      <DependentUpon>frmApiPaiements.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Php\frmApiPhpRoles.cs" />
+    <Compile Include="View\Php\frmApiPhpRoles.Designer.cs">
+      <DependentUpon>frmApiPhpRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Api\frmApiRoles.cs" />
+    <Compile Include="View\Api\frmApiRoles.Designer.cs">
+      <DependentUpon>frmApiRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Php\frmApiPhpRv.cs" />
+    <Compile Include="View\Php\frmApiPhpRv.Designer.cs">
+      <DependentUpon>frmApiPhpRv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Api\frmApiRv.cs" />
+    <Compile Include="View\Api\frmApiRv.Designer.cs">
+      <DependentUpon>frmApiRv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Php\frmApiPhpSoins.cs" />
+    <Compile Include="View\Php\frmApiPhpSoins.Designer.cs">
+      <DependentUpon>frmApiPhpSoins.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Api\frmApiSoins.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\Api\frmApiSoins.Designer.cs">
       <DependentUpon>frmApiSoins.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\frmAgenda.cs">
+    <Compile Include="View\Php\frmApiPhpSpecialite.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\frmAgenda.Designer.cs">
-      <DependentUpon>frmAgenda.cs</DependentUpon>
+    <Compile Include="View\Php\frmApiPhpSpecialite.Designer.cs">
+      <DependentUpon>frmApiPhpSpecialite.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Api\frmApiSpecialite.cs" />
+    <Compile Include="View\Api\frmApiSpecialite.Designer.cs">
+      <DependentUpon>frmApiSpecialite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Api\SendMessage.cs" />
+    <Compile Include="View\CustomToolTipForm.cs" />
+    <Compile Include="View\FormValidator.cs" />
     <Compile Include="View\frmChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\frmChangePassword.Designer.cs">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\frmMedecins.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\frmMedecins.Designer.cs">
-      <DependentUpon>frmMedecins.cs</DependentUpon>
     </Compile>
     <Compile Include="View\frmPatients.cs">
       <SubType>Form</SubType>
@@ -281,6 +357,34 @@
     <Compile Include="View\frmTest.Designer.cs">
       <DependentUpon>frmTest.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\GunaUi\frmListePatient.cs" />
+    <Compile Include="View\GunaUi\frmListePatient.Designer.cs">
+      <DependentUpon>frmListePatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\GunaUi\frmLoading.cs" />
+    <Compile Include="View\GunaUi\frmLoading.Designer.cs">
+      <DependentUpon>frmLoading.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\GunaUi\frmSmallLoading.cs" />
+    <Compile Include="View\GunaUi\frmSmallLoading.Designer.cs">
+      <DependentUpon>frmSmallLoading.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\GunaUi\frmTest.cs" />
+    <Compile Include="View\GunaUi\frmTest.Designer.cs">
+      <DependentUpon>frmTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Medecin\frmAgenda.cs" />
+    <Compile Include="View\Medecin\frmAgenda.Designer.cs">
+      <DependentUpon>frmAgenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Medecin\frmDashboardMedecin.cs" />
+    <Compile Include="View\Medecin\frmDashboardMedecin.Designer.cs">
+      <DependentUpon>frmDashboardMedecin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Medecin\frmMedecins.cs" />
+    <Compile Include="View\Medecin\frmMedecins.Designer.cs">
+      <DependentUpon>frmMedecins.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmConnexion.resx">
       <DependentUpon>frmConnexion.cs</DependentUpon>
     </EmbeddedResource>
@@ -301,17 +405,56 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptTicketRv.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Api\frmAllApi.resx">
+      <DependentUpon>frmAllApi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Php\frmApiPhpAgenda.resx">
+      <DependentUpon>frmApiPhpAgenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Php\frmApiPhpCreneaux.resx">
+      <DependentUpon>frmApiPhpCreneaux.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Api\frmApiCreneaux.resx">
+      <DependentUpon>frmApiCreneaux.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Php\frmApiPhpMoyenPayments.resx">
+      <DependentUpon>frmApiPhpMoyenPayments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Api\frmApiMoyenPayments.resx">
+      <DependentUpon>frmApiMoyenPayments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Php\frmApiPhpPaiements.resx">
+      <DependentUpon>frmApiPhpPaiements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Api\frmApiPaiements.resx">
+      <DependentUpon>frmApiPaiements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Php\frmApiPhpRoles.resx">
+      <DependentUpon>frmApiPhpRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Api\frmApiRoles.resx">
+      <DependentUpon>frmApiRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Php\frmApiPhpRv.resx">
+      <DependentUpon>frmApiPhpRv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Api\frmApiRv.resx">
+      <DependentUpon>frmApiRv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Php\frmApiPhpSoins.resx">
+      <DependentUpon>frmApiPhpSoins.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Api\frmApiSoins.resx">
       <DependentUpon>frmApiSoins.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\frmAgenda.resx">
-      <DependentUpon>frmAgenda.cs</DependentUpon>
+    <EmbeddedResource Include="View\Php\frmApiPhpSpecialite.resx">
+      <DependentUpon>frmApiPhpSpecialite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Api\frmApiSpecialite.resx">
+      <DependentUpon>frmApiSpecialite.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmChangePassword.resx">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\frmMedecins.resx">
-      <DependentUpon>frmMedecins.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmPatients.resx">
       <DependentUpon>frmPatients.cs</DependentUpon>
@@ -328,6 +471,28 @@
     <EmbeddedResource Include="View\frmTest.resx">
       <DependentUpon>frmTest.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\GunaUi\frmListePatient.resx">
+      <DependentUpon>frmListePatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\GunaUi\frmLoading.resx">
+      <DependentUpon>frmLoading.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\GunaUi\frmSmallLoading.resx">
+      <DependentUpon>frmSmallLoading.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\GunaUi\frmTest.resx">
+      <DependentUpon>frmTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Medecin\frmAgenda.resx">
+      <DependentUpon>frmAgenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Medecin\frmDashboardMedecin.resx">
+      <DependentUpon>frmDashboardMedecin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Medecin\frmMedecins.resx">
+      <DependentUpon>frmMedecins.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.config.example" />
     <None Include="Connected Services\AllServiceMetier\AllService.wsdl" />
     <None Include="Connected Services\AllServiceMetier\AllService.xsd">
       <SubType>Designer</SubType>
@@ -341,22 +506,13 @@
     <None Include="Connected Services\AllServiceMetier\AllService3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\AllServiceMetier\WindowsFormsApp1.AllServiceMetier.Agenda.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\AllServiceMetier\WindowsFormsApp1.AllServiceMetier.GroupeSanguin.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\AllServiceMetier\WindowsFormsApp1.AllServiceMetier.Patient.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\AllServiceMetier\WindowsFormsApp1.AllServiceMetier.Soin.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\AllServiceMetier\WindowsFormsApp1.AllServiceMetier.Utilisateur.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
+    <None Include="packages.config.example" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\MetierRvMedical.Model.Agenda.datasource" />
+    <None Include="Properties\DataSources\MetierRvMedical.Model.GroupeSanguin.datasource" />
+    <None Include="Properties\DataSources\MetierRvMedical.Model.Patient.datasource" />
+    <None Include="Properties\DataSources\MetierRvMedical.Model.Soin.datasource" />
+    <None Include="Properties\DataSources\MetierRvMedical.Model.Utilisateur.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -403,7 +559,15 @@
       <LastGenOutput>erreur1.cs</LastGenOutput>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\MetierRvMedical\MetierRvMedical.csproj">
+      <Project>{2E14E211-9C0E-4737-A777-F9A2DADC9411}</Project>
+      <Name>MetierRvMedical</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="View\Medecin\Change password\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

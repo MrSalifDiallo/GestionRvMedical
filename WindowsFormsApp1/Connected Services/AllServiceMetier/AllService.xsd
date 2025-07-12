@@ -102,8 +102,10 @@
   <xs:element name="ArrayOfRendezVous" nillable="true" type="tns:ArrayOfRendezVous" />
   <xs:complexType name="RendezVous">
     <xs:sequence>
+      <xs:element minOccurs="0" name="Agenda" nillable="true" type="tns:Agenda" />
       <xs:element minOccurs="0" name="Creneau" nillable="true" type="tns:Creneau" />
       <xs:element minOccurs="0" name="DateRv" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IdAgenda" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="IdCreneau" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="IdMedecin" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="IdPatient" nillable="true" type="xs:int" />

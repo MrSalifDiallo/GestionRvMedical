@@ -30,3 +30,11 @@ obj/
 # Migration
 Migrations/
 migrations/
+# Fichiers de configuration
+appsettings.Development.json
+appsettings.Production.json
+appsettings.Staging.json
+*.config # Fichiers de configuration génériques
+!*.config.example # Exclure les fichiers de configuration d'exemple
+# Fichiers de test
+TestResults/   

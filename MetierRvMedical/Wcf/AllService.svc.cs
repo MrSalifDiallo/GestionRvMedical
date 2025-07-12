@@ -97,9 +97,7 @@ namespace MetierRvMedical.Wcf
         /// <remarks>This field provides access to the <see cref="CreneauxMetier"/> instance,  which
         /// contains methods and operations related to time slot management.</remarks>
         private CreneauxMetier metierCreneau = new CreneauxMetier();
-        public bool AddCreneaux(Creneau creneau)=> metierCreneau.AddCreneaux(creneau);
-
-
+        public int AddCreneaux(Creneau creneau)=> metierCreneau.AddCreneaux(creneau);
 
         //Metier pour les methodes generales
         /// <summary>

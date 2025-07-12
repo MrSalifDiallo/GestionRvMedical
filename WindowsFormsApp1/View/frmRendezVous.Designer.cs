@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pnlRv = new System.Windows.Forms.Panel();
+            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.pnlListeCreneau = new System.Windows.Forms.Panel();
             this.lblTabMessage = new System.Windows.Forms.Label();
             this.lblMessageCreneaux = new System.Windows.Forms.Label();
@@ -39,13 +41,10 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.pnlAction = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.btnValidezRv = new System.Windows.Forms.Button();
+            this.btnPrevisualisez = new Guna.UI2.WinForms.Guna2Button();
+            this.btnValidezRv = new Guna.UI2.WinForms.Guna2Button();
             this.label17 = new System.Windows.Forms.Label();
             this.pnlAllImpression = new System.Windows.Forms.Panel();
-            this.pnlimpression = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             this.pnlDetailsRv = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -62,6 +61,8 @@
             this.cbbMedecin = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pnlPatient = new System.Windows.Forms.Panel();
+            this.dtDateNaissance = new System.Windows.Forms.DateTimePicker();
+            this.lblDateNaissance = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblNomPrenom = new System.Windows.Forms.Label();
@@ -78,13 +79,15 @@
             this.txtTaille = new System.Windows.Forms.TextBox();
             this.cbbTelephone = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.guna2HtmlToolTip1 = new Guna.UI2.WinForms.Guna2HtmlToolTip();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
             this.pnlRv.SuspendLayout();
             this.pnlListeCreneau.SuspendLayout();
             this.pnlActionPaiement.SuspendLayout();
             this.pnlPaiement.SuspendLayout();
             this.pnlAction.SuspendLayout();
             this.pnlAllImpression.SuspendLayout();
-            this.pnlimpression.SuspendLayout();
             this.pnlDetailsRv.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.pnlPatient.SuspendLayout();
@@ -100,11 +103,20 @@
             this.pnlRv.Controls.Add(this.pnlAllImpression);
             this.pnlRv.Controls.Add(this.pnlDetailsRv);
             this.pnlRv.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlRv.Location = new System.Drawing.Point(313, 2);
+            this.pnlRv.Location = new System.Drawing.Point(312, 2);
             this.pnlRv.Margin = new System.Windows.Forms.Padding(2);
             this.pnlRv.Name = "pnlRv";
-            this.pnlRv.Size = new System.Drawing.Size(829, 509);
+            this.pnlRv.Size = new System.Drawing.Size(828, 507);
             this.pnlRv.TabIndex = 94;
+            // 
+            // gunaLabel1
+            // 
+            this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaLabel1.Location = new System.Drawing.Point(-2, 0);
+            this.gunaLabel1.Name = "gunaLabel1";
+            this.gunaLabel1.Size = new System.Drawing.Size(319, 191);
+            this.gunaLabel1.TabIndex = 0;
+            this.gunaLabel1.Visible = false;
             // 
             // pnlListeCreneau
             // 
@@ -208,7 +220,7 @@
             // 
             this.pnlAction.AutoSize = true;
             this.pnlAction.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pnlAction.Controls.Add(this.button2);
+            this.pnlAction.Controls.Add(this.btnPrevisualisez);
             this.pnlAction.Controls.Add(this.btnValidezRv);
             this.pnlAction.Controls.Add(this.label17);
             this.pnlAction.Location = new System.Drawing.Point(3, 148);
@@ -216,25 +228,45 @@
             this.pnlAction.Size = new System.Drawing.Size(314, 90);
             this.pnlAction.TabIndex = 99;
             // 
-            // button2
+            // btnPrevisualisez
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.button2.Location = new System.Drawing.Point(155, 44);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(133, 23);
-            this.button2.TabIndex = 28;
-            this.button2.Text = "Previsualisez ";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnPrevisualisez.Animated = true;
+            this.btnPrevisualisez.BackColor = System.Drawing.Color.Transparent;
+            this.btnPrevisualisez.BorderRadius = 7;
+            this.btnPrevisualisez.BorderThickness = 3;
+            this.btnPrevisualisez.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPrevisualisez.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPrevisualisez.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPrevisualisez.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPrevisualisez.FillColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnPrevisualisez.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnPrevisualisez.ForeColor = System.Drawing.Color.Black;
+            this.btnPrevisualisez.Location = new System.Drawing.Point(168, 51);
+            this.btnPrevisualisez.Name = "btnPrevisualisez";
+            this.btnPrevisualisez.Size = new System.Drawing.Size(134, 27);
+            this.btnPrevisualisez.TabIndex = 30;
+            this.btnPrevisualisez.Text = "Prévisualisez";
+            this.btnPrevisualisez.Click += new System.EventHandler(this.btnPrevisualisez_Click);
             // 
             // btnValidezRv
             // 
-            this.btnValidezRv.BackColor = System.Drawing.Color.Lime;
-            this.btnValidezRv.Location = new System.Drawing.Point(16, 44);
+            this.btnValidezRv.Animated = true;
+            this.btnValidezRv.BackColor = System.Drawing.Color.Transparent;
+            this.btnValidezRv.BorderRadius = 7;
+            this.btnValidezRv.BorderThickness = 3;
+            this.btnValidezRv.DefaultAutoSize = true;
+            this.btnValidezRv.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnValidezRv.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnValidezRv.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnValidezRv.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnValidezRv.FillColor = System.Drawing.Color.Lime;
+            this.btnValidezRv.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnValidezRv.ForeColor = System.Drawing.Color.Black;
+            this.btnValidezRv.Location = new System.Drawing.Point(3, 51);
             this.btnValidezRv.Name = "btnValidezRv";
-            this.btnValidezRv.Size = new System.Drawing.Size(133, 23);
-            this.btnValidezRv.TabIndex = 27;
+            this.btnValidezRv.Size = new System.Drawing.Size(159, 27);
+            this.btnValidezRv.TabIndex = 29;
             this.btnValidezRv.Text = "Valider le rendez-vous";
-            this.btnValidezRv.UseVisualStyleBackColor = false;
             this.btnValidezRv.Click += new System.EventHandler(this.btnValidezRv_Click);
             // 
             // label17
@@ -251,46 +283,12 @@
             // 
             this.pnlAllImpression.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pnlAllImpression.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlAllImpression.Controls.Add(this.pnlimpression);
+            this.pnlAllImpression.Controls.Add(this.gunaLabel1);
             this.pnlAllImpression.Location = new System.Drawing.Point(481, 8);
             this.pnlAllImpression.Margin = new System.Windows.Forms.Padding(2);
             this.pnlAllImpression.Name = "pnlAllImpression";
             this.pnlAllImpression.Size = new System.Drawing.Size(324, 197);
             this.pnlAllImpression.TabIndex = 97;
-            // 
-            // pnlimpression
-            // 
-            this.pnlimpression.Controls.Add(this.label4);
-            this.pnlimpression.Controls.Add(this.button3);
-            this.pnlimpression.Location = new System.Drawing.Point(92, 59);
-            this.pnlimpression.Margin = new System.Windows.Forms.Padding(2);
-            this.pnlimpression.Name = "pnlimpression";
-            this.pnlimpression.Size = new System.Drawing.Size(150, 81);
-            this.pnlimpression.TabIndex = 92;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(78, 15);
-            this.label4.TabIndex = 91;
-            this.label4.Text = "Impression";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button3.Location = new System.Drawing.Point(19, 34);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(114, 26);
-            this.button3.TabIndex = 91;
-            this.button3.Text = "&Impression";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.btnImpression_Click);
             // 
             // pnlDetailsRv
             // 
@@ -449,13 +447,15 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1144, 513);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1142, 511);
             this.tableLayoutPanel1.TabIndex = 95;
             // 
             // pnlPatient
             // 
             this.pnlPatient.AutoSize = true;
             this.pnlPatient.BackColor = System.Drawing.Color.Gray;
+            this.pnlPatient.Controls.Add(this.dtDateNaissance);
+            this.pnlPatient.Controls.Add(this.lblDateNaissance);
             this.pnlPatient.Controls.Add(this.label3);
             this.pnlPatient.Controls.Add(this.label2);
             this.pnlPatient.Controls.Add(this.lblNomPrenom);
@@ -475,15 +475,32 @@
             this.pnlPatient.Location = new System.Drawing.Point(2, 2);
             this.pnlPatient.Margin = new System.Windows.Forms.Padding(2);
             this.pnlPatient.Name = "pnlPatient";
-            this.pnlPatient.Size = new System.Drawing.Size(307, 509);
+            this.pnlPatient.Size = new System.Drawing.Size(306, 507);
             this.pnlPatient.TabIndex = 72;
+            // 
+            // dtDateNaissance
+            // 
+            this.dtDateNaissance.Location = new System.Drawing.Point(11, 196);
+            this.dtDateNaissance.Margin = new System.Windows.Forms.Padding(2);
+            this.dtDateNaissance.Name = "dtDateNaissance";
+            this.dtDateNaissance.Size = new System.Drawing.Size(278, 20);
+            this.dtDateNaissance.TabIndex = 84;
+            // 
+            // lblDateNaissance
+            // 
+            this.lblDateNaissance.AutoSize = true;
+            this.lblDateNaissance.Location = new System.Drawing.Point(11, 168);
+            this.lblDateNaissance.Name = "lblDateNaissance";
+            this.lblDateNaissance.Size = new System.Drawing.Size(83, 13);
+            this.lblDateNaissance.TabIndex = 83;
+            this.lblDateNaissance.Text = "Date Naissance";
             // 
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 41);
+            this.label3.Location = new System.Drawing.Point(11, 41);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 13);
             this.label3.TabIndex = 82;
@@ -507,7 +524,7 @@
             this.lblNomPrenom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lblNomPrenom.AutoSize = true;
-            this.lblNomPrenom.Location = new System.Drawing.Point(9, 110);
+            this.lblNomPrenom.Location = new System.Drawing.Point(11, 105);
             this.lblNomPrenom.Name = "lblNomPrenom";
             this.lblNomPrenom.Size = new System.Drawing.Size(68, 13);
             this.lblNomPrenom.TabIndex = 80;
@@ -517,7 +534,7 @@
             // 
             this.txtNomPrenom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtNomPrenom.Location = new System.Drawing.Point(11, 127);
+            this.txtNomPrenom.Location = new System.Drawing.Point(11, 133);
             this.txtNomPrenom.Name = "txtNomPrenom";
             this.txtNomPrenom.Size = new System.Drawing.Size(278, 20);
             this.txtNomPrenom.TabIndex = 2;
@@ -526,9 +543,9 @@
             // 
             this.txtAdresse.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtAdresse.Location = new System.Drawing.Point(7, 270);
+            this.txtAdresse.Location = new System.Drawing.Point(11, 322);
             this.txtAdresse.Name = "txtAdresse";
-            this.txtAdresse.Size = new System.Drawing.Size(280, 20);
+            this.txtAdresse.Size = new System.Drawing.Size(278, 20);
             this.txtAdresse.TabIndex = 4;
             // 
             // lblAdresse
@@ -536,7 +553,7 @@
             this.lblAdresse.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lblAdresse.AutoSize = true;
-            this.lblAdresse.Location = new System.Drawing.Point(7, 248);
+            this.lblAdresse.Location = new System.Drawing.Point(11, 294);
             this.lblAdresse.Name = "lblAdresse";
             this.lblAdresse.Size = new System.Drawing.Size(45, 13);
             this.lblAdresse.TabIndex = 74;
@@ -547,18 +564,18 @@
             this.cbbGroupeSanguin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.cbbGroupeSanguin.FormattingEnabled = true;
-            this.cbbGroupeSanguin.Location = new System.Drawing.Point(10, 334);
+            this.cbbGroupeSanguin.Location = new System.Drawing.Point(11, 385);
             this.cbbGroupeSanguin.Name = "cbbGroupeSanguin";
-            this.cbbGroupeSanguin.Size = new System.Drawing.Size(280, 21);
+            this.cbbGroupeSanguin.Size = new System.Drawing.Size(278, 21);
             this.cbbGroupeSanguin.TabIndex = 5;
             // 
             // txtEmail
             // 
             this.txtEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtEmail.Location = new System.Drawing.Point(10, 196);
+            this.txtEmail.Location = new System.Drawing.Point(11, 259);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(280, 20);
+            this.txtEmail.Size = new System.Drawing.Size(278, 20);
             this.txtEmail.TabIndex = 3;
             // 
             // lblPoids
@@ -566,7 +583,7 @@
             this.lblPoids.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPoids.AutoSize = true;
-            this.lblPoids.Location = new System.Drawing.Point(161, 394);
+            this.lblPoids.Location = new System.Drawing.Point(162, 431);
             this.lblPoids.Name = "lblPoids";
             this.lblPoids.Size = new System.Drawing.Size(33, 13);
             this.lblPoids.TabIndex = 78;
@@ -577,7 +594,7 @@
             this.lblEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(10, 174);
+            this.lblEmail.Location = new System.Drawing.Point(11, 231);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(32, 13);
             this.lblEmail.TabIndex = 75;
@@ -587,7 +604,7 @@
             // 
             this.txtPoids.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPoids.Location = new System.Drawing.Point(164, 410);
+            this.txtPoids.Location = new System.Drawing.Point(165, 447);
             this.txtPoids.Name = "txtPoids";
             this.txtPoids.Size = new System.Drawing.Size(126, 20);
             this.txtPoids.TabIndex = 7;
@@ -597,7 +614,7 @@
             this.lblGroupeeSanguin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lblGroupeeSanguin.AutoSize = true;
-            this.lblGroupeeSanguin.Location = new System.Drawing.Point(10, 312);
+            this.lblGroupeeSanguin.Location = new System.Drawing.Point(11, 357);
             this.lblGroupeeSanguin.Name = "lblGroupeeSanguin";
             this.lblGroupeeSanguin.Size = new System.Drawing.Size(84, 13);
             this.lblGroupeeSanguin.TabIndex = 76;
@@ -608,7 +625,7 @@
             this.lblTaille.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lblTaille.AutoSize = true;
-            this.lblTaille.Location = new System.Drawing.Point(10, 394);
+            this.lblTaille.Location = new System.Drawing.Point(12, 431);
             this.lblTaille.Name = "lblTaille";
             this.lblTaille.Size = new System.Drawing.Size(32, 13);
             this.lblTaille.TabIndex = 77;
@@ -618,7 +635,7 @@
             // 
             this.txtTaille.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtTaille.Location = new System.Drawing.Point(10, 410);
+            this.txtTaille.Location = new System.Drawing.Point(12, 447);
             this.txtTaille.Name = "txtTaille";
             this.txtTaille.Size = new System.Drawing.Size(126, 20);
             this.txtTaille.TabIndex = 6;
@@ -628,11 +645,12 @@
             this.cbbTelephone.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.cbbTelephone.FormattingEnabled = true;
-            this.cbbTelephone.Location = new System.Drawing.Point(12, 56);
+            this.cbbTelephone.Location = new System.Drawing.Point(11, 56);
             this.cbbTelephone.Margin = new System.Windows.Forms.Padding(2);
             this.cbbTelephone.Name = "cbbTelephone";
             this.cbbTelephone.Size = new System.Drawing.Size(278, 21);
             this.cbbTelephone.TabIndex = 1;
+            this.cbbTelephone.SelectionChangeCommitted += new System.EventHandler(this.cbbTelephone_SelectionChangeCommitted);
             this.cbbTelephone.TextChanged += new System.EventHandler(this.cbbTelephone_TextChanged);
             this.cbbTelephone.Leave += new System.EventHandler(this.cbbTelephone_Leave);
             // 
@@ -640,15 +658,22 @@
             // 
             this.panel3.AutoSize = true;
             this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.tableLayoutPanel1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.panel3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(8, 16, 8, 16);
             this.panel3.Size = new System.Drawing.Size(1160, 545);
             this.panel3.TabIndex = 94;
+            // 
+            // guna2HtmlToolTip1
+            // 
+            this.guna2HtmlToolTip1.AllowLinksHandling = true;
+            this.guna2HtmlToolTip1.MaximumSize = new System.Drawing.Size(0, 0);
             // 
             // frmRendezVous
             // 
@@ -677,8 +702,6 @@
             this.pnlAction.ResumeLayout(false);
             this.pnlAction.PerformLayout();
             this.pnlAllImpression.ResumeLayout(false);
-            this.pnlimpression.ResumeLayout(false);
-            this.pnlimpression.PerformLayout();
             this.pnlDetailsRv.ResumeLayout(false);
             this.pnlDetailsRv.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -705,13 +728,8 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel pnlAction;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button btnValidezRv;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Panel pnlAllImpression;
-        private System.Windows.Forms.Panel pnlimpression;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel pnlDetailsRv;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label10;
@@ -744,5 +762,13 @@
         private System.Windows.Forms.TextBox txtTaille;
         private System.Windows.Forms.ComboBox cbbTelephone;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.DateTimePicker dtDateNaissance;
+        private System.Windows.Forms.Label lblDateNaissance;
+        private Guna.UI2.WinForms.Guna2Button btnValidezRv;
+        private Guna.UI.WinForms.GunaLabel gunaLabel1;
+        private Guna.UI2.WinForms.Guna2HtmlToolTip guna2HtmlToolTip1;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private Guna.UI2.WinForms.Guna2Button btnPrevisualisez;
+        private System.Windows.Forms.ToolTip toolTip2;
     }
 }

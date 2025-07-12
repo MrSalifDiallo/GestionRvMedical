@@ -32,13 +32,32 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnAjouter = new System.Windows.Forms.ToolStripDropDownButton();
             this.parientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
             this.docteursToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.rendezToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.assistantMedecinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnModifier = new System.Windows.Forms.ToolStripDropDownButton();
+            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem13 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem14 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
             this.side2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripRechercher = new System.Windows.Forms.ToolStripDropDownButton();
+            this.toolStripMenuItem16 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem17 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem18 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem19 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem20 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem21 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem22 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem23 = new System.Windows.Forms.ToolStripMenuItem();
             this.btnRendezVous = new System.Windows.Forms.ToolStripDropDownButton();
             this.rendezVousToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownApi = new System.Windows.Forms.ToolStripDropDownButton();
@@ -74,30 +93,12 @@
             this.patientsToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_close = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripSplitButton();
-            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem13 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem14 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem16 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem17 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem18 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem19 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem20 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem21 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem22 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem23 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
             // 
+            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnAjouter,
@@ -109,6 +110,7 @@
             this.btn_close});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.toolStrip1.Size = new System.Drawing.Size(812, 31);
             this.toolStrip1.TabIndex = 31;
             this.toolStrip1.Text = "toolStrip1";
@@ -140,19 +142,40 @@
             this.parientsToolStripMenuItem.Text = "Patient";
             this.parientsToolStripMenuItem.Click += new System.EventHandler(this.patientsToolStripMenuItem_Click);
             // 
+            // toolStripMenuItem7
+            // 
+            this.toolStripMenuItem7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem7.Image")));
+            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItem7.Text = "Roles";
+            // 
             // docteursToolStripMenuItem
             // 
             this.docteursToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("docteursToolStripMenuItem.Image")));
             this.docteursToolStripMenuItem.Name = "docteursToolStripMenuItem";
-            this.docteursToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.docteursToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.docteursToolStripMenuItem.Text = "Medecin";
             this.docteursToolStripMenuItem.Click += new System.EventHandler(this.docteursToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem6.Image")));
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItem6.Text = "Specialités";
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem5.Image")));
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItem5.Text = "Admins";
             // 
             // rendezToolStripMenuItem
             // 
             this.rendezToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("rendezToolStripMenuItem.Image")));
             this.rendezToolStripMenuItem.Name = "rendezToolStripMenuItem";
-            this.rendezToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.rendezToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.rendezToolStripMenuItem.Text = "Rendez-Vous";
             this.rendezToolStripMenuItem.Click += new System.EventHandler(this.rendezToolStripMenuItem_Click);
             // 
@@ -160,14 +183,14 @@
             // 
             this.toolStripMenuItem4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem4.Image")));
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(188, 30);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(170, 22);
             this.toolStripMenuItem4.Text = "Soins";
             // 
             // assistantMedecinToolStripMenuItem
             // 
             this.assistantMedecinToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("assistantMedecinToolStripMenuItem.Image")));
             this.assistantMedecinToolStripMenuItem.Name = "assistantMedecinToolStripMenuItem";
-            this.assistantMedecinToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.assistantMedecinToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.assistantMedecinToolStripMenuItem.Text = "Assistant Medecin";
             // 
             // btnModifier
@@ -187,6 +210,62 @@
             this.btnModifier.Size = new System.Drawing.Size(89, 28);
             this.btnModifier.Text = "&Modifier";
             this.btnModifier.Click += new System.EventHandler(this.btn_Edit_Click);
+            // 
+            // toolStripMenuItem8
+            // 
+            this.toolStripMenuItem8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem8.Image")));
+            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItem8.Text = "Patient";
+            // 
+            // toolStripMenuItem9
+            // 
+            this.toolStripMenuItem9.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem9.Image")));
+            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItem9.Text = "Roles";
+            // 
+            // toolStripMenuItem10
+            // 
+            this.toolStripMenuItem10.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem10.Image")));
+            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
+            this.toolStripMenuItem10.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItem10.Text = "Medecin";
+            // 
+            // toolStripMenuItem11
+            // 
+            this.toolStripMenuItem11.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem11.Image")));
+            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
+            this.toolStripMenuItem11.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItem11.Text = "Specialités";
+            // 
+            // toolStripMenuItem12
+            // 
+            this.toolStripMenuItem12.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem12.Image")));
+            this.toolStripMenuItem12.Name = "toolStripMenuItem12";
+            this.toolStripMenuItem12.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItem12.Text = "Admins";
+            // 
+            // toolStripMenuItem13
+            // 
+            this.toolStripMenuItem13.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem13.Image")));
+            this.toolStripMenuItem13.Name = "toolStripMenuItem13";
+            this.toolStripMenuItem13.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItem13.Text = "Rendez-Vous";
+            // 
+            // toolStripMenuItem14
+            // 
+            this.toolStripMenuItem14.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem14.Image")));
+            this.toolStripMenuItem14.Name = "toolStripMenuItem14";
+            this.toolStripMenuItem14.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItem14.Text = "Soins";
+            // 
+            // toolStripMenuItem15
+            // 
+            this.toolStripMenuItem15.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem15.Image")));
+            this.toolStripMenuItem15.Name = "toolStripMenuItem15";
+            this.toolStripMenuItem15.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItem15.Text = "Assistant Medecin";
             // 
             // side2
             // 
@@ -211,6 +290,62 @@
             this.toolStripRechercher.Text = "&Rechercher";
             this.toolStripRechercher.Click += new System.EventHandler(this.toolStripDropDownButton1_Click);
             // 
+            // toolStripMenuItem16
+            // 
+            this.toolStripMenuItem16.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem16.Image")));
+            this.toolStripMenuItem16.Name = "toolStripMenuItem16";
+            this.toolStripMenuItem16.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItem16.Text = "Patient";
+            // 
+            // toolStripMenuItem17
+            // 
+            this.toolStripMenuItem17.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem17.Image")));
+            this.toolStripMenuItem17.Name = "toolStripMenuItem17";
+            this.toolStripMenuItem17.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItem17.Text = "Roles";
+            // 
+            // toolStripMenuItem18
+            // 
+            this.toolStripMenuItem18.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem18.Image")));
+            this.toolStripMenuItem18.Name = "toolStripMenuItem18";
+            this.toolStripMenuItem18.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItem18.Text = "Medecin";
+            // 
+            // toolStripMenuItem19
+            // 
+            this.toolStripMenuItem19.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem19.Image")));
+            this.toolStripMenuItem19.Name = "toolStripMenuItem19";
+            this.toolStripMenuItem19.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItem19.Text = "Specialités";
+            // 
+            // toolStripMenuItem20
+            // 
+            this.toolStripMenuItem20.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem20.Image")));
+            this.toolStripMenuItem20.Name = "toolStripMenuItem20";
+            this.toolStripMenuItem20.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItem20.Text = "Admins";
+            // 
+            // toolStripMenuItem21
+            // 
+            this.toolStripMenuItem21.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem21.Image")));
+            this.toolStripMenuItem21.Name = "toolStripMenuItem21";
+            this.toolStripMenuItem21.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItem21.Text = "Rendez-Vous";
+            // 
+            // toolStripMenuItem22
+            // 
+            this.toolStripMenuItem22.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem22.Image")));
+            this.toolStripMenuItem22.Name = "toolStripMenuItem22";
+            this.toolStripMenuItem22.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItem22.Text = "Soins";
+            // 
+            // toolStripMenuItem23
+            // 
+            this.toolStripMenuItem23.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem23.Image")));
+            this.toolStripMenuItem23.Name = "toolStripMenuItem23";
+            this.toolStripMenuItem23.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItem23.Text = "Assistant Medecin";
+            // 
             // btnRendezVous
             // 
             this.btnRendezVous.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -225,7 +360,7 @@
             // rendezVousToolStripMenuItem1
             // 
             this.rendezVousToolStripMenuItem1.Name = "rendezVousToolStripMenuItem1";
-            this.rendezVousToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.rendezVousToolStripMenuItem1.Size = new System.Drawing.Size(142, 22);
             this.rendezVousToolStripMenuItem1.Text = "Rendez-Vous";
             this.rendezVousToolStripMenuItem1.Click += new System.EventHandler(this.rendezVousToolStripMenuItem1_Click);
             // 
@@ -265,6 +400,7 @@
             this.agendaToolStripMenuItem.Name = "agendaToolStripMenuItem";
             this.agendaToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
             this.agendaToolStripMenuItem.Text = "Agendas";
+            this.agendaToolStripMenuItem.Click += new System.EventHandler(this.agendaToolStripMenuItem_Click);
             // 
             // creneauxToolStripMenuItem
             // 
@@ -272,6 +408,7 @@
             this.creneauxToolStripMenuItem.Name = "creneauxToolStripMenuItem";
             this.creneauxToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
             this.creneauxToolStripMenuItem.Text = "Creneaux";
+            this.creneauxToolStripMenuItem.Click += new System.EventHandler(this.creneauxToolStripMenuItem_Click);
             // 
             // groupeSanguinsToolStripMenuItem
             // 
@@ -279,6 +416,7 @@
             this.groupeSanguinsToolStripMenuItem.Name = "groupeSanguinsToolStripMenuItem";
             this.groupeSanguinsToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
             this.groupeSanguinsToolStripMenuItem.Text = "Groupe Sanguins";
+            this.groupeSanguinsToolStripMenuItem.Click += new System.EventHandler(this.groupeSanguinsToolStripMenuItem_Click);
             // 
             // moyenPaimentsToolStripMenuItem
             // 
@@ -286,6 +424,7 @@
             this.moyenPaimentsToolStripMenuItem.Name = "moyenPaimentsToolStripMenuItem";
             this.moyenPaimentsToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
             this.moyenPaimentsToolStripMenuItem.Text = "Moyen Paiments";
+            this.moyenPaimentsToolStripMenuItem.Click += new System.EventHandler(this.moyenPaimentsToolStripMenuItem_Click);
             // 
             // paiementsToolStripMenuItem
             // 
@@ -293,6 +432,7 @@
             this.paiementsToolStripMenuItem.Name = "paiementsToolStripMenuItem";
             this.paiementsToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
             this.paiementsToolStripMenuItem.Text = "Paiements";
+            this.paiementsToolStripMenuItem.Click += new System.EventHandler(this.paiementsToolStripMenuItem_Click);
             // 
             // rendezVousToolStripMenuItem2
             // 
@@ -300,6 +440,7 @@
             this.rendezVousToolStripMenuItem2.Name = "rendezVousToolStripMenuItem2";
             this.rendezVousToolStripMenuItem2.Size = new System.Drawing.Size(188, 30);
             this.rendezVousToolStripMenuItem2.Text = "Rendez-Vous";
+            this.rendezVousToolStripMenuItem2.Click += new System.EventHandler(this.rendezVousToolStripMenuItem2_Click);
             // 
             // rolesToolStripMenuItem
             // 
@@ -307,6 +448,7 @@
             this.rolesToolStripMenuItem.Name = "rolesToolStripMenuItem";
             this.rolesToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
             this.rolesToolStripMenuItem.Text = "Roles";
+            this.rolesToolStripMenuItem.Click += new System.EventHandler(this.rolesToolStripMenuItem_Click);
             // 
             // soinsToolStripMenuItem1
             // 
@@ -322,6 +464,7 @@
             this.specialitéToolStripMenuItem.Name = "specialitéToolStripMenuItem";
             this.specialitéToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
             this.specialitéToolStripMenuItem.Text = "Specialités";
+            this.specialitéToolStripMenuItem.Click += new System.EventHandler(this.specialitéToolStripMenuItem_Click);
             // 
             // patientToolStripMenuItem
             // 
@@ -341,6 +484,7 @@
             this.adminsToolStripMenuItem.Name = "adminsToolStripMenuItem";
             this.adminsToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
             this.adminsToolStripMenuItem.Text = "Admins";
+            this.adminsToolStripMenuItem.Click += new System.EventHandler(this.adminsToolStripMenuItem_Click);
             // 
             // medecinsToolStripMenuItem
             // 
@@ -348,6 +492,7 @@
             this.medecinsToolStripMenuItem.Name = "medecinsToolStripMenuItem";
             this.medecinsToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
             this.medecinsToolStripMenuItem.Text = "Medecins";
+            this.medecinsToolStripMenuItem.Click += new System.EventHandler(this.medecinsToolStripMenuItem_Click);
             // 
             // assistantMedecinToolStripMenuItem4
             // 
@@ -355,6 +500,7 @@
             this.assistantMedecinToolStripMenuItem4.Name = "assistantMedecinToolStripMenuItem4";
             this.assistantMedecinToolStripMenuItem4.Size = new System.Drawing.Size(188, 30);
             this.assistantMedecinToolStripMenuItem4.Text = "Secrétaires";
+            this.assistantMedecinToolStripMenuItem4.Click += new System.EventHandler(this.assistantMedecinToolStripMenuItem4_Click);
             // 
             // patientsToolStripMenuItem1
             // 
@@ -362,6 +508,7 @@
             this.patientsToolStripMenuItem1.Name = "patientsToolStripMenuItem1";
             this.patientsToolStripMenuItem1.Size = new System.Drawing.Size(188, 30);
             this.patientsToolStripMenuItem1.Text = "Patients";
+            this.patientsToolStripMenuItem1.Click += new System.EventHandler(this.patientsToolStripMenuItem1_Click);
             // 
             // withApiRvMedicalToolStripMenuItem
             // 
@@ -503,148 +650,17 @@
             this.toolStripButton1.Text = "toolStripButton1";
             this.toolStripButton1.ButtonClick += new System.EventHandler(this.toolStripButton1_ButtonClick);
             // 
-            // toolStripMenuItem6
-            // 
-            this.toolStripMenuItem6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem6.Image")));
-            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(188, 30);
-            this.toolStripMenuItem6.Text = "Specialités";
-            // 
-            // toolStripMenuItem5
-            // 
-            this.toolStripMenuItem5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem5.Image")));
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(188, 30);
-            this.toolStripMenuItem5.Text = "Admins";
-            // 
-            // toolStripMenuItem7
-            // 
-            this.toolStripMenuItem7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem7.Image")));
-            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(188, 30);
-            this.toolStripMenuItem7.Text = "Roles";
-            // 
-            // toolStripMenuItem8
-            // 
-            this.toolStripMenuItem8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem8.Image")));
-            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(188, 30);
-            this.toolStripMenuItem8.Text = "Patient";
-            // 
-            // toolStripMenuItem9
-            // 
-            this.toolStripMenuItem9.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem9.Image")));
-            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(188, 30);
-            this.toolStripMenuItem9.Text = "Roles";
-            // 
-            // toolStripMenuItem10
-            // 
-            this.toolStripMenuItem10.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem10.Image")));
-            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
-            this.toolStripMenuItem10.Size = new System.Drawing.Size(188, 30);
-            this.toolStripMenuItem10.Text = "Medecin";
-            // 
-            // toolStripMenuItem11
-            // 
-            this.toolStripMenuItem11.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem11.Image")));
-            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
-            this.toolStripMenuItem11.Size = new System.Drawing.Size(188, 30);
-            this.toolStripMenuItem11.Text = "Specialités";
-            // 
-            // toolStripMenuItem12
-            // 
-            this.toolStripMenuItem12.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem12.Image")));
-            this.toolStripMenuItem12.Name = "toolStripMenuItem12";
-            this.toolStripMenuItem12.Size = new System.Drawing.Size(188, 30);
-            this.toolStripMenuItem12.Text = "Admins";
-            // 
-            // toolStripMenuItem13
-            // 
-            this.toolStripMenuItem13.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem13.Image")));
-            this.toolStripMenuItem13.Name = "toolStripMenuItem13";
-            this.toolStripMenuItem13.Size = new System.Drawing.Size(188, 30);
-            this.toolStripMenuItem13.Text = "Rendez-Vous";
-            // 
-            // toolStripMenuItem14
-            // 
-            this.toolStripMenuItem14.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem14.Image")));
-            this.toolStripMenuItem14.Name = "toolStripMenuItem14";
-            this.toolStripMenuItem14.Size = new System.Drawing.Size(188, 30);
-            this.toolStripMenuItem14.Text = "Soins";
-            // 
-            // toolStripMenuItem15
-            // 
-            this.toolStripMenuItem15.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem15.Image")));
-            this.toolStripMenuItem15.Name = "toolStripMenuItem15";
-            this.toolStripMenuItem15.Size = new System.Drawing.Size(188, 30);
-            this.toolStripMenuItem15.Text = "Assistant Medecin";
-            // 
-            // toolStripMenuItem16
-            // 
-            this.toolStripMenuItem16.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem16.Image")));
-            this.toolStripMenuItem16.Name = "toolStripMenuItem16";
-            this.toolStripMenuItem16.Size = new System.Drawing.Size(188, 30);
-            this.toolStripMenuItem16.Text = "Patient";
-            // 
-            // toolStripMenuItem17
-            // 
-            this.toolStripMenuItem17.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem17.Image")));
-            this.toolStripMenuItem17.Name = "toolStripMenuItem17";
-            this.toolStripMenuItem17.Size = new System.Drawing.Size(188, 30);
-            this.toolStripMenuItem17.Text = "Roles";
-            // 
-            // toolStripMenuItem18
-            // 
-            this.toolStripMenuItem18.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem18.Image")));
-            this.toolStripMenuItem18.Name = "toolStripMenuItem18";
-            this.toolStripMenuItem18.Size = new System.Drawing.Size(188, 30);
-            this.toolStripMenuItem18.Text = "Medecin";
-            // 
-            // toolStripMenuItem19
-            // 
-            this.toolStripMenuItem19.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem19.Image")));
-            this.toolStripMenuItem19.Name = "toolStripMenuItem19";
-            this.toolStripMenuItem19.Size = new System.Drawing.Size(188, 30);
-            this.toolStripMenuItem19.Text = "Specialités";
-            // 
-            // toolStripMenuItem20
-            // 
-            this.toolStripMenuItem20.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem20.Image")));
-            this.toolStripMenuItem20.Name = "toolStripMenuItem20";
-            this.toolStripMenuItem20.Size = new System.Drawing.Size(188, 30);
-            this.toolStripMenuItem20.Text = "Admins";
-            // 
-            // toolStripMenuItem21
-            // 
-            this.toolStripMenuItem21.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem21.Image")));
-            this.toolStripMenuItem21.Name = "toolStripMenuItem21";
-            this.toolStripMenuItem21.Size = new System.Drawing.Size(188, 30);
-            this.toolStripMenuItem21.Text = "Rendez-Vous";
-            // 
-            // toolStripMenuItem22
-            // 
-            this.toolStripMenuItem22.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem22.Image")));
-            this.toolStripMenuItem22.Name = "toolStripMenuItem22";
-            this.toolStripMenuItem22.Size = new System.Drawing.Size(188, 30);
-            this.toolStripMenuItem22.Text = "Soins";
-            // 
-            // toolStripMenuItem23
-            // 
-            this.toolStripMenuItem23.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem23.Image")));
-            this.toolStripMenuItem23.Name = "toolStripMenuItem23";
-            this.toolStripMenuItem23.Size = new System.Drawing.Size(188, 30);
-            this.toolStripMenuItem23.Text = "Assistant Medecin";
-            // 
             // frmMDI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.abstract_health_medical_science_healthcare_icon_digital_technology_science_concept_modern_innovation_treatment_medicine_on_hi_tech_future_blue_background_for_wallpaper_template_web_design_vec;
             this.ClientSize = new System.Drawing.Size(812, 652);
             this.ControlBox = false;
             this.Controls.Add(this.toolStrip1);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.IsMdiContainer = true;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmMDI";
             this.Text = "Gestion Rendez Vous";

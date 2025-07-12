@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MetierRvMedical.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,7 +11,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.AllServiceMetier;
-
 namespace WindowsFormsApp1.View.Api
 {
     public partial class frmApiSoins : Form
@@ -64,6 +64,7 @@ namespace WindowsFormsApp1.View.Api
             }
         }
 
+
         public List<Soin> servGetListSoins()
         {
             HttpClient client;
@@ -75,6 +76,26 @@ namespace WindowsFormsApp1.View.Api
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             //var response = client.GetAsync(System.Configuration.ConfigurationManager.AppSettings["gl2021/Values/GetEmployees"]).Result;
             var response = client.GetAsync("api/Soin/GetSoins").Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                var responseData = response.Content.ReadAsStringAsync().Result;
+                services = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Soin>>(responseData);
+            }
+            return services;
+        }
+
+        public List<Soin> servGetListSoinsWithPhp()
+        {
+            HttpClient client;
+            client = new HttpClient();
+            var services = new List<Soin>();
+            // OBSOLETE: client.BaseAddress = new Uri(System.Configuration.ConfigurationSettings.AppSettings["ServeurApiURL"]);
+            client.BaseAddress = new Uri(System.Configuration.ConfigurationManager.AppSettings["ServeurApiPHP"]);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            //var response = client.GetAsync(System.Configuration.ConfigurationManager.AppSettings["gl2021/Values/GetEmployees"]).Result;
+            var response = client.GetAsync("/Soins/List.php").Result;
 
             if (response.IsSuccessStatusCode)
             {
@@ -126,6 +147,11 @@ namespace WindowsFormsApp1.View.Api
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dtSoins_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

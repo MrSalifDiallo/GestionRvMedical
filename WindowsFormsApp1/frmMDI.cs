@@ -1,42 +1,33 @@
-﻿    using MySqlX.XDevAPI.Relational;
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Data;
-    using System.Drawing;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using Microsoft.VisualBasic.Devices;
-    using WindowsFormsApp1.Model;
-
-    using System.Windows.Forms;
-    using WindowsFormsApp1.View;
+﻿using MySqlX.XDevAPI.Relational;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.VisualBasic.Devices;
+using System.Windows.Forms;
+using WindowsFormsApp1.View;
+using MetierRvMedical.Model;
 using WindowsFormsApp1.View.Api;
-
-
 namespace WindowsFormsApp1
     {
         public partial class frmMDI : Form
         {
             public string role;
-            private AllServiceMetier.Utilisateur utilisateurConnecte;
+            private Utilisateur utilisateurConnecte;
 
-        public AllServiceMetier.Utilisateur user { get; internal set; }
+        public Utilisateur user { get; internal set; }
 
-        public frmMDI(AllServiceMetier.Utilisateur utilisateurConnecte)
-            {
-                InitializeComponent();
-                this.IsMdiContainer = true; // <-- Cette ligne est essentielle
-                this.WindowState = FormWindowState.Maximized; // Définit l'état du formulaire sur maximisé
-                this.FormBorderStyle = FormBorderStyle.None; // Supprime la bordure du formulaire
-                this.ControlBox = false;  // Supprime les boutons de contrôle (fermer, réduire, agrandir)
-                this.ShowIcon = false;    // Supprime l'icône dans la barre de titre
-                this.ShowInTaskbar = false; // Ne pas afficher dans la barre des tâches
+        public frmMDI(Utilisateur utilisateurConnecte)
+        {
+            InitializeComponent();
             this.utilisateurConnecte = utilisateurConnecte;
-            }
+        }
 
-            private void frmMDI_Load(object sender, EventArgs e)
+        private void frmMDI_Load(object sender, EventArgs e)
             {
             Computer myComputer = new Computer();
             this.Width = myComputer.Screen.Bounds.Width;
@@ -95,7 +86,7 @@ namespace WindowsFormsApp1
 
             private void patientsToolStripMenuItem_Click(object sender, EventArgs e)
             {
-            fermer();
+                fermer();
             frmPatients f = new frmPatients();
                 f.MdiParent = this;
                 f.Show();
@@ -128,8 +119,8 @@ namespace WindowsFormsApp1
             //For each child form set the window state to Maximized 
             foreach (Form chform in charr)
             {
-                //chform.WindowState = FormWindowState.Maximized;
-                chform.Close();
+/*                chform.WindowState = FormWindowState.Maximized;
+*/                chform.Close();
             }
         }
 
@@ -191,12 +182,99 @@ namespace WindowsFormsApp1
         private void soinsToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             fermer();
-            frmApiSoins f = new frmApiSoins();
+            frmApiPhpSoins f = new frmApiPhpSoins();
             f.MdiParent = this;
             f.Show();
             f.WindowState = FormWindowState.Maximized;
         }
 
-      
+        private void agendaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            fermer();
+            frmApiPhpAgenda f = new frmApiPhpAgenda();
+            f.MdiParent = this;
+            f.Show();
+            f.WindowState = FormWindowState.Maximized;
+        }
+
+        private void creneauxToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fermer();
+            frmApiPhpCreneaux f = new frmApiPhpCreneaux();
+            f.MdiParent = this;
+            f.Show();
+            f.WindowState = FormWindowState.Maximized;
+        }
+
+        private void groupeSanguinsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void moyenPaimentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fermer();
+            frmApiPhpMoyenPayments f = new frmApiPhpMoyenPayments();
+            f.MdiParent = this;
+            f.Show();
+            f.WindowState = FormWindowState.Maximized;
+        }
+
+        private void paiementsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fermer();
+            frmApiPhpPaiements f = new frmApiPhpPaiements();
+            f.MdiParent = this;
+            f.Show();
+            f.WindowState = FormWindowState.Maximized;
+        }
+
+        private void rendezVousToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            fermer();
+            frmApiPhpRv f = new frmApiPhpRv();
+            f.MdiParent = this;
+            f.Show();
+            f.WindowState = FormWindowState.Maximized;
+        }
+
+        private void rolesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fermer();
+            frmApiPhpRoles f = new frmApiPhpRoles();
+            f.MdiParent = this;
+            f.Show();
+            f.WindowState = FormWindowState.Maximized;
+        }
+
+        private void specialitéToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fermer();
+            frmApiPhpSpecialite f = new frmApiPhpSpecialite();
+            f.MdiParent = this;
+            f.Show();
+            f.WindowState = FormWindowState.Maximized;
+        }
+
+        private void patientsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void assistantMedecinToolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void medecinsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void adminsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
