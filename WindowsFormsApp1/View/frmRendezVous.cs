@@ -601,7 +601,7 @@ namespace WindowsFormsApp1.View
                 dtDateNaissance.Value = patient.DateNaissance ?? DateTime.Now;
 
                 // Sélectionne le groupe sanguin de façon sécurisée
-                if (patient.GroupeSanguin != null)
+               /* if (patient.GroupeSanguin != null)
                 {
                     // On cherche l'item correspondant dans la liste du ComboBox
                     foreach (var item in cbbGroupeSanguin.Items)
@@ -619,7 +619,7 @@ namespace WindowsFormsApp1.View
                 else
                 {
                     cbbGroupeSanguin.SelectedIndex = 0;
-                }
+                }*/
 
                 // Met à jour patientInfos avec le bon groupe sanguin si possible
                 SelectListView selectedItem = cbbGroupeSanguin.SelectedItem as SelectListView;
@@ -1007,14 +1007,13 @@ namespace WindowsFormsApp1.View
                     if (!patientTrouve)
                     {
                         // Si le patient n'est pas trouvé, on crée un nouveau patient
-                        /*patientInfos.NomPrenom = txtNomPrenom.Text;
+                        patientInfos.NomPrenom = txtNomPrenom.Text;
                         patientInfos.Adresse = txtAdresse.Text;
                         patientInfos.Email = txtEmail.Text;
                         patientInfos.Poids = string.IsNullOrEmpty(txtPoids.Text) ? (float?)null : float.Parse(txtPoids.Text);
                         patientInfos.Taille = string.IsNullOrEmpty(txtTaille.Text) ? (float?)null : float.Parse(txtTaille.Text);
                         patientInfos.DateNaissance = dtDateNaissance.Value.Date;
-                        patientInfos.TEL = cbbTelephone.Text;*/
-                        patientInfos=GetPatientInfos(patientInfos);
+                        patientInfos.TEL = cbbTelephone.Text;
                         // Ajout du nouveau patient
                         
                         bool patientCree = allService.AddPatient(patientInfos);

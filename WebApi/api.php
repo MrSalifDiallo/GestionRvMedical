@@ -47,9 +47,6 @@ switch ($action) {
             echo json_encode(['error' => 'Échec insertion']);
         }
         break;
-    
-        break;
-
     default:
         echo json_encode(['error' => 'Action non reconnue']);
 }
