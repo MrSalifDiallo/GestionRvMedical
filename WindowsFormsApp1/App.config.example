@@ -116,6 +116,7 @@
 		<add key="NETLIFY_TOKEN_RV_MEDICAL" value="" />
 		<add key="NETLIFY_SITE_ID" value="" />
 		<add key="URL_RV_MEDICAL" value="https://pdfrvmedical.netlify.app" />
+	<!--For WhatsApp Api To Implement with our data -->
 		<add key="accessToken" value="" />
 		<add key="phoneNumberId" value="" />
 	</appSettings>
